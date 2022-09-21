@@ -1,6 +1,10 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:reactive_forms/reactive_forms.dart';
+import 'package:row_calculator/domain/measures.dart';
+import 'package:row_calculator/domain/type_signature.dart';
+import 'package:row_calculator/domain/type_unit_of_measure.dart';
+import 'package:row_calculator/presentation/input_row.dart';
 
 class FirstCalculationPage extends StatefulWidget {
   const FirstCalculationPage({super.key});
@@ -10,12 +14,30 @@ class FirstCalculationPage extends StatefulWidget {
 }
 
 class _FirstCalculationPageState extends State<FirstCalculationPage> {
-  List<String> listDropDownButton = <String>['m', 's'];
+  List<Measures> secondListMeasures = [
+    Measures(
+      name: 'Split',
+      typeUnitOfMeasure: TypeUnitOfMeasure.m,
+      nickname: TypeSignature.split,
+    ),
+    Measures(
+      name: 'Total Time',
+      typeUnitOfMeasure: TypeUnitOfMeasure.s,
+      nickname: TypeSignature.time,
+    ),
+  ];
 
-  late List<String> mutableList = listDropDownButton;
+  late List<String> firstListMeasuresName = firstListMeasures
+      .map(
+        (e) => e.nickname.name,
+      )
+      .toList();
 
-  late String dpvalue = listDropDownButton.first;
-  late String labelInput2 = (dpvalue == 'm') ? "Split" : "Time";
+  late List<String> secondListMeasuresName = secondListMeasures
+      .map(
+        (e) => e.nickname.name,
+      )
+      .toList();
 
   final _form = FormGroup(
     {
@@ -27,10 +49,6 @@ class _FirstCalculationPageState extends State<FirstCalculationPage> {
       ),
     },
   );
-
-  void _calculate() {
-    print('hello');
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,93 +77,11 @@ class _FirstCalculationPageState extends State<FirstCalculationPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        ReactiveTextField(
-                          formControlName: 'input1',
-                          keyboardType: TextInputType.number,
-                          textInputAction: TextInputAction.next,
-                          autocorrect: true,
-                          autofocus: true,
-                          validationMessages: (control) =>
-                              {ValidationMessage.required: 'Required field'},
-                          enableInteractiveSelection: false,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: "Distance",
-                            suffixIcon: Padding(
-                              padding: EdgeInsets.all(15.0),
-                              child: Text(
-                                'm',
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                        ),
+                        InputRow(dpvalue: dpvalue, mutableList: mutableList),
                         const SizedBox(
                           height: 20,
                         ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Expanded(
-                              flex: 5,
-                              child: ReactiveTextField(
-                                formControlName: 'input2',
-                                keyboardType: TextInputType.number,
-                                textInputAction: TextInputAction.next,
-                                autofocus: true,
-                                validationMessages: (control) => {
-                                  ValidationMessage.required: 'Required field'
-                                },
-                                enableInteractiveSelection: false,
-                                decoration: InputDecoration(
-                                  border: const OutlineInputBorder(),
-                                  labelText:
-                                      (dpvalue == "m") ? "Split" : "Total time",
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: DropdownButtonFormField2(
-                                buttonHeight: 20,
-                                decoration: const InputDecoration(
-                                  border: OutlineInputBorder(),
-                                ),
-                                isDense: true,
-                                isExpanded: false,
-                                iconSize: 15,
-                                focusColor: Colors.transparent,
-                                value: dpvalue,
-                                itemPadding: const EdgeInsets.all(0),
-                                items: mutableList
-                                    .map<DropdownMenuItem<String>>(
-                                        (String value) {
-                                  return DropdownMenuItem<String>(
-                                    enabled: true,
-                                    value: value,
-                                    child: Text(
-                                      value,
-                                    ),
-                                  );
-                                }).toList(),
-                                onChanged: (String? value) {
-                                  setState(() {
-                                    if (value == "m") {
-                                      labelInput2 = "Split";
-                                    } else {
-                                      labelInput2 = "Time";
-                                    }
-                                    dpvalue = value!;
-                                  });
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
+                        InputRow(dpvalue: dpvalue, mutableList: mutableList),
                       ],
                     ),
                   ),
@@ -158,7 +94,7 @@ class _FirstCalculationPageState extends State<FirstCalculationPage> {
                   builder: (context, formGroup, child) => Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
-                      onPressed: _form.valid ? _calculate : null,
+                      onPressed: (() => _form.valid ? print('valid') : null),
                       onLongPress: () => print('long'),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green.shade700,

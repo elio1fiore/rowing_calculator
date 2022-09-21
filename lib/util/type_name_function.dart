@@ -1,0 +1,4 @@
+enum TypeNameFunction {
+  add,
+  subtract,
+}

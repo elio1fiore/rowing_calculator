@@ -1,6 +1,6 @@
 enum TypeSignature {
   dist,
-  de,
+  ee,
   split,
   time,
   watt,

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:row_calculator/util/type_name_function.dart';
 
 class Functionality {
-  final String name;
-  final double Function(double a, double b) function;
+  final TypeNameFunction name;
+  final double Function(double arg, [double arg1, double arg2]) function;
   final Color color;
   final String navigatorPath;
 

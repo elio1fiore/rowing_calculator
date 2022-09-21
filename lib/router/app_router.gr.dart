@@ -11,46 +11,40 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i4;
-import 'package:flutter/material.dart' as _i5;
+import 'package:auto_route/auto_route.dart' as _i3;
+import 'package:flutter/material.dart' as _i4;
 import 'package:row_calculator/presentation/first_calculation.dart' as _i2;
 import 'package:row_calculator/presentation/list_view_methods.dart' as _i1;
-import 'package:row_calculator/presentation/second_calculation.dart' as _i3;
 
-class AppRouter extends _i4.RootStackRouter {
-  AppRouter([_i5.GlobalKey<_i5.NavigatorState>? navigatorKey])
+class AppRouter extends _i3.RootStackRouter {
+  AppRouter([_i4.GlobalKey<_i4.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i4.PageFactory> pagesMap = {
+  final Map<String, _i3.PageFactory> pagesMap = {
     ListViewMethods.name: (routeData) {
       final args = routeData.argsAs<ListViewMethodsArgs>(
           orElse: () => const ListViewMethodsArgs());
-      return _i4.AdaptivePage<dynamic>(
+      return _i3.AdaptivePage<dynamic>(
           routeData: routeData, child: _i1.ListViewMethods(key: args.key));
     },
     FirstCalculationRoute.name: (routeData) {
-      return _i4.AdaptivePage<dynamic>(
+      return _i3.AdaptivePage<dynamic>(
           routeData: routeData, child: const _i2.FirstCalculationPage());
-    },
-    SecondCalculationRoute.name: (routeData) {
-      return _i4.AdaptivePage<dynamic>(
-          routeData: routeData, child: const _i3.SecondCalculationPage());
     }
   };
 
   @override
-  List<_i4.RouteConfig> get routes => [
-        _i4.RouteConfig(ListViewMethods.name, path: '/'),
-        _i4.RouteConfig(FirstCalculationRoute.name, path: '/first'),
-        _i4.RouteConfig(SecondCalculationRoute.name, path: '/second')
+  List<_i3.RouteConfig> get routes => [
+        _i3.RouteConfig(ListViewMethods.name, path: '/'),
+        _i3.RouteConfig(FirstCalculationRoute.name, path: '/first')
       ];
 }
 
 /// generated route for
 /// [_i1.ListViewMethods]
-class ListViewMethods extends _i4.PageRouteInfo<ListViewMethodsArgs> {
-  ListViewMethods({_i5.Key? key})
+class ListViewMethods extends _i3.PageRouteInfo<ListViewMethodsArgs> {
+  ListViewMethods({_i4.Key? key})
       : super(ListViewMethods.name,
             path: '/', args: ListViewMethodsArgs(key: key));
 
@@ -60,7 +54,7 @@ class ListViewMethods extends _i4.PageRouteInfo<ListViewMethodsArgs> {
 class ListViewMethodsArgs {
   const ListViewMethodsArgs({this.key});
 
-  final _i5.Key? key;
+  final _i4.Key? key;
 
   @override
   String toString() {
@@ -70,18 +64,9 @@ class ListViewMethodsArgs {
 
 /// generated route for
 /// [_i2.FirstCalculationPage]
-class FirstCalculationRoute extends _i4.PageRouteInfo<void> {
+class FirstCalculationRoute extends _i3.PageRouteInfo<void> {
   const FirstCalculationRoute()
       : super(FirstCalculationRoute.name, path: '/first');
 
   static const String name = 'FirstCalculationRoute';
-}
-
-/// generated route for
-/// [_i3.SecondCalculationPage]
-class SecondCalculationRoute extends _i4.PageRouteInfo<void> {
-  const SecondCalculationRoute()
-      : super(SecondCalculationRoute.name, path: '/second');
-
-  static const String name = 'SecondCalculationRoute';
 }

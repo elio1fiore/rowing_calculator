@@ -10,21 +10,6 @@ class ListViewMethods extends ConsumerWidget {
     Key? key,
   }) : super(key: key);
 
-  List<Functionality> functionality = [
-    Functionality(
-      color: Colors.white,
-      function: add,
-      name: 'add function',
-      navigatorPath: NavigatorPath.firstCalculationPage,
-    ),
-    Functionality(
-      color: Colors.blue,
-      function: add,
-      name: 'second',
-      navigatorPath: NavigatorPath.secondCalculationPage,
-    )
-  ];
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(appRouterProvider);
