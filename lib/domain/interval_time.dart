@@ -1,6 +1,5 @@
 import 'package:intl/intl.dart';
 import 'package:row_calculator/function/functions.dart';
-import 'package:row_calculator/manual_test/main_prova.dart';
 
 class IntervalTime extends Duration {
   final double? beta;
