@@ -37,32 +37,112 @@ class ResultOneInputPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Card(child: Text('hello')),
-                const SizedBox(
-                  height: 25,
-                ),
-                Container(
-                  color: Colors.amber,
-                  constraints: BoxConstraints(maxHeight: 300),
-                  child: Flexible(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: listTimeOnMeters.length,
-                      itemBuilder: (context, index) {
-                        final timeOnMeters = listTimeOnMeters[index];
-
-                        return Container(
-                          child: Row(
-                            children: [
-                              Text('sx'),
-                              Text('dx'),
-                            ],
+                Card(
+                  borderOnForeground: false,
+                  color: Colors.green.shade100,
+                  shape: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: Colors.green.shade700,
+                      width: 1.5,
+                    ),
+                  ),
+                  elevation: 2,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Watt',
                           ),
-                        );
-                      },
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Text('hello'),
+                      ],
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 15,
+                ),
+                ConstrainedBox(
+                  constraints: const BoxConstraints(
+                    maxHeight: 400,
+                  ),
+                  child: Card(
+                    elevation: 1.5,
+                    clipBehavior: Clip.antiAlias,
+                    shape: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(
+                        color: Colors.green.shade700,
+                        width: 1.5,
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.fromLTRB(20, 20, 0, 20),
+                          child: Text('prova'),
+                          color: Colors.green.shade100,
+                        ),
+                        Divider(
+                          color: Colors.green.shade700,
+                          height: 0,
+                        ),
+                        ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: listTimeOnMeters.length,
+                          itemBuilder: (context, index) {
+                            final timeOnMeters = listTimeOnMeters[index];
+
+                            return Container(
+                              height: 50,
+                              decoration: BoxDecoration(
+                                border: Border(
+                                  bottom: BorderSide(
+                                      color: Colors.green.shade700, width: 1),
+                                ),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      // ignore: unnecessary_string_interpolations
+                                      Text('${timeOnMeters.metersAndUnit}'),
+                                      // ignore: unnecessary_string_interpolations
+                                      Text('${timeOnMeters.durationMask}'),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 2),
+                  child: ElevatedButton(
+                    child: Text('Nuovo Calcolo'),
+                    onPressed: () {},
+                  ),
+                )
               ],
             )),
       ),

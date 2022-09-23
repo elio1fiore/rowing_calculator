@@ -10,7 +10,8 @@ class TimeOnMeters {
     required this.meters,
   });
 
-  String get metersAndUnit => '${meters.toString} $unit';
+  String get metersAndUnit => '${meters.toString()} $unit';
 
-  String get durationMask => '$intervalTime.valueMinuteSecondMillisecond';
+  // ignore: unnecessary_string_interpolations
+  String get durationMask => '${intervalTime.valueMinuteSecondMillisecond}';
 }

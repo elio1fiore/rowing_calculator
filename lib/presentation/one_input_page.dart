@@ -7,6 +7,7 @@ import 'package:reactive_forms/reactive_forms.dart';
 import 'package:row_calculator/router/app_router.dart';
 import 'package:row_calculator/shared/router_provider.dart';
 import 'package:row_calculator/util/form_validators.dart';
+import 'package:rxdart/rxdart.dart';
 
 class OneInputPage extends ConsumerStatefulWidget {
   const OneInputPage({super.key});
@@ -31,18 +32,41 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
   final _controller = TextEditingController();
 
   Map<String, String> _validationMessages(FormControl<String> x) {
-    if (_selectedMinute) {
+    final String valueMin = (x.value == null) ? '' : x.value!;
+
+    if (_selectedMinute && valueMin.length < 2) {
+      return {
+        ValidationMessage.required: 'Campo richiesto',
+        ValidationMessage.minLength: 'Inserire i minuti, secondi e decimi',
+        ValidationMessage.number: 'Inserire solo i numeri',
+      };
+    } else if (_selectedMinute && valueMin.length < 5) {
+      return {
+        ValidationMessage.required: 'Campo richiesto',
+        ValidationMessage.minLength: 'Inserire i secondi e i decimi',
+        ValidationMessage.number: 'Inserire solo i numeri',
+      };
+    } else if (_selectedMinute && valueMin.length < 7) {
+      return {
+        ValidationMessage.required: 'Campo richiesto',
+        ValidationMessage.minLength: 'Inserire i decimi',
+        ValidationMessage.number: 'Inserire solo i numeri',
+      };
+    }
+
+    if (_selectedWatt) {
       return {
         ValidationMessage.required: 'Campo richiesto',
         ValidationMessage.minLength: 'Mancano minuti o secondi o decimi',
         ValidationMessage.number: 'Inserire solo i numeri',
       };
-    } else {
-      return {
-        ValidationMessage.required: 'Campo richiesto',
-        ValidationMessage.number: 'Inserire solo i numeri',
-      };
     }
+
+    return {
+      ValidationMessage.required: 'Campo richiesto',
+      ValidationMessage.minLength: 'Inserire i decimi',
+      ValidationMessage.number: 'Inserire solo i numeri',
+    };
   }
 
   bool _selectedMinute = true;
@@ -50,6 +74,10 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
 
   void _onSelectedMinuteState(bool value) {
     setState(() {
+      _controller.clear();
+
+      _selectedWatt = false;
+      _selectedMinute = true;
       _form.control('inputOne').setValidators(
         [
           Validators.required,
@@ -57,31 +85,35 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
           FormValidators.numberSplit,
         ],
         autoValidate: true,
-        emitEvent: false,
+        emitEvent: true,
         updateParent: true,
       );
-      _controller.clear();
 
-      _selectedWatt = false;
-      _selectedMinute = true;
+      _form.control('inputOne').reset(
+            value: null,
+          );
     });
   }
 
   void _onSelectedWattState(bool value) {
     setState(() {
+      _controller.clear();
+
+      _selectedWatt = true;
+      _selectedMinute = false;
       _form.control('inputOne').setValidators(
         [
           Validators.required,
           FormValidators.numberSplit,
         ],
         autoValidate: true,
-        emitEvent: false,
+        emitEvent: true,
         updateParent: true,
       );
-      _controller.clear();
 
-      _selectedWatt = true;
-      _selectedMinute = false;
+      _form.control('inputOne').reset(
+            value: null,
+          );
     });
   }
 
@@ -109,6 +141,13 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Card(
+                      // shape: OutlineInputBorder(
+                      //   borderRadius: BorderRadius.circular(10),
+                      //   borderSide: BorderSide(
+                      //     color: Colors.blue.shade700,
+                      //     width: 1.5,
+                      //   ),
+                      // ),
                       elevation: 10,
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
@@ -184,8 +223,8 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                                       onSelected: _onSelectedWattState,
                                       elevation: 2,
                                       backgroundColor: Colors.white,
-                                      checkmarkColor: Colors.green.shade700,
-                                      disabledColor: Colors.grey.shade500,
+                                      checkmarkColor: Colors.blue.shade700,
+                                      disabledColor: Colors.blue.shade500,
                                       selectedShadowColor: Colors.black,
                                       labelPadding: const EdgeInsets.symmetric(
                                         horizontal: 10,
@@ -194,11 +233,11 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                                       padding: const EdgeInsets.symmetric(
                                         horizontal: 20,
                                       ),
-                                      selectedColor: Colors.green.shade100,
+                                      selectedColor: Colors.blue.shade100,
                                       visualDensity: VisualDensity.comfortable,
                                       shape: RoundedRectangleBorder(
                                         side: BorderSide(
-                                          color: Colors.green.shade700,
+                                          color: Colors.blue.shade700,
                                           width: 1,
                                         ),
                                         borderRadius: BorderRadius.circular(15),
@@ -217,7 +256,7 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                                       onSelected: _onSelectedMinuteState,
                                       elevation: 2,
                                       backgroundColor: Colors.white,
-                                      checkmarkColor: Colors.green.shade700,
+                                      checkmarkColor: Colors.blue.shade700,
                                       disabledColor: Colors.grey.shade500,
                                       selectedShadowColor: Colors.black,
                                       labelPadding: const EdgeInsets.symmetric(
@@ -227,11 +266,11 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                                       padding: const EdgeInsets.symmetric(
                                         horizontal: 20,
                                       ),
-                                      selectedColor: Colors.green.shade100,
+                                      selectedColor: Colors.blue.shade100,
                                       visualDensity: VisualDensity.comfortable,
                                       shape: RoundedRectangleBorder(
                                         side: BorderSide(
-                                          color: Colors.green.shade700,
+                                          color: Colors.blue.shade700,
                                           width: 1,
                                         ),
                                         borderRadius: BorderRadius.circular(15),
