@@ -291,15 +291,18 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                       height: 30,
                     ),
                     ReactiveFormConsumer(
-                      builder: (context, formGroup, child) => ElevatedButton(
-                        style: const ButtonStyle(
-                            backgroundColor:
-                                MaterialStatePropertyAll(Colors.green)),
-                        onPressed: _form.valid ? _calculateFunction : null,
-                        child: child,
+                      builder: (context, formGroup, child) => Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        child: ElevatedButton(
+                          style: const ButtonStyle(
+                              backgroundColor:
+                                  MaterialStatePropertyAll(Colors.green)),
+                          onPressed: _form.valid ? _calculateFunction : null,
+                          child: child,
+                        ),
                       ),
                       child: const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 15),
+                        padding: EdgeInsets.symmetric(vertical: 20),
                         child: Text(
                           'Calcola',
                         ),
