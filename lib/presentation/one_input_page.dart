@@ -34,6 +34,14 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
   Map<String, String> _validationMessages(FormControl<String> x) {
     final String valueMin = (x.value == null) ? '' : x.value!;
 
+    if (_selectedWatt) {
+      return {
+        ValidationMessage.required: 'Campo richiesto',
+        ValidationMessage.minLength: 'Mancano minuti o secondi o decimi',
+        ValidationMessage.number: 'Inserire solo i numeri',
+      };
+    }
+
     if (_selectedMinute && valueMin.length < 2) {
       return {
         ValidationMessage.required: 'Campo richiesto',
@@ -46,27 +54,13 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
         ValidationMessage.minLength: 'Inserire i secondi e i decimi',
         ValidationMessage.number: 'Inserire solo i numeri',
       };
-    } else if (_selectedMinute && valueMin.length < 7) {
+    } else {
       return {
         ValidationMessage.required: 'Campo richiesto',
         ValidationMessage.minLength: 'Inserire i decimi',
         ValidationMessage.number: 'Inserire solo i numeri',
       };
     }
-
-    if (_selectedWatt) {
-      return {
-        ValidationMessage.required: 'Campo richiesto',
-        ValidationMessage.minLength: 'Mancano minuti o secondi o decimi',
-        ValidationMessage.number: 'Inserire solo i numeri',
-      };
-    }
-
-    return {
-      ValidationMessage.required: 'Campo richiesto',
-      ValidationMessage.minLength: 'Inserire i decimi',
-      ValidationMessage.number: 'Inserire solo i numeri',
-    };
   }
 
   bool _selectedMinute = true;
@@ -122,7 +116,6 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
     final appRouter = ref.watch(appRouterProvider);
 
     void _calculateFunction() {
-      print('h');
       appRouter.pushNamed(NavigatorPath.resultOneInputPage);
     }
 
@@ -294,6 +287,7 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                       builder: (context, formGroup, child) => Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: ElevatedButton(
+                          onLongPress: () => _form.reset(value: null),
                           style: const ButtonStyle(
                               backgroundColor:
                                   MaterialStatePropertyAll(Colors.green)),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/domain/interval_time.dart';
 import 'package:row_calculator/domain/time_on_meters.dart';
+import 'package:row_calculator/shared/router_provider.dart';
 
-class ResultOneInputPage extends StatelessWidget {
+class ResultOneInputPage extends ConsumerWidget {
   ResultOneInputPage({super.key});
 
   List<TimeOnMeters> listTimeOnMeters = [
@@ -18,14 +20,12 @@ class ResultOneInputPage extends StatelessWidget {
       intervalTime: IntervalTime(minutes: 3, seconds: 5),
       meters: 500,
     ),
-    TimeOnMeters(
-      intervalTime: IntervalTime(minutes: 3, seconds: 5),
-      meters: 500,
-    ),
   ];
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final appRouter = ref.watch(appRouterProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Result'),
@@ -51,14 +51,14 @@ class ResultOneInputPage extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
-                      children: [
+                      children: const [
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
                             'Watt',
                           ),
                         ),
-                        const SizedBox(
+                        SizedBox(
                           height: 15,
                         ),
                         Text('hello'),
@@ -71,7 +71,7 @@ class ResultOneInputPage extends StatelessWidget {
                 ),
                 ConstrainedBox(
                   constraints: const BoxConstraints(
-                    maxHeight: 400,
+                    maxHeight: 370,
                   ),
                   child: Card(
                     elevation: 1.5,
@@ -88,46 +88,49 @@ class ResultOneInputPage extends StatelessWidget {
                       children: [
                         Container(
                           padding: const EdgeInsets.fromLTRB(20, 20, 0, 20),
-                          child: Text('prova'),
                           color: Colors.green.shade100,
+                          child: const Text('prova'),
                         ),
                         Divider(
                           color: Colors.green.shade700,
                           height: 0,
                         ),
-                        ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: listTimeOnMeters.length,
-                          itemBuilder: (context, index) {
-                            final timeOnMeters = listTimeOnMeters[index];
+                        Flexible(
+                          child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: listTimeOnMeters.length,
+                            itemBuilder: (context, index) {
+                              final timeOnMeters = listTimeOnMeters[index];
 
-                            return Container(
-                              height: 50,
-                              decoration: BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(
-                                      color: Colors.green.shade700, width: 1),
-                                ),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Row(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      // ignore: unnecessary_string_interpolations
-                                      Text('${timeOnMeters.metersAndUnit}'),
-                                      // ignore: unnecessary_string_interpolations
-                                      Text('${timeOnMeters.durationMask}'),
-                                    ],
+                              return Container(
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                        color: Colors.green.shade700, width: 1),
                                   ),
-                                ],
-                              ),
-                            );
-                          },
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.end,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        // ignore: unnecessary_string_interpolations
+                                        Text('${timeOnMeters.metersAndUnit}'),
+                                        // ignore: unnecessary_string_interpolations
+                                        Text('${timeOnMeters.durationMask}'),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
                         ),
                       ],
                     ),
@@ -137,10 +140,15 @@ class ResultOneInputPage extends StatelessWidget {
                   height: 20,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 2),
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: ElevatedButton(
-                    child: Text('Nuovo Calcolo'),
-                    onPressed: () {},
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20),
+                      child: Text('Nuovo Calcolo'),
+                    ),
+                    onPressed: () {
+                      appRouter.navigateBack();
+                    },
                   ),
                 )
               ],
