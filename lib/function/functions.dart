@@ -38,7 +38,7 @@ double dispendioEnergetico({
   return dp(elevation * 100, 2);
 }
 
-num calcWatt({
+double calcWatt({
   required IntervalTime mediaCinquecento,
   bool isDouble = false,
 }) {
@@ -47,11 +47,7 @@ num calcWatt({
 
   final den = pow(a, 3).toDouble();
 
-  if (isDouble) {
-    return constVar / den;
-  } else {
-    return dp(constVar / den, 0).truncate();
-  }
+  return constVar / den;
 }
 
 IntervalTime tempoPrevisto({

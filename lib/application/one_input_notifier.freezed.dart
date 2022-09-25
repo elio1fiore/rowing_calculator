@@ -18,51 +18,51 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$OneInputState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() insertion,
+    required TResult Function() inputPageMinute,
+    required TResult Function() inputPageWatt,
     required TResult Function() calculateInProgress,
-    required TResult Function() calculateSuccess,
+    required TResult Function(OneInputPagePlayer player) resultPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? insertion,
+    TResult Function()? inputPageMinute,
+    TResult Function()? inputPageWatt,
     TResult Function()? calculateInProgress,
-    TResult Function()? calculateSuccess,
+    TResult Function(OneInputPagePlayer player)? resultPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? insertion,
+    TResult Function()? inputPageMinute,
+    TResult Function()? inputPageWatt,
     TResult Function()? calculateInProgress,
-    TResult Function()? calculateSuccess,
+    TResult Function(OneInputPagePlayer player)? resultPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Insertion value) insertion,
+    required TResult Function(_InputPageMinute value) inputPageMinute,
+    required TResult Function(_InputPageWatt value) inputPageWatt,
     required TResult Function(_CalculateInProgress value) calculateInProgress,
-    required TResult Function(_CalculateSuccess value) calculateSuccess,
+    required TResult Function(_ResultPage value) resultPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Insertion value)? insertion,
+    TResult Function(_InputPageMinute value)? inputPageMinute,
+    TResult Function(_InputPageWatt value)? inputPageWatt,
     TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_CalculateSuccess value)? calculateSuccess,
+    TResult Function(_ResultPage value)? resultPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Insertion value)? insertion,
+    TResult Function(_InputPageMinute value)? inputPageMinute,
+    TResult Function(_InputPageWatt value)? inputPageWatt,
     TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_CalculateSuccess value)? calculateSuccess,
+    TResult Function(_ResultPage value)? resultPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -86,36 +86,38 @@ class _$OneInputStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$_InputPageMinuteCopyWith<$Res> {
+  factory _$$_InputPageMinuteCopyWith(
+          _$_InputPageMinute value, $Res Function(_$_InputPageMinute) then) =
+      __$$_InputPageMinuteCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$OneInputStateCopyWithImpl<$Res>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
+class __$$_InputPageMinuteCopyWithImpl<$Res>
+    extends _$OneInputStateCopyWithImpl<$Res>
+    implements _$$_InputPageMinuteCopyWith<$Res> {
+  __$$_InputPageMinuteCopyWithImpl(
+      _$_InputPageMinute _value, $Res Function(_$_InputPageMinute) _then)
+      : super(_value, (v) => _then(v as _$_InputPageMinute));
 
   @override
-  _$_Initial get _value => super._value as _$_Initial;
+  _$_InputPageMinute get _value => super._value as _$_InputPageMinute;
 }
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial();
+class _$_InputPageMinute implements _InputPageMinute {
+  const _$_InputPageMinute();
 
   @override
   String toString() {
-    return 'OneInputState.initial()';
+    return 'OneInputState.inputPageMinute()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
+        (other.runtimeType == runtimeType && other is _$_InputPageMinute);
   }
 
   @override
@@ -124,36 +126,36 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() insertion,
+    required TResult Function() inputPageMinute,
+    required TResult Function() inputPageWatt,
     required TResult Function() calculateInProgress,
-    required TResult Function() calculateSuccess,
+    required TResult Function(OneInputPagePlayer player) resultPage,
   }) {
-    return initial();
+    return inputPageMinute();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? insertion,
+    TResult Function()? inputPageMinute,
+    TResult Function()? inputPageWatt,
     TResult Function()? calculateInProgress,
-    TResult Function()? calculateSuccess,
+    TResult Function(OneInputPagePlayer player)? resultPage,
   }) {
-    return initial?.call();
+    return inputPageMinute?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? insertion,
+    TResult Function()? inputPageMinute,
+    TResult Function()? inputPageWatt,
     TResult Function()? calculateInProgress,
-    TResult Function()? calculateSuccess,
+    TResult Function(OneInputPagePlayer player)? resultPage,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial();
+    if (inputPageMinute != null) {
+      return inputPageMinute();
     }
     return orElse();
   }
@@ -161,77 +163,78 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Insertion value) insertion,
+    required TResult Function(_InputPageMinute value) inputPageMinute,
+    required TResult Function(_InputPageWatt value) inputPageWatt,
     required TResult Function(_CalculateInProgress value) calculateInProgress,
-    required TResult Function(_CalculateSuccess value) calculateSuccess,
+    required TResult Function(_ResultPage value) resultPage,
   }) {
-    return initial(this);
+    return inputPageMinute(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Insertion value)? insertion,
+    TResult Function(_InputPageMinute value)? inputPageMinute,
+    TResult Function(_InputPageWatt value)? inputPageWatt,
     TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_CalculateSuccess value)? calculateSuccess,
+    TResult Function(_ResultPage value)? resultPage,
   }) {
-    return initial?.call(this);
+    return inputPageMinute?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Insertion value)? insertion,
+    TResult Function(_InputPageMinute value)? inputPageMinute,
+    TResult Function(_InputPageWatt value)? inputPageWatt,
     TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_CalculateSuccess value)? calculateSuccess,
+    TResult Function(_ResultPage value)? resultPage,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (inputPageMinute != null) {
+      return inputPageMinute(this);
     }
     return orElse();
   }
 }
 
-abstract class _Initial implements OneInputState {
-  const factory _Initial() = _$_Initial;
+abstract class _InputPageMinute implements OneInputState {
+  const factory _InputPageMinute() = _$_InputPageMinute;
 }
 
 /// @nodoc
-abstract class _$$_InsertionCopyWith<$Res> {
-  factory _$$_InsertionCopyWith(
-          _$_Insertion value, $Res Function(_$_Insertion) then) =
-      __$$_InsertionCopyWithImpl<$Res>;
+abstract class _$$_InputPageWattCopyWith<$Res> {
+  factory _$$_InputPageWattCopyWith(
+          _$_InputPageWatt value, $Res Function(_$_InputPageWatt) then) =
+      __$$_InputPageWattCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InsertionCopyWithImpl<$Res> extends _$OneInputStateCopyWithImpl<$Res>
-    implements _$$_InsertionCopyWith<$Res> {
-  __$$_InsertionCopyWithImpl(
-      _$_Insertion _value, $Res Function(_$_Insertion) _then)
-      : super(_value, (v) => _then(v as _$_Insertion));
+class __$$_InputPageWattCopyWithImpl<$Res>
+    extends _$OneInputStateCopyWithImpl<$Res>
+    implements _$$_InputPageWattCopyWith<$Res> {
+  __$$_InputPageWattCopyWithImpl(
+      _$_InputPageWatt _value, $Res Function(_$_InputPageWatt) _then)
+      : super(_value, (v) => _then(v as _$_InputPageWatt));
 
   @override
-  _$_Insertion get _value => super._value as _$_Insertion;
+  _$_InputPageWatt get _value => super._value as _$_InputPageWatt;
 }
 
 /// @nodoc
 
-class _$_Insertion implements _Insertion {
-  const _$_Insertion();
+class _$_InputPageWatt implements _InputPageWatt {
+  const _$_InputPageWatt();
 
   @override
   String toString() {
-    return 'OneInputState.insertion()';
+    return 'OneInputState.inputPageWatt()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Insertion);
+        (other.runtimeType == runtimeType && other is _$_InputPageWatt);
   }
 
   @override
@@ -240,36 +243,36 @@ class _$_Insertion implements _Insertion {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() insertion,
+    required TResult Function() inputPageMinute,
+    required TResult Function() inputPageWatt,
     required TResult Function() calculateInProgress,
-    required TResult Function() calculateSuccess,
+    required TResult Function(OneInputPagePlayer player) resultPage,
   }) {
-    return insertion();
+    return inputPageWatt();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? insertion,
+    TResult Function()? inputPageMinute,
+    TResult Function()? inputPageWatt,
     TResult Function()? calculateInProgress,
-    TResult Function()? calculateSuccess,
+    TResult Function(OneInputPagePlayer player)? resultPage,
   }) {
-    return insertion?.call();
+    return inputPageWatt?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? insertion,
+    TResult Function()? inputPageMinute,
+    TResult Function()? inputPageWatt,
     TResult Function()? calculateInProgress,
-    TResult Function()? calculateSuccess,
+    TResult Function(OneInputPagePlayer player)? resultPage,
     required TResult orElse(),
   }) {
-    if (insertion != null) {
-      return insertion();
+    if (inputPageWatt != null) {
+      return inputPageWatt();
     }
     return orElse();
   }
@@ -277,43 +280,43 @@ class _$_Insertion implements _Insertion {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Insertion value) insertion,
+    required TResult Function(_InputPageMinute value) inputPageMinute,
+    required TResult Function(_InputPageWatt value) inputPageWatt,
     required TResult Function(_CalculateInProgress value) calculateInProgress,
-    required TResult Function(_CalculateSuccess value) calculateSuccess,
+    required TResult Function(_ResultPage value) resultPage,
   }) {
-    return insertion(this);
+    return inputPageWatt(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Insertion value)? insertion,
+    TResult Function(_InputPageMinute value)? inputPageMinute,
+    TResult Function(_InputPageWatt value)? inputPageWatt,
     TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_CalculateSuccess value)? calculateSuccess,
+    TResult Function(_ResultPage value)? resultPage,
   }) {
-    return insertion?.call(this);
+    return inputPageWatt?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Insertion value)? insertion,
+    TResult Function(_InputPageMinute value)? inputPageMinute,
+    TResult Function(_InputPageWatt value)? inputPageWatt,
     TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_CalculateSuccess value)? calculateSuccess,
+    TResult Function(_ResultPage value)? resultPage,
     required TResult orElse(),
   }) {
-    if (insertion != null) {
-      return insertion(this);
+    if (inputPageWatt != null) {
+      return inputPageWatt(this);
     }
     return orElse();
   }
 }
 
-abstract class _Insertion implements OneInputState {
-  const factory _Insertion() = _$_Insertion;
+abstract class _InputPageWatt implements OneInputState {
+  const factory _InputPageWatt() = _$_InputPageWatt;
 }
 
 /// @nodoc
@@ -357,10 +360,10 @@ class _$_CalculateInProgress implements _CalculateInProgress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() insertion,
+    required TResult Function() inputPageMinute,
+    required TResult Function() inputPageWatt,
     required TResult Function() calculateInProgress,
-    required TResult Function() calculateSuccess,
+    required TResult Function(OneInputPagePlayer player) resultPage,
   }) {
     return calculateInProgress();
   }
@@ -368,10 +371,10 @@ class _$_CalculateInProgress implements _CalculateInProgress {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? insertion,
+    TResult Function()? inputPageMinute,
+    TResult Function()? inputPageWatt,
     TResult Function()? calculateInProgress,
-    TResult Function()? calculateSuccess,
+    TResult Function(OneInputPagePlayer player)? resultPage,
   }) {
     return calculateInProgress?.call();
   }
@@ -379,10 +382,10 @@ class _$_CalculateInProgress implements _CalculateInProgress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? insertion,
+    TResult Function()? inputPageMinute,
+    TResult Function()? inputPageWatt,
     TResult Function()? calculateInProgress,
-    TResult Function()? calculateSuccess,
+    TResult Function(OneInputPagePlayer player)? resultPage,
     required TResult orElse(),
   }) {
     if (calculateInProgress != null) {
@@ -394,10 +397,10 @@ class _$_CalculateInProgress implements _CalculateInProgress {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Insertion value) insertion,
+    required TResult Function(_InputPageMinute value) inputPageMinute,
+    required TResult Function(_InputPageWatt value) inputPageWatt,
     required TResult Function(_CalculateInProgress value) calculateInProgress,
-    required TResult Function(_CalculateSuccess value) calculateSuccess,
+    required TResult Function(_ResultPage value) resultPage,
   }) {
     return calculateInProgress(this);
   }
@@ -405,10 +408,10 @@ class _$_CalculateInProgress implements _CalculateInProgress {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Insertion value)? insertion,
+    TResult Function(_InputPageMinute value)? inputPageMinute,
+    TResult Function(_InputPageWatt value)? inputPageWatt,
     TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_CalculateSuccess value)? calculateSuccess,
+    TResult Function(_ResultPage value)? resultPage,
   }) {
     return calculateInProgress?.call(this);
   }
@@ -416,10 +419,10 @@ class _$_CalculateInProgress implements _CalculateInProgress {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Insertion value)? insertion,
+    TResult Function(_InputPageMinute value)? inputPageMinute,
+    TResult Function(_InputPageWatt value)? inputPageWatt,
     TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_CalculateSuccess value)? calculateSuccess,
+    TResult Function(_ResultPage value)? resultPage,
     required TResult orElse(),
   }) {
     if (calculateInProgress != null) {
@@ -434,76 +437,100 @@ abstract class _CalculateInProgress implements OneInputState {
 }
 
 /// @nodoc
-abstract class _$$_CalculateSuccessCopyWith<$Res> {
-  factory _$$_CalculateSuccessCopyWith(
-          _$_CalculateSuccess value, $Res Function(_$_CalculateSuccess) then) =
-      __$$_CalculateSuccessCopyWithImpl<$Res>;
+abstract class _$$_ResultPageCopyWith<$Res> {
+  factory _$$_ResultPageCopyWith(
+          _$_ResultPage value, $Res Function(_$_ResultPage) then) =
+      __$$_ResultPageCopyWithImpl<$Res>;
+  $Res call({OneInputPagePlayer player});
 }
 
 /// @nodoc
-class __$$_CalculateSuccessCopyWithImpl<$Res>
+class __$$_ResultPageCopyWithImpl<$Res>
     extends _$OneInputStateCopyWithImpl<$Res>
-    implements _$$_CalculateSuccessCopyWith<$Res> {
-  __$$_CalculateSuccessCopyWithImpl(
-      _$_CalculateSuccess _value, $Res Function(_$_CalculateSuccess) _then)
-      : super(_value, (v) => _then(v as _$_CalculateSuccess));
+    implements _$$_ResultPageCopyWith<$Res> {
+  __$$_ResultPageCopyWithImpl(
+      _$_ResultPage _value, $Res Function(_$_ResultPage) _then)
+      : super(_value, (v) => _then(v as _$_ResultPage));
 
   @override
-  _$_CalculateSuccess get _value => super._value as _$_CalculateSuccess;
+  _$_ResultPage get _value => super._value as _$_ResultPage;
+
+  @override
+  $Res call({
+    Object? player = freezed,
+  }) {
+    return _then(_$_ResultPage(
+      player: player == freezed
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as OneInputPagePlayer,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_CalculateSuccess implements _CalculateSuccess {
-  const _$_CalculateSuccess();
+class _$_ResultPage implements _ResultPage {
+  const _$_ResultPage({required this.player});
+
+  @override
+  final OneInputPagePlayer player;
 
   @override
   String toString() {
-    return 'OneInputState.calculateSuccess()';
+    return 'OneInputState.resultPage(player: $player)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_CalculateSuccess);
+        (other.runtimeType == runtimeType &&
+            other is _$_ResultPage &&
+            const DeepCollectionEquality().equals(other.player, player));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(player));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ResultPageCopyWith<_$_ResultPage> get copyWith =>
+      __$$_ResultPageCopyWithImpl<_$_ResultPage>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() insertion,
+    required TResult Function() inputPageMinute,
+    required TResult Function() inputPageWatt,
     required TResult Function() calculateInProgress,
-    required TResult Function() calculateSuccess,
+    required TResult Function(OneInputPagePlayer player) resultPage,
   }) {
-    return calculateSuccess();
+    return resultPage(player);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? insertion,
+    TResult Function()? inputPageMinute,
+    TResult Function()? inputPageWatt,
     TResult Function()? calculateInProgress,
-    TResult Function()? calculateSuccess,
+    TResult Function(OneInputPagePlayer player)? resultPage,
   }) {
-    return calculateSuccess?.call();
+    return resultPage?.call(player);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? insertion,
+    TResult Function()? inputPageMinute,
+    TResult Function()? inputPageWatt,
     TResult Function()? calculateInProgress,
-    TResult Function()? calculateSuccess,
+    TResult Function(OneInputPagePlayer player)? resultPage,
     required TResult orElse(),
   }) {
-    if (calculateSuccess != null) {
-      return calculateSuccess();
+    if (resultPage != null) {
+      return resultPage(player);
     }
     return orElse();
   }
@@ -511,41 +538,47 @@ class _$_CalculateSuccess implements _CalculateSuccess {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Insertion value) insertion,
+    required TResult Function(_InputPageMinute value) inputPageMinute,
+    required TResult Function(_InputPageWatt value) inputPageWatt,
     required TResult Function(_CalculateInProgress value) calculateInProgress,
-    required TResult Function(_CalculateSuccess value) calculateSuccess,
+    required TResult Function(_ResultPage value) resultPage,
   }) {
-    return calculateSuccess(this);
+    return resultPage(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Insertion value)? insertion,
+    TResult Function(_InputPageMinute value)? inputPageMinute,
+    TResult Function(_InputPageWatt value)? inputPageWatt,
     TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_CalculateSuccess value)? calculateSuccess,
+    TResult Function(_ResultPage value)? resultPage,
   }) {
-    return calculateSuccess?.call(this);
+    return resultPage?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Insertion value)? insertion,
+    TResult Function(_InputPageMinute value)? inputPageMinute,
+    TResult Function(_InputPageWatt value)? inputPageWatt,
     TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_CalculateSuccess value)? calculateSuccess,
+    TResult Function(_ResultPage value)? resultPage,
     required TResult orElse(),
   }) {
-    if (calculateSuccess != null) {
-      return calculateSuccess(this);
+    if (resultPage != null) {
+      return resultPage(this);
     }
     return orElse();
   }
 }
 
-abstract class _CalculateSuccess implements OneInputState {
-  const factory _CalculateSuccess() = _$_CalculateSuccess;
+abstract class _ResultPage implements OneInputState {
+  const factory _ResultPage({required final OneInputPagePlayer player}) =
+      _$_ResultPage;
+
+  OneInputPagePlayer get player;
+  @JsonKey(ignore: true)
+  _$$_ResultPageCopyWith<_$_ResultPage> get copyWith =>
+      throw _privateConstructorUsedError;
 }

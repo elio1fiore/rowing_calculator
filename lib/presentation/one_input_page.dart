@@ -1,13 +1,10 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_multi_formatter/formatters/masked_input_formatter.dart';
+import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:row_calculator/router/app_router.dart';
-import 'package:row_calculator/shared/router_provider.dart';
-import 'package:row_calculator/util/form_validators.dart';
-import 'package:rxdart/rxdart.dart';
+import 'package:row_calculator/application/one_input_notifier.dart';
+import 'package:row_calculator/shared/one_input/one_input_provider.dart';
 
 class OneInputPage extends ConsumerStatefulWidget {
   const OneInputPage({super.key});
@@ -17,106 +14,66 @@ class OneInputPage extends ConsumerStatefulWidget {
 }
 
 class _OneInputPageState extends ConsumerState<OneInputPage> {
-  final _form = FormGroup(
-    {
-      'inputOne': FormControl<String>(
-        validators: [
-          Validators.required,
-          FormValidators.numberSplit,
-          Validators.minLength(9),
-        ],
-      ),
-    },
-  );
-
-  final _controller = TextEditingController();
-
-  Map<String, String> _validationMessages(FormControl<String> x) {
-    final String valueMin = (x.value == null) ? '' : x.value!;
-
-    if (_selectedWatt) {
-      return {
-        ValidationMessage.required: 'Campo richiesto',
-        ValidationMessage.minLength: 'Mancano minuti o secondi o decimi',
-        ValidationMessage.number: 'Inserire solo i numeri',
-      };
-    }
-
-    if (_selectedMinute && valueMin.length < 2) {
-      return {
-        ValidationMessage.required: 'Campo richiesto',
-        ValidationMessage.minLength: 'Inserire i minuti, secondi e decimi',
-        ValidationMessage.number: 'Inserire solo i numeri',
-      };
-    } else if (_selectedMinute && valueMin.length < 5) {
-      return {
-        ValidationMessage.required: 'Campo richiesto',
-        ValidationMessage.minLength: 'Inserire i secondi e i decimi',
-        ValidationMessage.number: 'Inserire solo i numeri',
-      };
-    } else {
-      return {
-        ValidationMessage.required: 'Campo richiesto',
-        ValidationMessage.minLength: 'Inserire i decimi',
-        ValidationMessage.number: 'Inserire solo i numeri',
-      };
-    }
-  }
-
-  bool _selectedMinute = true;
-  bool _selectedWatt = false;
-
-  void _onSelectedMinuteState(bool value) {
-    setState(() {
-      _controller.clear();
-
-      _selectedWatt = false;
-      _selectedMinute = true;
-      _form.control('inputOne').setValidators(
-        [
-          Validators.required,
-          Validators.minLength(9),
-          FormValidators.numberSplit,
-        ],
-        autoValidate: true,
-        emitEvent: true,
-        updateParent: true,
-      );
-
-      _form.control('inputOne').reset(
-            value: null,
-          );
-    });
-  }
-
-  void _onSelectedWattState(bool value) {
-    setState(() {
-      _controller.clear();
-
-      _selectedWatt = true;
-      _selectedMinute = false;
-      _form.control('inputOne').setValidators(
-        [
-          Validators.required,
-          FormValidators.numberSplit,
-        ],
-        autoValidate: true,
-        emitEvent: true,
-        updateParent: true,
-      );
-
-      _form.control('inputOne').reset(
-            value: null,
-          );
-    });
-  }
-
+  bool isMinute = true;
   @override
   Widget build(BuildContext context) {
-    final appRouter = ref.watch(appRouterProvider);
+    final noty = ref.read(oneInputNotifierProvider.notifier);
+    final form = noty.form;
 
-    void _calculateFunction() {
-      appRouter.pushNamed(NavigatorPath.resultOneInputPage);
+    ref.listen<OneInputState>(
+      oneInputNotifierProvider,
+      (_, state) {
+        print(state);
+        state.maybeWhen(
+          orElse: () {
+            setState(() {
+              isMinute = true;
+            });
+          },
+          inputPageWatt: () {
+            setState(() {
+              isMinute = false;
+            });
+          },
+          inputPageMinute: () {
+            setState(() {
+              isMinute = true;
+            });
+          },
+        );
+      },
+    );
+
+    Map<String, String> validationMessages(FormControl<String> x) {
+      final String valueMin = (x.value == null) ? '' : x.value!;
+
+      if (noty.selectedWatt) {
+        return {
+          ValidationMessage.required: 'Campo richiesto',
+          ValidationMessage.minLength: 'Mancano minuti o secondi o decimi',
+          ValidationMessage.number: 'Inserire solo i numeri',
+        };
+      }
+
+      if (noty.selectedMinute && valueMin.length < 2) {
+        return {
+          ValidationMessage.required: 'Campo richiesto',
+          ValidationMessage.minLength: 'Inserire i minuti, secondi e decimi',
+          ValidationMessage.number: 'Inserire solo i numeri',
+        };
+      } else if (noty.selectedMinute && valueMin.length < 5) {
+        return {
+          ValidationMessage.required: 'Campo richiesto',
+          ValidationMessage.minLength: 'Inserire i secondi e i decimi',
+          ValidationMessage.number: 'Inserire solo i numeri',
+        };
+      } else {
+        return {
+          ValidationMessage.required: 'Campo richiesto',
+          ValidationMessage.minLength: 'Inserire i decimi',
+          ValidationMessage.number: 'Inserire solo i numeri',
+        };
+      }
     }
 
     return Scaffold(
@@ -127,20 +84,13 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: ReactiveForm(
-              formGroup: _form,
+              formGroup: form,
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Card(
-                      // shape: OutlineInputBorder(
-                      //   borderRadius: BorderRadius.circular(10),
-                      //   borderSide: BorderSide(
-                      //     color: Colors.blue.shade700,
-                      //     width: 1.5,
-                      //   ),
-                      // ),
                       elevation: 10,
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
@@ -149,14 +99,14 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                             Container(
                               constraints: const BoxConstraints(minHeight: 120),
                               child: ReactiveTextField<String>(
-                                validationMessages: _validationMessages,
-                                controller: _controller,
+                                validationMessages: validationMessages,
+                                controller: noty.controller,
                                 autofocus: false,
                                 autocorrect: true,
                                 formControlName: 'inputOne',
                                 keyboardType: TextInputType.number,
                                 inputFormatters: [
-                                  _selectedMinute
+                                  noty.selectedMinute
                                       ? MaskedInputFormatter('##:##:###')
                                       : MaskedInputFormatter('###########')
                                 ],
@@ -168,9 +118,9 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                                   // alignLabelWithHint: true,
                                   contentPadding: const EdgeInsets.all(30.0),
 
-                                  suffixText: _selectedMinute ? 'min' : 'W',
+                                  suffixText: noty.selectedMinute ? 'min' : 'W',
                                   label: Text(
-                                    _selectedMinute ? 'Media/500' : 'Watt',
+                                    noty.selectedMinute ? 'Media/500' : 'Watt',
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                   ),
@@ -208,12 +158,12 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                                   children: [
                                     FilterChip(
                                       autofocus: false,
-                                      selected: _selectedWatt,
+                                      selected: !isMinute,
                                       label: const Text(
                                         'Watt',
                                         style: TextStyle(),
                                       ),
-                                      onSelected: _onSelectedWattState,
+                                      onSelected: noty.onSelectedWattState,
                                       elevation: 2,
                                       backgroundColor: Colors.white,
                                       checkmarkColor: Colors.blue.shade700,
@@ -241,12 +191,12 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                                     ),
                                     FilterChip(
                                       autofocus: false,
-                                      selected: _selectedMinute,
+                                      selected: isMinute,
                                       label: const Text(
                                         'Minute',
                                         style: TextStyle(),
                                       ),
-                                      onSelected: _onSelectedMinuteState,
+                                      onSelected: noty.onSelectedMinuteState,
                                       elevation: 2,
                                       backgroundColor: Colors.white,
                                       checkmarkColor: Colors.blue.shade700,
@@ -287,11 +237,13 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                       builder: (context, formGroup, child) => Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: ElevatedButton(
-                          onLongPress: () => _form.reset(value: null),
+                          onLongPress: () => noty.resetValueForm(),
                           style: const ButtonStyle(
                               backgroundColor:
                                   MaterialStatePropertyAll(Colors.green)),
-                          onPressed: _form.valid ? _calculateFunction : null,
+                          onPressed: noty.formIsValid()
+                              ? noty.calculateAndGotoResultPage
+                              : null,
                           child: child,
                         ),
                       ),

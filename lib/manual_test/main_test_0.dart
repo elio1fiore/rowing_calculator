@@ -5,8 +5,6 @@ void main(List<String> args) {
 
   final provaSplit = prova.split(':');
 
-  // print(provaSplit);
-
   if (isNumeric(provaSplit[0]) &&
       isNumeric(provaSplit[1]) &&
       isNumeric(provaSplit[2])) {
