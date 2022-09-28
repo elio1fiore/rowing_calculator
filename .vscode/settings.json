@@ -3,5 +3,6 @@
         "autocorrect",
         "checkmark",
         "dpvalue"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

@@ -17,5 +17,5 @@ class $AppRouter {}
 abstract class NavigatorPath {
   static const String oneInputPage = "/OneInput";
   static const String resultOneInputPage = "/ResultOneInputPage";
-  static const String speedPageTest = "/speedTest";
+  static const String speedPageTest = "/speedPageTest";
 }

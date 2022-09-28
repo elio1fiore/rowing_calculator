@@ -20,8 +20,8 @@ class OneInputPagePlayer {
 
     List<TimeOnMeters> listTimeOnMeters = [];
 
-    for (var i = 0; i < 24; i++) {
-      final meterCalc = 500 * i;
+    for (var i = 1; i <= 24; i++) {
+      final meterCalc = 250 * i;
 
       final intervalTime = timeFromMedia(media500: media, meters: meterCalc);
 
@@ -50,8 +50,8 @@ class OneInputPagePlayer {
 
     List<TimeOnMeters> listTimeOnMeters = [];
 
-    for (var i = 0; i < 24; i++) {
-      final meterCalc = 500 * i;
+    for (var i = 1; i <= 24; i++) {
+      final meterCalc = 250 * i;
 
       final intervalTime =
           timeFromMedia(media500: mediaIntervalTime, meters: meterCalc);
