@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.row_calculator">
    <application
-        android:label="row_calculator"
+        android:label="RowingCalc."
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
