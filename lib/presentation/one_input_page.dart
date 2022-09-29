@@ -86,19 +86,6 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                             Container(
                               constraints: const BoxConstraints(minHeight: 120),
                               child: ReactiveTextField<String>(
-                                showErrors: (control) {
-                                  if (control.invalid) {
-                                    return true;
-                                  }
-                                  if (control.touched) {
-                                    return true;
-                                  }
-                                  if (control.dirty) {
-                                    return true;
-                                  }
-
-                                  return false;
-                                },
                                 validationMessages: validationMessages,
                                 controller: noty.controller,
                                 autofocus: false,

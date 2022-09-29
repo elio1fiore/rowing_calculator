@@ -50,7 +50,7 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
   }
 
   void showError() {
-    _form.status;
+    _form.markAllAsTouched();
   }
 
   bool formIsValid() {
