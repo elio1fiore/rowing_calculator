@@ -14,31 +14,18 @@ class OneInputPage extends ConsumerStatefulWidget {
 }
 
 class _OneInputPageState extends ConsumerState<OneInputPage> {
-  bool isMinute = true;
   @override
   Widget build(BuildContext context) {
     final noty = ref.read(oneInputNotifierProvider.notifier);
     final form = noty.form;
+    final isMinute = noty.selectedMinute;
 
     ref.listen<OneInputState>(
       oneInputNotifierProvider,
       (_, state) {
-        print(state);
         state.maybeWhen(
           orElse: () {
-            setState(() {
-              isMinute = true;
-            });
-          },
-          inputPageWatt: () {
-            setState(() {
-              isMinute = false;
-            });
-          },
-          inputPageMinute: () {
-            setState(() {
-              isMinute = true;
-            });
+            setState(() {});
           },
         );
       },
@@ -99,6 +86,19 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                             Container(
                               constraints: const BoxConstraints(minHeight: 120),
                               child: ReactiveTextField<String>(
+                                showErrors: (control) {
+                                  if (control.invalid) {
+                                    return true;
+                                  }
+                                  if (control.touched) {
+                                    return true;
+                                  }
+                                  if (control.dirty) {
+                                    return true;
+                                  }
+
+                                  return false;
+                                },
                                 validationMessages: validationMessages,
                                 controller: noty.controller,
                                 autofocus: false,
@@ -243,7 +243,7 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                                   MaterialStatePropertyAll(Colors.green)),
                           onPressed: noty.formIsValid()
                               ? noty.calculateAndGotoResultPage
-                              : null,
+                              : noty.showError,
                           child: child,
                         ),
                       ),

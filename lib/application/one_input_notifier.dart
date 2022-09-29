@@ -49,6 +49,10 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
     _form.control('inputOne').reset(value: null);
   }
 
+  void showError() {
+    _form.status;
+  }
+
   bool formIsValid() {
     return _form.valid;
   }
