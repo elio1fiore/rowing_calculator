@@ -112,12 +112,9 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
     _appRouter.pushNamed(NavigatorPath.resultOneInputPage);
     OneInputPagePlayer oneInputPagePlayer;
     if (selectedMinute) {
-      print('from min');
-
       oneInputPagePlayer =
           OneInputPagePlayer.fromMedia500(_form.control('inputOne').value);
     } else {
-      print('from watt');
       oneInputPagePlayer =
           OneInputPagePlayer.fromWatt(_form.control('inputOne').value);
     }
