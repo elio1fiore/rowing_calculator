@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fpdart/fpdart.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:row_calculator/application/one_input_notifier.dart';
 import 'package:row_calculator/shared/one_input/one_input_provider.dart';
@@ -37,18 +36,10 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
       if (noty.selectedWatt) {
         return {
           ValidationMessage.required: 'Campo richiesto',
-          ValidationMessage.minLength: 'Mancano minuti o secondi o decimi',
           ValidationMessage.number: 'Inserire solo i numeri',
         };
       }
-
-      if (noty.selectedMinute && valueMin.length < 2) {
-        return {
-          ValidationMessage.required: 'Campo richiesto',
-          ValidationMessage.minLength: 'Inserire i minuti, secondi e decimi',
-          ValidationMessage.number: 'Inserire solo i numeri',
-        };
-      } else if (noty.selectedMinute && valueMin.length < 5) {
+      if (noty.selectedMinute && valueMin.length < 3) {
         return {
           ValidationMessage.required: 'Campo richiesto',
           ValidationMessage.minLength: 'Inserire i secondi e i decimi',
@@ -94,7 +85,7 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                                 keyboardType: TextInputType.number,
                                 inputFormatters: [
                                   noty.selectedMinute
-                                      ? MaskedInputFormatter('##:##:###')
+                                      ? MaskedInputFormatter('#:##:#')
                                       : MaskedInputFormatter('###########')
                                 ],
                                 style: const TextStyle(

@@ -20,6 +20,11 @@ class ListViewMethods extends ConsumerWidget {
         numberInput: '1',
         subtitle: 'Calcola la media, i watt e il tempo sulle distanze',
       ),
+      Functionality(
+        navigatorPath: NavigatorPath.twoInputPage,
+        numberInput: '2',
+        subtitle: 'Calcola la media, i metri, i watt e le varie percentuali',
+      ),
     ];
 
     return Scaffold(

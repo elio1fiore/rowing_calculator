@@ -4,9 +4,7 @@ import 'package:row_calculator/domain/interval_time.dart';
 import 'package:row_calculator/domain/time_on_meters.dart';
 import 'package:row_calculator/player/one_input_page_player.dart';
 import 'package:row_calculator/presentation/loading_page.dart';
-import 'package:row_calculator/router/app_router.gr.dart';
 import 'package:row_calculator/shared/one_input/one_input_provider.dart';
-import 'package:row_calculator/shared/router_provider.dart';
 
 class ResultOneInputPage extends ConsumerWidget {
   ResultOneInputPage({super.key});

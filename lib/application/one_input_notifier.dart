@@ -36,7 +36,7 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
         validators: [
           Validators.required,
           FormValidators.numberSplit,
-          Validators.minLength(9),
+          Validators.minLength(6),
         ],
       ),
     },
@@ -66,7 +66,7 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
     _form.control('inputOne').setValidators(
       [
         Validators.required,
-        Validators.minLength(9),
+        Validators.minLength(6),
         FormValidators.numberSplit,
       ],
       autoValidate: true,
