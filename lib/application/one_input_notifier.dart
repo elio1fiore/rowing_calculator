@@ -58,6 +58,9 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
   }
 
   void onSelectedMinuteState(bool value) {
+    if (selectedMinute) {
+      return;
+    }
     _controller.clear();
 
     selectedWatt = false;
@@ -78,6 +81,9 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
   }
 
   void onSelectedWattState(bool value) {
+    if (selectedWatt) {
+      return;
+    }
     _controller.clear();
 
     selectedWatt = true;

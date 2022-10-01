@@ -17,12 +17,12 @@ class ListViewMethods extends ConsumerWidget {
     final List<Functionality> funcs = [
       Functionality(
         navigatorPath: NavigatorPath.oneInputPage,
-        numberInput: '1',
+        nameFunctionality: '1   Input',
         subtitle: 'Calcola la media, i watt e il tempo sulle distanze',
       ),
       Functionality(
         navigatorPath: NavigatorPath.twoInputPage,
-        numberInput: '2',
+        nameFunctionality: '2   Input',
         subtitle: 'Calcola la media, i metri, i watt e le varie percentuali',
       ),
     ];
@@ -39,7 +39,8 @@ class ListViewMethods extends ConsumerWidget {
             final func = funcs[index];
 
             return ListTile(
-              leading: Text(func.numberInput),
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
               onTap: () {
                 appRouter.pushNamed(func.navigatorPath);
               },
@@ -47,8 +48,10 @@ class ListViewMethods extends ConsumerWidget {
                 func.subtitle,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
               ),
-              title: Text('Input'),
+              title: Text(func.nameFunctionality,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500)),
               trailing: Icon(Icons.arrow_right),
               autofocus: false,
             );

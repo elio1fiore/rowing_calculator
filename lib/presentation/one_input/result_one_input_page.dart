@@ -9,21 +9,6 @@ import 'package:row_calculator/shared/one_input/one_input_provider.dart';
 class ResultOneInputPage extends ConsumerWidget {
   ResultOneInputPage({super.key});
 
-  List<TimeOnMeters> listTimeOnMeters = [
-    TimeOnMeters(
-      intervalTime: IntervalTime(minutes: 3, seconds: 5),
-      meters: 500,
-    ),
-    TimeOnMeters(
-      intervalTime: IntervalTime(minutes: 3, seconds: 5),
-      meters: 500,
-    ),
-    TimeOnMeters(
-      intervalTime: IntervalTime(minutes: 3, seconds: 5),
-      meters: 500,
-    ),
-  ];
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(oneInputNotifierProvider);
@@ -38,7 +23,7 @@ class ResultOneInputPage extends ConsumerWidget {
           return const LoadingPage();
         },
         resultPage: (player) {
-          return _ResultOneInputPagep(
+          return _ResultOneInputPage(
             player: player,
           );
         },
@@ -47,8 +32,8 @@ class ResultOneInputPage extends ConsumerWidget {
   }
 }
 
-class _ResultOneInputPagep extends ConsumerWidget {
-  _ResultOneInputPagep({
+class _ResultOneInputPage extends ConsumerWidget {
+  _ResultOneInputPage({
     Key? key,
     required this.player,
   }) : super(key: key);

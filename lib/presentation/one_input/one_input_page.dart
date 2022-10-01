@@ -75,7 +75,7 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                         child: Column(
                           children: [
                             Container(
-                              constraints: const BoxConstraints(minHeight: 120),
+                              constraints: const BoxConstraints(minHeight: 80),
                               child: ReactiveTextField<String>(
                                 validationMessages: validationMessages,
                                 controller: noty.controller,
@@ -94,7 +94,7 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                                 ),
                                 decoration: InputDecoration(
                                   // alignLabelWithHint: true,
-                                  contentPadding: const EdgeInsets.all(30.0),
+                                  contentPadding: const EdgeInsets.all(20.0),
 
                                   suffixText: noty.selectedMinute ? 'min' : 'W',
                                   label: Text(
@@ -200,9 +200,6 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                                   ],
                                 ),
                               ),
-                            ),
-                            const SizedBox(
-                              height: 15,
                             ),
                           ],
                         ),
