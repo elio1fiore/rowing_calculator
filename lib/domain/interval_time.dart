@@ -28,7 +28,7 @@ class IntervalTime extends Duration {
 
   double get betaValue {
     if (beta == null) {
-      return super.inSeconds / Duration.secondsPerDay;
+      return super.inMilliseconds / Duration.millisecondsPerDay;
     } else {
       return beta!;
     }
@@ -44,12 +44,6 @@ class IntervalTime extends Duration {
     }
 
     int revSec = seconds;
-    int revMillsec = millisecond;
-
-    if (millisecond > 997) {
-      revMillsec = 0;
-      revSec = revSec + 1;
-    }
 
     var secondsFormat = '';
 
@@ -59,37 +53,25 @@ class IntervalTime extends Duration {
       secondsFormat = '$revSec';
     }
 
-    var milliSecFormat = '';
-
-    if (revMillsec == 0) {
-      milliSecFormat = '000';
-    } else if (revMillsec.toString().length == 1) {
-      milliSecFormat = '00$revMillsec';
-    } else if (revMillsec.toString().length == 2) {
-      milliSecFormat = '0$revMillsec';
-    } else {
-      milliSecFormat = '$revMillsec';
-    }
-
-    return '$minutesFormat : $secondsFormat : $milliSecFormat';
+    return '$minutesFormat : $secondsFormat : $millisecond';
   }
 
   factory IntervalTime.fromBeta(double beta) {
     final seconds = beta * Duration.secondsPerDay;
 
     final hr = seconds / 3600;
-    final hr_tr = hr.truncate();
+    final hr_tr = hr.toInt();
 
     final day = hr_tr ~/ 24;
 
     final min = (hr - hr_tr) * 60;
-    final min_tr = min.truncate();
+    final min_tr = min.toInt();
 
     final sec = (min - min_tr) * 60;
-    final sec_tr = sec.truncate();
+    final sec_tr = sec.toInt();
 
     final millSec = (sec - sec_tr) * 1000;
-    final millSec_tr = millSec.truncate();
+    final millSec_tr = millSec.toInt();
 
     return IntervalTime(
       beta: beta,

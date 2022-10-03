@@ -85,7 +85,9 @@ IntervalTime timeFromMedia(
 
   final beta = media500.betaValue * alpha;
 
-  return IntervalTime.fromBeta(beta);
+  final ret = IntervalTime.fromBeta(beta);
+
+  return ret;
 }
 
 double wattXPercentual({required double watt, required double numberPerc}) {

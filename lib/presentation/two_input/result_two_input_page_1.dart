@@ -18,22 +18,22 @@ class ResultTwoInputPage1 extends ConsumerWidget {
 
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Card(
-              elevation: 1.5,
-              clipBehavior: Clip.antiAlias,
-              shape: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                  color: Colors.green.shade700,
-                  width: 1.5,
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Card(
+                elevation: 1.5,
+                clipBehavior: Clip.antiAlias,
+                shape: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Colors.green.shade700,
+                    width: 1.5,
+                  ),
                 ),
-              ),
-              color: Colors.green.shade100,
-              child: SingleChildScrollView(
+                color: Colors.green.shade100,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -53,21 +53,21 @@ class ResultTwoInputPage1 extends ConsumerWidget {
                   ],
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: ElevatedButton(
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 20),
-                  child: Text('Nuovo Calcolo'),
-                ),
-                onPressed: (() => noty.goAndResetInputPage()),
+              const SizedBox(
+                height: 20,
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: ElevatedButton(
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20),
+                    child: Text('Nuovo Calcolo'),
+                  ),
+                  onPressed: (() => noty.goAndResetInputPage()),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

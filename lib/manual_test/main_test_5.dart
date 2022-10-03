@@ -1,9 +1,14 @@
+import 'package:row_calculator/domain/interval_time.dart';
 import 'package:row_calculator/function/functions.dart';
 
 void main() {
   const double watt = 298;
 
-  final media = mediaCinquecentoCpx(watt: watt);
+  // final media = mediaCinquecentoCpx(watt: watt);
+
+  final media = IntervalTime(minutes: 1, seconds: 45, millisecond: 507);
+
+  // print(media.valueMinuteSecondMillisecond);
 
   final timeForMedia_250 = timeFromMedia(media500: media, meters: 250);
   final timeForMedia_750 = timeFromMedia(media500: media, meters: 750);

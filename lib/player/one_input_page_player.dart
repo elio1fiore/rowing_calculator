@@ -40,7 +40,7 @@ class OneInputPagePlayer {
 
     final minutes = int.parse(media_sp[0]);
     final seconds = int.parse(media_sp[1]);
-    final decs = int.parse(media_sp[2]);
+    final decs = int.parse(media_sp[2]) * 100;
 
     final IntervalTime mediaIntervalTime =
         IntervalTime(minutes: minutes, seconds: seconds, millisecond: decs);
@@ -58,6 +58,7 @@ class OneInputPagePlayer {
 
       final timeOnMeters =
           TimeOnMeters(intervalTime: intervalTime, meters: meterCalc);
+
       listTimeOnMeters.add(timeOnMeters);
     }
 
