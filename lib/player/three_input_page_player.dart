@@ -69,7 +69,7 @@ class ThreeInputPagePlayer {
     final personalBestIT =
         IntervalTime(minutes: minPb, seconds: secPb, microsecond: decPb);
     final doubleMeters = double.parse(meters);
-    final doubleEnergyExp = double.parse(meters);
+    final doubleEnergyExp = double.parse(energyExp);
 
     final estimatedTime = tempoPrevisto(
       dispendioEnergetico: doubleEnergyExp,

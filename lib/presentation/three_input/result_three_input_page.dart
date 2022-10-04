@@ -127,6 +127,7 @@ class _ResultThreeInputPageD extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final noty = ref.read(threeInputNotifierProvider.notifier);
+    print('d');
 
     return SafeArea(
       child: Padding(
@@ -150,7 +151,7 @@ class _ResultThreeInputPageD extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     CardResult(
-                      misura: 'Personal',
+                      misura: 'Miglior Tempo',
                       value: player.personalBest.valueMinuteSecondMillisecond,
                     ),
                     CardResult(
@@ -167,7 +168,7 @@ class _ResultThreeInputPageD extends ConsumerWidget {
                     ),
                     CardResult(
                       misura: 'Dispendio %',
-                      value: player.energyExp.toString(),
+                      value: player.energyExp.toInt().toString(),
                     ),
                   ],
                 ),

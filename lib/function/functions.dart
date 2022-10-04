@@ -35,7 +35,7 @@ double dispendioEnergetico({
 
   final elevation = pow(variable, 2.95).toDouble();
 
-  return dp(elevation * 100, 2);
+  return dp(elevation * 100, 1);
 }
 
 double calcWatt({
