@@ -33,12 +33,12 @@ class ResultOneInputPage extends ConsumerWidget {
 }
 
 class _ResultOneInputPage extends ConsumerWidget {
-  _ResultOneInputPage({
+  const _ResultOneInputPage({
     Key? key,
     required this.player,
   }) : super(key: key);
 
-  OneInputPagePlayer player;
+  final OneInputPagePlayer player;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

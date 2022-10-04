@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CardResultTwo extends StatelessWidget {
+class CardResult extends StatelessWidget {
   final String misura;
   final String value;
 
-  const CardResultTwo({
+  const CardResult({
     required this.misura,
     required this.value,
     Key? key,
@@ -20,17 +20,17 @@ class CardResultTwo extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               misura,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
             ),
             Text(
               value,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
             ),
           ],
         ),

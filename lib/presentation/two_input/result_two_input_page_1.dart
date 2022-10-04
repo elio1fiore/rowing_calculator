@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/player/two_input_player/two_input_page_player_1.dart';
-import 'package:row_calculator/presentation/two_input/card_result_two.dart';
+import 'package:row_calculator/presentation/card_result.dart';
 import 'package:row_calculator/shared/two_input/two_input_provider.dart';
 
 class ResultTwoInputPage1 extends ConsumerWidget {
@@ -37,19 +37,16 @@ class ResultTwoInputPage1 extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    CardResultTwo(
+                    CardResult(
                         misura: 'Watt', value: '${player1.watt.toInt()}'),
-                    CardResultTwo(
+                    CardResult(
                         misura: 'Tempo',
-                        value: '${player1.time.valueMinuteSecondMillisecond}'),
-                    CardResultTwo(
-                        misura: 'Media/500',
-                        value:
-                            '${player1.media500.valueMinuteSecondMillisecond}'),
-                    CardResultTwo(misura: 'Metri', value: '${player1.meters}'),
-                    CardResultTwo(
-                        misura: 'Tempo in secondi',
-                        value: '${player1.time.inSeconds}'),
+                        value: player1.time.valueMinuteSecondMillisecond),
+                    CardResult(
+                      misura: 'Media/500',
+                      value: player1.media500.valueMinuteSecondMillisecond,
+                    ),
+                    CardResult(misura: 'Metri', value: '${player1.meters}'),
                   ],
                 ),
               ),

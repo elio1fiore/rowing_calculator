@@ -25,6 +25,11 @@ class ListViewMethods extends ConsumerWidget {
         nameFunctionality: '2   Input',
         subtitle: 'Calcola la media, i metri, i watt e le varie percentuali',
       ),
+      Functionality(
+        nameFunctionality: '3   Input',
+        subtitle: 'Calcola il dispendio, il tempo, i watt e la media',
+        navigatorPath: NavigatorPath.threeInputPage,
+      ),
     ];
 
     return Scaffold(

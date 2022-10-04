@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/player/two_input_player/two_input_page_player_2.dart';
-import 'package:row_calculator/presentation/two_input/card_result_two.dart';
+import 'package:row_calculator/presentation/card_result.dart';
 
 import '../../shared/two_input/two_input_provider.dart';
 
@@ -38,18 +38,18 @@ class ResultTwoInputPage2 extends ConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    CardResultTwo(
+                    CardResult(
                         misura: 'Watt', value: '${player2.watt.toInt()}'),
-                    CardResultTwo(
+                    CardResult(
                         misura: 'Percentuale',
                         value: '${player2.percentualeRichiesta.toInt()}'),
-                    CardResultTwo(
+                    CardResult(
                         misura: 'Media/500',
                         value: player2.media500.valueMinuteSecondMillisecond),
-                    CardResultTwo(
+                    CardResult(
                         misura: 'Watt Percentuale',
                         value: '${player2.wattInPercentuale.toInt()}'),
-                    CardResultTwo(
+                    CardResult(
                         misura: 'Media percentuale',
                         value:
                             '${player2.media500InPercentuale.valueMinuteSecondMillisecond}'),

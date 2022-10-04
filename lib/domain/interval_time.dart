@@ -44,6 +44,7 @@ class IntervalTime extends Duration {
     }
 
     int revSec = seconds;
+    int revMill = millisecond;
 
     var secondsFormat = '';
 
@@ -53,7 +54,23 @@ class IntervalTime extends Duration {
       secondsFormat = '$revSec';
     }
 
-    return '$minutesFormat : $secondsFormat : $millisecond';
+    var milliFormat = '';
+
+    if (revMill.toString().length == 1) {
+      milliFormat = '$revMill';
+    } else if (revMill.toString().length == 2) {
+      final revMill_d = revMill / 10;
+      final revMill_dp = dp(revMill_d, 0);
+
+      milliFormat = '${revMill_dp.toInt()}';
+    } else {
+      final revMill_d = revMill / 100;
+      final revMill_dp = dp(revMill_d, 0);
+
+      milliFormat = '${revMill_dp.toInt()}';
+    }
+
+    return '$minutesFormat : $secondsFormat : $milliFormat';
   }
 
   factory IntervalTime.fromBeta(double beta) {
