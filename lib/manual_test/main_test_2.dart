@@ -10,6 +10,6 @@ void main() {
       dispendioEnergetico: de, meters: meters, personalBest: personalBest);
   final mediaCinquecento = mediaCinquecentoBase(metri: meters, tempo: te);
 
-  print(te.valueMinuteSecondMillisecond);
-  print(mediaCinquecento.valueMinuteSecondMillisecond);
+  print(te.valueMinuteSecondMillisecondOne);
+  print(mediaCinquecento.valueMinuteSecondMillisecondOne);
 }

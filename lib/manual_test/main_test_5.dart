@@ -22,16 +22,16 @@ void main() {
   final timeForMedia_2750 = timeFromMedia(media500: media, meters: 2750);
   final timeForMedia_3000 = timeFromMedia(media500: media, meters: 3000);
 
-  print('media 500 m: ${media.valueMinuteSecondMillisecond}');
-  print('250 m: ${timeForMedia_250.valueMinuteSecondMillisecond}');
-  print('750 m: ${timeForMedia_750.valueMinuteSecondMillisecond}');
-  print('1000 m: ${timeForMedia_1000.valueMinuteSecondMillisecond}');
-  print('1250 m: ${timeForMedia_1250.valueMinuteSecondMillisecond}');
-  print('1500 m: ${timeForMedia_1500.valueMinuteSecondMillisecond}');
-  print('1750 m: ${timeForMedia_1750.valueMinuteSecondMillisecond}');
-  print('2000 m: ${timeForMedia_2000.valueMinuteSecondMillisecond}');
-  print('2250 m: ${timeForMedia_2250.valueMinuteSecondMillisecond}');
-  print('2500 m: ${timeForMedia_2500.valueMinuteSecondMillisecond}');
-  print('2750 m: ${timeForMedia_2750.valueMinuteSecondMillisecond}');
-  print('3000 m: ${timeForMedia_3000.valueMinuteSecondMillisecond}');
+  print('media 500 m: ${media.valueMinuteSecondMillisecondOne}');
+  print('250 m: ${timeForMedia_250.valueMinuteSecondMillisecondOne}');
+  print('750 m: ${timeForMedia_750.valueMinuteSecondMillisecondOne}');
+  print('1000 m: ${timeForMedia_1000.valueMinuteSecondMillisecondOne}');
+  print('1250 m: ${timeForMedia_1250.valueMinuteSecondMillisecondOne}');
+  print('1500 m: ${timeForMedia_1500.valueMinuteSecondMillisecondOne}');
+  print('1750 m: ${timeForMedia_1750.valueMinuteSecondMillisecondOne}');
+  print('2000 m: ${timeForMedia_2000.valueMinuteSecondMillisecondOne}');
+  print('2250 m: ${timeForMedia_2250.valueMinuteSecondMillisecondOne}');
+  print('2500 m: ${timeForMedia_2500.valueMinuteSecondMillisecondOne}');
+  print('2750 m: ${timeForMedia_2750.valueMinuteSecondMillisecondOne}');
+  print('3000 m: ${timeForMedia_3000.valueMinuteSecondMillisecondOne}');
 }

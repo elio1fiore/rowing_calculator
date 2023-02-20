@@ -3,6 +3,7 @@ import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:row_calculator/application/three_input_notifier.dart';
+import 'package:row_calculator/data/boat.dart';
 import 'package:row_calculator/shared/three_input/three_input_provider.dart';
 
 class ThreeInputPage extends ConsumerStatefulWidget {
@@ -30,23 +31,23 @@ class _ThreeInputPageState extends ConsumerState<ThreeInputPage> {
       },
     );
 
-    Map<String, String> validationMessages1(FormControl<String> x) {
-      final String valueMin = (x.value == null) ? '' : x.value!;
+    // Map<String, String> validationMessages1(FormControl<String> x) {
+    //   final String valueMin = (x.value == null) ? '' : x.value!;
 
-      if (valueMin.length < 3) {
-        return {
-          ValidationMessage.required: 'Campo richiesto',
-          ValidationMessage.minLength: 'Inserire i secondi e i decimi',
-          ValidationMessage.number: 'Inserire solo i numeri',
-        };
-      } else {
-        return {
-          ValidationMessage.required: 'Campo richiesto',
-          ValidationMessage.minLength: 'Inserire i decimi',
-          ValidationMessage.number: 'Inserire solo i numeri',
-        };
-      }
-    }
+    //   if (valueMin.length < 3) {
+    //     return {
+    //       ValidationMessage.required: 'Campo richiesto',
+    //       ValidationMessage.minLength: 'Inserire i secondi e i decimi',
+    //       ValidationMessage.number: 'Inserire solo i numeri',
+    //     };
+    //   } else {
+    //     return {
+    //       ValidationMessage.required: 'Campo richiesto',
+    //       ValidationMessage.minLength: 'Inserire i decimi',
+    //       ValidationMessage.number: 'Inserire solo i numeri',
+    //     };
+    //   }
+    // }
 
     Map<String, String> validationMessages2(FormControl<String> x) => {
           ValidationMessage.required: 'Campo richiesto',
@@ -83,7 +84,7 @@ class _ThreeInputPageState extends ConsumerState<ThreeInputPage> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
           child: ReactiveForm(
             formGroup: form,
             child: SingleChildScrollView(
@@ -100,26 +101,59 @@ class _ThreeInputPageState extends ConsumerState<ThreeInputPage> {
                           children: [
                             Container(
                               constraints: const BoxConstraints(minHeight: 80),
-                              child: ReactiveTextField<String>(
-                                expands: false,
-                                validationMessages: validationMessages1,
-                                controller: noty.controller1,
-                                autofocus: true,
-                                autocorrect: true,
+                              child: ReactiveDropdownField<String>(
+                                focusColor: Colors.transparent,
+                                menuMaxHeight: 350,
+                                borderRadius: BorderRadius.circular(15),
+                                isExpanded: true,
+                                readOnly: false,
                                 formControlName: 'inputOne',
-                                keyboardType: TextInputType.number,
-                                inputFormatters: [
-                                  MaskedInputFormatter('##:##:#')
-                                ],
+                                items: listBoat.map(
+                                  (boat) {
+                                    return DropdownMenuItem(
+                                      alignment: AlignmentDirectional.center,
+                                      key: ValueKey(boat.getHash),
+                                      value: boat.boatBest,
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                color: boat.color,
+                                              ),
+                                              height: 25,
+                                              child: const Text(''),
+                                            ),
+                                          ),
+                                          const Spacer(
+                                            flex: 1,
+                                          ),
+                                          Expanded(
+                                            flex: 3,
+                                            child: Text(
+                                              boat.name,
+                                              softWrap: false,
+                                              style: const TextStyle(
+                                                fontSize: 20,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ).toList(),
                                 style: const TextStyle(
                                   backgroundColor: Colors.transparent,
                                   color: Colors.black,
                                 ),
                                 decoration: InputDecoration(
-                                  contentPadding: const EdgeInsets.all(20.0),
-                                  suffixText: 'min',
+                                  contentPadding: const EdgeInsets.all(20),
                                   label: const Text(
-                                    'Miglior tempo',
+                                    'Barca',
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                   ),
@@ -138,8 +172,9 @@ class _ThreeInputPageState extends ConsumerState<ThreeInputPage> {
                                     color: Colors.black,
                                   ),
                                   border: OutlineInputBorder(
+                                    gapPadding: 20,
                                     borderRadius: BorderRadius.circular(20),
-                                    borderSide: const BorderSide(),
+                                    borderSide: const BorderSide(width: 20),
                                   ),
                                 ),
                               ),

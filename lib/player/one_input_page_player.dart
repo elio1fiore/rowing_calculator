@@ -19,8 +19,8 @@ class OneInputPagePlayer {
     final media = mediaCinquecentoCpx(watt: nWatt);
 
     List<TimeOnMeters> listTimeOnMeters = [];
-
-    for (var i = 1; i <= 24; i++) {
+    //24
+    for (var i = 1; i <= 3; i++) {
       final meterCalc = 250 * i;
 
       final intervalTime = timeFromMedia(media500: media, meters: meterCalc);
@@ -30,6 +30,7 @@ class OneInputPagePlayer {
 
       listTimeOnMeters.add(timeOnMeters);
     }
+    print(listTimeOnMeters.length);
 
     return OneInputPagePlayer(
         watt: nWatt, listTimeOnMeters: listTimeOnMeters, media500: media);
@@ -50,7 +51,7 @@ class OneInputPagePlayer {
 
     List<TimeOnMeters> listTimeOnMeters = [];
 
-    for (var i = 1; i <= 24; i++) {
+    for (var i = 1; i <= 3; i++) {
       final meterCalc = 250 * i;
 
       final intervalTime =

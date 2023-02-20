@@ -26,7 +26,7 @@ class ThreeInputPagePlayer {
     final pbSplit = personalBest.split(':');
     final minPb = int.parse(pbSplit[0]);
     final secPb = int.parse(pbSplit[1]);
-    final decPb = int.parse(pbSplit[2]);
+    // final decPb = int.parse(pbSplit[2]);
 
     final tSplit = time.split(':');
     final minT = int.parse(tSplit[0]);
@@ -35,8 +35,12 @@ class ThreeInputPagePlayer {
 
     final doubleMeters = double.parse(meters);
 
-    final personalBestIT =
-        IntervalTime(minutes: minPb, seconds: secPb, microsecond: decPb);
+    // final personalBestIT =
+    //     IntervalTime(minutes: minPb, seconds: secPb, microsecond: decPb);
+    final personalBestIT = IntervalTime(
+      minutes: minPb,
+      seconds: secPb,
+    );
 
     final timeIT =
         IntervalTime(minutes: minT, seconds: secT, millisecond: decT);
@@ -64,10 +68,11 @@ class ThreeInputPagePlayer {
     final pbSplit = personalBest.split(':');
     final minPb = int.parse(pbSplit[0]);
     final secPb = int.parse(pbSplit[1]);
-    final decPb = int.parse(pbSplit[2]);
 
-    final personalBestIT =
-        IntervalTime(minutes: minPb, seconds: secPb, microsecond: decPb);
+    final personalBestIT = IntervalTime(
+      minutes: minPb,
+      seconds: secPb,
+    );
     final doubleMeters = double.parse(meters);
     final doubleEnergyExp = double.parse(energyExp);
 

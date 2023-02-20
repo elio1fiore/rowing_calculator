@@ -37,8 +37,6 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
     'inputOne': FormControl<String>(
       validators: [
         Validators.required,
-        FormValidators.numberSplit,
-        Validators.minLength(6),
       ],
     ),
     'inputTwo': FormControl<String>(
@@ -142,14 +140,14 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
 
     if (selectedTime) {
       threeInputPagePlayer = ThreeInputPagePlayer.fromTime(
-        meters: _form.control('inputTwo').value,
         personalBest: _form.control('inputOne').value,
+        meters: _form.control('inputTwo').value,
         time: _form.control('inputThree').value,
       );
     } else {
       threeInputPagePlayer = ThreeInputPagePlayer.fromEnergyExp(
-        meters: _form.control('inputTwo').value,
         personalBest: _form.control('inputOne').value,
+        meters: _form.control('inputTwo').value,
         energyExp: _form.control('inputThree').value,
       );
     }

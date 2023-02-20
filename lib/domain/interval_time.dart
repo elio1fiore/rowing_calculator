@@ -34,7 +34,46 @@ class IntervalTime extends Duration {
     }
   }
 
-  String get valueMinuteSecondMillisecond {
+  String get valueMinuteSecondMillisecondTwo {
+    var minutesFormat = '';
+
+    if (minutes.toString().length == 1) {
+      minutesFormat = '0$minutes';
+    } else {
+      minutesFormat = '$minutes';
+    }
+
+    int revSec = seconds;
+    int revMill = millisecond;
+
+    var secondsFormat = '';
+
+    if (revSec.toString().length == 1) {
+      secondsFormat = '0$revSec';
+    } else {
+      secondsFormat = '$revSec';
+    }
+
+    // var milliFormat = '';
+
+    // if (revMill.toString().length == 1) {
+    //   milliFormat = '$revMill';
+    // } else if (revMill.toString().length == 2) {
+    //   final revMill_d = revMill / 10;
+    //   final revMill_dp = dp(revMill_d, 0);
+
+    //   milliFormat = '${revMill_dp.toInt()}';
+    // } else {
+    //   final revMill_d = revMill / 100;
+    //   final revMill_dp = dp(revMill_d, 0);
+
+    //   milliFormat = '${revMill_dp.toInt()}';
+    // }
+
+    return '$minutesFormat : $secondsFormat : $revMill';
+  }
+
+  String get valueMinuteSecondMillisecondOne {
     var minutesFormat = '';
 
     if (minutes.toString().length == 1) {

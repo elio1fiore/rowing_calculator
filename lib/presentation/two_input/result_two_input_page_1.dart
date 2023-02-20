@@ -41,10 +41,10 @@ class ResultTwoInputPage1 extends ConsumerWidget {
                         misura: 'Watt', value: '${player1.watt.toInt()}'),
                     CardResult(
                         misura: 'Tempo',
-                        value: player1.time.valueMinuteSecondMillisecond),
+                        value: player1.time.valueMinuteSecondMillisecondOne),
                     CardResult(
                       misura: 'Media/500',
-                      value: player1.media500.valueMinuteSecondMillisecond,
+                      value: player1.media500.valueMinuteSecondMillisecondOne,
                     ),
                     CardResult(misura: 'Metri', value: '${player1.meters}'),
                   ],

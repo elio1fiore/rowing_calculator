@@ -45,14 +45,15 @@ class ResultTwoInputPage2 extends ConsumerWidget {
                         value: '${player2.percentualeRichiesta.toInt()}'),
                     CardResult(
                         misura: 'Media/500',
-                        value: player2.media500.valueMinuteSecondMillisecond),
+                        value:
+                            player2.media500.valueMinuteSecondMillisecondOne),
                     CardResult(
                         misura: 'Watt Percentuale',
                         value: '${player2.wattInPercentuale.toInt()}'),
                     CardResult(
                         misura: 'Media percentuale',
                         value:
-                            '${player2.media500InPercentuale.valueMinuteSecondMillisecond}'),
+                            '${player2.media500InPercentuale.valueMinuteSecondMillisecondOne}'),
                   ],
                 ),
               ),

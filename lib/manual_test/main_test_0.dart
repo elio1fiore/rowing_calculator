@@ -10,7 +10,7 @@ void main(List<String> args) {
 
   final a = timeFromMedia(media500: mediaW, meters: 500);
 
-  print('a ${a.valueMinuteSecondMillisecond}');
+  print('a ${a.valueMinuteSecondMillisecondOne}');
 
   final min = mediaW.minutes;
   final sec = mediaW.seconds;
@@ -19,5 +19,5 @@ void main(List<String> args) {
   final media = IntervalTime(minutes: min, seconds: sec, millisecond: dec);
 
   final b = timeFromMedia(media500: media, meters: 500);
-  print('b ${b.valueMinuteSecondMillisecond}');
+  print('b ${b.valueMinuteSecondMillisecondOne}');
 }

@@ -11,7 +11,7 @@ void main() {
       metri: meters, personalBest: personalBest, time: time);
   final watt = calcWatt(mediaCinquecento: media);
 
-  print(media.valueMinuteSecondMillisecond);
+  print(media.valueMinuteSecondMillisecondOne);
   print('$de %');
   print('$watt watt');
 }

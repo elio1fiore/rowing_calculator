@@ -72,8 +72,9 @@ class _ResultThreeInputPageT extends ConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     CardResult(
-                      misura: 'Personal',
-                      value: player.personalBest.valueMinuteSecondMillisecond,
+                      misura: 'Best Time',
+                      value:
+                          player.personalBest.valueMinuteSecondMillisecondOne,
                     ),
                     CardResult(
                       misura: 'Metri',
@@ -81,11 +82,11 @@ class _ResultThreeInputPageT extends ConsumerWidget {
                     ),
                     CardResult(
                       misura: 'Tempo',
-                      value: player.time.valueMinuteSecondMillisecond,
+                      value: player.time.valueMinuteSecondMillisecondOne,
                     ),
                     CardResult(
                       misura: 'Media 500',
-                      value: player.media500.valueMinuteSecondMillisecond,
+                      value: player.media500.valueMinuteSecondMillisecondOne,
                     ),
                     CardResult(
                       misura: 'Dispendio %',
@@ -152,7 +153,8 @@ class _ResultThreeInputPageD extends ConsumerWidget {
                   children: [
                     CardResult(
                       misura: 'Miglior Tempo',
-                      value: player.personalBest.valueMinuteSecondMillisecond,
+                      value:
+                          player.personalBest.valueMinuteSecondMillisecondOne,
                     ),
                     CardResult(
                       misura: 'Metri',
@@ -160,11 +162,11 @@ class _ResultThreeInputPageD extends ConsumerWidget {
                     ),
                     CardResult(
                       misura: 'Tempo Previsto',
-                      value: player.time.valueMinuteSecondMillisecond,
+                      value: player.time.valueMinuteSecondMillisecondOne,
                     ),
                     CardResult(
                       misura: 'Media 500',
-                      value: player.media500.valueMinuteSecondMillisecond,
+                      value: player.media500.valueMinuteSecondMillisecondOne,
                     ),
                     CardResult(
                       misura: 'Dispendio %',

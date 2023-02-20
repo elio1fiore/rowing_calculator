@@ -27,6 +27,7 @@ dependencies:
   flutter_multi_formatter: ^2.7.5
   material_design_icons_flutter: ^5.0.6996
   geolocator: ^9.0.2
+  rename: ^2.0.1
 
 
 dev_dependencies:

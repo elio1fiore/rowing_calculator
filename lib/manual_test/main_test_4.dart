@@ -8,6 +8,6 @@ void main() {
   final mediaCinquecento = mediaCinquecentoCpx(watt: watt);
   final meters = calcMeters(media: mediaCinquecento, time: time);
 
-  print(mediaCinquecento.valueMinuteSecondMillisecond);
+  print(mediaCinquecento.valueMinuteSecondMillisecondOne);
   print('meters: $meters');
 }

@@ -97,11 +97,17 @@ double wattXPercentual({required double watt, required double numberPerc}) {
 }
 
 IntervalTime mediaXPercentual({required double wattXPercentual}) {
+  print('WATT PERC');
+  print(wattXPercentual);
+  print('Const a');
   final a = 2.8 / wattXPercentual;
-
+  print(a);
+  print('elevazione');
   final pow_a = pow(a, 1 / 3).toDouble();
-
+  print(pow_a);
+  print('beta');
   final beta = (pow_a * 500) / Duration.secondsPerDay;
+  print(beta);
 
   return IntervalTime.fromBeta(beta);
 }

@@ -13,5 +13,5 @@ class TimeOnMeters {
   String get metersAndUnit => '${meters.toString()} $unit';
 
   // ignore: unnecessary_string_interpolations
-  String get durationMask => '${intervalTime.valueMinuteSecondMillisecond}';
+  String get durationMask => '${intervalTime.valueMinuteSecondMillisecondOne}';
 }
