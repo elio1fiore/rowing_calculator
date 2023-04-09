@@ -1,6 +1,6 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:row_calculator/domain/speed_failure.dart';
+import 'package:row_calculator/speed/domain/speed_failure.dart';
 
 class RealtimeSpeed {
   Stream<Either<SpeedFailure, Position>> watchPosition() async* {

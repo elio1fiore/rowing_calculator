@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:row_calculator/speed/shared/speed_provider.dart';
+import 'package:row_calculator/speed/provider/speed_provider.dart';
 
 class SpeedTestPage extends ConsumerWidget {
   const SpeedTestPage({super.key});
