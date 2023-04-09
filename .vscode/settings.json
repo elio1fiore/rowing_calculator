@@ -2,6 +2,12 @@
     "cSpell.words": [
         "autocorrect",
         "checkmark",
-        "dpvalue"
-    ]
+        "dpvalue",
+        "RPLF",
+        "RPLM",
+        "XPLF",
+        "XPLM",
+        "XPSF"
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

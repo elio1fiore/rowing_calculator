@@ -16,16 +16,16 @@ dependencies:
   fpdart: ^0.2.0
   freezed_annotation: ^2.1.0
   reactive_forms: ^13.0.0
-  sembast: ^3.2.0+1
   path_provider: ^2.0.11
   path: ^1.8.1
   json_annotation: ^4.6.0
   flutter_svg: ^1.1.3
-  rxdart: ^0.27.5
   dropdown_button2: ^1.8.1
   intl: ^0.17.0
   flutter_multi_formatter: ^2.7.5
   material_design_icons_flutter: ^5.0.6996
+  geolocator: ^9.0.2
+  rename: ^2.0.1
 
 
 dev_dependencies:
@@ -35,7 +35,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^2.1.0+1
-  json_serializable: ^6.3.1
+  json_serializable: ^6.3.1 
 
 flutter:
   uses-material-design: true

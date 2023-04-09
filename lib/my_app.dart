@@ -11,6 +11,7 @@ class MyApp extends ConsumerWidget {
     final appRouter = ref.watch(appRouterProvider);
 
     return MaterialApp.router(
+      theme: ThemeData(useMaterial3: true),
       title: 'Row Calculator',
       routerDelegate: appRouter.delegate(),
       debugShowCheckedModeBanner: false,
