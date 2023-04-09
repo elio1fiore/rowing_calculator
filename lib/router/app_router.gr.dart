@@ -13,13 +13,10 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i9;
 import 'package:flutter/material.dart' as _i10;
-import 'package:row_calculator/domain/presentation/list_view_methods.dart'
-    as _i1;
 import 'package:row_calculator/calc/presentation/one_input/one_input_page.dart'
     as _i2;
 import 'package:row_calculator/calc/presentation/one_input/result_one_input_page.dart'
     as _i3;
-import 'package:row_calculator/speed/presentation/speed_test.dart' as _i8;
 import 'package:row_calculator/calc/presentation/three_input/result_three_input_page.dart'
     as _i7;
 import 'package:row_calculator/calc/presentation/three_input/three_input_page.dart'
@@ -28,6 +25,9 @@ import 'package:row_calculator/calc/presentation/two_input/result_two_input_page
     as _i5;
 import 'package:row_calculator/calc/presentation/two_input/two_input_page.dart'
     as _i4;
+import 'package:row_calculator/domain/presentation/list_view_methods.dart'
+    as _i1;
+import 'package:row_calculator/speed/presentation/speed_test.dart' as _i8;
 
 class AppRouter extends _i9.RootStackRouter {
   AppRouter([_i10.GlobalKey<_i10.NavigatorState>? navigatorKey])
@@ -36,11 +36,9 @@ class AppRouter extends _i9.RootStackRouter {
   @override
   final Map<String, _i9.PageFactory> pagesMap = {
     ListViewMethods.name: (routeData) {
-      final args = routeData.argsAs<ListViewMethodsArgs>(
-          orElse: () => const ListViewMethodsArgs());
       return _i9.AdaptivePage<dynamic>(
         routeData: routeData,
-        child: _i1.ListViewMethods(key: args.key),
+        child: const _i1.ListViewMethods(),
       );
     },
     OneInputRoute.name: (routeData) {
@@ -128,26 +126,14 @@ class AppRouter extends _i9.RootStackRouter {
 
 /// generated route for
 /// [_i1.ListViewMethods]
-class ListViewMethods extends _i9.PageRouteInfo<ListViewMethodsArgs> {
-  ListViewMethods({_i10.Key? key})
+class ListViewMethods extends _i9.PageRouteInfo<void> {
+  const ListViewMethods()
       : super(
           ListViewMethods.name,
           path: '/',
-          args: ListViewMethodsArgs(key: key),
         );
 
   static const String name = 'ListViewMethods';
-}
-
-class ListViewMethodsArgs {
-  const ListViewMethodsArgs({this.key});
-
-  final _i10.Key? key;
-
-  @override
-  String toString() {
-    return 'ListViewMethodsArgs{key: $key}';
-  }
 }
 
 /// generated route for
