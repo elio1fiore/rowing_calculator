@@ -1,12 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:row_calculator/presentation/three_input/result_three_input_page.dart';
-import 'package:row_calculator/presentation/three_input/three_input_page.dart';
-import 'package:row_calculator/presentation/two_input/result_two_input_page.dart';
-import 'package:row_calculator/presentation/two_input/two_input_page.dart';
+import 'package:row_calculator/speed/presentation/speed_test.dart';
+import 'package:row_calculator/calc/presentation/three_input/result_three_input_page.dart';
+import 'package:row_calculator/calc/presentation/three_input/three_input_page.dart';
+import 'package:row_calculator/calc/presentation/two_input/result_two_input_page.dart';
+import 'package:row_calculator/calc/presentation/two_input/two_input_page.dart';
 
-import '../presentation/list_view_methods.dart';
-import '../presentation/one_input/one_input_page.dart';
-import '../presentation/one_input/result_one_input_page.dart';
+import '../domain/presentation/list_view_methods.dart';
+import '../calc/presentation/one_input/one_input_page.dart';
+import '../calc/presentation/one_input/result_one_input_page.dart';
 
 @AdaptiveAutoRouter(
   routes: [
@@ -17,7 +18,8 @@ import '../presentation/one_input/result_one_input_page.dart';
     AutoRoute(page: ResultTwoInputPage, path: NavigatorPath.resultTwoInputPage),
     AutoRoute(page: ThreeInputPage, path: NavigatorPath.threeInputPage),
     AutoRoute(
-        page: ResultThreeInputPage, path: NavigatorPath.resultThreeInputPage)
+        page: ResultThreeInputPage, path: NavigatorPath.resultThreeInputPage),
+    AutoRoute(page: SpeedTestPage, path: NavigatorPath.speedPageTest),
   ],
   replaceInRouteName: 'Page,Route',
 )
