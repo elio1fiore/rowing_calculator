@@ -11,11 +11,11 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i9;
-import 'package:flutter/material.dart' as _i10;
-import 'package:row_calculator/calc/presentation/one_input/one_input_page.dart'
+import 'package:auto_route/auto_route.dart' as _i10;
+import 'package:flutter/material.dart' as _i11;
+import 'package:row_calculator/one_input/presentation/one_input_page.dart'
     as _i2;
-import 'package:row_calculator/calc/presentation/one_input/result_one_input_page.dart'
+import 'package:row_calculator/one_input/presentation/result_one_input_page.dart'
     as _i3;
 import 'package:row_calculator/calc/presentation/three_input/result_three_input_page.dart'
     as _i7;
@@ -25,24 +25,24 @@ import 'package:row_calculator/calc/presentation/two_input/result_two_input_page
     as _i5;
 import 'package:row_calculator/calc/presentation/two_input/two_input_page.dart'
     as _i4;
-import 'package:row_calculator/domain/presentation/list_view_methods.dart'
-    as _i1;
+import 'package:row_calculator/core/presentation/list_view_methods.dart' as _i1;
+import 'package:row_calculator/hits/presentation/count_hits_page.dart' as _i9;
 import 'package:row_calculator/speed/presentation/speed_test.dart' as _i8;
 
-class AppRouter extends _i9.RootStackRouter {
-  AppRouter([_i10.GlobalKey<_i10.NavigatorState>? navigatorKey])
+class AppRouter extends _i10.RootStackRouter {
+  AppRouter([_i11.GlobalKey<_i11.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i9.PageFactory> pagesMap = {
+  final Map<String, _i10.PageFactory> pagesMap = {
     ListViewMethods.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
+      return _i10.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i1.ListViewMethods(),
       );
     },
     OneInputRoute.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
+      return _i10.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i2.OneInputPage(),
       );
@@ -50,83 +50,93 @@ class AppRouter extends _i9.RootStackRouter {
     ResultOneInputRoute.name: (routeData) {
       final args = routeData.argsAs<ResultOneInputRouteArgs>(
           orElse: () => const ResultOneInputRouteArgs());
-      return _i9.AdaptivePage<dynamic>(
+      return _i10.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i3.ResultOneInputPage(key: args.key),
       );
     },
     TwoInputRoute.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
+      return _i10.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i4.TwoInputPage(),
       );
     },
     ResultTwoInputRoute.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
+      return _i10.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i5.ResultTwoInputPage(),
       );
     },
     ThreeInputRoute.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
+      return _i10.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i6.ThreeInputPage(),
       );
     },
     ResultThreeInputRoute.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
+      return _i10.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i7.ResultThreeInputPage(),
       );
     },
     SpeedTestRoute.name: (routeData) {
-      return _i9.AdaptivePage<dynamic>(
+      return _i10.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i8.SpeedTestPage(),
+      );
+    },
+    CountHitsRoute.name: (routeData) {
+      return _i10.AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const _i9.CountHitsPage(),
       );
     },
   };
 
   @override
-  List<_i9.RouteConfig> get routes => [
-        _i9.RouteConfig(
+  List<_i10.RouteConfig> get routes => [
+        _i10.RouteConfig(
           ListViewMethods.name,
           path: '/',
         ),
-        _i9.RouteConfig(
+        _i10.RouteConfig(
           OneInputRoute.name,
           path: '/OneInput',
         ),
-        _i9.RouteConfig(
+        _i10.RouteConfig(
           ResultOneInputRoute.name,
           path: '/ResultOneInputPage',
         ),
-        _i9.RouteConfig(
+        _i10.RouteConfig(
           TwoInputRoute.name,
           path: '/TwoInput',
         ),
-        _i9.RouteConfig(
+        _i10.RouteConfig(
           ResultTwoInputRoute.name,
           path: '/ResultTwoInputPage',
         ),
-        _i9.RouteConfig(
+        _i10.RouteConfig(
           ThreeInputRoute.name,
           path: '/ThreeInput',
         ),
-        _i9.RouteConfig(
+        _i10.RouteConfig(
           ResultThreeInputRoute.name,
           path: '/ResultThreeInputPage',
         ),
-        _i9.RouteConfig(
+        _i10.RouteConfig(
           SpeedTestRoute.name,
-          path: '/speedPageTest',
+          path: '/SpeedPageTest',
+        ),
+        _i10.RouteConfig(
+          CountHitsRoute.name,
+          path: '/CountHits',
         ),
       ];
 }
 
 /// generated route for
 /// [_i1.ListViewMethods]
-class ListViewMethods extends _i9.PageRouteInfo<void> {
+class ListViewMethods extends _i10.PageRouteInfo<void> {
   const ListViewMethods()
       : super(
           ListViewMethods.name,
@@ -138,7 +148,7 @@ class ListViewMethods extends _i9.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.OneInputPage]
-class OneInputRoute extends _i9.PageRouteInfo<void> {
+class OneInputRoute extends _i10.PageRouteInfo<void> {
   const OneInputRoute()
       : super(
           OneInputRoute.name,
@@ -150,8 +160,8 @@ class OneInputRoute extends _i9.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.ResultOneInputPage]
-class ResultOneInputRoute extends _i9.PageRouteInfo<ResultOneInputRouteArgs> {
-  ResultOneInputRoute({_i10.Key? key})
+class ResultOneInputRoute extends _i10.PageRouteInfo<ResultOneInputRouteArgs> {
+  ResultOneInputRoute({_i11.Key? key})
       : super(
           ResultOneInputRoute.name,
           path: '/ResultOneInputPage',
@@ -164,7 +174,7 @@ class ResultOneInputRoute extends _i9.PageRouteInfo<ResultOneInputRouteArgs> {
 class ResultOneInputRouteArgs {
   const ResultOneInputRouteArgs({this.key});
 
-  final _i10.Key? key;
+  final _i11.Key? key;
 
   @override
   String toString() {
@@ -174,7 +184,7 @@ class ResultOneInputRouteArgs {
 
 /// generated route for
 /// [_i4.TwoInputPage]
-class TwoInputRoute extends _i9.PageRouteInfo<void> {
+class TwoInputRoute extends _i10.PageRouteInfo<void> {
   const TwoInputRoute()
       : super(
           TwoInputRoute.name,
@@ -186,7 +196,7 @@ class TwoInputRoute extends _i9.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.ResultTwoInputPage]
-class ResultTwoInputRoute extends _i9.PageRouteInfo<void> {
+class ResultTwoInputRoute extends _i10.PageRouteInfo<void> {
   const ResultTwoInputRoute()
       : super(
           ResultTwoInputRoute.name,
@@ -198,7 +208,7 @@ class ResultTwoInputRoute extends _i9.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.ThreeInputPage]
-class ThreeInputRoute extends _i9.PageRouteInfo<void> {
+class ThreeInputRoute extends _i10.PageRouteInfo<void> {
   const ThreeInputRoute()
       : super(
           ThreeInputRoute.name,
@@ -210,7 +220,7 @@ class ThreeInputRoute extends _i9.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i7.ResultThreeInputPage]
-class ResultThreeInputRoute extends _i9.PageRouteInfo<void> {
+class ResultThreeInputRoute extends _i10.PageRouteInfo<void> {
   const ResultThreeInputRoute()
       : super(
           ResultThreeInputRoute.name,
@@ -222,12 +232,24 @@ class ResultThreeInputRoute extends _i9.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i8.SpeedTestPage]
-class SpeedTestRoute extends _i9.PageRouteInfo<void> {
+class SpeedTestRoute extends _i10.PageRouteInfo<void> {
   const SpeedTestRoute()
       : super(
           SpeedTestRoute.name,
-          path: '/speedPageTest',
+          path: '/SpeedPageTest',
         );
 
   static const String name = 'SpeedTestRoute';
+}
+
+/// generated route for
+/// [_i9.CountHitsPage]
+class CountHitsRoute extends _i10.PageRouteInfo<void> {
+  const CountHitsRoute()
+      : super(
+          CountHitsRoute.name,
+          path: '/CountHits',
+        );
+
+  static const String name = 'CountHitsRoute';
 }
