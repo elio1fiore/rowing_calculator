@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/calc/domain/functionality.dart';
 import 'package:row_calculator/router/app_router.dart';
-import 'package:row_calculator/shared/router_provider.dart';
 
 class ListViewMethods extends ConsumerWidget {
   const ListViewMethods({
