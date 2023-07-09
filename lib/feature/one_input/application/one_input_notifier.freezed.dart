@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'one_input_notifier.dart';
 
@@ -26,10 +26,10 @@ mixin _$OneInputState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? inputPageMinute,
-    TResult Function()? inputPageWatt,
-    TResult Function()? calculateInProgress,
-    TResult Function(OneInputPagePlayer player)? resultPage,
+    TResult? Function()? inputPageMinute,
+    TResult? Function()? inputPageWatt,
+    TResult? Function()? calculateInProgress,
+    TResult? Function(OneInputPagePlayer player)? resultPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$OneInputState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InputPageMinute value)? inputPageMinute,
-    TResult Function(_InputPageWatt value)? inputPageWatt,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
+    TResult? Function(_InputPageMinute value)? inputPageMinute,
+    TResult? Function(_InputPageWatt value)? inputPageWatt,
+    TResult? Function(_CalculateInProgress value)? calculateInProgress,
+    TResult? Function(_ResultPage value)? resultPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,17 +72,18 @@ mixin _$OneInputState {
 abstract class $OneInputStateCopyWith<$Res> {
   factory $OneInputStateCopyWith(
           OneInputState value, $Res Function(OneInputState) then) =
-      _$OneInputStateCopyWithImpl<$Res>;
+      _$OneInputStateCopyWithImpl<$Res, OneInputState>;
 }
 
 /// @nodoc
-class _$OneInputStateCopyWithImpl<$Res>
+class _$OneInputStateCopyWithImpl<$Res, $Val extends OneInputState>
     implements $OneInputStateCopyWith<$Res> {
   _$OneInputStateCopyWithImpl(this._value, this._then);
 
-  final OneInputState _value;
   // ignore: unused_field
-  final $Res Function(OneInputState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -94,14 +95,11 @@ abstract class _$$_InputPageMinuteCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InputPageMinuteCopyWithImpl<$Res>
-    extends _$OneInputStateCopyWithImpl<$Res>
+    extends _$OneInputStateCopyWithImpl<$Res, _$_InputPageMinute>
     implements _$$_InputPageMinuteCopyWith<$Res> {
   __$$_InputPageMinuteCopyWithImpl(
       _$_InputPageMinute _value, $Res Function(_$_InputPageMinute) _then)
-      : super(_value, (v) => _then(v as _$_InputPageMinute));
-
-  @override
-  _$_InputPageMinute get _value => super._value as _$_InputPageMinute;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -137,10 +135,10 @@ class _$_InputPageMinute implements _InputPageMinute {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? inputPageMinute,
-    TResult Function()? inputPageWatt,
-    TResult Function()? calculateInProgress,
-    TResult Function(OneInputPagePlayer player)? resultPage,
+    TResult? Function()? inputPageMinute,
+    TResult? Function()? inputPageWatt,
+    TResult? Function()? calculateInProgress,
+    TResult? Function(OneInputPagePlayer player)? resultPage,
   }) {
     return inputPageMinute?.call();
   }
@@ -174,10 +172,10 @@ class _$_InputPageMinute implements _InputPageMinute {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InputPageMinute value)? inputPageMinute,
-    TResult Function(_InputPageWatt value)? inputPageWatt,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
+    TResult? Function(_InputPageMinute value)? inputPageMinute,
+    TResult? Function(_InputPageWatt value)? inputPageWatt,
+    TResult? Function(_CalculateInProgress value)? calculateInProgress,
+    TResult? Function(_ResultPage value)? resultPage,
   }) {
     return inputPageMinute?.call(this);
   }
@@ -211,14 +209,11 @@ abstract class _$$_InputPageWattCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InputPageWattCopyWithImpl<$Res>
-    extends _$OneInputStateCopyWithImpl<$Res>
+    extends _$OneInputStateCopyWithImpl<$Res, _$_InputPageWatt>
     implements _$$_InputPageWattCopyWith<$Res> {
   __$$_InputPageWattCopyWithImpl(
       _$_InputPageWatt _value, $Res Function(_$_InputPageWatt) _then)
-      : super(_value, (v) => _then(v as _$_InputPageWatt));
-
-  @override
-  _$_InputPageWatt get _value => super._value as _$_InputPageWatt;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -254,10 +249,10 @@ class _$_InputPageWatt implements _InputPageWatt {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? inputPageMinute,
-    TResult Function()? inputPageWatt,
-    TResult Function()? calculateInProgress,
-    TResult Function(OneInputPagePlayer player)? resultPage,
+    TResult? Function()? inputPageMinute,
+    TResult? Function()? inputPageWatt,
+    TResult? Function()? calculateInProgress,
+    TResult? Function(OneInputPagePlayer player)? resultPage,
   }) {
     return inputPageWatt?.call();
   }
@@ -291,10 +286,10 @@ class _$_InputPageWatt implements _InputPageWatt {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InputPageMinute value)? inputPageMinute,
-    TResult Function(_InputPageWatt value)? inputPageWatt,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
+    TResult? Function(_InputPageMinute value)? inputPageMinute,
+    TResult? Function(_InputPageWatt value)? inputPageWatt,
+    TResult? Function(_CalculateInProgress value)? calculateInProgress,
+    TResult? Function(_ResultPage value)? resultPage,
   }) {
     return inputPageWatt?.call(this);
   }
@@ -328,14 +323,11 @@ abstract class _$$_CalculateInProgressCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CalculateInProgressCopyWithImpl<$Res>
-    extends _$OneInputStateCopyWithImpl<$Res>
+    extends _$OneInputStateCopyWithImpl<$Res, _$_CalculateInProgress>
     implements _$$_CalculateInProgressCopyWith<$Res> {
   __$$_CalculateInProgressCopyWithImpl(_$_CalculateInProgress _value,
       $Res Function(_$_CalculateInProgress) _then)
-      : super(_value, (v) => _then(v as _$_CalculateInProgress));
-
-  @override
-  _$_CalculateInProgress get _value => super._value as _$_CalculateInProgress;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -371,10 +363,10 @@ class _$_CalculateInProgress implements _CalculateInProgress {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? inputPageMinute,
-    TResult Function()? inputPageWatt,
-    TResult Function()? calculateInProgress,
-    TResult Function(OneInputPagePlayer player)? resultPage,
+    TResult? Function()? inputPageMinute,
+    TResult? Function()? inputPageWatt,
+    TResult? Function()? calculateInProgress,
+    TResult? Function(OneInputPagePlayer player)? resultPage,
   }) {
     return calculateInProgress?.call();
   }
@@ -408,10 +400,10 @@ class _$_CalculateInProgress implements _CalculateInProgress {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InputPageMinute value)? inputPageMinute,
-    TResult Function(_InputPageWatt value)? inputPageWatt,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
+    TResult? Function(_InputPageMinute value)? inputPageMinute,
+    TResult? Function(_InputPageWatt value)? inputPageWatt,
+    TResult? Function(_CalculateInProgress value)? calculateInProgress,
+    TResult? Function(_ResultPage value)? resultPage,
   }) {
     return calculateInProgress?.call(this);
   }
@@ -441,26 +433,25 @@ abstract class _$$_ResultPageCopyWith<$Res> {
   factory _$$_ResultPageCopyWith(
           _$_ResultPage value, $Res Function(_$_ResultPage) then) =
       __$$_ResultPageCopyWithImpl<$Res>;
+  @useResult
   $Res call({OneInputPagePlayer player});
 }
 
 /// @nodoc
 class __$$_ResultPageCopyWithImpl<$Res>
-    extends _$OneInputStateCopyWithImpl<$Res>
+    extends _$OneInputStateCopyWithImpl<$Res, _$_ResultPage>
     implements _$$_ResultPageCopyWith<$Res> {
   __$$_ResultPageCopyWithImpl(
       _$_ResultPage _value, $Res Function(_$_ResultPage) _then)
-      : super(_value, (v) => _then(v as _$_ResultPage));
+      : super(_value, _then);
 
-  @override
-  _$_ResultPage get _value => super._value as _$_ResultPage;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? player = freezed,
   }) {
     return _then(_$_ResultPage(
-      player: player == freezed
+      player: freezed == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
               as OneInputPagePlayer,
@@ -495,6 +486,7 @@ class _$_ResultPage implements _ResultPage {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ResultPageCopyWith<_$_ResultPage> get copyWith =>
       __$$_ResultPageCopyWithImpl<_$_ResultPage>(this, _$identity);
 
@@ -512,10 +504,10 @@ class _$_ResultPage implements _ResultPage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? inputPageMinute,
-    TResult Function()? inputPageWatt,
-    TResult Function()? calculateInProgress,
-    TResult Function(OneInputPagePlayer player)? resultPage,
+    TResult? Function()? inputPageMinute,
+    TResult? Function()? inputPageWatt,
+    TResult? Function()? calculateInProgress,
+    TResult? Function(OneInputPagePlayer player)? resultPage,
   }) {
     return resultPage?.call(player);
   }
@@ -549,10 +541,10 @@ class _$_ResultPage implements _ResultPage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_InputPageMinute value)? inputPageMinute,
-    TResult Function(_InputPageWatt value)? inputPageWatt,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
+    TResult? Function(_InputPageMinute value)? inputPageMinute,
+    TResult? Function(_InputPageWatt value)? inputPageWatt,
+    TResult? Function(_CalculateInProgress value)? calculateInProgress,
+    TResult? Function(_ResultPage value)? resultPage,
   }) {
     return resultPage?.call(this);
   }

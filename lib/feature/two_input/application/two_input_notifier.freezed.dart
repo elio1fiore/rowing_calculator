@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'two_input_notifier.dart';
 
@@ -27,11 +27,11 @@ mixin _$TwoInputState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? inputPageWT,
-    TResult Function()? inputPageMT,
-    TResult Function()? inputPageMP,
-    TResult Function()? calculateInProgress,
-    TResult Function(TwoInputPagePlayer player)? resultPage,
+    TResult? Function()? inputPageWT,
+    TResult? Function()? inputPageMT,
+    TResult? Function()? inputPageMP,
+    TResult? Function()? calculateInProgress,
+    TResult? Function(TwoInputPagePlayer player)? resultPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,11 +55,11 @@ mixin _$TwoInputState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InputPageWT value)? inputPageWT,
-    TResult Function(InputPageMT value)? inputPageMT,
-    TResult Function(InputPageMP value)? inputPageMP,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
+    TResult? Function(InputPageWT value)? inputPageWT,
+    TResult? Function(InputPageMT value)? inputPageMT,
+    TResult? Function(InputPageMP value)? inputPageMP,
+    TResult? Function(_CalculateInProgress value)? calculateInProgress,
+    TResult? Function(_ResultPage value)? resultPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,17 +78,18 @@ mixin _$TwoInputState {
 abstract class $TwoInputStateCopyWith<$Res> {
   factory $TwoInputStateCopyWith(
           TwoInputState value, $Res Function(TwoInputState) then) =
-      _$TwoInputStateCopyWithImpl<$Res>;
+      _$TwoInputStateCopyWithImpl<$Res, TwoInputState>;
 }
 
 /// @nodoc
-class _$TwoInputStateCopyWithImpl<$Res>
+class _$TwoInputStateCopyWithImpl<$Res, $Val extends TwoInputState>
     implements $TwoInputStateCopyWith<$Res> {
   _$TwoInputStateCopyWithImpl(this._value, this._then);
 
-  final TwoInputState _value;
   // ignore: unused_field
-  final $Res Function(TwoInputState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -100,14 +101,11 @@ abstract class _$$InputPageWTCopyWith<$Res> {
 
 /// @nodoc
 class __$$InputPageWTCopyWithImpl<$Res>
-    extends _$TwoInputStateCopyWithImpl<$Res>
+    extends _$TwoInputStateCopyWithImpl<$Res, _$InputPageWT>
     implements _$$InputPageWTCopyWith<$Res> {
   __$$InputPageWTCopyWithImpl(
       _$InputPageWT _value, $Res Function(_$InputPageWT) _then)
-      : super(_value, (v) => _then(v as _$InputPageWT));
-
-  @override
-  _$InputPageWT get _value => super._value as _$InputPageWT;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -144,11 +142,11 @@ class _$InputPageWT implements InputPageWT {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? inputPageWT,
-    TResult Function()? inputPageMT,
-    TResult Function()? inputPageMP,
-    TResult Function()? calculateInProgress,
-    TResult Function(TwoInputPagePlayer player)? resultPage,
+    TResult? Function()? inputPageWT,
+    TResult? Function()? inputPageMT,
+    TResult? Function()? inputPageMP,
+    TResult? Function()? calculateInProgress,
+    TResult? Function(TwoInputPagePlayer player)? resultPage,
   }) {
     return inputPageWT?.call();
   }
@@ -184,11 +182,11 @@ class _$InputPageWT implements InputPageWT {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InputPageWT value)? inputPageWT,
-    TResult Function(InputPageMT value)? inputPageMT,
-    TResult Function(InputPageMP value)? inputPageMP,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
+    TResult? Function(InputPageWT value)? inputPageWT,
+    TResult? Function(InputPageMT value)? inputPageMT,
+    TResult? Function(InputPageMP value)? inputPageMP,
+    TResult? Function(_CalculateInProgress value)? calculateInProgress,
+    TResult? Function(_ResultPage value)? resultPage,
   }) {
     return inputPageWT?.call(this);
   }
@@ -223,14 +221,11 @@ abstract class _$$InputPageMTCopyWith<$Res> {
 
 /// @nodoc
 class __$$InputPageMTCopyWithImpl<$Res>
-    extends _$TwoInputStateCopyWithImpl<$Res>
+    extends _$TwoInputStateCopyWithImpl<$Res, _$InputPageMT>
     implements _$$InputPageMTCopyWith<$Res> {
   __$$InputPageMTCopyWithImpl(
       _$InputPageMT _value, $Res Function(_$InputPageMT) _then)
-      : super(_value, (v) => _then(v as _$InputPageMT));
-
-  @override
-  _$InputPageMT get _value => super._value as _$InputPageMT;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -267,11 +262,11 @@ class _$InputPageMT implements InputPageMT {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? inputPageWT,
-    TResult Function()? inputPageMT,
-    TResult Function()? inputPageMP,
-    TResult Function()? calculateInProgress,
-    TResult Function(TwoInputPagePlayer player)? resultPage,
+    TResult? Function()? inputPageWT,
+    TResult? Function()? inputPageMT,
+    TResult? Function()? inputPageMP,
+    TResult? Function()? calculateInProgress,
+    TResult? Function(TwoInputPagePlayer player)? resultPage,
   }) {
     return inputPageMT?.call();
   }
@@ -307,11 +302,11 @@ class _$InputPageMT implements InputPageMT {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InputPageWT value)? inputPageWT,
-    TResult Function(InputPageMT value)? inputPageMT,
-    TResult Function(InputPageMP value)? inputPageMP,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
+    TResult? Function(InputPageWT value)? inputPageWT,
+    TResult? Function(InputPageMT value)? inputPageMT,
+    TResult? Function(InputPageMP value)? inputPageMP,
+    TResult? Function(_CalculateInProgress value)? calculateInProgress,
+    TResult? Function(_ResultPage value)? resultPage,
   }) {
     return inputPageMT?.call(this);
   }
@@ -346,14 +341,11 @@ abstract class _$$InputPageMPCopyWith<$Res> {
 
 /// @nodoc
 class __$$InputPageMPCopyWithImpl<$Res>
-    extends _$TwoInputStateCopyWithImpl<$Res>
+    extends _$TwoInputStateCopyWithImpl<$Res, _$InputPageMP>
     implements _$$InputPageMPCopyWith<$Res> {
   __$$InputPageMPCopyWithImpl(
       _$InputPageMP _value, $Res Function(_$InputPageMP) _then)
-      : super(_value, (v) => _then(v as _$InputPageMP));
-
-  @override
-  _$InputPageMP get _value => super._value as _$InputPageMP;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -390,11 +382,11 @@ class _$InputPageMP implements InputPageMP {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? inputPageWT,
-    TResult Function()? inputPageMT,
-    TResult Function()? inputPageMP,
-    TResult Function()? calculateInProgress,
-    TResult Function(TwoInputPagePlayer player)? resultPage,
+    TResult? Function()? inputPageWT,
+    TResult? Function()? inputPageMT,
+    TResult? Function()? inputPageMP,
+    TResult? Function()? calculateInProgress,
+    TResult? Function(TwoInputPagePlayer player)? resultPage,
   }) {
     return inputPageMP?.call();
   }
@@ -430,11 +422,11 @@ class _$InputPageMP implements InputPageMP {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InputPageWT value)? inputPageWT,
-    TResult Function(InputPageMT value)? inputPageMT,
-    TResult Function(InputPageMP value)? inputPageMP,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
+    TResult? Function(InputPageWT value)? inputPageWT,
+    TResult? Function(InputPageMT value)? inputPageMT,
+    TResult? Function(InputPageMP value)? inputPageMP,
+    TResult? Function(_CalculateInProgress value)? calculateInProgress,
+    TResult? Function(_ResultPage value)? resultPage,
   }) {
     return inputPageMP?.call(this);
   }
@@ -469,14 +461,11 @@ abstract class _$$_CalculateInProgressCopyWith<$Res> {
 
 /// @nodoc
 class __$$_CalculateInProgressCopyWithImpl<$Res>
-    extends _$TwoInputStateCopyWithImpl<$Res>
+    extends _$TwoInputStateCopyWithImpl<$Res, _$_CalculateInProgress>
     implements _$$_CalculateInProgressCopyWith<$Res> {
   __$$_CalculateInProgressCopyWithImpl(_$_CalculateInProgress _value,
       $Res Function(_$_CalculateInProgress) _then)
-      : super(_value, (v) => _then(v as _$_CalculateInProgress));
-
-  @override
-  _$_CalculateInProgress get _value => super._value as _$_CalculateInProgress;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -513,11 +502,11 @@ class _$_CalculateInProgress implements _CalculateInProgress {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? inputPageWT,
-    TResult Function()? inputPageMT,
-    TResult Function()? inputPageMP,
-    TResult Function()? calculateInProgress,
-    TResult Function(TwoInputPagePlayer player)? resultPage,
+    TResult? Function()? inputPageWT,
+    TResult? Function()? inputPageMT,
+    TResult? Function()? inputPageMP,
+    TResult? Function()? calculateInProgress,
+    TResult? Function(TwoInputPagePlayer player)? resultPage,
   }) {
     return calculateInProgress?.call();
   }
@@ -553,11 +542,11 @@ class _$_CalculateInProgress implements _CalculateInProgress {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InputPageWT value)? inputPageWT,
-    TResult Function(InputPageMT value)? inputPageMT,
-    TResult Function(InputPageMP value)? inputPageMP,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
+    TResult? Function(InputPageWT value)? inputPageWT,
+    TResult? Function(InputPageMT value)? inputPageMT,
+    TResult? Function(InputPageMP value)? inputPageMP,
+    TResult? Function(_CalculateInProgress value)? calculateInProgress,
+    TResult? Function(_ResultPage value)? resultPage,
   }) {
     return calculateInProgress?.call(this);
   }
@@ -588,26 +577,25 @@ abstract class _$$_ResultPageCopyWith<$Res> {
   factory _$$_ResultPageCopyWith(
           _$_ResultPage value, $Res Function(_$_ResultPage) then) =
       __$$_ResultPageCopyWithImpl<$Res>;
+  @useResult
   $Res call({TwoInputPagePlayer player});
 }
 
 /// @nodoc
 class __$$_ResultPageCopyWithImpl<$Res>
-    extends _$TwoInputStateCopyWithImpl<$Res>
+    extends _$TwoInputStateCopyWithImpl<$Res, _$_ResultPage>
     implements _$$_ResultPageCopyWith<$Res> {
   __$$_ResultPageCopyWithImpl(
       _$_ResultPage _value, $Res Function(_$_ResultPage) _then)
-      : super(_value, (v) => _then(v as _$_ResultPage));
+      : super(_value, _then);
 
-  @override
-  _$_ResultPage get _value => super._value as _$_ResultPage;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? player = freezed,
   }) {
     return _then(_$_ResultPage(
-      player: player == freezed
+      player: freezed == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
               as TwoInputPagePlayer,
@@ -642,6 +630,7 @@ class _$_ResultPage implements _ResultPage {
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ResultPageCopyWith<_$_ResultPage> get copyWith =>
       __$$_ResultPageCopyWithImpl<_$_ResultPage>(this, _$identity);
 
@@ -660,11 +649,11 @@ class _$_ResultPage implements _ResultPage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? inputPageWT,
-    TResult Function()? inputPageMT,
-    TResult Function()? inputPageMP,
-    TResult Function()? calculateInProgress,
-    TResult Function(TwoInputPagePlayer player)? resultPage,
+    TResult? Function()? inputPageWT,
+    TResult? Function()? inputPageMT,
+    TResult? Function()? inputPageMP,
+    TResult? Function()? calculateInProgress,
+    TResult? Function(TwoInputPagePlayer player)? resultPage,
   }) {
     return resultPage?.call(player);
   }
@@ -700,11 +689,11 @@ class _$_ResultPage implements _ResultPage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InputPageWT value)? inputPageWT,
-    TResult Function(InputPageMT value)? inputPageMT,
-    TResult Function(InputPageMP value)? inputPageMP,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
+    TResult? Function(InputPageWT value)? inputPageWT,
+    TResult? Function(InputPageMT value)? inputPageMT,
+    TResult? Function(InputPageMP value)? inputPageMP,
+    TResult? Function(_CalculateInProgress value)? calculateInProgress,
+    TResult? Function(_ResultPage value)? resultPage,
   }) {
     return resultPage?.call(this);
   }
