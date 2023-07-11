@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:row_calculator/two_input/two_input_player/two_input_page_player_2.dart';
-import 'package:row_calculator/calc/presentation/card_result.dart';
+import 'package:row_calculator/core/presentation/card_result.dart';
 import 'package:row_calculator/feature/two_input/shared/two_input_provider.dart';
+import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_2.dart';
 
 class ResultTwoInputPage2 extends ConsumerWidget {
   final TwoInputPagePlayer2 player2;

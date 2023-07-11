@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:row_calculator/calc/application/two_input_notifier.dart';
-import 'package:row_calculator/router/router_provider.dart';
+import 'package:row_calculator/feature/two_input/application/two_input_notifier.dart';
+import 'package:row_calculator/router/app_router.dart';
 
 final twoInputNotifierProvider =
     StateNotifierProvider<TwoInputNotifier, TwoInputState>(

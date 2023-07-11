@@ -1,6 +1,6 @@
 import 'package:row_calculator/core/domain/interval_time.dart';
 import 'package:row_calculator/core/function/functions.dart';
-import 'package:row_calculator/two_input/two_input_player/two_input_page_player.dart';
+import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player.dart';
 
 class TwoInputPagePlayer1 extends TwoInputPagePlayer {
   final double watt;

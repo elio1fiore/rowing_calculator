@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:row_calculator/core/presentation/card_result.dart';
 import 'package:row_calculator/core/presentation/loading_page.dart';
-import 'package:row_calculator/three_input/player/three_input_page_player.dart';
+import 'package:row_calculator/feature/three_input/application/three_input_page_player.dart';
 import 'package:row_calculator/feature/three_input/shared/three_input_provider.dart';
 
 class ResultThreeInputPage extends ConsumerWidget {

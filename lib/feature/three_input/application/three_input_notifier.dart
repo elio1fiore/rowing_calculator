@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:row_calculator/three_input/player/three_input_page_player.dart';
+import 'package:row_calculator/feature/three_input/application/three_input_page_player.dart';
 import 'package:row_calculator/router/app_router.dart';
 import 'package:row_calculator/router/app_router.gr.dart';
 import 'package:row_calculator/util/form_validators.dart';
@@ -42,13 +42,13 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
     'inputTwo': FormControl<String>(
       validators: [
         Validators.required,
-        FormValidators.numberSplit,
+        // FormValidators.numberSplit,
       ],
     ),
     'inputThree': FormControl<String>(
       validators: [
         Validators.required,
-        FormValidators.numberSplit,
+        // FormValidators.numberSplit,
         Validators.minLength(6),
       ],
     ),
@@ -88,7 +88,7 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
       [
         Validators.required,
         Validators.minLength(6),
-        FormValidators.numberSplit,
+        // FormValidators.numberSplit,
       ],
       autoValidate: true,
       emitEvent: true,
@@ -109,7 +109,7 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
     _form.control('inputThree').setValidators(
       [
         Validators.required,
-        FormValidators.numberSplit,
+        // FormValidators.numberSplit,
       ],
       autoValidate: true,
       emitEvent: true,

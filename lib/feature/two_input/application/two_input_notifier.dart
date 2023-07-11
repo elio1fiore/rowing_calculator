@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:row_calculator/two_input/two_input_player/two_input_page_player_1.dart';
+import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player.dart';
+import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_1.dart';
+import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_2.dart';
 import 'package:row_calculator/router/app_router.dart';
-import 'package:row_calculator/router/app_router.gr.dart';
 import 'package:row_calculator/util/form_validators.dart';
 part 'two_input_notifier.freezed.dart';
 
@@ -39,14 +40,14 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
     'inputOne': FormControl<String>(
       validators: [
         Validators.required,
-        FormValidators.numberSplit,
+        // FormValidators.numberSplit,
       ],
     ),
     'inputTwo': FormControl<String>(
       validators: [
         Validators.required,
         Validators.minLength(6),
-        FormValidators.numberSplit,
+        // FormValidators.numberSplit,
       ],
     ),
   });
@@ -88,7 +89,7 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
     _form.control('inputOne').setValidators(
       [
         Validators.required,
-        FormValidators.numberSplit,
+        // FormValidators.numberSplit,
       ],
       autoValidate: true,
       emitEvent: true,
@@ -103,7 +104,7 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
         [
           Validators.required,
           Validators.minLength(6),
-          FormValidators.numberSplit,
+          // FormValidators.numberSplit,
         ],
         autoValidate: true,
         emitEvent: true,
@@ -135,7 +136,7 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
       [
         Validators.required,
         Validators.minLength(6),
-        FormValidators.numberSplit,
+        // FormValidators.numberSplit,
       ],
       autoValidate: true,
       emitEvent: true,
@@ -161,7 +162,7 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
       [
         Validators.required,
         Validators.minLength(6),
-        FormValidators.numberSplit,
+        // FormValidators.numberSplit,
       ],
       autoValidate: true,
       emitEvent: true,
@@ -185,7 +186,7 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
       [
         Validators.required,
         Validators.maxLength(3),
-        FormValidators.numberSplit,
+        // FormValidators.numberSplit,
       ],
       autoValidate: true,
       emitEvent: true,

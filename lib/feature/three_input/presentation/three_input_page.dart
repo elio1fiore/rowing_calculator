@@ -166,7 +166,7 @@ class _ThreeInputPageState extends ConsumerState<ThreeInputPage> {
                               constraints: const BoxConstraints(minHeight: 80),
                               child: ReactiveTextField<String>(
                                 expands: false,
-                                validationMessages: validationMessages2,
+                                // validationMessages: validationMessages2,
                                 controller: noty.controller2,
                                 autofocus: true,
                                 autocorrect: true,
@@ -213,7 +213,7 @@ class _ThreeInputPageState extends ConsumerState<ThreeInputPage> {
                               constraints: const BoxConstraints(minHeight: 80),
                               child: ReactiveTextField<String>(
                                 expands: false,
-                                validationMessages: validationMessages3,
+                                // validationMessages: validationMessages3,
                                 controller: noty.controller3,
                                 autofocus: true,
                                 autocorrect: true,

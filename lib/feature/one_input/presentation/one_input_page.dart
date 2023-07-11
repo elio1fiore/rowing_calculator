@@ -1,3 +1,4 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -5,6 +6,7 @@ import 'package:reactive_forms/reactive_forms.dart';
 import 'package:row_calculator/feature/one_input/application/one_input_notifier.dart';
 import 'package:row_calculator/feature/one_input/shared/one_input_provider.dart';
 
+@RoutePage()
 class OneInputPage extends ConsumerStatefulWidget {
   const OneInputPage({super.key});
 
@@ -77,7 +79,7 @@ class _OneInputPageState extends ConsumerState<OneInputPage> {
                             Container(
                               constraints: const BoxConstraints(minHeight: 80),
                               child: ReactiveTextField<String>(
-                                validationMessages: validationMessages,
+                                // validationMessages: validationMessages,
                                 controller: noty.controller,
                                 autofocus: false,
                                 autocorrect: true,

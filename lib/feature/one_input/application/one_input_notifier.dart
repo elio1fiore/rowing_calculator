@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:row_calculator/one_input/one_input_page_player.dart';
+import 'package:row_calculator/feature/one_input/application/one_input_page_player.dart';
 import 'package:row_calculator/router/app_router.dart';
-import 'package:row_calculator/router/app_router.gr.dart';
-import 'package:row_calculator/util/form_validators.dart';
 
 part 'one_input_notifier.freezed.dart';
 
@@ -34,7 +32,7 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
       'inputOne': FormControl<String>(
         validators: [
           Validators.required,
-          FormValidators.numberSplit,
+          // FormValidators.numberSplit,
           Validators.minLength(6),
         ],
       ),
@@ -69,7 +67,7 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
       [
         Validators.required,
         Validators.minLength(6),
-        FormValidators.numberSplit,
+        // FormValidators.numberSplit,
       ],
       autoValidate: true,
       emitEvent: true,
@@ -92,7 +90,7 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
     _form.control('inputOne').setValidators(
       [
         Validators.required,
-        FormValidators.numberSplit,
+        // FormValidators.numberSplit,
       ],
       autoValidate: true,
       emitEvent: true,
@@ -103,7 +101,7 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
   }
 
   void goInputPage() {
-    _appRouter.navigateBack();
+    // _appRouter.navigateBack();
     if (selectedMinute) {
       state = const OneInputState.inputPageMinute();
     } else {

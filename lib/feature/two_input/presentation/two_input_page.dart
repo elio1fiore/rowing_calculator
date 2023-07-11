@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/formatters/masked_input_formatter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:row_calculator/calc/application/two_input_notifier.dart';
+import 'package:row_calculator/feature/two_input/application/two_input_notifier.dart';
 import 'package:row_calculator/feature/two_input/shared/two_input_provider.dart';
 
 class TwoInputPage extends ConsumerStatefulWidget {
@@ -103,7 +103,7 @@ class _TwoInputPageState extends ConsumerState<TwoInputPage> {
                             constraints: const BoxConstraints(minHeight: 80),
                             child: ReactiveTextField<String>(
                               expands: false,
-                              validationMessages: validationMessages1,
+                              // validationMessages: validationMessages1,
                               controller: noty.controller1,
                               autofocus: true,
                               autocorrect: true,
@@ -223,7 +223,7 @@ class _TwoInputPageState extends ConsumerState<TwoInputPage> {
                           Container(
                             constraints: const BoxConstraints(minHeight: 80),
                             child: ReactiveTextField<String>(
-                              validationMessages: validationMessages2,
+                              // validationMessages: validationMessages2,
                               controller: noty.controller2,
                               autofocus: false,
                               autocorrect: true,
