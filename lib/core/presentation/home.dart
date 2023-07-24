@@ -21,9 +21,16 @@ class HomePage extends ConsumerWidget {
       ],
       builder: (context, child, _) {
         final tabsRouter = AutoTabsRouter.of(context);
+        bool shouldShowBottomBar = false;
+
+        if (tabsRouter.currentPath == "/feature" ||
+            tabsRouter.currentPath == "/history") {
+          shouldShowBottomBar = true;
+        }
+
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Home"),
+            title: Text(getTitle(tabsRouter.currentPath)),
             actions: [
               IconButton(
                 icon: stateTheme
@@ -36,22 +43,49 @@ class HomePage extends ConsumerWidget {
             leading: const AutoLeadingButton(),
           ),
           body: child,
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: tabsRouter.activeIndex,
-            onTap: tabsRouter.setActiveIndex,
-            items: [
-              BottomNavigationBarItem(
-                label: 'Feature',
-                icon: Icon(MdiIcons.rocket),
-              ),
-              BottomNavigationBarItem(
-                label: 'History',
-                icon: Icon(MdiIcons.history),
-              ),
-            ],
-          ),
+          bottomNavigationBar: shouldShowBottomBar
+              ? BottomNavigationBar(
+                  currentIndex: tabsRouter.activeIndex,
+                  onTap: tabsRouter.setActiveIndex,
+                  items: [
+                    BottomNavigationBarItem(
+                      label: 'Feature',
+                      icon: Icon(MdiIcons.rocket),
+                    ),
+                    BottomNavigationBarItem(
+                      label: 'History',
+                      icon: Icon(MdiIcons.history),
+                    ),
+                  ],
+                )
+              : null,
         );
       },
     );
+  }
+
+  String getTitle(String path) {
+    String title;
+
+    switch (path) {
+      case "/feature":
+      case "/history":
+        title = "Home";
+        break;
+      case "/feature/one":
+        title = "One Input";
+        break;
+      case "/feature/two":
+        title = "Two Input";
+        break;
+      case "/feature/three":
+        title = "Three Input";
+        break;
+
+      default:
+        title = "Home";
+    }
+
+    return title;
   }
 }

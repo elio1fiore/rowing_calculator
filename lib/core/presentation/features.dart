@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/core/domain/functionality.dart';
 import 'package:row_calculator/router/app_router.gr.dart';
 
@@ -15,14 +14,14 @@ class FeaturePage extends StatelessWidget {
 }
 
 @RoutePage()
-class ProvaListPage extends StatefulWidget {
-  const ProvaListPage({super.key});
+class FeatureListPage extends StatefulWidget {
+  const FeatureListPage({super.key});
 
   @override
-  State<ProvaListPage> createState() => _ProvaListPageState();
+  State<FeatureListPage> createState() => _FeatureListPageState();
 }
 
-class _ProvaListPageState extends State<ProvaListPage> {
+class _FeatureListPageState extends State<FeatureListPage> {
   @override
   Widget build(BuildContext context) {
     final List<Functionality> funcs = [

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:row_calculator/core/presentation/features.dart';
 import 'package:row_calculator/router/app_router.gr.dart';
 
 abstract class NavigatorPath {
@@ -32,9 +33,8 @@ class AppRouter extends $AppRouter {
               path: 'feature',
               children: [
                 AutoRoute(
-                  page: ProvaListRoute.page,
-                  path: "list",
-                  initial: true,
+                  page: FeatureListRoute.page,
+                  path: "",
                 ),
                 AutoRoute(
                   page: OneFeatureRoute.page,

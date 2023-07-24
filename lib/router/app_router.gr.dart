@@ -42,10 +42,10 @@ abstract class $AppRouter extends _i7.RootStackRouter {
         child: const _i3.FeaturePage(),
       );
     },
-    ProvaListRoute.name: (routeData) {
+    FeatureListRoute.name: (routeData) {
       return _i7.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.ProvaListPage(),
+        child: const _i3.FeatureListPage(),
       );
     },
     TwoInputRoute.name: (routeData) {
@@ -112,15 +112,15 @@ class FeatureRoute extends _i7.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.ProvaListPage]
-class ProvaListRoute extends _i7.PageRouteInfo<void> {
-  const ProvaListRoute({List<_i7.PageRouteInfo>? children})
+/// [_i3.FeatureListPage]
+class FeatureListRoute extends _i7.PageRouteInfo<void> {
+  const FeatureListRoute({List<_i7.PageRouteInfo>? children})
       : super(
-          ProvaListRoute.name,
+          FeatureListRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'ProvaListRoute';
+  static const String name = 'FeatureListRoute';
 
   static const _i7.PageInfo<void> page = _i7.PageInfo<void>(name);
 }
