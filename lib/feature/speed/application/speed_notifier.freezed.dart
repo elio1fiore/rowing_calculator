@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'speed_notifier.dart';
 
@@ -28,12 +28,12 @@ mixin _$SpeedState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? stop,
-    TResult Function()? noSpeed,
-    TResult Function()? progressSpeed,
-    TResult Function(Position position, IntervalTime intervalTime)?
+    TResult? Function()? stop,
+    TResult? Function()? noSpeed,
+    TResult? Function()? progressSpeed,
+    TResult? Function(Position position, IntervalTime intervalTime)?
         dataPosition,
-    TResult Function(String error)? error,
+    TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,11 +58,11 @@ mixin _$SpeedState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Stop value)? stop,
-    TResult Function(_NoSpeed value)? noSpeed,
-    TResult Function(_ProgressSpeed value)? progressSpeed,
-    TResult Function(_DataPosition value)? dataPosition,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Stop value)? stop,
+    TResult? Function(_NoSpeed value)? noSpeed,
+    TResult? Function(_ProgressSpeed value)? progressSpeed,
+    TResult? Function(_DataPosition value)? dataPosition,
+    TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,16 +81,18 @@ mixin _$SpeedState {
 abstract class $SpeedStateCopyWith<$Res> {
   factory $SpeedStateCopyWith(
           SpeedState value, $Res Function(SpeedState) then) =
-      _$SpeedStateCopyWithImpl<$Res>;
+      _$SpeedStateCopyWithImpl<$Res, SpeedState>;
 }
 
 /// @nodoc
-class _$SpeedStateCopyWithImpl<$Res> implements $SpeedStateCopyWith<$Res> {
+class _$SpeedStateCopyWithImpl<$Res, $Val extends SpeedState>
+    implements $SpeedStateCopyWith<$Res> {
   _$SpeedStateCopyWithImpl(this._value, this._then);
 
-  final SpeedState _value;
   // ignore: unused_field
-  final $Res Function(SpeedState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -100,23 +102,27 @@ abstract class _$$_StopCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_StopCopyWithImpl<$Res> extends _$SpeedStateCopyWithImpl<$Res>
+class __$$_StopCopyWithImpl<$Res>
+    extends _$SpeedStateCopyWithImpl<$Res, _$_Stop>
     implements _$$_StopCopyWith<$Res> {
   __$$_StopCopyWithImpl(_$_Stop _value, $Res Function(_$_Stop) _then)
-      : super(_value, (v) => _then(v as _$_Stop));
-
-  @override
-  _$_Stop get _value => super._value as _$_Stop;
+      : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Stop implements _Stop {
+class _$_Stop with DiagnosticableTreeMixin implements _Stop {
   const _$_Stop();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SpeedState.stop()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'SpeedState.stop'));
   }
 
   @override
@@ -144,12 +150,12 @@ class _$_Stop implements _Stop {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? stop,
-    TResult Function()? noSpeed,
-    TResult Function()? progressSpeed,
-    TResult Function(Position position, IntervalTime intervalTime)?
+    TResult? Function()? stop,
+    TResult? Function()? noSpeed,
+    TResult? Function()? progressSpeed,
+    TResult? Function(Position position, IntervalTime intervalTime)?
         dataPosition,
-    TResult Function(String error)? error,
+    TResult? Function(String error)? error,
   }) {
     return stop?.call();
   }
@@ -186,11 +192,11 @@ class _$_Stop implements _Stop {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Stop value)? stop,
-    TResult Function(_NoSpeed value)? noSpeed,
-    TResult Function(_ProgressSpeed value)? progressSpeed,
-    TResult Function(_DataPosition value)? dataPosition,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Stop value)? stop,
+    TResult? Function(_NoSpeed value)? noSpeed,
+    TResult? Function(_ProgressSpeed value)? progressSpeed,
+    TResult? Function(_DataPosition value)? dataPosition,
+    TResult? Function(_Error value)? error,
   }) {
     return stop?.call(this);
   }
@@ -224,23 +230,27 @@ abstract class _$$_NoSpeedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_NoSpeedCopyWithImpl<$Res> extends _$SpeedStateCopyWithImpl<$Res>
+class __$$_NoSpeedCopyWithImpl<$Res>
+    extends _$SpeedStateCopyWithImpl<$Res, _$_NoSpeed>
     implements _$$_NoSpeedCopyWith<$Res> {
   __$$_NoSpeedCopyWithImpl(_$_NoSpeed _value, $Res Function(_$_NoSpeed) _then)
-      : super(_value, (v) => _then(v as _$_NoSpeed));
-
-  @override
-  _$_NoSpeed get _value => super._value as _$_NoSpeed;
+      : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_NoSpeed implements _NoSpeed {
+class _$_NoSpeed with DiagnosticableTreeMixin implements _NoSpeed {
   const _$_NoSpeed();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SpeedState.noSpeed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'SpeedState.noSpeed'));
   }
 
   @override
@@ -268,12 +278,12 @@ class _$_NoSpeed implements _NoSpeed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? stop,
-    TResult Function()? noSpeed,
-    TResult Function()? progressSpeed,
-    TResult Function(Position position, IntervalTime intervalTime)?
+    TResult? Function()? stop,
+    TResult? Function()? noSpeed,
+    TResult? Function()? progressSpeed,
+    TResult? Function(Position position, IntervalTime intervalTime)?
         dataPosition,
-    TResult Function(String error)? error,
+    TResult? Function(String error)? error,
   }) {
     return noSpeed?.call();
   }
@@ -310,11 +320,11 @@ class _$_NoSpeed implements _NoSpeed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Stop value)? stop,
-    TResult Function(_NoSpeed value)? noSpeed,
-    TResult Function(_ProgressSpeed value)? progressSpeed,
-    TResult Function(_DataPosition value)? dataPosition,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Stop value)? stop,
+    TResult? Function(_NoSpeed value)? noSpeed,
+    TResult? Function(_ProgressSpeed value)? progressSpeed,
+    TResult? Function(_DataPosition value)? dataPosition,
+    TResult? Function(_Error value)? error,
   }) {
     return noSpeed?.call(this);
   }
@@ -349,24 +359,27 @@ abstract class _$$_ProgressSpeedCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ProgressSpeedCopyWithImpl<$Res>
-    extends _$SpeedStateCopyWithImpl<$Res>
+    extends _$SpeedStateCopyWithImpl<$Res, _$_ProgressSpeed>
     implements _$$_ProgressSpeedCopyWith<$Res> {
   __$$_ProgressSpeedCopyWithImpl(
       _$_ProgressSpeed _value, $Res Function(_$_ProgressSpeed) _then)
-      : super(_value, (v) => _then(v as _$_ProgressSpeed));
-
-  @override
-  _$_ProgressSpeed get _value => super._value as _$_ProgressSpeed;
+      : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ProgressSpeed implements _ProgressSpeed {
+class _$_ProgressSpeed with DiagnosticableTreeMixin implements _ProgressSpeed {
   const _$_ProgressSpeed();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SpeedState.progressSpeed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'SpeedState.progressSpeed'));
   }
 
   @override
@@ -394,12 +407,12 @@ class _$_ProgressSpeed implements _ProgressSpeed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? stop,
-    TResult Function()? noSpeed,
-    TResult Function()? progressSpeed,
-    TResult Function(Position position, IntervalTime intervalTime)?
+    TResult? Function()? stop,
+    TResult? Function()? noSpeed,
+    TResult? Function()? progressSpeed,
+    TResult? Function(Position position, IntervalTime intervalTime)?
         dataPosition,
-    TResult Function(String error)? error,
+    TResult? Function(String error)? error,
   }) {
     return progressSpeed?.call();
   }
@@ -436,11 +449,11 @@ class _$_ProgressSpeed implements _ProgressSpeed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Stop value)? stop,
-    TResult Function(_NoSpeed value)? noSpeed,
-    TResult Function(_ProgressSpeed value)? progressSpeed,
-    TResult Function(_DataPosition value)? dataPosition,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Stop value)? stop,
+    TResult? Function(_NoSpeed value)? noSpeed,
+    TResult? Function(_ProgressSpeed value)? progressSpeed,
+    TResult? Function(_DataPosition value)? dataPosition,
+    TResult? Function(_Error value)? error,
   }) {
     return progressSpeed?.call(this);
   }
@@ -471,30 +484,30 @@ abstract class _$$_DataPositionCopyWith<$Res> {
   factory _$$_DataPositionCopyWith(
           _$_DataPosition value, $Res Function(_$_DataPosition) then) =
       __$$_DataPositionCopyWithImpl<$Res>;
+  @useResult
   $Res call({Position position, IntervalTime intervalTime});
 }
 
 /// @nodoc
-class __$$_DataPositionCopyWithImpl<$Res> extends _$SpeedStateCopyWithImpl<$Res>
+class __$$_DataPositionCopyWithImpl<$Res>
+    extends _$SpeedStateCopyWithImpl<$Res, _$_DataPosition>
     implements _$$_DataPositionCopyWith<$Res> {
   __$$_DataPositionCopyWithImpl(
       _$_DataPosition _value, $Res Function(_$_DataPosition) _then)
-      : super(_value, (v) => _then(v as _$_DataPosition));
+      : super(_value, _then);
 
-  @override
-  _$_DataPosition get _value => super._value as _$_DataPosition;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? position = freezed,
-    Object? intervalTime = freezed,
+    Object? position = null,
+    Object? intervalTime = null,
   }) {
     return _then(_$_DataPosition(
-      position == freezed
+      null == position
           ? _value.position
           : position // ignore: cast_nullable_to_non_nullable
               as Position,
-      intervalTime == freezed
+      null == intervalTime
           ? _value.intervalTime
           : intervalTime // ignore: cast_nullable_to_non_nullable
               as IntervalTime,
@@ -504,7 +517,7 @@ class __$$_DataPositionCopyWithImpl<$Res> extends _$SpeedStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DataPosition implements _DataPosition {
+class _$_DataPosition with DiagnosticableTreeMixin implements _DataPosition {
   const _$_DataPosition(this.position, this.intervalTime);
 
   @override
@@ -513,8 +526,17 @@ class _$_DataPosition implements _DataPosition {
   final IntervalTime intervalTime;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SpeedState.dataPosition(position: $position, intervalTime: $intervalTime)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SpeedState.dataPosition'))
+      ..add(DiagnosticsProperty('position', position))
+      ..add(DiagnosticsProperty('intervalTime', intervalTime));
   }
 
   @override
@@ -522,19 +544,18 @@ class _$_DataPosition implements _DataPosition {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DataPosition &&
-            const DeepCollectionEquality().equals(other.position, position) &&
-            const DeepCollectionEquality()
-                .equals(other.intervalTime, intervalTime));
+            (identical(other.position, position) ||
+                other.position == position) &&
+            (identical(other.intervalTime, intervalTime) ||
+                other.intervalTime == intervalTime));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(position),
-      const DeepCollectionEquality().hash(intervalTime));
+  int get hashCode => Object.hash(runtimeType, position, intervalTime);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_DataPositionCopyWith<_$_DataPosition> get copyWith =>
       __$$_DataPositionCopyWithImpl<_$_DataPosition>(this, _$identity);
 
@@ -554,12 +575,12 @@ class _$_DataPosition implements _DataPosition {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? stop,
-    TResult Function()? noSpeed,
-    TResult Function()? progressSpeed,
-    TResult Function(Position position, IntervalTime intervalTime)?
+    TResult? Function()? stop,
+    TResult? Function()? noSpeed,
+    TResult? Function()? progressSpeed,
+    TResult? Function(Position position, IntervalTime intervalTime)?
         dataPosition,
-    TResult Function(String error)? error,
+    TResult? Function(String error)? error,
   }) {
     return dataPosition?.call(position, intervalTime);
   }
@@ -596,11 +617,11 @@ class _$_DataPosition implements _DataPosition {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Stop value)? stop,
-    TResult Function(_NoSpeed value)? noSpeed,
-    TResult Function(_ProgressSpeed value)? progressSpeed,
-    TResult Function(_DataPosition value)? dataPosition,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Stop value)? stop,
+    TResult? Function(_NoSpeed value)? noSpeed,
+    TResult? Function(_ProgressSpeed value)? progressSpeed,
+    TResult? Function(_DataPosition value)? dataPosition,
+    TResult? Function(_Error value)? error,
   }) {
     return dataPosition?.call(this);
   }
@@ -638,24 +659,24 @@ abstract class _DataPosition implements SpeedState {
 abstract class _$$_ErrorCopyWith<$Res> {
   factory _$$_ErrorCopyWith(_$_Error value, $Res Function(_$_Error) then) =
       __$$_ErrorCopyWithImpl<$Res>;
+  @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$_ErrorCopyWithImpl<$Res> extends _$SpeedStateCopyWithImpl<$Res>
+class __$$_ErrorCopyWithImpl<$Res>
+    extends _$SpeedStateCopyWithImpl<$Res, _$_Error>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
-      : super(_value, (v) => _then(v as _$_Error));
+      : super(_value, _then);
 
-  @override
-  _$_Error get _value => super._value as _$_Error;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = freezed,
+    Object? error = null,
   }) {
     return _then(_$_Error(
-      error == freezed
+      null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as String,
@@ -665,15 +686,23 @@ class __$$_ErrorCopyWithImpl<$Res> extends _$SpeedStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Error implements _Error {
+class _$_Error with DiagnosticableTreeMixin implements _Error {
   const _$_Error(this.error);
 
   @override
   final String error;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SpeedState.error(error: $error)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SpeedState.error'))
+      ..add(DiagnosticsProperty('error', error));
   }
 
   @override
@@ -681,15 +710,15 @@ class _$_Error implements _Error {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Error &&
-            const DeepCollectionEquality().equals(other.error, error));
+            (identical(other.error, error) || other.error == error));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(error));
+  int get hashCode => Object.hash(runtimeType, error);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_ErrorCopyWith<_$_Error> get copyWith =>
       __$$_ErrorCopyWithImpl<_$_Error>(this, _$identity);
 
@@ -709,12 +738,12 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? stop,
-    TResult Function()? noSpeed,
-    TResult Function()? progressSpeed,
-    TResult Function(Position position, IntervalTime intervalTime)?
+    TResult? Function()? stop,
+    TResult? Function()? noSpeed,
+    TResult? Function()? progressSpeed,
+    TResult? Function(Position position, IntervalTime intervalTime)?
         dataPosition,
-    TResult Function(String error)? error,
+    TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
   }
@@ -751,11 +780,11 @@ class _$_Error implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Stop value)? stop,
-    TResult Function(_NoSpeed value)? noSpeed,
-    TResult Function(_ProgressSpeed value)? progressSpeed,
-    TResult Function(_DataPosition value)? dataPosition,
-    TResult Function(_Error value)? error,
+    TResult? Function(_Stop value)? stop,
+    TResult? Function(_NoSpeed value)? noSpeed,
+    TResult? Function(_ProgressSpeed value)? progressSpeed,
+    TResult? Function(_DataPosition value)? dataPosition,
+    TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
   }

@@ -1,3 +1,4 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/formatters/masked_input_formatter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -5,6 +6,7 @@ import 'package:reactive_forms/reactive_forms.dart';
 import 'package:row_calculator/feature/two_input/application/two_input_notifier.dart';
 import 'package:row_calculator/feature/two_input/shared/two_input_provider.dart';
 
+@RoutePage()
 class TwoInputPage extends ConsumerStatefulWidget {
   const TwoInputPage({super.key});
 

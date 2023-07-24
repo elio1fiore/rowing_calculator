@@ -3,22 +3,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:row_calculator/feature/one_input/application/one_input_page_player.dart';
-import 'package:row_calculator/router/app_router.dart';
 
 part 'one_input_notifier.freezed.dart';
 
 @freezed
 class OneInputState with _$OneInputState {
-  const factory OneInputState.inputPageMinute() = _InputPageMinute;
-  const factory OneInputState.inputPageWatt() = _InputPageWatt;
-  const factory OneInputState.calculateInProgress() = _CalculateInProgress;
-  const factory OneInputState.resultPage({
+  const factory OneInputState.minute() = _InputPageMinute;
+  const factory OneInputState.watt() = _InputPageWatt;
+  const factory OneInputState.goResult({
     required OneInputPagePlayer player,
   }) = _ResultPage;
 }
 
 class OneInputNotifier extends StateNotifier<OneInputState> {
-  final AppRouter _appRouter;
   final _controller = TextEditingController();
 
   bool selectedMinute = true;
@@ -39,8 +36,7 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
     },
   );
 
-  OneInputNotifier(this._appRouter)
-      : super(const OneInputState.inputPageMinute());
+  OneInputNotifier() : super(const OneInputState.minute());
 
   void resetValueForm() {
     _form.control('inputOne').reset(value: null);
@@ -62,7 +58,7 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
 
     selectedWatt = false;
     selectedMinute = true;
-    state = const OneInputState.inputPageMinute();
+    state = const OneInputState.minute();
     _form.control('inputOne').setValidators(
       [
         Validators.required,
@@ -85,7 +81,7 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
 
     selectedWatt = true;
     selectedMinute = false;
-    state = const OneInputState.inputPageWatt();
+    state = const OneInputState.watt();
 
     _form.control('inputOne').setValidators(
       [
@@ -103,9 +99,9 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
   void goInputPage() {
     // _appRouter.navigateBack();
     if (selectedMinute) {
-      state = const OneInputState.inputPageMinute();
+      state = const OneInputState.minute();
     } else {
-      state = const OneInputState.inputPageWatt();
+      state = const OneInputState.watt();
     }
   }
 
@@ -115,8 +111,6 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
   }
 
   void calculateAndGotoResultPage() {
-    state = const OneInputState.calculateInProgress();
-    _appRouter.pushNamed(NavigatorPath.resultOneInputPage);
     OneInputPagePlayer oneInputPagePlayer;
     if (selectedMinute) {
       oneInputPagePlayer =
@@ -126,6 +120,6 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
           OneInputPagePlayer.fromWatt(_form.control('inputOne').value);
     }
 
-    state = OneInputState.resultPage(player: oneInputPagePlayer);
+    state = OneInputState.goResult(player: oneInputPagePlayer);
   }
 }

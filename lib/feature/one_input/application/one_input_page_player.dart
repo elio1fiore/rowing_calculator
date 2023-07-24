@@ -1,7 +1,6 @@
 import 'package:row_calculator/core/domain/interval_time.dart';
 import 'package:row_calculator/core/domain/time_on_meters.dart';
 import 'package:row_calculator/core/function/functions.dart';
-import 'package:row_calculator/util/function_util.dart';
 
 class OneInputPagePlayer {
   final double watt;
@@ -30,7 +29,6 @@ class OneInputPagePlayer {
 
       listTimeOnMeters.add(timeOnMeters);
     }
-    print(listTimeOnMeters.length);
 
     return OneInputPagePlayer(
         watt: nWatt, listTimeOnMeters: listTimeOnMeters, media500: media);

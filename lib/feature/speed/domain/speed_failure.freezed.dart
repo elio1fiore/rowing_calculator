@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'speed_failure.dart';
 
@@ -28,12 +28,12 @@ mixin _$SpeedFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? denied,
-    TResult Function()? deniedForever,
-    TResult Function()? whileInUse,
-    TResult Function()? always,
-    TResult Function()? isNull,
-    TResult Function()? unableToDetermine,
+    TResult? Function()? denied,
+    TResult? Function()? deniedForever,
+    TResult? Function()? whileInUse,
+    TResult? Function()? always,
+    TResult? Function()? isNull,
+    TResult? Function()? unableToDetermine,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,12 +59,12 @@ mixin _$SpeedFailure {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Denied value)? denied,
-    TResult Function(_DeniedForever value)? deniedForever,
-    TResult Function(_WhileInUse value)? whileInUse,
-    TResult Function(_Always value)? always,
-    TResult Function(_IsNull value)? isNull,
-    TResult Function(_UnableToDetermine value)? unableToDetermine,
+    TResult? Function(_Denied value)? denied,
+    TResult? Function(_DeniedForever value)? deniedForever,
+    TResult? Function(_WhileInUse value)? whileInUse,
+    TResult? Function(_Always value)? always,
+    TResult? Function(_IsNull value)? isNull,
+    TResult? Function(_UnableToDetermine value)? unableToDetermine,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,16 +84,18 @@ mixin _$SpeedFailure {
 abstract class $SpeedFailureCopyWith<$Res> {
   factory $SpeedFailureCopyWith(
           SpeedFailure value, $Res Function(SpeedFailure) then) =
-      _$SpeedFailureCopyWithImpl<$Res>;
+      _$SpeedFailureCopyWithImpl<$Res, SpeedFailure>;
 }
 
 /// @nodoc
-class _$SpeedFailureCopyWithImpl<$Res> implements $SpeedFailureCopyWith<$Res> {
+class _$SpeedFailureCopyWithImpl<$Res, $Val extends SpeedFailure>
+    implements $SpeedFailureCopyWith<$Res> {
   _$SpeedFailureCopyWithImpl(this._value, this._then);
 
-  final SpeedFailure _value;
   // ignore: unused_field
-  final $Res Function(SpeedFailure) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -103,13 +105,11 @@ abstract class _$$_DeniedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_DeniedCopyWithImpl<$Res> extends _$SpeedFailureCopyWithImpl<$Res>
+class __$$_DeniedCopyWithImpl<$Res>
+    extends _$SpeedFailureCopyWithImpl<$Res, _$_Denied>
     implements _$$_DeniedCopyWith<$Res> {
   __$$_DeniedCopyWithImpl(_$_Denied _value, $Res Function(_$_Denied) _then)
-      : super(_value, (v) => _then(v as _$_Denied));
-
-  @override
-  _$_Denied get _value => super._value as _$_Denied;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -147,12 +147,12 @@ class _$_Denied implements _Denied {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? denied,
-    TResult Function()? deniedForever,
-    TResult Function()? whileInUse,
-    TResult Function()? always,
-    TResult Function()? isNull,
-    TResult Function()? unableToDetermine,
+    TResult? Function()? denied,
+    TResult? Function()? deniedForever,
+    TResult? Function()? whileInUse,
+    TResult? Function()? always,
+    TResult? Function()? isNull,
+    TResult? Function()? unableToDetermine,
   }) {
     return denied?.call();
   }
@@ -190,12 +190,12 @@ class _$_Denied implements _Denied {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Denied value)? denied,
-    TResult Function(_DeniedForever value)? deniedForever,
-    TResult Function(_WhileInUse value)? whileInUse,
-    TResult Function(_Always value)? always,
-    TResult Function(_IsNull value)? isNull,
-    TResult Function(_UnableToDetermine value)? unableToDetermine,
+    TResult? Function(_Denied value)? denied,
+    TResult? Function(_DeniedForever value)? deniedForever,
+    TResult? Function(_WhileInUse value)? whileInUse,
+    TResult? Function(_Always value)? always,
+    TResult? Function(_IsNull value)? isNull,
+    TResult? Function(_UnableToDetermine value)? unableToDetermine,
   }) {
     return denied?.call(this);
   }
@@ -231,14 +231,11 @@ abstract class _$$_DeniedForeverCopyWith<$Res> {
 
 /// @nodoc
 class __$$_DeniedForeverCopyWithImpl<$Res>
-    extends _$SpeedFailureCopyWithImpl<$Res>
+    extends _$SpeedFailureCopyWithImpl<$Res, _$_DeniedForever>
     implements _$$_DeniedForeverCopyWith<$Res> {
   __$$_DeniedForeverCopyWithImpl(
       _$_DeniedForever _value, $Res Function(_$_DeniedForever) _then)
-      : super(_value, (v) => _then(v as _$_DeniedForever));
-
-  @override
-  _$_DeniedForever get _value => super._value as _$_DeniedForever;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -276,12 +273,12 @@ class _$_DeniedForever implements _DeniedForever {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? denied,
-    TResult Function()? deniedForever,
-    TResult Function()? whileInUse,
-    TResult Function()? always,
-    TResult Function()? isNull,
-    TResult Function()? unableToDetermine,
+    TResult? Function()? denied,
+    TResult? Function()? deniedForever,
+    TResult? Function()? whileInUse,
+    TResult? Function()? always,
+    TResult? Function()? isNull,
+    TResult? Function()? unableToDetermine,
   }) {
     return deniedForever?.call();
   }
@@ -319,12 +316,12 @@ class _$_DeniedForever implements _DeniedForever {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Denied value)? denied,
-    TResult Function(_DeniedForever value)? deniedForever,
-    TResult Function(_WhileInUse value)? whileInUse,
-    TResult Function(_Always value)? always,
-    TResult Function(_IsNull value)? isNull,
-    TResult Function(_UnableToDetermine value)? unableToDetermine,
+    TResult? Function(_Denied value)? denied,
+    TResult? Function(_DeniedForever value)? deniedForever,
+    TResult? Function(_WhileInUse value)? whileInUse,
+    TResult? Function(_Always value)? always,
+    TResult? Function(_IsNull value)? isNull,
+    TResult? Function(_UnableToDetermine value)? unableToDetermine,
   }) {
     return deniedForever?.call(this);
   }
@@ -359,14 +356,12 @@ abstract class _$$_WhileInUseCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_WhileInUseCopyWithImpl<$Res> extends _$SpeedFailureCopyWithImpl<$Res>
+class __$$_WhileInUseCopyWithImpl<$Res>
+    extends _$SpeedFailureCopyWithImpl<$Res, _$_WhileInUse>
     implements _$$_WhileInUseCopyWith<$Res> {
   __$$_WhileInUseCopyWithImpl(
       _$_WhileInUse _value, $Res Function(_$_WhileInUse) _then)
-      : super(_value, (v) => _then(v as _$_WhileInUse));
-
-  @override
-  _$_WhileInUse get _value => super._value as _$_WhileInUse;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -404,12 +399,12 @@ class _$_WhileInUse implements _WhileInUse {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? denied,
-    TResult Function()? deniedForever,
-    TResult Function()? whileInUse,
-    TResult Function()? always,
-    TResult Function()? isNull,
-    TResult Function()? unableToDetermine,
+    TResult? Function()? denied,
+    TResult? Function()? deniedForever,
+    TResult? Function()? whileInUse,
+    TResult? Function()? always,
+    TResult? Function()? isNull,
+    TResult? Function()? unableToDetermine,
   }) {
     return whileInUse?.call();
   }
@@ -447,12 +442,12 @@ class _$_WhileInUse implements _WhileInUse {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Denied value)? denied,
-    TResult Function(_DeniedForever value)? deniedForever,
-    TResult Function(_WhileInUse value)? whileInUse,
-    TResult Function(_Always value)? always,
-    TResult Function(_IsNull value)? isNull,
-    TResult Function(_UnableToDetermine value)? unableToDetermine,
+    TResult? Function(_Denied value)? denied,
+    TResult? Function(_DeniedForever value)? deniedForever,
+    TResult? Function(_WhileInUse value)? whileInUse,
+    TResult? Function(_Always value)? always,
+    TResult? Function(_IsNull value)? isNull,
+    TResult? Function(_UnableToDetermine value)? unableToDetermine,
   }) {
     return whileInUse?.call(this);
   }
@@ -486,13 +481,11 @@ abstract class _$$_AlwaysCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AlwaysCopyWithImpl<$Res> extends _$SpeedFailureCopyWithImpl<$Res>
+class __$$_AlwaysCopyWithImpl<$Res>
+    extends _$SpeedFailureCopyWithImpl<$Res, _$_Always>
     implements _$$_AlwaysCopyWith<$Res> {
   __$$_AlwaysCopyWithImpl(_$_Always _value, $Res Function(_$_Always) _then)
-      : super(_value, (v) => _then(v as _$_Always));
-
-  @override
-  _$_Always get _value => super._value as _$_Always;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -530,12 +523,12 @@ class _$_Always implements _Always {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? denied,
-    TResult Function()? deniedForever,
-    TResult Function()? whileInUse,
-    TResult Function()? always,
-    TResult Function()? isNull,
-    TResult Function()? unableToDetermine,
+    TResult? Function()? denied,
+    TResult? Function()? deniedForever,
+    TResult? Function()? whileInUse,
+    TResult? Function()? always,
+    TResult? Function()? isNull,
+    TResult? Function()? unableToDetermine,
   }) {
     return always?.call();
   }
@@ -573,12 +566,12 @@ class _$_Always implements _Always {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Denied value)? denied,
-    TResult Function(_DeniedForever value)? deniedForever,
-    TResult Function(_WhileInUse value)? whileInUse,
-    TResult Function(_Always value)? always,
-    TResult Function(_IsNull value)? isNull,
-    TResult Function(_UnableToDetermine value)? unableToDetermine,
+    TResult? Function(_Denied value)? denied,
+    TResult? Function(_DeniedForever value)? deniedForever,
+    TResult? Function(_WhileInUse value)? whileInUse,
+    TResult? Function(_Always value)? always,
+    TResult? Function(_IsNull value)? isNull,
+    TResult? Function(_UnableToDetermine value)? unableToDetermine,
   }) {
     return always?.call(this);
   }
@@ -612,13 +605,11 @@ abstract class _$$_IsNullCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_IsNullCopyWithImpl<$Res> extends _$SpeedFailureCopyWithImpl<$Res>
+class __$$_IsNullCopyWithImpl<$Res>
+    extends _$SpeedFailureCopyWithImpl<$Res, _$_IsNull>
     implements _$$_IsNullCopyWith<$Res> {
   __$$_IsNullCopyWithImpl(_$_IsNull _value, $Res Function(_$_IsNull) _then)
-      : super(_value, (v) => _then(v as _$_IsNull));
-
-  @override
-  _$_IsNull get _value => super._value as _$_IsNull;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -656,12 +647,12 @@ class _$_IsNull implements _IsNull {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? denied,
-    TResult Function()? deniedForever,
-    TResult Function()? whileInUse,
-    TResult Function()? always,
-    TResult Function()? isNull,
-    TResult Function()? unableToDetermine,
+    TResult? Function()? denied,
+    TResult? Function()? deniedForever,
+    TResult? Function()? whileInUse,
+    TResult? Function()? always,
+    TResult? Function()? isNull,
+    TResult? Function()? unableToDetermine,
   }) {
     return isNull?.call();
   }
@@ -699,12 +690,12 @@ class _$_IsNull implements _IsNull {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Denied value)? denied,
-    TResult Function(_DeniedForever value)? deniedForever,
-    TResult Function(_WhileInUse value)? whileInUse,
-    TResult Function(_Always value)? always,
-    TResult Function(_IsNull value)? isNull,
-    TResult Function(_UnableToDetermine value)? unableToDetermine,
+    TResult? Function(_Denied value)? denied,
+    TResult? Function(_DeniedForever value)? deniedForever,
+    TResult? Function(_WhileInUse value)? whileInUse,
+    TResult? Function(_Always value)? always,
+    TResult? Function(_IsNull value)? isNull,
+    TResult? Function(_UnableToDetermine value)? unableToDetermine,
   }) {
     return isNull?.call(this);
   }
@@ -740,14 +731,11 @@ abstract class _$$_UnableToDetermineCopyWith<$Res> {
 
 /// @nodoc
 class __$$_UnableToDetermineCopyWithImpl<$Res>
-    extends _$SpeedFailureCopyWithImpl<$Res>
+    extends _$SpeedFailureCopyWithImpl<$Res, _$_UnableToDetermine>
     implements _$$_UnableToDetermineCopyWith<$Res> {
   __$$_UnableToDetermineCopyWithImpl(
       _$_UnableToDetermine _value, $Res Function(_$_UnableToDetermine) _then)
-      : super(_value, (v) => _then(v as _$_UnableToDetermine));
-
-  @override
-  _$_UnableToDetermine get _value => super._value as _$_UnableToDetermine;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -785,12 +773,12 @@ class _$_UnableToDetermine implements _UnableToDetermine {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? denied,
-    TResult Function()? deniedForever,
-    TResult Function()? whileInUse,
-    TResult Function()? always,
-    TResult Function()? isNull,
-    TResult Function()? unableToDetermine,
+    TResult? Function()? denied,
+    TResult? Function()? deniedForever,
+    TResult? Function()? whileInUse,
+    TResult? Function()? always,
+    TResult? Function()? isNull,
+    TResult? Function()? unableToDetermine,
   }) {
     return unableToDetermine?.call();
   }
@@ -828,12 +816,12 @@ class _$_UnableToDetermine implements _UnableToDetermine {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Denied value)? denied,
-    TResult Function(_DeniedForever value)? deniedForever,
-    TResult Function(_WhileInUse value)? whileInUse,
-    TResult Function(_Always value)? always,
-    TResult Function(_IsNull value)? isNull,
-    TResult Function(_UnableToDetermine value)? unableToDetermine,
+    TResult? Function(_Denied value)? denied,
+    TResult? Function(_DeniedForever value)? deniedForever,
+    TResult? Function(_WhileInUse value)? whileInUse,
+    TResult? Function(_Always value)? always,
+    TResult? Function(_IsNull value)? isNull,
+    TResult? Function(_UnableToDetermine value)? unableToDetermine,
   }) {
     return unableToDetermine?.call(this);
   }

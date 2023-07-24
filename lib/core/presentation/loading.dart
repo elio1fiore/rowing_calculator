@@ -10,12 +10,12 @@ class LoadingPage extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           Icon(
             MdiIcons.calculator,
           ),
-          SizedBox(height: 16),
-          LinearProgressIndicator(),
+          const SizedBox(height: 16),
+          const LinearProgressIndicator(),
         ],
       ),
     );

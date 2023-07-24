@@ -14,13 +14,41 @@ abstract class NavigatorPath {
   static const String countHits = "/CountHits";
 }
 
-@AutoRouterConfig(replaceInRouteName: 'Screen, Route')
+@AutoRouterConfig()
 class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          page: OneInputPage.page,
-        )
+          page: HomeRoute.page,
+          initial: true,
+          path: "/",
+          children: [
+            RedirectRoute(
+              path: "",
+              redirectTo: 'feature',
+            ),
+            AutoRoute(
+              page: FeatureRoute.page,
+              path: 'feature',
+              children: [
+                AutoRoute(
+                  page: ProvaListRoute.page,
+                  path: "list",
+                  initial: true,
+                ),
+                AutoRoute(
+                  page: OneFeatureRoute.page,
+                  path: "one",
+                ),
+              ],
+            ),
+            AutoRoute(
+              page: HistoryRoute.page,
+              path: 'history',
+            ),
+          ],
+        ),
+        RedirectRoute(path: '*', redirectTo: '/'),
       ];
 }
 

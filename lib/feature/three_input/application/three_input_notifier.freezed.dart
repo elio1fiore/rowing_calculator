@@ -448,10 +448,10 @@ class __$$ResultPageCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? player = freezed,
+    Object? player = null,
   }) {
     return _then(_$ResultPage(
-      player: freezed == player
+      player: null == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
               as ThreeInputPagePlayer,
@@ -477,12 +477,11 @@ class _$ResultPage implements ResultPage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResultPage &&
-            const DeepCollectionEquality().equals(other.player, player));
+            (identical(other.player, player) || other.player == player));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(player));
+  int get hashCode => Object.hash(runtimeType, player);
 
   @JsonKey(ignore: true)
   @override

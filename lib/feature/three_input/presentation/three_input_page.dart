@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/flutter_multi_formatter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -6,6 +7,7 @@ import 'package:row_calculator/feature/three_input/application/three_input_notif
 import 'package:row_calculator/feature/three_input/shared/three_input_provider.dart';
 import 'package:row_calculator/data/boat.dart';
 
+@RoutePage()
 class ThreeInputPage extends ConsumerStatefulWidget {
   const ThreeInputPage({super.key});
 

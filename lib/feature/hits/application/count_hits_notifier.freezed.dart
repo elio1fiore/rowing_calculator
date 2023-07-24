@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'count_hits_notifier.dart';
 
@@ -25,9 +25,9 @@ mixin _$CountHitsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function(int pressVolte)? pressNoTwo,
-    TResult Function(int hits)? hits,
+    TResult? Function()? init,
+    TResult? Function(int pressVolte)? pressNoTwo,
+    TResult? Function(int hits)? hits,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$CountHitsState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Init value)? init,
-    TResult Function(_PressNoTwo value)? pressNoTwo,
-    TResult Function(_Hits value)? hits,
+    TResult? Function(_Init value)? init,
+    TResult? Function(_PressNoTwo value)? pressNoTwo,
+    TResult? Function(_Hits value)? hits,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,17 +66,18 @@ mixin _$CountHitsState {
 abstract class $CountHitsStateCopyWith<$Res> {
   factory $CountHitsStateCopyWith(
           CountHitsState value, $Res Function(CountHitsState) then) =
-      _$CountHitsStateCopyWithImpl<$Res>;
+      _$CountHitsStateCopyWithImpl<$Res, CountHitsState>;
 }
 
 /// @nodoc
-class _$CountHitsStateCopyWithImpl<$Res>
+class _$CountHitsStateCopyWithImpl<$Res, $Val extends CountHitsState>
     implements $CountHitsStateCopyWith<$Res> {
   _$CountHitsStateCopyWithImpl(this._value, this._then);
 
-  final CountHitsState _value;
   // ignore: unused_field
-  final $Res Function(CountHitsState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -86,13 +87,11 @@ abstract class _$$_InitCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitCopyWithImpl<$Res> extends _$CountHitsStateCopyWithImpl<$Res>
+class __$$_InitCopyWithImpl<$Res>
+    extends _$CountHitsStateCopyWithImpl<$Res, _$_Init>
     implements _$$_InitCopyWith<$Res> {
   __$$_InitCopyWithImpl(_$_Init _value, $Res Function(_$_Init) _then)
-      : super(_value, (v) => _then(v as _$_Init));
-
-  @override
-  _$_Init get _value => super._value as _$_Init;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -127,9 +126,9 @@ class _$_Init implements _Init {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function(int pressVolte)? pressNoTwo,
-    TResult Function(int hits)? hits,
+    TResult? Function()? init,
+    TResult? Function(int pressVolte)? pressNoTwo,
+    TResult? Function(int hits)? hits,
   }) {
     return init?.call();
   }
@@ -161,9 +160,9 @@ class _$_Init implements _Init {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Init value)? init,
-    TResult Function(_PressNoTwo value)? pressNoTwo,
-    TResult Function(_Hits value)? hits,
+    TResult? Function(_Init value)? init,
+    TResult? Function(_PressNoTwo value)? pressNoTwo,
+    TResult? Function(_Hits value)? hits,
   }) {
     return init?.call(this);
   }
@@ -192,26 +191,25 @@ abstract class _$$_PressNoTwoCopyWith<$Res> {
   factory _$$_PressNoTwoCopyWith(
           _$_PressNoTwo value, $Res Function(_$_PressNoTwo) then) =
       __$$_PressNoTwoCopyWithImpl<$Res>;
+  @useResult
   $Res call({int pressVolte});
 }
 
 /// @nodoc
 class __$$_PressNoTwoCopyWithImpl<$Res>
-    extends _$CountHitsStateCopyWithImpl<$Res>
+    extends _$CountHitsStateCopyWithImpl<$Res, _$_PressNoTwo>
     implements _$$_PressNoTwoCopyWith<$Res> {
   __$$_PressNoTwoCopyWithImpl(
       _$_PressNoTwo _value, $Res Function(_$_PressNoTwo) _then)
-      : super(_value, (v) => _then(v as _$_PressNoTwo));
+      : super(_value, _then);
 
-  @override
-  _$_PressNoTwo get _value => super._value as _$_PressNoTwo;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pressVolte = freezed,
+    Object? pressVolte = null,
   }) {
     return _then(_$_PressNoTwo(
-      pressVolte == freezed
+      null == pressVolte
           ? _value.pressVolte
           : pressVolte // ignore: cast_nullable_to_non_nullable
               as int,
@@ -237,16 +235,16 @@ class _$_PressNoTwo implements _PressNoTwo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PressNoTwo &&
-            const DeepCollectionEquality()
-                .equals(other.pressVolte, pressVolte));
+            (identical(other.pressVolte, pressVolte) ||
+                other.pressVolte == pressVolte));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(pressVolte));
+  int get hashCode => Object.hash(runtimeType, pressVolte);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PressNoTwoCopyWith<_$_PressNoTwo> get copyWith =>
       __$$_PressNoTwoCopyWithImpl<_$_PressNoTwo>(this, _$identity);
 
@@ -263,9 +261,9 @@ class _$_PressNoTwo implements _PressNoTwo {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function(int pressVolte)? pressNoTwo,
-    TResult Function(int hits)? hits,
+    TResult? Function()? init,
+    TResult? Function(int pressVolte)? pressNoTwo,
+    TResult? Function(int hits)? hits,
   }) {
     return pressNoTwo?.call(pressVolte);
   }
@@ -297,9 +295,9 @@ class _$_PressNoTwo implements _PressNoTwo {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Init value)? init,
-    TResult Function(_PressNoTwo value)? pressNoTwo,
-    TResult Function(_Hits value)? hits,
+    TResult? Function(_Init value)? init,
+    TResult? Function(_PressNoTwo value)? pressNoTwo,
+    TResult? Function(_Hits value)? hits,
   }) {
     return pressNoTwo?.call(this);
   }
@@ -332,24 +330,24 @@ abstract class _PressNoTwo implements CountHitsState {
 abstract class _$$_HitsCopyWith<$Res> {
   factory _$$_HitsCopyWith(_$_Hits value, $Res Function(_$_Hits) then) =
       __$$_HitsCopyWithImpl<$Res>;
+  @useResult
   $Res call({int hits});
 }
 
 /// @nodoc
-class __$$_HitsCopyWithImpl<$Res> extends _$CountHitsStateCopyWithImpl<$Res>
+class __$$_HitsCopyWithImpl<$Res>
+    extends _$CountHitsStateCopyWithImpl<$Res, _$_Hits>
     implements _$$_HitsCopyWith<$Res> {
   __$$_HitsCopyWithImpl(_$_Hits _value, $Res Function(_$_Hits) _then)
-      : super(_value, (v) => _then(v as _$_Hits));
+      : super(_value, _then);
 
-  @override
-  _$_Hits get _value => super._value as _$_Hits;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? hits = freezed,
+    Object? hits = null,
   }) {
     return _then(_$_Hits(
-      hits == freezed
+      null == hits
           ? _value.hits
           : hits // ignore: cast_nullable_to_non_nullable
               as int,
@@ -375,15 +373,15 @@ class _$_Hits implements _Hits {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Hits &&
-            const DeepCollectionEquality().equals(other.hits, hits));
+            (identical(other.hits, hits) || other.hits == hits));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(hits));
+  int get hashCode => Object.hash(runtimeType, hits);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_HitsCopyWith<_$_Hits> get copyWith =>
       __$$_HitsCopyWithImpl<_$_Hits>(this, _$identity);
 
@@ -400,9 +398,9 @@ class _$_Hits implements _Hits {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function(int pressVolte)? pressNoTwo,
-    TResult Function(int hits)? hits,
+    TResult? Function()? init,
+    TResult? Function(int pressVolte)? pressNoTwo,
+    TResult? Function(int hits)? hits,
   }) {
     return hits?.call(this.hits);
   }
@@ -434,9 +432,9 @@ class _$_Hits implements _Hits {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Init value)? init,
-    TResult Function(_PressNoTwo value)? pressNoTwo,
-    TResult Function(_Hits value)? hits,
+    TResult? Function(_Init value)? init,
+    TResult? Function(_PressNoTwo value)? pressNoTwo,
+    TResult? Function(_Hits value)? hits,
   }) {
     return hits?.call(this);
   }
