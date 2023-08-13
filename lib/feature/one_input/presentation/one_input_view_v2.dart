@@ -14,32 +14,6 @@ class OneInputViewV2 extends ConsumerStatefulWidget {
 }
 
 class _OneInputViewV2State extends ConsumerState<OneInputViewV2> {
-  Map<String, String Function(Object)>? validationMessages3() {
-    // final String valueMin = (x.value == null) ? '' : x.value!;
-
-    return {"mess": (error) => "prova"};
-
-    // if (noty.selectedEnergyExp) {
-    //   return {
-    //     ValidationMessage.required: 'Campo richiesto',
-    //     ValidationMessage.number: 'Inserire solo i numeri',
-    //   };
-    // }
-    // if (noty.selectedTime && valueMin.length < 3) {
-    //   return {
-    //     ValidationMessage.required: 'Campo richiesto',
-    //     ValidationMessage.minLength: 'Inserire i secondi e i decimi',
-    //     ValidationMessage.number: 'Inserire solo i numeri',
-    //   };
-    // } else {
-    //   return {
-    //     ValidationMessage.required: 'Campo richiesto',
-    //     ValidationMessage.minLength: 'Inserire i decimi',
-    //     ValidationMessage.number: 'Inserire solo i numeri',
-    //   };
-    // }
-  }
-
   @override
   Widget build(BuildContext context) {
     final featureNotyRead = ref.read(oneFeatureNotifierProvider.notifier);
