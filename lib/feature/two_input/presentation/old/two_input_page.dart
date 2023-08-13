@@ -7,14 +7,14 @@ import 'package:row_calculator/feature/two_input/application/two_input_notifier.
 import 'package:row_calculator/feature/two_input/shared/two_input_provider.dart';
 
 @RoutePage()
-class TwoInputPage extends ConsumerStatefulWidget {
-  const TwoInputPage({super.key});
-
+class TwoInputView extends ConsumerStatefulWidget {
+  const TwoInputView({super.key});
+//
   @override
-  ConsumerState<TwoInputPage> createState() => _TwoInputPageState();
+  ConsumerState<TwoInputView> createState() => _TwoInputPageState();
 }
 
-class _TwoInputPageState extends ConsumerState<TwoInputPage> {
+class _TwoInputPageState extends ConsumerState<TwoInputView> {
   @override
   Widget build(BuildContext context) {
     final noty = ref.read(twoInputNotifierProvider.notifier);

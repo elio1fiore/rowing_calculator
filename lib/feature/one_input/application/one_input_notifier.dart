@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:row_calculator/feature/one_input/application/one_input_page_player.dart';
+import 'package:row_calculator/util/form_validators.dart';
 
 part 'one_input_notifier.freezed.dart';
 
@@ -10,9 +11,6 @@ part 'one_input_notifier.freezed.dart';
 class OneInputState with _$OneInputState {
   const factory OneInputState.minute() = _InputPageMinute;
   const factory OneInputState.watt() = _InputPageWatt;
-  const factory OneInputState.goResult({
-    required OneInputPagePlayer player,
-  }) = _ResultPage;
 }
 
 class OneInputNotifier extends StateNotifier<OneInputState> {
@@ -29,7 +27,7 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
       'inputOne': FormControl<String>(
         validators: [
           Validators.required,
-          // FormValidators.numberSplit,
+          const NumberSplitValidator(),
           Validators.minLength(6),
         ],
       ),
@@ -63,7 +61,7 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
       [
         Validators.required,
         Validators.minLength(6),
-        // FormValidators.numberSplit,
+        const NumberSplitValidator(),
       ],
       autoValidate: true,
       emitEvent: true,
@@ -86,7 +84,7 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
     _form.control('inputOne').setValidators(
       [
         Validators.required,
-        // FormValidators.numberSplit,
+        Validators.number,
       ],
       autoValidate: true,
       emitEvent: true,
@@ -97,7 +95,6 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
   }
 
   void goInputPage() {
-    // _appRouter.navigateBack();
     if (selectedMinute) {
       state = const OneInputState.minute();
     } else {
@@ -110,16 +107,18 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
     goInputPage();
   }
 
-  void calculateAndGotoResultPage() {
-    OneInputPagePlayer oneInputPagePlayer;
-    if (selectedMinute) {
-      oneInputPagePlayer =
-          OneInputPagePlayer.fromMedia500(_form.control('inputOne').value);
-    } else {
-      oneInputPagePlayer =
-          OneInputPagePlayer.fromWatt(_form.control('inputOne').value);
-    }
-
-    state = OneInputState.goResult(player: oneInputPagePlayer);
+  OneInputPagePlayer calculate() {
+    return state.when(
+      minute: () {
+        return OneInputPagePlayer.fromMedia500(
+          _form.control('inputOne').value,
+        );
+      },
+      watt: () {
+        return OneInputPagePlayer.fromWatt(
+          _form.control('inputOne').value,
+        );
+      },
+    );
   }
 }

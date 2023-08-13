@@ -1,11 +1,15 @@
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:row_calculator/util/function_util.dart';
 
-abstract class FormValidators {
-  static Map<String, dynamic>? numberSplit(AbstractControl<dynamic> control) {
+class NumberSplitValidator extends Validator<dynamic> {
+  const NumberSplitValidator() : super();
+
+  @override
+  Map<String, dynamic>? validate(AbstractControl<dynamic> control) {
     final Map<String, bool> errors = {};
 
     final value = control.value as String? ?? '';
+
     final v_sp = value.split(':');
 
     for (var i = 0; i < v_sp.length; i++) {
@@ -13,9 +17,7 @@ abstract class FormValidators {
         continue;
       } else {
         final errorType = {'number': true};
-        if (errors.isEmpty) {
-          errors.addEntries(errorType.entries);
-        }
+        errors.addEntries(errorType.entries);
       }
     }
 

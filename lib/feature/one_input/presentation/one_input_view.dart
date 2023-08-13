@@ -182,7 +182,7 @@ class _OneInputViewState extends ConsumerState<OneInputView> {
                     onPressed: () {
                       if (noty.formIsValid()) {
                         setState(() {
-                          noty.calculateAndGotoResultPage();
+                          // noty.calculateAndGotoResultPage();
                         });
                       } else {
                         noty.showError();

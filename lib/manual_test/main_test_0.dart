@@ -1,5 +1,4 @@
 import 'package:row_calculator/core/domain/interval_time.dart';
-import 'package:row_calculator/util/function_util.dart';
 
 import '../core/function/functions.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/core/presentation/loading.dart';
-import 'package:row_calculator/feature/two_input/presentation/result_two_input_page_1.dart';
-import 'package:row_calculator/feature/two_input/presentation/result_two_input_page_2.dart';
+import 'package:row_calculator/feature/two_input/presentation/old/result_two_input_page_1.dart';
+import 'package:row_calculator/feature/two_input/presentation/old/result_two_input_page_2.dart';
 import 'package:row_calculator/feature/two_input/shared/two_input_provider.dart';
 import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_1.dart';
 import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_2.dart';

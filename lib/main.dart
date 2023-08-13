@@ -5,10 +5,9 @@ import 'package:url_strategy/url_strategy.dart';
 
 Future<void> main() async {
   setPathUrlStrategy();
-
   runApp(
     const ProviderScope(
-      child: MyApp(),
+      child: RowCalculatorApp(),
     ),
   );
 }

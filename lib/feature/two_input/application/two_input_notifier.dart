@@ -6,7 +6,6 @@ import 'package:row_calculator/feature/two_input/two_input_player/two_input_page
 import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_1.dart';
 import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_2.dart';
 import 'package:row_calculator/router/app_router.dart';
-import 'package:row_calculator/util/form_validators.dart';
 part 'two_input_notifier.freezed.dart';
 
 @freezed

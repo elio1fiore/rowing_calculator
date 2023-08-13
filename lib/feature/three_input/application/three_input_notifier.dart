@@ -4,8 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:row_calculator/feature/three_input/application/three_input_page_player.dart';
 import 'package:row_calculator/router/app_router.dart';
-import 'package:row_calculator/router/app_router.gr.dart';
-import 'package:row_calculator/util/form_validators.dart';
 
 part 'three_input_notifier.freezed.dart';
 

@@ -1,11 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/core/shared/theme_provider.dart';
 import 'package:row_calculator/router/app_router.dart';
+import 'package:row_calculator/router/app_router.gr.dart';
 
-class MyApp extends ConsumerWidget {
-  const MyApp({super.key});
+class RowCalculatorApp extends ConsumerWidget {
+  const RowCalculatorApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -121,10 +123,17 @@ class MyApp extends ConsumerWidget {
         swapLegacyOnMaterial3: true,
       ),
       title: 'Row Calculator',
-      routerDelegate: appRouter.delegate(),
       debugShowCheckedModeBanner: false,
-      routeInformationParser: appRouter.defaultRouteParser(),
       themeMode: stateTheme ? ThemeMode.light : ThemeMode.dark,
+      routerConfig: appRouter.config(
+        deepLinkBuilder: (deepLink) {
+          return const DeepLink(
+            [
+              HomeRoute(),
+            ],
+          );
+        },
+      ),
     );
   }
 }

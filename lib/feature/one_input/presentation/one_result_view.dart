@@ -13,7 +13,8 @@ class OneResultView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final noty = ref.read(oneInputNotifierProvider.notifier);
+    final featureNotyRead = ref.read(oneFeatureNotifierProvider.notifier);
+    final inputNotyRead = ref.read(oneInputNotifierProvider.notifier);
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -41,6 +42,10 @@ class OneResultView extends ConsumerWidget {
                       alignment: Alignment.centerLeft,
                       child: Text(
                         'Watt',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -74,7 +79,15 @@ class OneResultView extends ConsumerWidget {
                     Container(
                       padding: const EdgeInsets.fromLTRB(20, 20, 0, 20),
                       color: Colors.green.shade100,
-                      child: const Text('Time on meters'),
+                      child: const Center(
+                        child: Text(
+                          "Time on meters",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
                     ),
                     Divider(
                       color: Colors.green.shade700,
@@ -126,11 +139,14 @@ class OneResultView extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: ElevatedButton(
+                onPressed: () {
+                  inputNotyRead.goAndResetInputPage();
+                  featureNotyRead.setStateInput();
+                },
                 child: const Padding(
                   padding: EdgeInsets.symmetric(vertical: 20),
                   child: Text('Nuovo Calcolo'),
                 ),
-                onPressed: (() => noty.goAndResetInputPage()),
               ),
             ),
           ],

@@ -15,6 +15,7 @@ class HomePage extends ConsumerWidget {
     final stateTheme = ref.watch(themeProvider);
 
     return AutoTabsRouter.pageView(
+      physics: const NeverScrollableScrollPhysics(),
       routes: const [
         FeatureRoute(),
         HistoryRoute(),
@@ -45,6 +46,7 @@ class HomePage extends ConsumerWidget {
           body: child,
           bottomNavigationBar: shouldShowBottomBar
               ? BottomNavigationBar(
+                  enableFeedback: true,
                   currentIndex: tabsRouter.activeIndex,
                   onTap: tabsRouter.setActiveIndex,
                   items: [

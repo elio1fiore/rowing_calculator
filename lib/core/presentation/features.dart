@@ -27,8 +27,18 @@ class _FeatureListPageState extends State<FeatureListPage> {
     final List<Functionality> funcs = [
       Functionality(
         navigatorPath: 'one',
-        nameFunctionality: '1   Input',
+        nameFunctionality: '1  Input',
         subtitle: 'Calcola la media, i watt e il tempo sulle distanze',
+      ),
+      Functionality(
+        navigatorPath: 'two',
+        nameFunctionality: '2  Input',
+        subtitle: 'Calcola la media, i metri, i watt e le varie percentuali',
+      ),
+      Functionality(
+        navigatorPath: 'three',
+        nameFunctionality: '3  Input',
+        subtitle: 'Calcola il dispendio, il tempo, i watt e la media',
       ),
     ];
     return Scaffold(
@@ -42,7 +52,7 @@ class _FeatureListPageState extends State<FeatureListPage> {
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
               onTap: () {
-                context.pushRoute(const OneFeatureRoute());
+                AutoRouter.of(context).pushNamed(func.navigatorPath);
               },
               subtitle: Text(
                 func.subtitle,

@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:row_calculator/core/presentation/features.dart';
 import 'package:row_calculator/router/app_router.gr.dart';
 
 abstract class NavigatorPath {
@@ -24,10 +23,10 @@ class AppRouter extends $AppRouter {
           initial: true,
           path: "/",
           children: [
-            RedirectRoute(
-              path: "",
-              redirectTo: 'feature',
-            ),
+            // RedirectRoute(
+            //   path: "",
+            //   redirectTo: 'feature',
+            // ),
             AutoRoute(
               page: FeatureRoute.page,
               path: 'feature',
@@ -39,6 +38,14 @@ class AppRouter extends $AppRouter {
                 AutoRoute(
                   page: OneFeatureRoute.page,
                   path: "one",
+                ),
+                AutoRoute(
+                  page: TwoFeatureRoute.page,
+                  path: "two",
+                ),
+                AutoRoute(
+                  page: ThreeInputRoute.page,
+                  path: "three",
                 ),
               ],
             ),

@@ -20,21 +20,18 @@ mixin _$OneInputState {
   TResult when<TResult extends Object?>({
     required TResult Function() minute,
     required TResult Function() watt,
-    required TResult Function(OneInputPagePlayer player) goResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? minute,
     TResult? Function()? watt,
-    TResult? Function(OneInputPagePlayer player)? goResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? minute,
     TResult Function()? watt,
-    TResult Function(OneInputPagePlayer player)? goResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -42,21 +39,18 @@ mixin _$OneInputState {
   TResult map<TResult extends Object?>({
     required TResult Function(_InputPageMinute value) minute,
     required TResult Function(_InputPageWatt value) watt,
-    required TResult Function(_ResultPage value) goResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InputPageMinute value)? minute,
     TResult? Function(_InputPageWatt value)? watt,
-    TResult? Function(_ResultPage value)? goResult,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InputPageMinute value)? minute,
     TResult Function(_InputPageWatt value)? watt,
-    TResult Function(_ResultPage value)? goResult,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,7 +114,6 @@ class _$_InputPageMinute implements _InputPageMinute {
   TResult when<TResult extends Object?>({
     required TResult Function() minute,
     required TResult Function() watt,
-    required TResult Function(OneInputPagePlayer player) goResult,
   }) {
     return minute();
   }
@@ -130,7 +123,6 @@ class _$_InputPageMinute implements _InputPageMinute {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? minute,
     TResult? Function()? watt,
-    TResult? Function(OneInputPagePlayer player)? goResult,
   }) {
     return minute?.call();
   }
@@ -140,7 +132,6 @@ class _$_InputPageMinute implements _InputPageMinute {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? minute,
     TResult Function()? watt,
-    TResult Function(OneInputPagePlayer player)? goResult,
     required TResult orElse(),
   }) {
     if (minute != null) {
@@ -154,7 +145,6 @@ class _$_InputPageMinute implements _InputPageMinute {
   TResult map<TResult extends Object?>({
     required TResult Function(_InputPageMinute value) minute,
     required TResult Function(_InputPageWatt value) watt,
-    required TResult Function(_ResultPage value) goResult,
   }) {
     return minute(this);
   }
@@ -164,7 +154,6 @@ class _$_InputPageMinute implements _InputPageMinute {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InputPageMinute value)? minute,
     TResult? Function(_InputPageWatt value)? watt,
-    TResult? Function(_ResultPage value)? goResult,
   }) {
     return minute?.call(this);
   }
@@ -174,7 +163,6 @@ class _$_InputPageMinute implements _InputPageMinute {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InputPageMinute value)? minute,
     TResult Function(_InputPageWatt value)? watt,
-    TResult Function(_ResultPage value)? goResult,
     required TResult orElse(),
   }) {
     if (minute != null) {
@@ -228,7 +216,6 @@ class _$_InputPageWatt implements _InputPageWatt {
   TResult when<TResult extends Object?>({
     required TResult Function() minute,
     required TResult Function() watt,
-    required TResult Function(OneInputPagePlayer player) goResult,
   }) {
     return watt();
   }
@@ -238,7 +225,6 @@ class _$_InputPageWatt implements _InputPageWatt {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? minute,
     TResult? Function()? watt,
-    TResult? Function(OneInputPagePlayer player)? goResult,
   }) {
     return watt?.call();
   }
@@ -248,7 +234,6 @@ class _$_InputPageWatt implements _InputPageWatt {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? minute,
     TResult Function()? watt,
-    TResult Function(OneInputPagePlayer player)? goResult,
     required TResult orElse(),
   }) {
     if (watt != null) {
@@ -262,7 +247,6 @@ class _$_InputPageWatt implements _InputPageWatt {
   TResult map<TResult extends Object?>({
     required TResult Function(_InputPageMinute value) minute,
     required TResult Function(_InputPageWatt value) watt,
-    required TResult Function(_ResultPage value) goResult,
   }) {
     return watt(this);
   }
@@ -272,7 +256,6 @@ class _$_InputPageWatt implements _InputPageWatt {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_InputPageMinute value)? minute,
     TResult? Function(_InputPageWatt value)? watt,
-    TResult? Function(_ResultPage value)? goResult,
   }) {
     return watt?.call(this);
   }
@@ -282,7 +265,6 @@ class _$_InputPageWatt implements _InputPageWatt {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_InputPageMinute value)? minute,
     TResult Function(_InputPageWatt value)? watt,
-    TResult Function(_ResultPage value)? goResult,
     required TResult orElse(),
   }) {
     if (watt != null) {
@@ -294,144 +276,4 @@ class _$_InputPageWatt implements _InputPageWatt {
 
 abstract class _InputPageWatt implements OneInputState {
   const factory _InputPageWatt() = _$_InputPageWatt;
-}
-
-/// @nodoc
-abstract class _$$_ResultPageCopyWith<$Res> {
-  factory _$$_ResultPageCopyWith(
-          _$_ResultPage value, $Res Function(_$_ResultPage) then) =
-      __$$_ResultPageCopyWithImpl<$Res>;
-  @useResult
-  $Res call({OneInputPagePlayer player});
-}
-
-/// @nodoc
-class __$$_ResultPageCopyWithImpl<$Res>
-    extends _$OneInputStateCopyWithImpl<$Res, _$_ResultPage>
-    implements _$$_ResultPageCopyWith<$Res> {
-  __$$_ResultPageCopyWithImpl(
-      _$_ResultPage _value, $Res Function(_$_ResultPage) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? player = null,
-  }) {
-    return _then(_$_ResultPage(
-      player: null == player
-          ? _value.player
-          : player // ignore: cast_nullable_to_non_nullable
-              as OneInputPagePlayer,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ResultPage implements _ResultPage {
-  const _$_ResultPage({required this.player});
-
-  @override
-  final OneInputPagePlayer player;
-
-  @override
-  String toString() {
-    return 'OneInputState.goResult(player: $player)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ResultPage &&
-            (identical(other.player, player) || other.player == player));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, player);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ResultPageCopyWith<_$_ResultPage> get copyWith =>
-      __$$_ResultPageCopyWithImpl<_$_ResultPage>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() minute,
-    required TResult Function() watt,
-    required TResult Function(OneInputPagePlayer player) goResult,
-  }) {
-    return goResult(player);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? minute,
-    TResult? Function()? watt,
-    TResult? Function(OneInputPagePlayer player)? goResult,
-  }) {
-    return goResult?.call(player);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? minute,
-    TResult Function()? watt,
-    TResult Function(OneInputPagePlayer player)? goResult,
-    required TResult orElse(),
-  }) {
-    if (goResult != null) {
-      return goResult(player);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_InputPageMinute value) minute,
-    required TResult Function(_InputPageWatt value) watt,
-    required TResult Function(_ResultPage value) goResult,
-  }) {
-    return goResult(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_InputPageMinute value)? minute,
-    TResult? Function(_InputPageWatt value)? watt,
-    TResult? Function(_ResultPage value)? goResult,
-  }) {
-    return goResult?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_InputPageMinute value)? minute,
-    TResult Function(_InputPageWatt value)? watt,
-    TResult Function(_ResultPage value)? goResult,
-    required TResult orElse(),
-  }) {
-    if (goResult != null) {
-      return goResult(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ResultPage implements OneInputState {
-  const factory _ResultPage({required final OneInputPagePlayer player}) =
-      _$_ResultPage;
-
-  OneInputPagePlayer get player;
-  @JsonKey(ignore: true)
-  _$$_ResultPageCopyWith<_$_ResultPage> get copyWith =>
-      throw _privateConstructorUsedError;
 }
