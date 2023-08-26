@@ -10,9 +10,9 @@ part 'speed_notifier.freezed.dart';
 
 @freezed
 class SpeedState with _$SpeedState {
-  const factory SpeedState.stop() = _Stop;
+  const factory SpeedState.init() = _Init;
   const factory SpeedState.noSpeed() = _NoSpeed;
-  const factory SpeedState.progressSpeed() = _ProgressSpeed;
+
   const factory SpeedState.dataPosition(
     Position position,
     IntervalTime intervalTime,
@@ -21,17 +21,19 @@ class SpeedState with _$SpeedState {
 }
 
 class SpeedNotifier extends StateNotifier<SpeedState> {
-  late int secondFirst;
-  SpeedNotifier() : super(const SpeedState.noSpeed());
+  SpeedNotifier() : super(const SpeedState.init());
 
   late StreamSubscription<Position> positionStream;
 
-  void canc() {
+  @override
+  void dispose() {
     positionStream.cancel();
-    state = const SpeedState.stop();
+    state = const SpeedState.init();
+    super.dispose();
   }
 
-  void init() async {
+  void dataPosition() async {
+    print("1");
     bool serviceEnabled;
     LocationPermission permission;
 
@@ -55,19 +57,40 @@ class SpeedNotifier extends StateNotifier<SpeedState> {
     }
 
     if (permission == LocationPermission.whileInUse) {
+      print("2");
+
       positionStream = Geolocator.getPositionStream(
-          locationSettings: AndroidSettings(
-        intervalDuration: const Duration(milliseconds: 500),
-        accuracy: LocationAccuracy.bestForNavigation,
-        distanceFilter: 10,
-      )).listen((Position position) {
-        const dist = 500;
-        final seconds = dist ~/ (position.speed);
+        locationSettings: AndroidSettings(
+          intervalDuration: const Duration(milliseconds: 500),
+          accuracy: LocationAccuracy.bestForNavigation,
+          distanceFilter: 10,
+        ),
+      ).listen(
+        (Position position) {
+          print("3");
 
-        final it = IntervalTime(seconds: seconds);
+          const dist = 500;
 
-        state = SpeedState.dataPosition(position, it);
-      });
+          if (position.speed.isFinite &&
+              !position.speed.isNaN &&
+              position.speed != 0.0) {
+            final seconds = dist ~/ (position.speed);
+            // print('if ${position.speed}');
+            print("if");
+
+            final it = IntervalTime(seconds: seconds);
+
+            state = SpeedState.dataPosition(
+              position,
+              it,
+            );
+          } else {
+            print("else");
+
+            state = const SpeedState.noSpeed();
+          }
+        },
+      );
     }
   }
 }

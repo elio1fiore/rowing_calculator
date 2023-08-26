@@ -18,9 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SpeedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() stop,
+    required TResult Function() init,
     required TResult Function() noSpeed,
-    required TResult Function() progressSpeed,
     required TResult Function(Position position, IntervalTime intervalTime)
         dataPosition,
     required TResult Function(String error) error,
@@ -28,9 +27,8 @@ mixin _$SpeedState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? stop,
+    TResult? Function()? init,
     TResult? Function()? noSpeed,
-    TResult? Function()? progressSpeed,
     TResult? Function(Position position, IntervalTime intervalTime)?
         dataPosition,
     TResult? Function(String error)? error,
@@ -38,9 +36,8 @@ mixin _$SpeedState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? stop,
+    TResult Function()? init,
     TResult Function()? noSpeed,
-    TResult Function()? progressSpeed,
     TResult Function(Position position, IntervalTime intervalTime)?
         dataPosition,
     TResult Function(String error)? error,
@@ -49,27 +46,24 @@ mixin _$SpeedState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Stop value) stop,
+    required TResult Function(_Init value) init,
     required TResult Function(_NoSpeed value) noSpeed,
-    required TResult Function(_ProgressSpeed value) progressSpeed,
     required TResult Function(_DataPosition value) dataPosition,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Stop value)? stop,
+    TResult? Function(_Init value)? init,
     TResult? Function(_NoSpeed value)? noSpeed,
-    TResult? Function(_ProgressSpeed value)? progressSpeed,
     TResult? Function(_DataPosition value)? dataPosition,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Stop value)? stop,
+    TResult Function(_Init value)? init,
     TResult Function(_NoSpeed value)? noSpeed,
-    TResult Function(_ProgressSpeed value)? progressSpeed,
     TResult Function(_DataPosition value)? dataPosition,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -96,39 +90,39 @@ class _$SpeedStateCopyWithImpl<$Res, $Val extends SpeedState>
 }
 
 /// @nodoc
-abstract class _$$_StopCopyWith<$Res> {
-  factory _$$_StopCopyWith(_$_Stop value, $Res Function(_$_Stop) then) =
-      __$$_StopCopyWithImpl<$Res>;
+abstract class _$$_InitCopyWith<$Res> {
+  factory _$$_InitCopyWith(_$_Init value, $Res Function(_$_Init) then) =
+      __$$_InitCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_StopCopyWithImpl<$Res>
-    extends _$SpeedStateCopyWithImpl<$Res, _$_Stop>
-    implements _$$_StopCopyWith<$Res> {
-  __$$_StopCopyWithImpl(_$_Stop _value, $Res Function(_$_Stop) _then)
+class __$$_InitCopyWithImpl<$Res>
+    extends _$SpeedStateCopyWithImpl<$Res, _$_Init>
+    implements _$$_InitCopyWith<$Res> {
+  __$$_InitCopyWithImpl(_$_Init _value, $Res Function(_$_Init) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Stop with DiagnosticableTreeMixin implements _Stop {
-  const _$_Stop();
+class _$_Init with DiagnosticableTreeMixin implements _Init {
+  const _$_Init();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SpeedState.stop()';
+    return 'SpeedState.init()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SpeedState.stop'));
+    properties.add(DiagnosticsProperty('type', 'SpeedState.init'));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Stop);
+        (other.runtimeType == runtimeType && other is _$_Init);
   }
 
   @override
@@ -137,42 +131,39 @@ class _$_Stop with DiagnosticableTreeMixin implements _Stop {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() stop,
+    required TResult Function() init,
     required TResult Function() noSpeed,
-    required TResult Function() progressSpeed,
     required TResult Function(Position position, IntervalTime intervalTime)
         dataPosition,
     required TResult Function(String error) error,
   }) {
-    return stop();
+    return init();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? stop,
+    TResult? Function()? init,
     TResult? Function()? noSpeed,
-    TResult? Function()? progressSpeed,
     TResult? Function(Position position, IntervalTime intervalTime)?
         dataPosition,
     TResult? Function(String error)? error,
   }) {
-    return stop?.call();
+    return init?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? stop,
+    TResult Function()? init,
     TResult Function()? noSpeed,
-    TResult Function()? progressSpeed,
     TResult Function(Position position, IntervalTime intervalTime)?
         dataPosition,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
-    if (stop != null) {
-      return stop();
+    if (init != null) {
+      return init();
     }
     return orElse();
   }
@@ -180,46 +171,43 @@ class _$_Stop with DiagnosticableTreeMixin implements _Stop {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Stop value) stop,
+    required TResult Function(_Init value) init,
     required TResult Function(_NoSpeed value) noSpeed,
-    required TResult Function(_ProgressSpeed value) progressSpeed,
     required TResult Function(_DataPosition value) dataPosition,
     required TResult Function(_Error value) error,
   }) {
-    return stop(this);
+    return init(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Stop value)? stop,
+    TResult? Function(_Init value)? init,
     TResult? Function(_NoSpeed value)? noSpeed,
-    TResult? Function(_ProgressSpeed value)? progressSpeed,
     TResult? Function(_DataPosition value)? dataPosition,
     TResult? Function(_Error value)? error,
   }) {
-    return stop?.call(this);
+    return init?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Stop value)? stop,
+    TResult Function(_Init value)? init,
     TResult Function(_NoSpeed value)? noSpeed,
-    TResult Function(_ProgressSpeed value)? progressSpeed,
     TResult Function(_DataPosition value)? dataPosition,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
-    if (stop != null) {
-      return stop(this);
+    if (init != null) {
+      return init(this);
     }
     return orElse();
   }
 }
 
-abstract class _Stop implements SpeedState {
-  const factory _Stop() = _$_Stop;
+abstract class _Init implements SpeedState {
+  const factory _Init() = _$_Init;
 }
 
 /// @nodoc
@@ -265,9 +253,8 @@ class _$_NoSpeed with DiagnosticableTreeMixin implements _NoSpeed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() stop,
+    required TResult Function() init,
     required TResult Function() noSpeed,
-    required TResult Function() progressSpeed,
     required TResult Function(Position position, IntervalTime intervalTime)
         dataPosition,
     required TResult Function(String error) error,
@@ -278,9 +265,8 @@ class _$_NoSpeed with DiagnosticableTreeMixin implements _NoSpeed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? stop,
+    TResult? Function()? init,
     TResult? Function()? noSpeed,
-    TResult? Function()? progressSpeed,
     TResult? Function(Position position, IntervalTime intervalTime)?
         dataPosition,
     TResult? Function(String error)? error,
@@ -291,9 +277,8 @@ class _$_NoSpeed with DiagnosticableTreeMixin implements _NoSpeed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? stop,
+    TResult Function()? init,
     TResult Function()? noSpeed,
-    TResult Function()? progressSpeed,
     TResult Function(Position position, IntervalTime intervalTime)?
         dataPosition,
     TResult Function(String error)? error,
@@ -308,9 +293,8 @@ class _$_NoSpeed with DiagnosticableTreeMixin implements _NoSpeed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Stop value) stop,
+    required TResult Function(_Init value) init,
     required TResult Function(_NoSpeed value) noSpeed,
-    required TResult Function(_ProgressSpeed value) progressSpeed,
     required TResult Function(_DataPosition value) dataPosition,
     required TResult Function(_Error value) error,
   }) {
@@ -320,9 +304,8 @@ class _$_NoSpeed with DiagnosticableTreeMixin implements _NoSpeed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Stop value)? stop,
+    TResult? Function(_Init value)? init,
     TResult? Function(_NoSpeed value)? noSpeed,
-    TResult? Function(_ProgressSpeed value)? progressSpeed,
     TResult? Function(_DataPosition value)? dataPosition,
     TResult? Function(_Error value)? error,
   }) {
@@ -332,9 +315,8 @@ class _$_NoSpeed with DiagnosticableTreeMixin implements _NoSpeed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Stop value)? stop,
+    TResult Function(_Init value)? init,
     TResult Function(_NoSpeed value)? noSpeed,
-    TResult Function(_ProgressSpeed value)? progressSpeed,
     TResult Function(_DataPosition value)? dataPosition,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -348,135 +330,6 @@ class _$_NoSpeed with DiagnosticableTreeMixin implements _NoSpeed {
 
 abstract class _NoSpeed implements SpeedState {
   const factory _NoSpeed() = _$_NoSpeed;
-}
-
-/// @nodoc
-abstract class _$$_ProgressSpeedCopyWith<$Res> {
-  factory _$$_ProgressSpeedCopyWith(
-          _$_ProgressSpeed value, $Res Function(_$_ProgressSpeed) then) =
-      __$$_ProgressSpeedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_ProgressSpeedCopyWithImpl<$Res>
-    extends _$SpeedStateCopyWithImpl<$Res, _$_ProgressSpeed>
-    implements _$$_ProgressSpeedCopyWith<$Res> {
-  __$$_ProgressSpeedCopyWithImpl(
-      _$_ProgressSpeed _value, $Res Function(_$_ProgressSpeed) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_ProgressSpeed with DiagnosticableTreeMixin implements _ProgressSpeed {
-  const _$_ProgressSpeed();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SpeedState.progressSpeed()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SpeedState.progressSpeed'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ProgressSpeed);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() stop,
-    required TResult Function() noSpeed,
-    required TResult Function() progressSpeed,
-    required TResult Function(Position position, IntervalTime intervalTime)
-        dataPosition,
-    required TResult Function(String error) error,
-  }) {
-    return progressSpeed();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? stop,
-    TResult? Function()? noSpeed,
-    TResult? Function()? progressSpeed,
-    TResult? Function(Position position, IntervalTime intervalTime)?
-        dataPosition,
-    TResult? Function(String error)? error,
-  }) {
-    return progressSpeed?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? stop,
-    TResult Function()? noSpeed,
-    TResult Function()? progressSpeed,
-    TResult Function(Position position, IntervalTime intervalTime)?
-        dataPosition,
-    TResult Function(String error)? error,
-    required TResult orElse(),
-  }) {
-    if (progressSpeed != null) {
-      return progressSpeed();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Stop value) stop,
-    required TResult Function(_NoSpeed value) noSpeed,
-    required TResult Function(_ProgressSpeed value) progressSpeed,
-    required TResult Function(_DataPosition value) dataPosition,
-    required TResult Function(_Error value) error,
-  }) {
-    return progressSpeed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Stop value)? stop,
-    TResult? Function(_NoSpeed value)? noSpeed,
-    TResult? Function(_ProgressSpeed value)? progressSpeed,
-    TResult? Function(_DataPosition value)? dataPosition,
-    TResult? Function(_Error value)? error,
-  }) {
-    return progressSpeed?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Stop value)? stop,
-    TResult Function(_NoSpeed value)? noSpeed,
-    TResult Function(_ProgressSpeed value)? progressSpeed,
-    TResult Function(_DataPosition value)? dataPosition,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (progressSpeed != null) {
-      return progressSpeed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ProgressSpeed implements SpeedState {
-  const factory _ProgressSpeed() = _$_ProgressSpeed;
 }
 
 /// @nodoc
@@ -562,9 +415,8 @@ class _$_DataPosition with DiagnosticableTreeMixin implements _DataPosition {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() stop,
+    required TResult Function() init,
     required TResult Function() noSpeed,
-    required TResult Function() progressSpeed,
     required TResult Function(Position position, IntervalTime intervalTime)
         dataPosition,
     required TResult Function(String error) error,
@@ -575,9 +427,8 @@ class _$_DataPosition with DiagnosticableTreeMixin implements _DataPosition {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? stop,
+    TResult? Function()? init,
     TResult? Function()? noSpeed,
-    TResult? Function()? progressSpeed,
     TResult? Function(Position position, IntervalTime intervalTime)?
         dataPosition,
     TResult? Function(String error)? error,
@@ -588,9 +439,8 @@ class _$_DataPosition with DiagnosticableTreeMixin implements _DataPosition {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? stop,
+    TResult Function()? init,
     TResult Function()? noSpeed,
-    TResult Function()? progressSpeed,
     TResult Function(Position position, IntervalTime intervalTime)?
         dataPosition,
     TResult Function(String error)? error,
@@ -605,9 +455,8 @@ class _$_DataPosition with DiagnosticableTreeMixin implements _DataPosition {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Stop value) stop,
+    required TResult Function(_Init value) init,
     required TResult Function(_NoSpeed value) noSpeed,
-    required TResult Function(_ProgressSpeed value) progressSpeed,
     required TResult Function(_DataPosition value) dataPosition,
     required TResult Function(_Error value) error,
   }) {
@@ -617,9 +466,8 @@ class _$_DataPosition with DiagnosticableTreeMixin implements _DataPosition {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Stop value)? stop,
+    TResult? Function(_Init value)? init,
     TResult? Function(_NoSpeed value)? noSpeed,
-    TResult? Function(_ProgressSpeed value)? progressSpeed,
     TResult? Function(_DataPosition value)? dataPosition,
     TResult? Function(_Error value)? error,
   }) {
@@ -629,9 +477,8 @@ class _$_DataPosition with DiagnosticableTreeMixin implements _DataPosition {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Stop value)? stop,
+    TResult Function(_Init value)? init,
     TResult Function(_NoSpeed value)? noSpeed,
-    TResult Function(_ProgressSpeed value)? progressSpeed,
     TResult Function(_DataPosition value)? dataPosition,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -725,9 +572,8 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() stop,
+    required TResult Function() init,
     required TResult Function() noSpeed,
-    required TResult Function() progressSpeed,
     required TResult Function(Position position, IntervalTime intervalTime)
         dataPosition,
     required TResult Function(String error) error,
@@ -738,9 +584,8 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? stop,
+    TResult? Function()? init,
     TResult? Function()? noSpeed,
-    TResult? Function()? progressSpeed,
     TResult? Function(Position position, IntervalTime intervalTime)?
         dataPosition,
     TResult? Function(String error)? error,
@@ -751,9 +596,8 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? stop,
+    TResult Function()? init,
     TResult Function()? noSpeed,
-    TResult Function()? progressSpeed,
     TResult Function(Position position, IntervalTime intervalTime)?
         dataPosition,
     TResult Function(String error)? error,
@@ -768,9 +612,8 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Stop value) stop,
+    required TResult Function(_Init value) init,
     required TResult Function(_NoSpeed value) noSpeed,
-    required TResult Function(_ProgressSpeed value) progressSpeed,
     required TResult Function(_DataPosition value) dataPosition,
     required TResult Function(_Error value) error,
   }) {
@@ -780,9 +623,8 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Stop value)? stop,
+    TResult? Function(_Init value)? init,
     TResult? Function(_NoSpeed value)? noSpeed,
-    TResult? Function(_ProgressSpeed value)? progressSpeed,
     TResult? Function(_DataPosition value)? dataPosition,
     TResult? Function(_Error value)? error,
   }) {
@@ -792,9 +634,8 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Stop value)? stop,
+    TResult Function(_Init value)? init,
     TResult Function(_NoSpeed value)? noSpeed,
-    TResult Function(_ProgressSpeed value)? progressSpeed,
     TResult Function(_DataPosition value)? dataPosition,
     TResult Function(_Error value)? error,
     required TResult orElse(),

@@ -40,6 +40,11 @@ class _FeatureListPageState extends State<FeatureListPage> {
         nameFunctionality: '3  Input',
         subtitle: 'Calcola il dispendio, il tempo, i watt e la media',
       ),
+      Functionality(
+        navigatorPath: 'speed-strokes',
+        nameFunctionality: '4  Speed & Strokes',
+        subtitle: 'Calcola velocità media e colpi al minuto',
+      ),
     ];
     return Scaffold(
       body: SafeArea(

@@ -21,8 +21,6 @@ mixin _$TwoInputState {
     required TResult Function() inputPageWT,
     required TResult Function() inputPageMT,
     required TResult Function() inputPageMP,
-    required TResult Function() calculateInProgress,
-    required TResult Function(TwoInputPagePlayer player) resultPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,8 +28,6 @@ mixin _$TwoInputState {
     TResult? Function()? inputPageWT,
     TResult? Function()? inputPageMT,
     TResult? Function()? inputPageMP,
-    TResult? Function()? calculateInProgress,
-    TResult? Function(TwoInputPagePlayer player)? resultPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,8 +35,6 @@ mixin _$TwoInputState {
     TResult Function()? inputPageWT,
     TResult Function()? inputPageMT,
     TResult Function()? inputPageMP,
-    TResult Function()? calculateInProgress,
-    TResult Function(TwoInputPagePlayer player)? resultPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,8 +43,6 @@ mixin _$TwoInputState {
     required TResult Function(InputPageWT value) inputPageWT,
     required TResult Function(InputPageMT value) inputPageMT,
     required TResult Function(InputPageMP value) inputPageMP,
-    required TResult Function(_CalculateInProgress value) calculateInProgress,
-    required TResult Function(_ResultPage value) resultPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,8 +50,6 @@ mixin _$TwoInputState {
     TResult? Function(InputPageWT value)? inputPageWT,
     TResult? Function(InputPageMT value)? inputPageMT,
     TResult? Function(InputPageMP value)? inputPageMP,
-    TResult? Function(_CalculateInProgress value)? calculateInProgress,
-    TResult? Function(_ResultPage value)? resultPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,8 +57,6 @@ mixin _$TwoInputState {
     TResult Function(InputPageWT value)? inputPageWT,
     TResult Function(InputPageMT value)? inputPageMT,
     TResult Function(InputPageMP value)? inputPageMP,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,8 +121,6 @@ class _$InputPageWT implements InputPageWT {
     required TResult Function() inputPageWT,
     required TResult Function() inputPageMT,
     required TResult Function() inputPageMP,
-    required TResult Function() calculateInProgress,
-    required TResult Function(TwoInputPagePlayer player) resultPage,
   }) {
     return inputPageWT();
   }
@@ -145,8 +131,6 @@ class _$InputPageWT implements InputPageWT {
     TResult? Function()? inputPageWT,
     TResult? Function()? inputPageMT,
     TResult? Function()? inputPageMP,
-    TResult? Function()? calculateInProgress,
-    TResult? Function(TwoInputPagePlayer player)? resultPage,
   }) {
     return inputPageWT?.call();
   }
@@ -157,8 +141,6 @@ class _$InputPageWT implements InputPageWT {
     TResult Function()? inputPageWT,
     TResult Function()? inputPageMT,
     TResult Function()? inputPageMP,
-    TResult Function()? calculateInProgress,
-    TResult Function(TwoInputPagePlayer player)? resultPage,
     required TResult orElse(),
   }) {
     if (inputPageWT != null) {
@@ -173,8 +155,6 @@ class _$InputPageWT implements InputPageWT {
     required TResult Function(InputPageWT value) inputPageWT,
     required TResult Function(InputPageMT value) inputPageMT,
     required TResult Function(InputPageMP value) inputPageMP,
-    required TResult Function(_CalculateInProgress value) calculateInProgress,
-    required TResult Function(_ResultPage value) resultPage,
   }) {
     return inputPageWT(this);
   }
@@ -185,8 +165,6 @@ class _$InputPageWT implements InputPageWT {
     TResult? Function(InputPageWT value)? inputPageWT,
     TResult? Function(InputPageMT value)? inputPageMT,
     TResult? Function(InputPageMP value)? inputPageMP,
-    TResult? Function(_CalculateInProgress value)? calculateInProgress,
-    TResult? Function(_ResultPage value)? resultPage,
   }) {
     return inputPageWT?.call(this);
   }
@@ -197,8 +175,6 @@ class _$InputPageWT implements InputPageWT {
     TResult Function(InputPageWT value)? inputPageWT,
     TResult Function(InputPageMT value)? inputPageMT,
     TResult Function(InputPageMP value)? inputPageMP,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
     required TResult orElse(),
   }) {
     if (inputPageWT != null) {
@@ -253,8 +229,6 @@ class _$InputPageMT implements InputPageMT {
     required TResult Function() inputPageWT,
     required TResult Function() inputPageMT,
     required TResult Function() inputPageMP,
-    required TResult Function() calculateInProgress,
-    required TResult Function(TwoInputPagePlayer player) resultPage,
   }) {
     return inputPageMT();
   }
@@ -265,8 +239,6 @@ class _$InputPageMT implements InputPageMT {
     TResult? Function()? inputPageWT,
     TResult? Function()? inputPageMT,
     TResult? Function()? inputPageMP,
-    TResult? Function()? calculateInProgress,
-    TResult? Function(TwoInputPagePlayer player)? resultPage,
   }) {
     return inputPageMT?.call();
   }
@@ -277,8 +249,6 @@ class _$InputPageMT implements InputPageMT {
     TResult Function()? inputPageWT,
     TResult Function()? inputPageMT,
     TResult Function()? inputPageMP,
-    TResult Function()? calculateInProgress,
-    TResult Function(TwoInputPagePlayer player)? resultPage,
     required TResult orElse(),
   }) {
     if (inputPageMT != null) {
@@ -293,8 +263,6 @@ class _$InputPageMT implements InputPageMT {
     required TResult Function(InputPageWT value) inputPageWT,
     required TResult Function(InputPageMT value) inputPageMT,
     required TResult Function(InputPageMP value) inputPageMP,
-    required TResult Function(_CalculateInProgress value) calculateInProgress,
-    required TResult Function(_ResultPage value) resultPage,
   }) {
     return inputPageMT(this);
   }
@@ -305,8 +273,6 @@ class _$InputPageMT implements InputPageMT {
     TResult? Function(InputPageWT value)? inputPageWT,
     TResult? Function(InputPageMT value)? inputPageMT,
     TResult? Function(InputPageMP value)? inputPageMP,
-    TResult? Function(_CalculateInProgress value)? calculateInProgress,
-    TResult? Function(_ResultPage value)? resultPage,
   }) {
     return inputPageMT?.call(this);
   }
@@ -317,8 +283,6 @@ class _$InputPageMT implements InputPageMT {
     TResult Function(InputPageWT value)? inputPageWT,
     TResult Function(InputPageMT value)? inputPageMT,
     TResult Function(InputPageMP value)? inputPageMP,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
     required TResult orElse(),
   }) {
     if (inputPageMT != null) {
@@ -373,8 +337,6 @@ class _$InputPageMP implements InputPageMP {
     required TResult Function() inputPageWT,
     required TResult Function() inputPageMT,
     required TResult Function() inputPageMP,
-    required TResult Function() calculateInProgress,
-    required TResult Function(TwoInputPagePlayer player) resultPage,
   }) {
     return inputPageMP();
   }
@@ -385,8 +347,6 @@ class _$InputPageMP implements InputPageMP {
     TResult? Function()? inputPageWT,
     TResult? Function()? inputPageMT,
     TResult? Function()? inputPageMP,
-    TResult? Function()? calculateInProgress,
-    TResult? Function(TwoInputPagePlayer player)? resultPage,
   }) {
     return inputPageMP?.call();
   }
@@ -397,8 +357,6 @@ class _$InputPageMP implements InputPageMP {
     TResult Function()? inputPageWT,
     TResult Function()? inputPageMT,
     TResult Function()? inputPageMP,
-    TResult Function()? calculateInProgress,
-    TResult Function(TwoInputPagePlayer player)? resultPage,
     required TResult orElse(),
   }) {
     if (inputPageMP != null) {
@@ -413,8 +371,6 @@ class _$InputPageMP implements InputPageMP {
     required TResult Function(InputPageWT value) inputPageWT,
     required TResult Function(InputPageMT value) inputPageMT,
     required TResult Function(InputPageMP value) inputPageMP,
-    required TResult Function(_CalculateInProgress value) calculateInProgress,
-    required TResult Function(_ResultPage value) resultPage,
   }) {
     return inputPageMP(this);
   }
@@ -425,8 +381,6 @@ class _$InputPageMP implements InputPageMP {
     TResult? Function(InputPageWT value)? inputPageWT,
     TResult? Function(InputPageMT value)? inputPageMT,
     TResult? Function(InputPageMP value)? inputPageMP,
-    TResult? Function(_CalculateInProgress value)? calculateInProgress,
-    TResult? Function(_ResultPage value)? resultPage,
   }) {
     return inputPageMP?.call(this);
   }
@@ -437,8 +391,6 @@ class _$InputPageMP implements InputPageMP {
     TResult Function(InputPageWT value)? inputPageWT,
     TResult Function(InputPageMT value)? inputPageMT,
     TResult Function(InputPageMP value)? inputPageMP,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
     required TResult orElse(),
   }) {
     if (inputPageMP != null) {
@@ -450,276 +402,4 @@ class _$InputPageMP implements InputPageMP {
 
 abstract class InputPageMP implements TwoInputState {
   const factory InputPageMP() = _$InputPageMP;
-}
-
-/// @nodoc
-abstract class _$$_CalculateInProgressCopyWith<$Res> {
-  factory _$$_CalculateInProgressCopyWith(_$_CalculateInProgress value,
-          $Res Function(_$_CalculateInProgress) then) =
-      __$$_CalculateInProgressCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_CalculateInProgressCopyWithImpl<$Res>
-    extends _$TwoInputStateCopyWithImpl<$Res, _$_CalculateInProgress>
-    implements _$$_CalculateInProgressCopyWith<$Res> {
-  __$$_CalculateInProgressCopyWithImpl(_$_CalculateInProgress _value,
-      $Res Function(_$_CalculateInProgress) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_CalculateInProgress implements _CalculateInProgress {
-  const _$_CalculateInProgress();
-
-  @override
-  String toString() {
-    return 'TwoInputState.calculateInProgress()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_CalculateInProgress);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() inputPageWT,
-    required TResult Function() inputPageMT,
-    required TResult Function() inputPageMP,
-    required TResult Function() calculateInProgress,
-    required TResult Function(TwoInputPagePlayer player) resultPage,
-  }) {
-    return calculateInProgress();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? inputPageWT,
-    TResult? Function()? inputPageMT,
-    TResult? Function()? inputPageMP,
-    TResult? Function()? calculateInProgress,
-    TResult? Function(TwoInputPagePlayer player)? resultPage,
-  }) {
-    return calculateInProgress?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? inputPageWT,
-    TResult Function()? inputPageMT,
-    TResult Function()? inputPageMP,
-    TResult Function()? calculateInProgress,
-    TResult Function(TwoInputPagePlayer player)? resultPage,
-    required TResult orElse(),
-  }) {
-    if (calculateInProgress != null) {
-      return calculateInProgress();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InputPageWT value) inputPageWT,
-    required TResult Function(InputPageMT value) inputPageMT,
-    required TResult Function(InputPageMP value) inputPageMP,
-    required TResult Function(_CalculateInProgress value) calculateInProgress,
-    required TResult Function(_ResultPage value) resultPage,
-  }) {
-    return calculateInProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InputPageWT value)? inputPageWT,
-    TResult? Function(InputPageMT value)? inputPageMT,
-    TResult? Function(InputPageMP value)? inputPageMP,
-    TResult? Function(_CalculateInProgress value)? calculateInProgress,
-    TResult? Function(_ResultPage value)? resultPage,
-  }) {
-    return calculateInProgress?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InputPageWT value)? inputPageWT,
-    TResult Function(InputPageMT value)? inputPageMT,
-    TResult Function(InputPageMP value)? inputPageMP,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
-    required TResult orElse(),
-  }) {
-    if (calculateInProgress != null) {
-      return calculateInProgress(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _CalculateInProgress implements TwoInputState {
-  const factory _CalculateInProgress() = _$_CalculateInProgress;
-}
-
-/// @nodoc
-abstract class _$$_ResultPageCopyWith<$Res> {
-  factory _$$_ResultPageCopyWith(
-          _$_ResultPage value, $Res Function(_$_ResultPage) then) =
-      __$$_ResultPageCopyWithImpl<$Res>;
-  @useResult
-  $Res call({TwoInputPagePlayer player});
-}
-
-/// @nodoc
-class __$$_ResultPageCopyWithImpl<$Res>
-    extends _$TwoInputStateCopyWithImpl<$Res, _$_ResultPage>
-    implements _$$_ResultPageCopyWith<$Res> {
-  __$$_ResultPageCopyWithImpl(
-      _$_ResultPage _value, $Res Function(_$_ResultPage) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? player = null,
-  }) {
-    return _then(_$_ResultPage(
-      player: null == player
-          ? _value.player
-          : player // ignore: cast_nullable_to_non_nullable
-              as TwoInputPagePlayer,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ResultPage implements _ResultPage {
-  const _$_ResultPage({required this.player});
-
-  @override
-  final TwoInputPagePlayer player;
-
-  @override
-  String toString() {
-    return 'TwoInputState.resultPage(player: $player)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_ResultPage &&
-            (identical(other.player, player) || other.player == player));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, player);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ResultPageCopyWith<_$_ResultPage> get copyWith =>
-      __$$_ResultPageCopyWithImpl<_$_ResultPage>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() inputPageWT,
-    required TResult Function() inputPageMT,
-    required TResult Function() inputPageMP,
-    required TResult Function() calculateInProgress,
-    required TResult Function(TwoInputPagePlayer player) resultPage,
-  }) {
-    return resultPage(player);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? inputPageWT,
-    TResult? Function()? inputPageMT,
-    TResult? Function()? inputPageMP,
-    TResult? Function()? calculateInProgress,
-    TResult? Function(TwoInputPagePlayer player)? resultPage,
-  }) {
-    return resultPage?.call(player);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? inputPageWT,
-    TResult Function()? inputPageMT,
-    TResult Function()? inputPageMP,
-    TResult Function()? calculateInProgress,
-    TResult Function(TwoInputPagePlayer player)? resultPage,
-    required TResult orElse(),
-  }) {
-    if (resultPage != null) {
-      return resultPage(player);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InputPageWT value) inputPageWT,
-    required TResult Function(InputPageMT value) inputPageMT,
-    required TResult Function(InputPageMP value) inputPageMP,
-    required TResult Function(_CalculateInProgress value) calculateInProgress,
-    required TResult Function(_ResultPage value) resultPage,
-  }) {
-    return resultPage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(InputPageWT value)? inputPageWT,
-    TResult? Function(InputPageMT value)? inputPageMT,
-    TResult? Function(InputPageMP value)? inputPageMP,
-    TResult? Function(_CalculateInProgress value)? calculateInProgress,
-    TResult? Function(_ResultPage value)? resultPage,
-  }) {
-    return resultPage?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InputPageWT value)? inputPageWT,
-    TResult Function(InputPageMT value)? inputPageMT,
-    TResult Function(InputPageMP value)? inputPageMP,
-    TResult Function(_CalculateInProgress value)? calculateInProgress,
-    TResult Function(_ResultPage value)? resultPage,
-    required TResult orElse(),
-  }) {
-    if (resultPage != null) {
-      return resultPage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ResultPage implements TwoInputState {
-  const factory _ResultPage({required final TwoInputPagePlayer player}) =
-      _$_ResultPage;
-
-  TwoInputPagePlayer get player;
-  @JsonKey(ignore: true)
-  _$$_ResultPageCopyWith<_$_ResultPage> get copyWith =>
-      throw _privateConstructorUsedError;
 }

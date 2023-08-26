@@ -1,14 +1,15 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/core/domain/interval_time.dart';
-import 'package:row_calculator/feature/speed/application/speed_notifier.dart';
+import 'package:row_calculator/feature/speed_strokes/application/speed_notifier.dart';
 
-final speedProvider = StateNotifierProvider<SpeedNotifier, SpeedState>(
+final speedProvider =
+    StateNotifierProvider.autoDispose<SpeedNotifier, SpeedState>(
   (ref) {
     return SpeedNotifier();
   },
 );
 
-final medProvider = Provider<IntervalTime>(
+final medProvider = Provider.autoDispose<IntervalTime>(
   (ref) {
     List<int> listSec = [];
     final state = ref.watch(speedProvider);
@@ -31,5 +32,3 @@ final medProvider = Provider<IntervalTime>(
     );
   },
 );
-//Se fai 4 metri al secondo 
-//Dividi 500 / 4 => Ottieni i secondi => DateTime

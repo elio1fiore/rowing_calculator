@@ -1,7 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:row_calculator/feature/three_input/presentation/three_feature_view_v2.dart';
 import 'package:row_calculator/feature/three_input/shared/three_input_provider.dart';
 
+@RoutePage()
 class ThreeFeaturePage extends ConsumerStatefulWidget {
   const ThreeFeaturePage({super.key});
 
@@ -20,7 +23,7 @@ class _ThreeFeaturePageState extends ConsumerState<ThreeFeaturePage> {
           orElse: () => Container(), //Redirect Page
           result: () => const Text("Result"),
           error: () => Container(), //Error Page
-          input: () => const Text("Input"),
+          input: () => const ThreeInputViewV2(),
           loading: () => const Text("Loading"),
         ),
       ),

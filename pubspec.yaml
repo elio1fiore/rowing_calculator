@@ -24,10 +24,11 @@ dependencies:
   intl: ^0.18.1
   flutter_multi_formatter: ^2.11.1
   material_design_icons_flutter: ^7.0.7296
-  geolocator: ^9.0.2
+  geolocator: ^10.0.0
   rename: ^2.1.1
   flex_color_scheme: ^7.1.2
   url_strategy: ^0.2.0
+  sqflite: ^2.3.0
 
 
 

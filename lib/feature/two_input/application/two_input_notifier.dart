@@ -6,6 +6,7 @@ import 'package:row_calculator/feature/two_input/two_input_player/two_input_page
 import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_1.dart';
 import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_2.dart';
 import 'package:row_calculator/router/app_router.dart';
+import 'package:row_calculator/util/form_validators.dart';
 part 'two_input_notifier.freezed.dart';
 
 @freezed
@@ -13,10 +14,10 @@ class TwoInputState with _$TwoInputState {
   const factory TwoInputState.inputPageWT() = InputPageWT;
   const factory TwoInputState.inputPageMT() = InputPageMT;
   const factory TwoInputState.inputPageMP() = InputPageMP;
-  const factory TwoInputState.calculateInProgress() = _CalculateInProgress;
-  const factory TwoInputState.resultPage({
-    required TwoInputPagePlayer player,
-  }) = _ResultPage;
+  // const factory TwoInputState.calculateInProgress() = _CalculateInProgress;
+  // const factory TwoInputState.resultPage({
+  //   required TwoInputPagePlayer player,
+  // }) = _ResultPage;
 }
 
 class TwoInputNotifier extends StateNotifier<TwoInputState> {
@@ -35,21 +36,23 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
 
   FormGroup get form => _form;
 
-  final _form = FormGroup({
-    'inputOne': FormControl<String>(
-      validators: [
-        Validators.required,
-        // FormValidators.numberSplit,
-      ],
-    ),
-    'inputTwo': FormControl<String>(
-      validators: [
-        Validators.required,
-        Validators.minLength(6),
-        // FormValidators.numberSplit,
-      ],
-    ),
-  });
+  final _form = FormGroup(
+    {
+      'inputOne': FormControl<String>(
+        validators: [
+          Validators.required,
+          const NumberSplitValidator(),
+        ],
+      ),
+      'inputTwo': FormControl<String>(
+        validators: [
+          Validators.required,
+          Validators.minLength(6),
+          const NumberSplitValidator(),
+        ],
+      ),
+    },
+  );
 
   TwoInputNotifier(this._appRouter) : super(const TwoInputState.inputPageWT());
 
@@ -88,7 +91,7 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
     _form.control('inputOne').setValidators(
       [
         Validators.required,
-        // FormValidators.numberSplit,
+        const NumberSplitValidator(),
       ],
       autoValidate: true,
       emitEvent: true,
@@ -103,7 +106,7 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
         [
           Validators.required,
           Validators.minLength(6),
-          // FormValidators.numberSplit,
+          const NumberSplitValidator(),
         ],
         autoValidate: true,
         emitEvent: true,
@@ -135,7 +138,7 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
       [
         Validators.required,
         Validators.minLength(6),
-        // FormValidators.numberSplit,
+        const NumberSplitValidator(),
       ],
       autoValidate: true,
       emitEvent: true,
@@ -143,8 +146,6 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
     );
 
     resetValueForm1();
-
-    print(state);
   }
 
   void onSelectedMT(bool value) {
@@ -161,7 +162,7 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
       [
         Validators.required,
         Validators.minLength(6),
-        // FormValidators.numberSplit,
+        const NumberSplitValidator(),
       ],
       autoValidate: true,
       emitEvent: true,
@@ -185,7 +186,7 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
       [
         Validators.required,
         Validators.maxLength(3),
-        // FormValidators.numberSplit,
+        const NumberSplitValidator(),
       ],
       autoValidate: true,
       emitEvent: true,
@@ -196,7 +197,6 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
   }
 
   void goInputPage() {
-    _appRouter.navigateBack();
     if (selectedWatt) {
       state = const TwoInputState.inputPageWT();
     } else if (selectedMedia && selectedTempo) {
@@ -211,27 +211,29 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
     goInputPage();
   }
 
-  void calculateAndGotoResultPage() {
-    state = const TwoInputState.calculateInProgress();
-    _appRouter.pushNamed(NavigatorPath.resultTwoInputPage);
-    TwoInputPagePlayer twoInputPagePlayer;
-    if (selectedWatt) {
-      twoInputPagePlayer = TwoInputPagePlayer1.fromWT(
-        watt: _form.control('inputOne').value,
-        time: _form.control('inputTwo').value,
-      );
-    } else if (selectedMedia && selectedTempo) {
-      twoInputPagePlayer = TwoInputPagePlayer1.fromM500T(
-        media: _form.control('inputOne').value,
-        time: _form.control('inputTwo').value,
-      );
-    } else {
-      twoInputPagePlayer = TwoInputPagePlayer2.fromM500P(
-        media500: _form.control('inputOne').value,
-        percentualeRichiesta: _form.control('inputTwo').value,
-      );
-    }
-
-    state = TwoInputState.resultPage(player: twoInputPagePlayer);
+  TwoInputPagePlayer calculateAndGotoResultPage() {
+    return state.when(
+      // WATT
+      inputPageWT: () {
+        return TwoInputPagePlayer1.fromWT(
+          watt: _form.control('inputOne').value,
+          time: _form.control('inputTwo').value,
+        );
+      },
+      //MEDIA TEMPO
+      inputPageMT: () {
+        return TwoInputPagePlayer1.fromM500T(
+          media: _form.control('inputOne').value,
+          time: _form.control('inputTwo').value,
+        );
+      },
+      //
+      inputPageMP: () {
+        return TwoInputPagePlayer2.fromM500P(
+          media500: _form.control('inputOne').value,
+          percentualeRichiesta: _form.control('inputTwo').value,
+        );
+      },
+    );
   }
 }

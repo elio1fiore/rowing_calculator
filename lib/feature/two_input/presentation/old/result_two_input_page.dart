@@ -20,24 +20,24 @@ class ResultTwoInputPage extends ConsumerWidget {
       ),
       body: state.maybeWhen(
         orElse: () => const Text('Qualcosa è andato storto'),
-        calculateInProgress: () {
-          return const LoadingPage();
-        },
-        resultPage: (player) {
-          if (player is TwoInputPagePlayer1) {
-            return ResultTwoInputPage1(
-              player1: player,
-            );
-          } else if (player is TwoInputPagePlayer2) {
-            return ResultTwoInputPage2(
-              player2: player,
-            );
-          } else {
-            return Container(
-              child: Text('hey'),
-            );
-          }
-        },
+        // calculateInProgress: () {
+        //   return const LoadingPage();
+        // },
+        // resultPage: (player) {
+        //   if (player is TwoInputPagePlayer1) {
+        //     return ResultTwoInputPage1(
+        //       player1: player,
+        //     );
+        //   } else if (player is TwoInputPagePlayer2) {
+        //     return ResultTwoInputPage2(
+        //       player2: player,
+        //     );
+        //   } else {
+        //     return Container(
+        //       child: Text('hey'),
+        //     );
+        //   }
+        // },
       ),
     );
   }

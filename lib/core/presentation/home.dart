@@ -83,6 +83,9 @@ class HomePage extends ConsumerWidget {
       case "/feature/three":
         title = "Three Input";
         break;
+      case "/feature/speed-strokes":
+        title = "Speed & Strokes";
+        break;
 
       default:
         title = "Home";

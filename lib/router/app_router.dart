@@ -44,8 +44,12 @@ class AppRouter extends $AppRouter {
                   path: "two",
                 ),
                 AutoRoute(
-                  page: ThreeInputRoute.page,
+                  page: ThreeFeatureRoute.page,
                   path: "three",
+                ),
+                AutoRoute(
+                  page: SpeedStrokesRoute.page,
+                  path: "speed-strokes",
                 ),
               ],
             ),
