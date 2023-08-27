@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:row_calculator/feature/core/domain/feature_entity.dart';
+import 'package:row_calculator/feature/core/shared/database_feature_provider.dart';
 import 'package:row_calculator/feature/one_input/domain/one_input_page_player.dart';
 import 'package:row_calculator/feature/one_input/shared/one_input_provider.dart';
 
@@ -15,6 +17,7 @@ class OneResultView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final featureNotyRead = ref.read(oneFeatureNotifierProvider.notifier);
     final inputNotyRead = ref.read(oneInputNotifierProvider.notifier);
+    final db = ref.read(featuresDatabaseProvider);
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -139,8 +142,16 @@ class OneResultView extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: ElevatedButton(
-                onPressed: () {
-                  inputNotyRead.goAndResetInputPage();
+                onPressed: () async {
+                  final fe = FeatureEntity(
+                    dateTime: DateTime.now(),
+                    description: "",
+                    isImportant: false,
+                    player: player.toJson(),
+                    title: "One Input",
+                  );
+                  await db.create(fe);
+                  inputNotyRead.resetValueForm();
                   featureNotyRead.setStateInput();
                 },
                 child: const Padding(

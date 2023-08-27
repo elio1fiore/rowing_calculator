@@ -39,7 +39,7 @@ class _TwoInputViewV2State extends ConsumerState<TwoInputViewV2> {
           children: [
             Card(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
                     //FIRST
@@ -55,72 +55,14 @@ class _TwoInputViewV2State extends ConsumerState<TwoInputViewV2> {
                         autocorrect: true,
                         keyboardType: TextInputType.number,
                         inputFormatters: [
-                          // inputNotyWatch.selectedMinute
-                          //     ? MaskedInputFormatter('#:##:#')
-                          //     : MaskedInputFormatter('###########')
-                        ],
-                        decoration: InputDecoration(
-                            // suffixText:
-                            //     inputNotyWatch.selectedMinute ? 'min' : 'W',
-                            // label: Text(
-                            //   inputNotyWatch.selectedMinute
-                            //       ? 'Media/500'
-                            //       : 'Watt',
-                            //   maxLines: 1,
-                            //   overflow: TextOverflow.ellipsis,
-                            // ),
-                            ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 8.0,
-                    ),
-                    Row(
-                      children: [
-                        FilterChip(
-                          label: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 16.0),
-                            child: Text('Watt'),
-                          ),
-                          onSelected: (value) {},
-                        ),
-                        const SizedBox(
-                          width: 15.0,
-                        ),
-                        FilterChip(
-                          label: const Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 16.0),
-                            child: Text('Watt'),
-                          ),
-                          onSelected: (value) {},
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    //SECOND
-                    ConstrainedBox(
-                      constraints: const BoxConstraints(
-                        minHeight: 90,
-                      ),
-                      child: ReactiveTextField<String>(
-                        formControlName: 'inputTwo',
-                        validationMessages: {},
-                        controller: inputNotyWatch.controller1,
-                        autofocus: false,
-                        autocorrect: true,
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          inputNotyWatch.selectedMedia
+                          inputNotyRead.selectedMedia
                               ? MaskedInputFormatter('#:##:#')
                               : MaskedInputFormatter('###########')
                         ],
                         decoration: InputDecoration(
-                          suffixText:
-                              inputNotyWatch.selectedMedia ? 'min' : 'W',
+                          suffixText: inputNotyRead.selectedMedia ? 'min' : 'W',
                           label: Text(
-                            inputNotyWatch.selectedMedia ? 'Media/500' : 'Watt',
+                            inputNotyRead.selectedMedia ? 'Media/500' : 'Watt',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -150,6 +92,69 @@ class _TwoInputViewV2State extends ConsumerState<TwoInputViewV2> {
                             child: Text('Media'),
                           ),
                           onSelected: inputNotyRead.onSelectedM,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    //SECOND
+                    ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        minHeight: 90,
+                      ),
+                      child: ReactiveTextField<String>(
+                        formControlName: 'inputTwo',
+                        validationMessages: {},
+                        controller: inputNotyWatch.controller2,
+                        autofocus: false,
+                        autocorrect: true,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          inputNotyWatch.selectedPerc
+                              ? MaskedInputFormatter('#:##:#')
+                              : MaskedInputFormatter('###########')
+                        ],
+                        decoration: InputDecoration(
+                          suffixText: inputNotyWatch.selectedPerc ? '%' : 'min',
+                          label: Text(
+                            inputNotyWatch.selectedPerc
+                                ? 'Percentuale'
+                                : 'Tempo',
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 8.0,
+                    ),
+                    Row(
+                      children: [
+                        FilterChip(
+                          selected: !inputNotyWatch.selectedPerc,
+                          label: const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Text('Tempo'),
+                          ),
+                          onSelected: inputNotyRead.onSelectedMT,
+                        ),
+                        const SizedBox(
+                          width: 15.0,
+                        ),
+                        Visibility(
+                          visible: inputNotyWatch.selectedMedia,
+                          child: FilterChip(
+                            selected: inputNotyWatch.selectedPerc,
+                            label: const Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 16.0),
+                              child: Text('Percentuale'),
+                            ),
+                            onSelected: !inputNotyWatch.selectedMedia
+                                ? null
+                                : inputNotyRead.onSelectedMP,
+                          ),
                         ),
                       ],
                     )

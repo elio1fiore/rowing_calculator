@@ -6,23 +6,32 @@ import 'package:reactive_forms/reactive_forms.dart';
 import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_1.dart';
 import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_2.dart';
 import 'package:row_calculator/feature/two_input/two_input_player/union_player_two.dart';
-import 'package:row_calculator/router/app_router.dart';
 import 'package:row_calculator/util/form_validators.dart';
 part 'two_input_notifier.freezed.dart';
+
+final List<Validator<dynamic>> validatorsWatt = [
+  Validators.required,
+  Validators.number,
+];
+final List<Validator<dynamic>> validatorsMediaTime = [
+  Validators.required,
+  Validators.minLength(6),
+  const NumberSplitValidator(),
+];
+
+final List<Validator<dynamic>> validatorsPercentuale = [
+  Validators.required,
+  Validators.maxLength(3),
+];
 
 @freezed
 class TwoInputState with _$TwoInputState {
   const factory TwoInputState.inputPageWT() = InputPageWT;
   const factory TwoInputState.inputPageMT() = InputPageMT;
   const factory TwoInputState.inputPageMP() = InputPageMP;
-  // const factory TwoInputState.calculateInProgress() = _CalculateInProgress;
-  // const factory TwoInputState.resultPage({
-  //   required TwoInputPagePlayer player,
-  // }) = _ResultPage;
 }
 
 class TwoInputNotifier extends StateNotifier<TwoInputState> {
-  final AppRouter _appRouter;
   final _controller1 = TextEditingController();
   final _controller2 = TextEditingController();
 
@@ -32,7 +41,6 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
   bool selectedPerc = false;
 
   TextEditingController get controller1 => _controller1;
-
   TextEditingController get controller2 => _controller2;
 
   FormGroup get form => _form;
@@ -40,22 +48,15 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
   final _form = FormGroup(
     {
       'inputOne': FormControl<String>(
-        validators: [
-          Validators.required,
-          const NumberSplitValidator(),
-        ],
+        validators: validatorsWatt,
       ),
       'inputTwo': FormControl<String>(
-        validators: [
-          Validators.required,
-          Validators.minLength(6),
-          const NumberSplitValidator(),
-        ],
+        validators: validatorsMediaTime,
       ),
     },
   );
 
-  TwoInputNotifier(this._appRouter) : super(const TwoInputState.inputPageWT());
+  TwoInputNotifier() : super(const TwoInputState.inputPageWT());
 
   void resetValueForm() {
     resetValueForm1();
@@ -90,38 +91,29 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
     state = const TwoInputState.inputPageWT();
 
     _form.control('inputOne').setValidators(
-      [
-        Validators.required,
-        const NumberSplitValidator(),
-      ],
-      autoValidate: true,
-      emitEvent: true,
-      updateParent: true,
-    );
+          validatorsWatt,
+          autoValidate: true,
+          emitEvent: true,
+          updateParent: true,
+        );
 
     if (!selectedTempo) {
       _controller2.clear();
       selectedTempo = true;
 
       _form.control('inputTwo').setValidators(
-        [
-          Validators.required,
-          Validators.minLength(6),
-          const NumberSplitValidator(),
-        ],
-        autoValidate: true,
-        emitEvent: true,
-        updateParent: true,
-      );
+            validatorsMediaTime,
+            autoValidate: true,
+            emitEvent: true,
+            updateParent: true,
+          );
       resetValueForm2();
     }
 
     resetValueForm1();
-    print(state);
   }
 
   void onSelectedM(bool value) {
-    print('c');
     if (selectedMedia) {
       return;
     }
@@ -136,15 +128,11 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
     selectedWatt = false;
     selectedMedia = true;
     _form.control('inputOne').setValidators(
-      [
-        Validators.required,
-        Validators.minLength(6),
-        const NumberSplitValidator(),
-      ],
-      autoValidate: true,
-      emitEvent: true,
-      updateParent: true,
-    );
+          validatorsMediaTime,
+          autoValidate: true,
+          emitEvent: true,
+          updateParent: true,
+        );
 
     resetValueForm1();
   }
@@ -160,15 +148,11 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
     selectedPerc = false;
     state = const TwoInputState.inputPageMT();
     _form.control('inputTwo').setValidators(
-      [
-        Validators.required,
-        Validators.minLength(6),
-        const NumberSplitValidator(),
-      ],
-      autoValidate: true,
-      emitEvent: true,
-      updateParent: true,
-    );
+          validatorsMediaTime,
+          autoValidate: true,
+          emitEvent: true,
+          updateParent: true,
+        );
 
     resetValueForm2();
   }
@@ -184,15 +168,11 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
     selectedPerc = true;
     state = const TwoInputState.inputPageMP();
     _form.control('inputTwo').setValidators(
-      [
-        Validators.required,
-        Validators.maxLength(3),
-        const NumberSplitValidator(),
-      ],
-      autoValidate: true,
-      emitEvent: true,
-      updateParent: true,
-    );
+          validatorsPercentuale,
+          autoValidate: true,
+          emitEvent: true,
+          updateParent: true,
+        );
 
     resetValueForm2();
   }

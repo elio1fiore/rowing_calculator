@@ -11,7 +11,7 @@ final twoFeatureNotifierProvider =
 );
 
 final twoInputNotifierProvider =
-    StateNotifierProvider<TwoInputNotifier, TwoInputState>(
+    StateNotifierProvider.autoDispose<TwoInputNotifier, TwoInputState>(
   (ref) => TwoInputNotifier(
     ref.watch(appRouterProvider),
   ),

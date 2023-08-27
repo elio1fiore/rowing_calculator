@@ -10,6 +10,6 @@ final oneFeatureNotifierProvider =
 );
 
 final oneInputNotifierProvider =
-    StateNotifierProvider<OneInputNotifier, OneInputState>(
+    StateNotifierProvider.autoDispose<OneInputNotifier, OneInputState>(
   (ref) => OneInputNotifier(),
 );

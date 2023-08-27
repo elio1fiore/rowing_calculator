@@ -1,6 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'dart:convert';
-
 const String tableFeature = "features";
 
 class FeatureFields {
@@ -10,6 +7,7 @@ class FeatureFields {
     dateTime,
     isImportant,
     description,
+    title,
   ];
 
   static const String id = "_id";
@@ -17,6 +15,7 @@ class FeatureFields {
   static const String dateTime = "dateTime";
   static const String isImportant = "isImportant";
   static const String description = "description";
+  static const String title = "title";
 }
 
 class FeatureEntity {
@@ -25,6 +24,7 @@ class FeatureEntity {
   final DateTime dateTime;
   final bool isImportant;
   final String description;
+  final String title;
 
   FeatureEntity({
     this.id,
@@ -32,6 +32,7 @@ class FeatureEntity {
     required this.dateTime,
     required this.isImportant,
     required this.description,
+    required this.title,
   });
 
   Map<String, dynamic> toMap() {
@@ -41,6 +42,7 @@ class FeatureEntity {
       FeatureFields.dateTime: dateTime.toIso8601String(),
       FeatureFields.isImportant: isImportant ? 1 : 0,
       FeatureFields.description: description,
+      FeatureFields.title: title,
     };
   }
 
@@ -50,6 +52,7 @@ class FeatureEntity {
     DateTime? dateTime,
     bool? isImportant,
     String? description,
+    String? title,
   }) {
     return FeatureEntity(
       id: id ?? this.id,
@@ -57,6 +60,7 @@ class FeatureEntity {
       dateTime: dateTime ?? this.dateTime,
       isImportant: isImportant ?? this.isImportant,
       description: description ?? this.description,
+      title: title ?? this.title,
     );
   }
 
@@ -69,6 +73,7 @@ class FeatureEntity {
       ),
       isImportant: map[FeatureFields.isImportant] == 1,
       description: map[FeatureFields.description] as String,
+      title: map[FeatureFields.title] as String,
     );
   }
 }

@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:path/path.dart';
 import 'package:row_calculator/feature/core/domain/feature_entity.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:sqflite/sqlite_api.dart';
 
 class FeaturesDatabase {
   FeaturesDatabase();
@@ -15,7 +13,7 @@ class FeaturesDatabase {
       return _database!;
     }
 
-    _database = await _initDB('features.db');
+    _database = await _initDB('features_1.db');
     return _database!;
   }
 
@@ -39,6 +37,7 @@ class FeaturesDatabase {
         ${FeatureFields.dateTime} $textType,
         ${FeatureFields.isImportant} $boolType,
         ${FeatureFields.description} $textType,
+        ${FeatureFields.title} $textType
       )
     ''');
   }

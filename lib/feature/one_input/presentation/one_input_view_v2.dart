@@ -54,8 +54,16 @@ class _OneInputViewV2State extends ConsumerState<OneInputViewV2> {
                           ValidationMessage.required: (error) =>
                               'Inserire il valore per effettuare il calcolo',
                           'number': (error) => 'Inserire i numeri',
-                          ValidationMessage.minLength: (error) =>
-                              'Inserire un valore più preciso',
+                          ValidationMessage.minLength: (error) {
+                            final length = (error as Map)['actualLength'];
+
+                            if (length >= 1 && length < 4) {
+                              return 'Inserire i secondi e decimi';
+                            } else if (length == 4) {
+                              return 'Inserire i decimi';
+                            }
+                            return 'Inserire un valore più preciso';
+                          },
                         },
                         controller: inputNotyWatch.controller,
                         autofocus: false,
@@ -122,8 +130,12 @@ class _OneInputViewV2State extends ConsumerState<OneInputViewV2> {
                       child: Text("Calcola"),
                     ),
                     onPressed: () {
-                      final player = inputNotyRead.calculate();
-                      featureNotyRead.setStateResult(player);
+                      if (inputNotyRead.formIsValid()) {
+                        final player = inputNotyRead.calculate();
+                        featureNotyRead.setStateResult(player);
+                      } else {
+                        inputNotyRead.showError();
+                      }
                     },
                   )
                 ],
