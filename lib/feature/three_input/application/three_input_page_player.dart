@@ -43,7 +43,7 @@ class ThreeInputPagePlayer {
     );
 
     final timeIT =
-        IntervalTime(minutes: minT, seconds: secT, millisecond: decT);
+        IntervalTime(minutes: minT, seconds: secT, milliseconds: decT);
 
     final media = mediaCinquecentoBase(metri: doubleMeters, tempo: timeIT);
     final energyExp = dispendioEnergetico(

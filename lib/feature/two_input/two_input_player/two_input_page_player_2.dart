@@ -1,9 +1,7 @@
 import 'package:row_calculator/core/domain/interval_time.dart';
 import 'package:row_calculator/core/function/functions.dart';
 
-import 'two_input_page_player.dart';
-
-class TwoInputPagePlayer2 extends TwoInputPagePlayer {
+class TwoInputPagePlayer2 {
   final IntervalTime media500;
   final double percentualeRichiesta;
   final double watt;
@@ -31,7 +29,7 @@ class TwoInputPagePlayer2 extends TwoInputPagePlayer {
     final IntervalTime mediaIT = IntervalTime(
       minutes: minutes,
       seconds: seconds,
-      millisecond: decs,
+      milliseconds: decs,
     );
 
     final npr = double.parse(percentualeRichiesta);

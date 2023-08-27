@@ -1,3 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
 import 'package:row_calculator/core/function/functions.dart';
 
 class IntervalTime extends Duration {
@@ -6,8 +9,8 @@ class IntervalTime extends Duration {
   final int hours;
   final int minutes;
   final int seconds;
-  final int millisecond;
-  final int microsecond;
+  final int milliseconds;
+  final int microseconds;
 
   IntervalTime({
     this.beta,
@@ -15,15 +18,16 @@ class IntervalTime extends Duration {
     this.hours = 0,
     this.minutes = 0,
     this.seconds = 0,
-    this.microsecond = 0,
-    this.millisecond = 0,
+    this.milliseconds = 0,
+    this.microseconds = 0,
   }) : super(
-            days: days,
-            hours: hours,
-            minutes: minutes,
-            seconds: seconds,
-            milliseconds: millisecond,
-            microseconds: microsecond);
+          days: days,
+          hours: hours,
+          minutes: minutes,
+          seconds: seconds,
+          milliseconds: milliseconds,
+          microseconds: microseconds,
+        );
 
   double get betaValue {
     if (beta == null) {
@@ -65,7 +69,7 @@ class IntervalTime extends Duration {
     }
 
     int revSec = seconds;
-    int revMill = millisecond;
+    int revMill = milliseconds;
 
     var secondsFormat = '';
 
@@ -88,7 +92,7 @@ class IntervalTime extends Duration {
     }
 
     int revSec = seconds;
-    int revMill = millisecond;
+    int revMill = milliseconds;
 
     var secondsFormat = '';
 
@@ -140,8 +144,86 @@ class IntervalTime extends Duration {
       hours: hr_tr,
       minutes: min_tr,
       seconds: sec_tr,
-      millisecond: millSec_tr,
-      microsecond: 0,
+      milliseconds: millSec_tr,
+      microseconds: 0,
     );
+  }
+
+  IntervalTime copyWith({
+    double? beta,
+    int? days,
+    int? hours,
+    int? minutes,
+    int? seconds,
+    int? milliseconds,
+    int? microseconds,
+  }) {
+    return IntervalTime(
+      beta: beta ?? this.beta,
+      days: days ?? this.days,
+      hours: hours ?? this.hours,
+      minutes: minutes ?? this.minutes,
+      seconds: seconds ?? this.seconds,
+      milliseconds: milliseconds ?? this.milliseconds,
+      microseconds: microseconds ?? this.microseconds,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'beta': beta,
+      'days': days,
+      'hours': hours,
+      'minutes': minutes,
+      'seconds': seconds,
+      'milliseconds': milliseconds,
+      'microseconds': microseconds,
+    };
+  }
+
+  factory IntervalTime.fromMap(Map<String, dynamic> map) {
+    return IntervalTime(
+      beta: map['beta'] != null ? map['beta'] as double : null,
+      days: map['days'] as int,
+      hours: map['hours'] as int,
+      minutes: map['minutes'] as int,
+      seconds: map['seconds'] as int,
+      milliseconds: map['milliseconds'] as int,
+      microseconds: map['microseconds'] as int,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory IntervalTime.fromJson(String source) =>
+      IntervalTime.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  @override
+  String toString() {
+    return 'IntervalTime(beta: $beta, days: $days, hours: $hours, minutes: $minutes, seconds: $seconds, milliseconds: $milliseconds, microseconds: $microseconds)';
+  }
+
+  @override
+  bool operator ==(covariant IntervalTime other) {
+    if (identical(this, other)) return true;
+
+    return other.beta == beta &&
+        other.days == days &&
+        other.hours == hours &&
+        other.minutes == minutes &&
+        other.seconds == seconds &&
+        other.milliseconds == milliseconds &&
+        other.microseconds == microseconds;
+  }
+
+  @override
+  int get hashCode {
+    return beta.hashCode ^
+        days.hashCode ^
+        hours.hashCode ^
+        minutes.hashCode ^
+        seconds.hashCode ^
+        milliseconds.hashCode ^
+        microseconds.hashCode;
   }
 }

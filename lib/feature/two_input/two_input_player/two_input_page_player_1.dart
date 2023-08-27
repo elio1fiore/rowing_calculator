@@ -1,8 +1,7 @@
 import 'package:row_calculator/core/domain/interval_time.dart';
 import 'package:row_calculator/core/function/functions.dart';
-import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player.dart';
 
-class TwoInputPagePlayer1 extends TwoInputPagePlayer {
+class TwoInputPagePlayer1 {
   final double watt;
   final IntervalTime time;
   final IntervalTime media500;
@@ -28,7 +27,7 @@ class TwoInputPagePlayer1 extends TwoInputPagePlayer {
     final IntervalTime timeIT = IntervalTime(
       minutes: minutes,
       seconds: seconds,
-      microsecond: decs,
+      microseconds: decs,
     );
 
     final media500 = mediaCinquecentoCpx(watt: nWatt);
@@ -56,7 +55,7 @@ class TwoInputPagePlayer1 extends TwoInputPagePlayer {
     final IntervalTime mediaIT = IntervalTime(
       minutes: m_minutes,
       seconds: m_seconds,
-      millisecond: m_decs,
+      milliseconds: m_decs,
     );
 
     final time_sp = time.split(':');
@@ -68,7 +67,7 @@ class TwoInputPagePlayer1 extends TwoInputPagePlayer {
     final IntervalTime timeIT = IntervalTime(
       minutes: t_minutes,
       seconds: t_seconds,
-      millisecond: t_decs,
+      milliseconds: t_decs,
     );
 
     final watt = calcWatt(

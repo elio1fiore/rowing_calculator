@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:row_calculator/feature/one_input/application/one_input_page_player.dart';
+import 'package:row_calculator/feature/one_input/domain/one_input_page_player.dart';
 import 'package:row_calculator/util/form_validators.dart';
 
 part 'one_input_notifier.freezed.dart';
@@ -110,9 +110,15 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
   OneInputPagePlayer calculate() {
     return state.when(
       minute: () {
-        return OneInputPagePlayer.fromMedia500(
+        final player = OneInputPagePlayer.fromMedia500(
           _form.control('inputOne').value,
         );
+
+        final str = player.toJson();
+
+        print(str);
+
+        return player;
       },
       watt: () {
         return OneInputPagePlayer.fromWatt(

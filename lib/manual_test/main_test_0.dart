@@ -13,9 +13,9 @@ void main(List<String> args) {
 
   final min = mediaW.minutes;
   final sec = mediaW.seconds;
-  final dec = mediaW.millisecond;
+  final dec = mediaW.milliseconds;
 
-  final media = IntervalTime(minutes: min, seconds: sec, millisecond: dec);
+  final media = IntervalTime(minutes: min, seconds: sec, milliseconds: dec);
 
   final b = timeFromMedia(media500: media, meters: 500);
   print('b ${b.valueMinuteSecondMillisecondOne}');

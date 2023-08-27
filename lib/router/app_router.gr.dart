@@ -13,15 +13,15 @@ import 'package:row_calculator/core/presentation/features.dart' as _i3;
 import 'package:row_calculator/core/presentation/history.dart' as _i2;
 import 'package:row_calculator/core/presentation/home.dart' as _i1;
 import 'package:row_calculator/feature/one_input/presentation/one_feature_page.dart'
-    as _i4;
+    as _i8;
 import 'package:row_calculator/feature/speed_strokes/presentation/speed_stokers_page.dart'
     as _i9;
 import 'package:row_calculator/feature/three_input/presentation/old/three_input_page.dart'
     as _i7;
 import 'package:row_calculator/feature/three_input/presentation/three_feature_page.dart'
-    as _i8;
-import 'package:row_calculator/feature/two_input/presentation/old/two_input_page.dart'
     as _i6;
+import 'package:row_calculator/feature/two_input/presentation/old/two_input_page.dart'
+    as _i4;
 import 'package:row_calculator/feature/two_input/presentation/two_feature_page.dart'
     as _i5;
 
@@ -54,10 +54,10 @@ abstract class $AppRouter extends _i10.RootStackRouter {
         child: const _i3.FeatureListPage(),
       );
     },
-    OneFeatureRoute.name: (routeData) {
+    TwoInputView.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.OneFeaturePage(),
+        child: const _i4.TwoInputView(),
       );
     },
     TwoFeatureRoute.name: (routeData) {
@@ -66,10 +66,10 @@ abstract class $AppRouter extends _i10.RootStackRouter {
         child: const _i5.TwoFeaturePage(),
       );
     },
-    TwoInputView.name: (routeData) {
+    ThreeFeatureRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.TwoInputView(),
+        child: const _i6.ThreeFeaturePage(),
       );
     },
     ThreeInputRoute.name: (routeData) {
@@ -78,10 +78,10 @@ abstract class $AppRouter extends _i10.RootStackRouter {
         child: const _i7.ThreeInputPage(),
       );
     },
-    ThreeFeatureRoute.name: (routeData) {
+    OneFeatureRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i8.ThreeFeaturePage(),
+        child: const _i8.OneFeaturePage(),
       );
     },
     SpeedStrokesRoute.name: (routeData) {
@@ -150,15 +150,15 @@ class FeatureListRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.OneFeaturePage]
-class OneFeatureRoute extends _i10.PageRouteInfo<void> {
-  const OneFeatureRoute({List<_i10.PageRouteInfo>? children})
+/// [_i4.TwoInputView]
+class TwoInputView extends _i10.PageRouteInfo<void> {
+  const TwoInputView({List<_i10.PageRouteInfo>? children})
       : super(
-          OneFeatureRoute.name,
+          TwoInputView.name,
           initialChildren: children,
         );
 
-  static const String name = 'OneFeatureRoute';
+  static const String name = 'TwoInputView';
 
   static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
 }
@@ -178,15 +178,15 @@ class TwoFeatureRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.TwoInputView]
-class TwoInputView extends _i10.PageRouteInfo<void> {
-  const TwoInputView({List<_i10.PageRouteInfo>? children})
+/// [_i6.ThreeFeaturePage]
+class ThreeFeatureRoute extends _i10.PageRouteInfo<void> {
+  const ThreeFeatureRoute({List<_i10.PageRouteInfo>? children})
       : super(
-          TwoInputView.name,
+          ThreeFeatureRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'TwoInputView';
+  static const String name = 'ThreeFeatureRoute';
 
   static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
 }
@@ -206,15 +206,15 @@ class ThreeInputRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.ThreeFeaturePage]
-class ThreeFeatureRoute extends _i10.PageRouteInfo<void> {
-  const ThreeFeatureRoute({List<_i10.PageRouteInfo>? children})
+/// [_i8.OneFeaturePage]
+class OneFeatureRoute extends _i10.PageRouteInfo<void> {
+  const OneFeatureRoute({List<_i10.PageRouteInfo>? children})
       : super(
-          ThreeFeatureRoute.name,
+          OneFeatureRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'ThreeFeatureRoute';
+  static const String name = 'OneFeatureRoute';
 
   static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
 }
