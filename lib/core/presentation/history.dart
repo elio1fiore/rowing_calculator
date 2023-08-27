@@ -7,6 +7,8 @@ class HistoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text("History");
+    return Scaffold(
+      body: Text("Ciao"),
+    );
   }
 }
