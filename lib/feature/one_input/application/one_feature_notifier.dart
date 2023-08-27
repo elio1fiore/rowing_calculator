@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:row_calculator/feature/one_input/application/one_input_page_player.dart';
+import 'package:row_calculator/feature/one_input/domain/one_input_page_player.dart';
 
 part 'one_feature_notifier.freezed.dart';
 

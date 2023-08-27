@@ -24,12 +24,3 @@ class FeatureUnionType with _$FeatureUnionType {
     DateTime dateTime,
   ) = _Three;
 }
-
-final p = FeatureUnionType.one(
-    "",
-    OneInputPagePlayer(
-      listTimeOnMeters: [],
-      media500: IntervalTime(minutes: 0),
-      watt: 500,
-    ),
-    DateTime.now());

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:row_calculator/feature/one_input/application/one_input_page_player.dart';
+import 'package:row_calculator/feature/one_input/domain/one_input_page_player.dart';
 import 'package:row_calculator/feature/one_input/shared/one_input_provider.dart';
 
 class OneResultView extends ConsumerWidget {

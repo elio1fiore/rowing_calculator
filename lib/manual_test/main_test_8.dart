@@ -4,7 +4,7 @@ import '../core/domain/interval_time.dart';
 
 void main() {
   final IntervalTime media500 =
-      IntervalTime(minutes: 1, seconds: 28, millisecond: 9);
+      IntervalTime(minutes: 1, seconds: 28, milliseconds: 9);
   const int percentuale = 70;
 
   final watt = calcWatt(mediaCinquecento: media500, isDouble: true);

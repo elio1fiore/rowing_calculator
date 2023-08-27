@@ -3,7 +3,7 @@ import 'package:row_calculator/core/function/functions.dart';
 
 void main() {
   final IntervalTime media500 =
-      IntervalTime(minutes: 1, seconds: 46, millisecond: 700);
+      IntervalTime(minutes: 1, seconds: 46, milliseconds: 700);
 
   // print(media500.valueMinuteSecondMillisecond);
 

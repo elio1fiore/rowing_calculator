@@ -6,7 +6,7 @@ void main() {
 
   // final media = mediaCinquecentoCpx(watt: watt);
 
-  final media = IntervalTime(minutes: 1, seconds: 45, millisecond: 507);
+  final media = IntervalTime(minutes: 1, seconds: 45, milliseconds: 507);
 
   // print(media.valueMinuteSecondMillisecond);
 
