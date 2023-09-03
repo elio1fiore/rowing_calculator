@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/core/presentation/card_result.dart';
-import 'package:row_calculator/feature/core/domain/feature_entity.dart';
-import 'package:row_calculator/feature/core/shared/database_feature_provider.dart';
+import 'package:row_calculator/core/domain/feature_entity.dart';
+import 'package:row_calculator/core/shared/database_feature_provider.dart';
 import 'package:row_calculator/feature/three_input/domain/three_input_page_player.dart';
 import 'package:row_calculator/feature/three_input/shared/three_input_provider.dart';
 

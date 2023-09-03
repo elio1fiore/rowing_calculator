@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:row_calculator/history/two_two_history_details_page.dart';
 import 'package:row_calculator/router/app_router.gr.dart';
 
 abstract class NavigatorPath {
@@ -14,7 +15,7 @@ abstract class NavigatorPath {
   static const String countHits = "/CountHits";
 }
 
-@AutoRouterConfig()
+@AutoRouterConfig(replaceInRouteName: 'Page,Route')
 class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
@@ -23,10 +24,6 @@ class AppRouter extends $AppRouter {
           initial: true,
           path: "/",
           children: [
-            // RedirectRoute(
-            //   path: "",
-            //   redirectTo: 'feature',
-            // ),
             AutoRoute(
               page: FeatureRoute.page,
               path: 'feature',
@@ -34,6 +31,7 @@ class AppRouter extends $AppRouter {
                 AutoRoute(
                   page: FeatureListRoute.page,
                   path: "",
+                  initial: true,
                 ),
                 AutoRoute(
                   page: OneFeatureRoute.page,
@@ -57,7 +55,34 @@ class AppRouter extends $AppRouter {
               page: HistoryRoute.page,
               path: 'history',
               maintainState: false,
-              children: [],
+              children: [
+                AutoRoute(
+                  page: HistoryListRoute.page,
+                  path: "",
+                  initial: true,
+                  maintainState: false,
+                ),
+                AutoRoute(
+                  page: OneHistoryDetailsRoute.page,
+                  path: ":id",
+                  maintainState: false,
+                ),
+                AutoRoute(
+                  page: TwoOneHistoryDetailsRoute.page,
+                  path: ":id",
+                  maintainState: false,
+                ),
+                AutoRoute(
+                  page: TwoTwoHistoryDetailsRoute.page,
+                  path: ":id",
+                  maintainState: false,
+                ),
+                AutoRoute(
+                  page: ThreeHistoryDetailsRoute.page,
+                  path: ":id",
+                  maintainState: false,
+                )
+              ],
             ),
           ],
         ),

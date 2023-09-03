@@ -1,18 +1,30 @@
 import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:row_calculator/feature/core/domain/feature_entity.dart';
-import 'package:row_calculator/feature/core/shared/database_feature_provider.dart';
+import 'package:row_calculator/core/domain/feature_entity.dart';
+import 'package:row_calculator/core/shared/database_feature_provider.dart';
+import 'package:row_calculator/router/app_router.gr.dart';
 
 @RoutePage()
-class HistoryPage extends ConsumerStatefulWidget {
+class HistoryPage extends StatelessWidget {
   const HistoryPage({super.key});
 
   @override
-  ConsumerState<HistoryPage> createState() => _HistoryPageState();
+  Widget build(BuildContext context) {
+    return const AutoRouter();
+  }
 }
 
-class _HistoryPageState extends ConsumerState<HistoryPage> {
+@RoutePage()
+class HistoryListPage extends ConsumerStatefulWidget {
+  const HistoryListPage({super.key});
+
+  @override
+  ConsumerState<HistoryListPage> createState() => _HistoryListPageState();
+}
+
+class _HistoryListPageState extends ConsumerState<HistoryListPage> {
   late List<FeatureEntity> features;
   bool isLoading = false;
   @override
@@ -64,9 +76,21 @@ class _HistoryPageState extends ConsumerState<HistoryPage> {
                     return ListTile(
                       onTap: () {
                         if (item.title.contains('One')) {
-                          print("One");
+                          AutoRouter.of(context).push(
+                            OneHistoryDetailsRoute(id: item.id.toString()),
+                          );
                         } else if (item.title.contains("TwoOne")) {
-                          print("Two one");
+                          AutoRouter.of(context).push(
+                            TwoOneHistoryDetailsRoute(id: item.id.toString()),
+                          );
+                        } else if (item.title.contains("TwoTwo")) {
+                          AutoRouter.of(context).push(
+                            TwoTwoHistoryDetailsRoute(id: item.id.toString()),
+                          );
+                        } else if (item.title.contains("Three")) {
+                          AutoRouter.of(context).push(
+                            ThreeHistoryDetailsRoute(id: item.id.toString()),
+                          );
                         }
                       },
                       trailing: IconButton(

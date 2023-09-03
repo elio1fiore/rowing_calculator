@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:path/path.dart';
-import 'package:row_calculator/feature/core/domain/feature_entity.dart';
+import 'package:row_calculator/core/domain/feature_entity.dart';
 import 'package:sqflite/sqflite.dart';
 
 class FeaturesDatabase {
