@@ -56,6 +56,8 @@ class AppRouter extends $AppRouter {
             AutoRoute(
               page: HistoryRoute.page,
               path: 'history',
+              maintainState: false,
+              children: [],
             ),
           ],
         ),

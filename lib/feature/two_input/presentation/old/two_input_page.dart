@@ -362,7 +362,7 @@ class _TwoInputPageState extends ConsumerState<TwoInputView> {
                               MaterialStatePropertyAll(Colors.green),
                         ),
                         onPressed: noty.formIsValid()
-                            ? noty.calculateAndGotoResultPage
+                            ? noty.calculate
                             : noty.showError,
                         child: child,
                       ),

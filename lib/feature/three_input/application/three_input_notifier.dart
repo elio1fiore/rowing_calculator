@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:row_calculator/feature/three_input/application/three_input_page_player.dart';
-import 'package:row_calculator/router/app_router.dart';
+import 'package:row_calculator/data/boat.dart';
+import 'package:row_calculator/feature/three_input/domain/three_input_page_player.dart';
+import 'package:row_calculator/util/form_validators.dart';
 
 part 'three_input_notifier.freezed.dart';
 
@@ -11,17 +12,14 @@ part 'three_input_notifier.freezed.dart';
 class ThreeInputState with _$ThreeInputState {
   const factory ThreeInputState.inputPageTime() = _InputPageTime;
   const factory ThreeInputState.inputPageEnergyExp() = _InputPageEnergyExp;
-  const factory ThreeInputState.calculateInProgress() = _CalculateInProgress;
-  const factory ThreeInputState.resultPage({
-    required ThreeInputPagePlayer player,
-  }) = ResultPage;
 }
 
 class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
-  final AppRouter _appRouter;
   final _controller1 = TextEditingController();
   final _controller2 = TextEditingController();
   final _controller3 = TextEditingController();
+
+  Boat? boat;
 
   bool selectedTime = true;
   bool selectedEnergyExp = false;
@@ -31,29 +29,34 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
 
   FormGroup get form => _form;
 
-  final _form = FormGroup({
-    'inputOne': FormControl<String>(
-      validators: [
-        Validators.required,
-      ],
-    ),
-    'inputTwo': FormControl<String>(
-      validators: [
-        Validators.required,
-        // FormValidators.numberSplit,
-      ],
-    ),
-    'inputThree': FormControl<String>(
-      validators: [
-        Validators.required,
-        // FormValidators.numberSplit,
-        Validators.minLength(6),
-      ],
-    ),
-  });
+  final _form = FormGroup(
+    {
+      'inputOne': FormControl<String>(
+        validators: [
+          Validators.required,
+        ],
+      ),
+      'inputTwo': FormControl<String>(
+        validators: [
+          Validators.required,
+          Validators.number,
+        ],
+      ),
+      'inputThree': FormControl<String>(
+        validators: [
+          Validators.required,
+          Validators.minLength(6),
+          const NumberSplitValidator(),
+        ],
+      ),
+    },
+  );
 
-  ThreeInputNotifier(this._appRouter)
-      : super(const ThreeInputState.inputPageTime());
+  ThreeInputNotifier() : super(const ThreeInputState.inputPageTime());
+
+  void setBoat(Boat newBoat) {
+    boat = newBoat;
+  }
 
   void resetTotalForm() {
     _form.control('inputOne').reset(value: null);
@@ -86,7 +89,7 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
       [
         Validators.required,
         Validators.minLength(6),
-        // FormValidators.numberSplit,
+        const NumberSplitValidator(),
       ],
       autoValidate: true,
       emitEvent: true,
@@ -107,7 +110,7 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
     _form.control('inputThree').setValidators(
       [
         Validators.required,
-        // FormValidators.numberSplit,
+        Validators.number,
       ],
       autoValidate: true,
       emitEvent: true,
@@ -117,39 +120,26 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
     resetThreeForm();
   }
 
-  void goInputPage() {
-    _appRouter.navigateBack();
-    if (selectedTime) {
-      state = const ThreeInputState.inputPageTime();
-    } else {
-      state = const ThreeInputState.inputPageEnergyExp();
-    }
-  }
-
-  void goAndResetInputPage() {
-    resetTotalForm();
-    goInputPage();
-  }
-
-  void calculateAndGotoResultPage() {
-    state = const ThreeInputState.calculateInProgress();
-    _appRouter.pushNamed(NavigatorPath.resultThreeInputPage);
-    ThreeInputPagePlayer threeInputPagePlayer;
-
-    if (selectedTime) {
-      threeInputPagePlayer = ThreeInputPagePlayer.fromTime(
-        personalBest: _form.control('inputOne').value,
-        meters: _form.control('inputTwo').value,
-        time: _form.control('inputThree').value,
-      );
-    } else {
-      threeInputPagePlayer = ThreeInputPagePlayer.fromEnergyExp(
-        personalBest: _form.control('inputOne').value,
-        meters: _form.control('inputTwo').value,
-        energyExp: _form.control('inputThree').value,
-      );
-    }
-
-    state = ThreeInputState.resultPage(player: threeInputPagePlayer);
+  ThreeInputPagePlayer calculate() {
+    return state.when(
+      inputPageEnergyExp: () {
+        return ThreeInputPagePlayer.fromEnergyExp(
+          personalBest: boat!.boatBest,
+          meters: _form.control('inputTwo').value,
+          energyExp: _form.control('inputThree').value,
+          boatBest: boat!.boatBest,
+          nameBoat: boat!.name,
+        );
+      },
+      inputPageTime: () {
+        return ThreeInputPagePlayer.fromTime(
+          personalBest: boat!.boatBest,
+          meters: _form.control('inputTwo').value,
+          time: _form.control('inputThree').value,
+          boatBest: boat!.boatBest,
+          nameBoat: boat!.name,
+        );
+      },
+    );
   }
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/core/presentation/card_result.dart';
+import 'package:row_calculator/feature/core/domain/feature_entity.dart';
+import 'package:row_calculator/feature/core/shared/database_feature_provider.dart';
+import 'package:row_calculator/feature/two_input/domain/two_input_page_player_2.dart';
 import 'package:row_calculator/feature/two_input/shared/two_input_provider.dart';
-import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_2.dart';
 
 class ResultTwoInputPage2 extends ConsumerWidget {
   final TwoInputPagePlayer2 player2;
@@ -15,6 +17,8 @@ class ResultTwoInputPage2 extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final noty = ref.read(twoInputNotifierProvider.notifier);
+    final featureNotyRead = ref.read(twoFeatureNotifierProvider.notifier);
+    final db = ref.read(featuresDatabaseProvider);
 
     return SafeArea(
       child: Padding(
@@ -65,9 +69,20 @@ class ResultTwoInputPage2 extends ConsumerWidget {
               child: ElevatedButton(
                 child: const Padding(
                   padding: EdgeInsets.symmetric(vertical: 20),
-                  child: Text('Nuovo Calcolo'),
+                  child: Text('Nuovo Calcolo from 2'),
                 ),
-                onPressed: (() => noty.goAndResetInputPage()),
+                onPressed: () async {
+                  final fe = FeatureEntity(
+                    dateTime: DateTime.now(),
+                    player: player2.toJson(),
+                    description: "",
+                    isImportant: false,
+                    title: "TwoTwo",
+                  );
+                  await db.create(fe);
+                  noty.resetValueForm();
+                  featureNotyRead.setStateInput();
+                },
               ),
             ),
           ],

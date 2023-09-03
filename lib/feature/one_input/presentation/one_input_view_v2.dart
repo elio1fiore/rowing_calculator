@@ -129,6 +129,7 @@ class _OneInputViewV2State extends ConsumerState<OneInputViewV2> {
                       padding: EdgeInsets.symmetric(vertical: 15),
                       child: Text("Calcola"),
                     ),
+                    onLongPress: () => inputNotyRead.resetValueForm(),
                     onPressed: () {
                       if (inputNotyRead.formIsValid()) {
                         final player = inputNotyRead.calculate();

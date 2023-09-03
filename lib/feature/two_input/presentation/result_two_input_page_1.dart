@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/core/presentation/card_result.dart';
+import 'package:row_calculator/feature/core/domain/feature_entity.dart';
+import 'package:row_calculator/feature/core/shared/database_feature_provider.dart';
+import 'package:row_calculator/feature/two_input/domain/two_input_page_player_1.dart';
 import 'package:row_calculator/feature/two_input/shared/two_input_provider.dart';
-import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_1.dart';
 
 class ResultTwoInputPage1 extends ConsumerWidget {
   final TwoInputPagePlayer1 player1;
@@ -14,7 +16,9 @@ class ResultTwoInputPage1 extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final noty = ref.read(twoInputNotifierProvider.notifier);
+    final notyInput = ref.read(twoInputNotifierProvider.notifier);
+    final featureNotyRead = ref.read(twoFeatureNotifierProvider.notifier);
+    final db = ref.read(featuresDatabaseProvider);
 
     return SafeArea(
       child: Padding(
@@ -58,9 +62,21 @@ class ResultTwoInputPage1 extends ConsumerWidget {
                 child: ElevatedButton(
                   child: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 20),
-                    child: Text('Nuovo Calcolo'),
+                    child: Text('Nuovo Calcolo from 1'),
                   ),
-                  onPressed: (() => noty.goAndResetInputPage()),
+                  onPressed: () async {
+                    final fe = FeatureEntity(
+                      dateTime: DateTime.now(),
+                      player: player1.toJson(),
+                      description: "",
+                      isImportant: false,
+                      title: "TwoOne",
+                    );
+                    await db.create(fe);
+
+                    notyInput.resetValueForm();
+                    featureNotyRead.setStateInput();
+                  },
                 ),
               ),
             ],

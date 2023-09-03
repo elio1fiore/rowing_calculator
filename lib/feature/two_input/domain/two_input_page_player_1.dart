@@ -1,3 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:convert';
+
 import 'package:row_calculator/core/domain/interval_time.dart';
 import 'package:row_calculator/core/function/functions.dart';
 
@@ -8,10 +11,10 @@ class TwoInputPagePlayer1 {
   final int meters;
 
   TwoInputPagePlayer1({
+    required this.watt,
+    required this.time,
     required this.media500,
     required this.meters,
-    required this.time,
-    required this.watt,
   });
 
   factory TwoInputPagePlayer1.fromWT({
@@ -85,5 +88,62 @@ class TwoInputPagePlayer1 {
       time: timeIT,
       watt: watt,
     );
+  }
+
+  TwoInputPagePlayer1 copyWith({
+    double? watt,
+    IntervalTime? time,
+    IntervalTime? media500,
+    int? meters,
+  }) {
+    return TwoInputPagePlayer1(
+      watt: watt ?? this.watt,
+      time: time ?? this.time,
+      media500: media500 ?? this.media500,
+      meters: meters ?? this.meters,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'watt': watt,
+      'time': time.toMap(),
+      'media500': media500.toMap(),
+      'meters': meters,
+    };
+  }
+
+  factory TwoInputPagePlayer1.fromMap(Map<String, dynamic> map) {
+    return TwoInputPagePlayer1(
+      watt: map['watt'] as double,
+      time: IntervalTime.fromMap(map['time'] as Map<String, dynamic>),
+      media500: IntervalTime.fromMap(map['media500'] as Map<String, dynamic>),
+      meters: map['meters'] as int,
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory TwoInputPagePlayer1.fromJson(String source) =>
+      TwoInputPagePlayer1.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  @override
+  String toString() {
+    return 'TwoInputPagePlayer1(watt: $watt, time: $time, media500: $media500, meters: $meters)';
+  }
+
+  @override
+  bool operator ==(covariant TwoInputPagePlayer1 other) {
+    if (identical(this, other)) return true;
+
+    return other.watt == watt &&
+        other.time == time &&
+        other.media500 == media500 &&
+        other.meters == meters;
+  }
+
+  @override
+  int get hashCode {
+    return watt.hashCode ^ time.hashCode ^ media500.hashCode ^ meters.hashCode;
   }
 }

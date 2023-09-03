@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_1.dart';
-import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_2.dart';
+import 'package:row_calculator/feature/two_input/domain/two_input_page_player_1.dart';
+import 'package:row_calculator/feature/two_input/domain/two_input_page_player_2.dart';
 
 part 'union_player_two.freezed.dart';
 

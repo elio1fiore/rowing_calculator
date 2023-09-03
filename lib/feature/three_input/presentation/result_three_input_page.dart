@@ -1,39 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/core/presentation/card_result.dart';
-import 'package:row_calculator/core/presentation/loading.dart';
-import 'package:row_calculator/feature/three_input/application/three_input_page_player.dart';
+import 'package:row_calculator/feature/core/domain/feature_entity.dart';
+import 'package:row_calculator/feature/core/shared/database_feature_provider.dart';
+import 'package:row_calculator/feature/three_input/domain/three_input_page_player.dart';
 import 'package:row_calculator/feature/three_input/shared/three_input_provider.dart';
 
 class ResultThreeInputPage extends ConsumerWidget {
-  const ResultThreeInputPage({super.key});
+  final ThreeInputPagePlayer player;
+  const ResultThreeInputPage({
+    super.key,
+    required this.player,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(threeInputNotifierProvider);
-    final noty = ref.watch(threeInputNotifierProvider.notifier);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Result'),
-      ),
-      body: state.maybeWhen(
-        orElse: () => const Text('Qualcosa è andato storto'),
-        calculateInProgress: () {
-          return const LoadingPage();
-        },
-        resultPage: (player) {
-          if (noty.selectedTime) {
-            return _ResultThreeInputPageT(
-              player: player,
-            );
-          } else {
-            return _ResultThreeInputPageD(
-              player: player,
-            );
-          }
-        },
-      ),
+    return state.maybeWhen(
+      orElse: () => const Text('Qualcosa è andato storto'),
+      inputPageTime: () {
+        return _ResultThreeInputPageD(
+          player: player,
+        );
+      },
+      inputPageEnergyExp: () {
+        return _ResultThreeInputPageD(
+          player: player,
+        );
+      },
     );
   }
 }
@@ -48,7 +43,10 @@ class _ResultThreeInputPageT extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final noty = ref.read(threeInputNotifierProvider.notifier);
+    final notyInput = ref.read(threeInputNotifierProvider.notifier);
+    final notyFeature = ref.read(threeFeatureNotifierProvider.notifier);
+
+    final db = ref.read(featuresDatabaseProvider);
 
     return SafeArea(
       child: Padding(
@@ -109,7 +107,19 @@ class _ResultThreeInputPageT extends ConsumerWidget {
                     padding: EdgeInsets.symmetric(vertical: 20),
                     child: Text('Nuovo Calcolo'),
                   ),
-                  onPressed: (() => noty.goAndResetInputPage()),
+                  onPressed: () async {
+                    final fe = FeatureEntity(
+                      dateTime: DateTime.now(),
+                      description: "",
+                      isImportant: false,
+                      player: player.toJson(),
+                      title: "Three",
+                    );
+                    await db.create(fe);
+
+                    notyInput.resetTotalForm();
+                    notyFeature.setStateInput();
+                  },
                 ),
               ),
             ],
@@ -127,8 +137,10 @@ class _ResultThreeInputPageD extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final noty = ref.read(threeInputNotifierProvider.notifier);
-    print('d');
+    final notyInput = ref.read(threeInputNotifierProvider.notifier);
+    final notyFeature = ref.read(threeFeatureNotifierProvider.notifier);
+
+    final db = ref.read(featuresDatabaseProvider);
 
     return SafeArea(
       child: Padding(
@@ -185,7 +197,19 @@ class _ResultThreeInputPageD extends ConsumerWidget {
                     padding: EdgeInsets.symmetric(vertical: 20),
                     child: Text('Nuovo Calcolo'),
                   ),
-                  onPressed: (() => noty.goAndResetInputPage()),
+                  onPressed: () async {
+                    final fe = FeatureEntity(
+                      dateTime: DateTime.now(),
+                      description: "",
+                      isImportant: false,
+                      player: player.toJson(),
+                      title: "Three",
+                    );
+                    await db.create(fe);
+
+                    notyInput.resetTotalForm();
+                    notyFeature.setStateInput();
+                  },
                 ),
               ),
             ],

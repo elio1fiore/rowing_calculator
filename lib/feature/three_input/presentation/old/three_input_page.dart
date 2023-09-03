@@ -83,6 +83,7 @@ class _ThreeInputPageState extends ConsumerState<ThreeInputPage> {
                             horizontal: 16, vertical: 8),
                         child: Column(
                           children: [
+                            //First
                             Container(
                               constraints: const BoxConstraints(minHeight: 80),
                               child: ReactiveDropdownField<String>(
@@ -164,6 +165,7 @@ class _ThreeInputPageState extends ConsumerState<ThreeInputPage> {
                               ),
                             ),
                             const SizedBox(height: 10),
+                            //Second
                             Container(
                               constraints: const BoxConstraints(minHeight: 80),
                               child: ReactiveTextField<String>(
@@ -211,6 +213,7 @@ class _ThreeInputPageState extends ConsumerState<ThreeInputPage> {
                               ),
                             ),
                             const SizedBox(height: 10),
+                            //Three
                             Container(
                               constraints: const BoxConstraints(minHeight: 80),
                               child: ReactiveTextField<String>(
@@ -347,7 +350,7 @@ class _ThreeInputPageState extends ConsumerState<ThreeInputPage> {
                               MaterialStatePropertyAll(Colors.green),
                         ),
                         onPressed: noty.formIsValid()
-                            ? noty.calculateAndGotoResultPage
+                            ? noty.calculate
                             : noty.showError,
                         child: child,
                       ),

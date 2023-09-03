@@ -9,21 +9,21 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i10;
-import 'package:row_calculator/core/presentation/features.dart' as _i3;
-import 'package:row_calculator/core/presentation/history/history.dart' as _i2;
+import 'package:row_calculator/core/presentation/features.dart' as _i2;
+import 'package:row_calculator/core/presentation/history/history.dart' as _i9;
 import 'package:row_calculator/core/presentation/home.dart' as _i1;
 import 'package:row_calculator/feature/one_input/presentation/one_feature_page.dart'
-    as _i8;
-import 'package:row_calculator/feature/speed_strokes/presentation/speed_stokers_page.dart'
-    as _i9;
-import 'package:row_calculator/feature/three_input/presentation/old/three_input_page.dart'
     as _i7;
-import 'package:row_calculator/feature/three_input/presentation/three_feature_page.dart'
+import 'package:row_calculator/feature/speed_strokes/presentation/speed_stokers_page.dart'
+    as _i8;
+import 'package:row_calculator/feature/three_input/presentation/old/three_input_page.dart'
     as _i6;
-import 'package:row_calculator/feature/two_input/presentation/old/two_input_page.dart'
-    as _i4;
-import 'package:row_calculator/feature/two_input/presentation/two_feature_page.dart'
+import 'package:row_calculator/feature/three_input/presentation/three_feature_page.dart'
     as _i5;
+import 'package:row_calculator/feature/two_input/presentation/old/two_input_page.dart'
+    as _i3;
+import 'package:row_calculator/feature/two_input/presentation/two_feature_page.dart'
+    as _i4;
 
 abstract class $AppRouter extends _i10.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -36,58 +36,58 @@ abstract class $AppRouter extends _i10.RootStackRouter {
         child: const _i1.HomePage(),
       );
     },
-    HistoryRoute.name: (routeData) {
-      return _i10.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i2.HistoryPage(),
-      );
-    },
     FeatureRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.FeaturePage(),
+        child: const _i2.FeaturePage(),
       );
     },
     FeatureListRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.FeatureListPage(),
+        child: const _i2.FeatureListPage(),
       );
     },
     TwoInputView.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.TwoInputView(),
+        child: const _i3.TwoInputView(),
       );
     },
     TwoFeatureRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.TwoFeaturePage(),
+        child: const _i4.TwoFeaturePage(),
       );
     },
     ThreeFeatureRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.ThreeFeaturePage(),
+        child: const _i5.ThreeFeaturePage(),
       );
     },
     ThreeInputRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i7.ThreeInputPage(),
+        child: const _i6.ThreeInputPage(),
       );
     },
     OneFeatureRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i8.OneFeaturePage(),
+        child: const _i7.OneFeaturePage(),
       );
     },
     SpeedStrokesRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i9.SpeedStrokesPage(),
+        child: const _i8.SpeedStrokesPage(),
+      );
+    },
+    HistoryRoute.name: (routeData) {
+      return _i10.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i9.HistoryPage(),
       );
     },
   };
@@ -108,21 +108,7 @@ class HomeRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.HistoryPage]
-class HistoryRoute extends _i10.PageRouteInfo<void> {
-  const HistoryRoute({List<_i10.PageRouteInfo>? children})
-      : super(
-          HistoryRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'HistoryRoute';
-
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i3.FeaturePage]
+/// [_i2.FeaturePage]
 class FeatureRoute extends _i10.PageRouteInfo<void> {
   const FeatureRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -136,7 +122,7 @@ class FeatureRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.FeatureListPage]
+/// [_i2.FeatureListPage]
 class FeatureListRoute extends _i10.PageRouteInfo<void> {
   const FeatureListRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -150,7 +136,7 @@ class FeatureListRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.TwoInputView]
+/// [_i3.TwoInputView]
 class TwoInputView extends _i10.PageRouteInfo<void> {
   const TwoInputView({List<_i10.PageRouteInfo>? children})
       : super(
@@ -164,7 +150,7 @@ class TwoInputView extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.TwoFeaturePage]
+/// [_i4.TwoFeaturePage]
 class TwoFeatureRoute extends _i10.PageRouteInfo<void> {
   const TwoFeatureRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -178,7 +164,7 @@ class TwoFeatureRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.ThreeFeaturePage]
+/// [_i5.ThreeFeaturePage]
 class ThreeFeatureRoute extends _i10.PageRouteInfo<void> {
   const ThreeFeatureRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -192,7 +178,7 @@ class ThreeFeatureRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.ThreeInputPage]
+/// [_i6.ThreeInputPage]
 class ThreeInputRoute extends _i10.PageRouteInfo<void> {
   const ThreeInputRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -206,7 +192,7 @@ class ThreeInputRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.OneFeaturePage]
+/// [_i7.OneFeaturePage]
 class OneFeatureRoute extends _i10.PageRouteInfo<void> {
   const OneFeatureRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -220,7 +206,7 @@ class OneFeatureRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i9.SpeedStrokesPage]
+/// [_i8.SpeedStrokesPage]
 class SpeedStrokesRoute extends _i10.PageRouteInfo<void> {
   const SpeedStrokesRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -229,6 +215,20 @@ class SpeedStrokesRoute extends _i10.PageRouteInfo<void> {
         );
 
   static const String name = 'SpeedStrokesRoute';
+
+  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i9.HistoryPage]
+class HistoryRoute extends _i10.PageRouteInfo<void> {
+  const HistoryRoute({List<_i10.PageRouteInfo>? children})
+      : super(
+          HistoryRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HistoryRoute';
 
   static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
 }

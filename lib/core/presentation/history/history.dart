@@ -18,16 +18,8 @@ class _HistoryPageState extends ConsumerState<HistoryPage> {
   @override
   void initState() {
     super.initState();
-    print("Qui");
 
     refreshFeature();
-  }
-
-  @override
-  void dispose() {
-    ref.read(featuresDatabaseProvider).close();
-
-    super.dispose();
   }
 
   Future refreshFeature() async {
@@ -40,6 +32,18 @@ class _HistoryPageState extends ConsumerState<HistoryPage> {
     setState(() {
       isLoading = false;
     });
+  }
+
+  String getTitle(FeatureEntity item) {
+    if (item.title.contains("TwoOne")) {
+      return "Two Input";
+    } else if (item.title.contains("TwoTwo")) {
+      return "Two Input";
+    } else if (item.title.contains("One")) {
+      return "One Input";
+    } else {
+      return "Three Input";
+    }
   }
 
   @override
@@ -56,27 +60,25 @@ class _HistoryPageState extends ConsumerState<HistoryPage> {
                   itemCount: features.length,
                   itemBuilder: (context, index) {
                     final item = features[index];
+
                     return ListTile(
                       onTap: () {
                         if (item.title.contains('One')) {
-                          print("Ciao");
+                          print("One");
+                        } else if (item.title.contains("TwoOne")) {
+                          print("Two one");
                         }
                       },
                       trailing: IconButton(
                         icon: const Icon(Icons.delete_sharp),
                         onPressed: () {
                           if (item.id != null) {
-                            setState(
-                              () {
-                                ref
-                                    .read(featuresDatabaseProvider)
-                                    .delete(item.id!);
-                              },
-                            );
+                            ref.read(featuresDatabaseProvider).delete(item.id!);
+                            refreshFeature();
                           }
                         },
                       ),
-                      title: Text(item.title),
+                      title: Text(getTitle(item)),
                       subtitle: Text(
                         item.dateTime.toString(),
                       ),
@@ -84,7 +86,7 @@ class _HistoryPageState extends ConsumerState<HistoryPage> {
                   },
                 );
               } else {
-                return Text("Un attimo");
+                return const Text("Un attimo");
               }
             },
           );

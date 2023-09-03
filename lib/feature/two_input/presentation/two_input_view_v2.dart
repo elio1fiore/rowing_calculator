@@ -17,6 +17,7 @@ class _TwoInputViewV2State extends ConsumerState<TwoInputViewV2> {
   Widget build(BuildContext context) {
     final inputNotyWatch = ref.watch(twoInputNotifierProvider.notifier);
     final inputNotyRead = ref.read(twoInputNotifierProvider.notifier);
+    final featureNotyRead = ref.read(twoFeatureNotifierProvider.notifier);
 
     ref.listen<TwoInputState>(
       twoInputNotifierProvider,
@@ -49,7 +50,21 @@ class _TwoInputViewV2State extends ConsumerState<TwoInputViewV2> {
                       ),
                       child: ReactiveTextField<String>(
                         formControlName: 'inputOne',
-                        validationMessages: {},
+                        validationMessages: {
+                          ValidationMessage.required: (error) =>
+                              'Inserire il valore per effettuare il calcolo',
+                          'number': (error) => 'Inserire i numeri',
+                          ValidationMessage.minLength: (error) {
+                            final length = (error as Map)['actualLength'];
+
+                            if (length >= 1 && length < 4) {
+                              return 'Inserire i secondi e decimi';
+                            } else if (length == 4) {
+                              return 'Inserire i decimi';
+                            }
+                            return 'Inserire un valore più preciso';
+                          },
+                        },
                         controller: inputNotyWatch.controller1,
                         autofocus: false,
                         autocorrect: true,
@@ -105,15 +120,29 @@ class _TwoInputViewV2State extends ConsumerState<TwoInputViewV2> {
                       ),
                       child: ReactiveTextField<String>(
                         formControlName: 'inputTwo',
-                        validationMessages: {},
+                        validationMessages: {
+                          ValidationMessage.required: (error) =>
+                              'Inserire il valore per effettuare il calcolo',
+                          'number': (error) => 'Inserire i numeri',
+                          ValidationMessage.minLength: (error) {
+                            final length = (error as Map)['actualLength'];
+
+                            if (length >= 1 && length < 4) {
+                              return 'Inserire i secondi e decimi';
+                            } else if (length == 4) {
+                              return 'Inserire i decimi';
+                            }
+                            return 'Inserire un valore più preciso';
+                          },
+                        },
                         controller: inputNotyWatch.controller2,
                         autofocus: false,
                         autocorrect: true,
                         keyboardType: TextInputType.number,
                         inputFormatters: [
                           inputNotyWatch.selectedPerc
-                              ? MaskedInputFormatter('#:##:#')
-                              : MaskedInputFormatter('###########')
+                              ? MaskedInputFormatter('###########')
+                              : MaskedInputFormatter('#:##:#')
                         ],
                         decoration: InputDecoration(
                           suffixText: inputNotyWatch.selectedPerc ? '%' : 'min',
@@ -173,7 +202,23 @@ class _TwoInputViewV2State extends ConsumerState<TwoInputViewV2> {
                       padding: EdgeInsets.symmetric(vertical: 15),
                       child: Text("Calcola"),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      if (inputNotyRead.formIsValid()) {
+                        final player = inputNotyRead.calculate();
+
+                        player.when(
+                          typeA: (player) {
+                            featureNotyRead.setStateResultOne(player);
+                          },
+                          typeB: (player) {
+                            featureNotyRead.setStateResultTwo(player);
+                          },
+                        );
+                      } else {
+                        inputNotyRead.showError();
+                      }
+                    },
+                    onLongPress: () => inputNotyRead.resetValueForm(),
                   )
                 ],
               ),

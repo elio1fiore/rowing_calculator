@@ -148,7 +148,7 @@ class OneResultView extends ConsumerWidget {
                     description: "",
                     isImportant: false,
                     player: player.toJson(),
-                    title: "One Input",
+                    title: "One",
                   );
                   await db.create(fe);
                   inputNotyRead.resetValueForm();

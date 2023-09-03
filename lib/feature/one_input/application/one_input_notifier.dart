@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:row_calculator/feature/core/domain/feature_entity.dart';
-import 'package:row_calculator/feature/core/infrastructure/feature_database.dart';
+
 import 'package:row_calculator/feature/one_input/domain/one_input_page_player.dart';
 import 'package:row_calculator/util/form_validators.dart';
 

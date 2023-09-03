@@ -1,12 +1,19 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:row_calculator/feature/two_input/domain/two_input_page_player_1.dart';
+import 'package:row_calculator/feature/two_input/domain/two_input_page_player_2.dart';
 
 part 'two_feature_notifier.freezed.dart';
 
 @freezed
 class TwoFeatureState with _$TwoFeatureState {
   const factory TwoFeatureState.input() = _Input;
-  const factory TwoFeatureState.result() = _Result;
+  const factory TwoFeatureState.resultOne(
+    TwoInputPagePlayer1 player,
+  ) = _ResultOne;
+  const factory TwoFeatureState.resultTwo(
+    TwoInputPagePlayer2 player,
+  ) = _ResultTwo;
   const factory TwoFeatureState.loading() = _Loading;
   const factory TwoFeatureState.error() = _Error;
 }
@@ -18,8 +25,12 @@ class TwoFeatureNotifier extends StateNotifier<TwoFeatureState> {
     _setState(const TwoFeatureState.input());
   }
 
-  void setStateResult() {
-    _setState(const TwoFeatureState.result());
+  void setStateResultOne(TwoInputPagePlayer1 player) {
+    _setState(TwoFeatureState.resultOne(player));
+  }
+
+  void setStateResultTwo(TwoInputPagePlayer2 player) {
+    _setState(TwoFeatureState.resultTwo(player));
   }
 
   void setStateError() {
@@ -41,8 +52,11 @@ class TwoFeatureNotifier extends StateNotifier<TwoFeatureState> {
       loading: () {
         state = const TwoFeatureState.loading();
       },
-      result: () {
-        state = const TwoFeatureState.result();
+      resultOne: (player) {
+        state = TwoFeatureState.resultOne(player);
+      },
+      resultTwo: (player) {
+        state = TwoFeatureState.resultTwo(player);
       },
     );
   }

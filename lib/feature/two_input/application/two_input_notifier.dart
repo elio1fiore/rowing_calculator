@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
+import 'package:row_calculator/feature/two_input/domain/two_input_page_player_1.dart';
+import 'package:row_calculator/feature/two_input/domain/two_input_page_player_2.dart';
+import 'package:row_calculator/feature/two_input/domain/union_player_two.dart';
 
-import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_1.dart';
-import 'package:row_calculator/feature/two_input/two_input_player/two_input_page_player_2.dart';
-import 'package:row_calculator/feature/two_input/two_input_player/union_player_two.dart';
 import 'package:row_calculator/util/form_validators.dart';
 part 'two_input_notifier.freezed.dart';
 
@@ -177,22 +177,7 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
     resetValueForm2();
   }
 
-  void goInputPage() {
-    if (selectedWatt) {
-      state = const TwoInputState.inputPageWT();
-    } else if (selectedMedia && selectedTempo) {
-      state = const TwoInputState.inputPageMT();
-    } else {
-      state = const TwoInputState.inputPageMP();
-    }
-  }
-
-  void goAndResetInputPage() {
-    resetValueForm();
-    goInputPage();
-  }
-
-  UnionPlayerTwo calculateAndGotoResultPage() {
+  UnionPlayerTwo calculate() {
     return state.when(
       // WATT
       inputPageWT: () {
