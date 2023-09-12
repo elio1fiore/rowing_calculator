@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:row_calculator/core/domain/feature_entity.dart';
+import 'package:row_calculator/core/historyV2/repository/feature_entity.dart';
+
 import 'package:row_calculator/core/shared/database_feature_provider.dart';
 import 'package:row_calculator/feature/one_input/domain/one_input_page_player.dart';
 import 'package:row_calculator/feature/one_input/shared/one_input_provider.dart';
@@ -149,8 +150,10 @@ class OneResultView extends ConsumerWidget {
                     isImportant: false,
                     player: player.toJson(),
                     title: "One",
+                    type: 1,
                   );
                   await db.create(fe);
+
                   inputNotyRead.resetValueForm();
                   featureNotyRead.setStateInput();
                 },

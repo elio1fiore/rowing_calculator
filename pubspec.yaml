@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
   auto_route: ^7.7.0
   flutter_riverpod: ^2.3.6
-  fpdart: ^0.6.0
+  fpdart: ^1.1.0
   freezed_annotation: ^2.2.0
   reactive_forms: ^16.0.1
   path_provider: ^2.0.15
@@ -28,9 +28,9 @@ dependencies:
   rename: ^2.1.1
   flex_color_scheme: ^7.1.2
   url_strategy: ^0.2.0
-  floor: ^1.4.2
   sqflite: ^2.3.0
-  infinite_scroll_pagination: ^4.0.0
+  # infinite_scroll_pagination: ^4.0.0
+  animated_infinite_scroll_pagination: ^0.3.2
 
 
 
@@ -42,6 +42,7 @@ dev_dependencies:
     sdk: flutter
   freezed: ^2.3.5
   json_serializable: ^6.7.1 
+  floor_generator: ^1.4.2
 
 flutter:
   uses-material-design: true

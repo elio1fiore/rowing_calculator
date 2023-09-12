@@ -22,10 +22,10 @@ class TwoInputPagePlayer1 {
     required String time,
   }) {
     final nWatt = double.parse(watt);
-    final media_sp = time.split(':');
-    final minutes = int.parse(media_sp[0]);
-    final seconds = int.parse(media_sp[1]);
-    final decs = int.parse(media_sp[2]);
+    final mediaSp = time.split(':');
+    final minutes = int.parse(mediaSp[0]);
+    final seconds = int.parse(mediaSp[1]);
+    final decs = int.parse(mediaSp[2]);
 
     final IntervalTime timeIT = IntervalTime(
       minutes: minutes,
@@ -49,11 +49,11 @@ class TwoInputPagePlayer1 {
     required String media,
     required String time,
   }) {
-    final media_sp = media.split(':');
+    final mediaSp = media.split(':');
 
-    final m_minutes = int.parse(media_sp[0]);
-    final m_seconds = int.parse(media_sp[1]);
-    final m_decs = int.parse(media_sp[2]);
+    final m_minutes = int.parse(mediaSp[0]);
+    final m_seconds = int.parse(mediaSp[1]);
+    final m_decs = int.parse(mediaSp[2]);
 
     final IntervalTime mediaIT = IntervalTime(
       minutes: m_minutes,

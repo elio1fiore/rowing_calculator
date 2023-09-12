@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:row_calculator/core/historyV2/repository/feature_entity.dart';
 import 'package:row_calculator/core/presentation/card_result.dart';
-import 'package:row_calculator/core/domain/feature_entity.dart';
+
 import 'package:row_calculator/core/shared/database_feature_provider.dart';
 import 'package:row_calculator/feature/three_input/domain/three_input_page_player.dart';
 import 'package:row_calculator/feature/three_input/shared/three_input_provider.dart';
@@ -114,6 +115,7 @@ class _ResultThreeInputPageT extends ConsumerWidget {
                       isImportant: false,
                       player: player.toJson(),
                       title: "Three",
+                      type: 1,
                     );
                     await db.create(fe);
 
@@ -204,6 +206,7 @@ class _ResultThreeInputPageD extends ConsumerWidget {
                       isImportant: false,
                       player: player.toJson(),
                       title: "Three",
+                      type: 2,
                     );
                     await db.create(fe);
 

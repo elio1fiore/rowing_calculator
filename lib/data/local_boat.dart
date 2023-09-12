@@ -1,16 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:row_calculator/core/domain/boat.dart';
 
-class Boat {
-  final String name;
-  final String boatBest;
-  final Color color;
-
-  Boat({required this.name, required this.boatBest, required this.color});
-
-  String getHash() => name + boatBest;
-}
-
-List<Boat> listBoat = [
+List<Boat> localBoat = [
   //BLU
   Boat(name: '1XSM', boatBest: '06:33', color: Colors.blue.shade500),
   Boat(name: '2XSM', boatBest: '06:01', color: Colors.blue.shade500),

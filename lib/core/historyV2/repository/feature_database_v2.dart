@@ -4,10 +4,11 @@ import 'package:path/path.dart';
 import 'package:row_calculator/core/historyV2/repository/feature_entity.dart';
 import 'package:row_calculator/core/historyV2/repository/feature_fields.dart';
 import 'package:row_calculator/core/historyV2/utils/name_table_db.dart';
+import 'package:row_calculator/core/infrastructure/local_response.dart';
 import 'package:sqflite/sqflite.dart';
 
-class FeaturesDatabase {
-  FeaturesDatabase();
+class FeaturesDatabaseV2 {
+  FeaturesDatabaseV2();
 
   static Database? _database;
 
@@ -16,7 +17,7 @@ class FeaturesDatabase {
       return _database!;
     }
 
-    _database = await _initDB('features_1.db');
+    _database = await _initDB('features_v2.2.db');
     return _database!;
   }
 
@@ -32,6 +33,7 @@ class FeaturesDatabase {
 
     const boolType = "BOOLEAN NOT NULL";
     const textType = "TEXT NOT NULL";
+    const integerType = "INTEGER NOT NULL";
 
     await db.execute('''
       CREATE TABLE $tableFeature (
@@ -41,20 +43,35 @@ class FeaturesDatabase {
         ${FeatureFields.isImportant} $boolType,
         ${FeatureFields.description} $textType,
         ${FeatureFields.title} $textType
+        ${FeatureFields.type} $integerType,
       )
     ''');
   }
 
   // Paginated fetch
-  Future<List<FeatureEntity>> getFeaturePaginated(int page, int limit) async {
-    final db = await database;
-    final offset = (page - 1) * limit;
-    final result = await db.query(tableFeature, limit: limit, offset: offset);
+  Future<LocalResponse<List<FeatureEntity>>> getFeaturePaginated(
+      int page, int limit) async {
+    try {
+      final db = await database;
+      final nEle = await _countItem();
+      int maxPage;
 
-    final ret = result.map((e) => FeatureEntity.fromMap(e)).toList();
+      if (nEle == null) {
+        maxPage = 1;
+      } else {
+        maxPage = (nEle / limit).ceil();
+      }
 
-    print(ret.length);
-    return ret;
+      final offset = (page - 1) * limit;
+
+      final result = await db.query(tableFeature, limit: limit, offset: offset);
+
+      final ret = result.map((e) => FeatureEntity.fromMap(e)).toList();
+
+      return LocalResponse.withNewData(ret, maxPage: maxPage);
+    } catch (e) {
+      return const LocalResponse.problemDB();
+    }
   }
 
   Future close() async {
@@ -74,31 +91,31 @@ class FeaturesDatabase {
     return feature.copyWith(id: id);
   }
 
-  Future<FeatureEntity> readFeature(int id) async {
-    final db = await database;
+  // Future<FeatureEntity> readFeature(int id) async {
+  //   final db = await database;
 
-    final maps = await db.query(
-      tableFeature,
-      columns: FeatureFields.values,
-      where: '${FeatureFields.id} = ?',
-      whereArgs: [id],
-    );
+  //   final maps = await db.query(
+  //     tableFeature,
+  //     columns: FeatureFields.values,
+  //     where: '${FeatureFields.id} = ?',
+  //     whereArgs: [id],
+  //   );
 
-    if (maps.isNotEmpty) {
-      return FeatureEntity.fromMap(maps.first);
-    } else {
-      throw Exception('ID $id not found');
-    }
-  }
+  //   if (maps.isNotEmpty) {
+  //     return FeatureEntity.fromMap(maps.first);
+  //   } else {
+  //     throw Exception('ID $id not found');
+  //   }
+  // }
 
-  Future<List<FeatureEntity>> readAllFeatures() async {
-    final db = await database;
-    const orderBy = '${FeatureFields.dateTime} ASC';
+  // Future<List<FeatureEntity>> readAllFeatures() async {
+  //   final db = await database;
+  //   const orderBy = '${FeatureFields.dateTime} ASC';
 
-    final result = await db.query(tableFeature, orderBy: orderBy);
+  //   final result = await db.query(tableFeature, orderBy: orderBy);
 
-    return result.map((json) => FeatureEntity.fromMap(json)).toList();
-  }
+  //   return result.map((json) => FeatureEntity.fromMap(json)).toList();
+  // }
 
   Future<int> update(FeatureEntity feature) async {
     final db = await database;
@@ -119,5 +136,15 @@ class FeaturesDatabase {
       where: '${FeatureFields.id} = ?',
       whereArgs: [id],
     );
+  }
+
+  Future<int?> _countItem() async {
+    final db = await database;
+
+    final value = Sqflite.firstIntValue(
+      await db.rawQuery('SELECT COUNT(*) FROM $tableFeature'),
+    );
+
+    return value;
   }
 }

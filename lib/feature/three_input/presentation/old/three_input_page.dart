@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:row_calculator/feature/three_input/application/three_input_notifier.dart';
 import 'package:row_calculator/feature/three_input/shared/three_input_provider.dart';
-import 'package:row_calculator/data/boat.dart';
+import 'package:row_calculator/data/local_boat.dart';
 
 @RoutePage()
 class ThreeInputPage extends ConsumerStatefulWidget {
@@ -93,7 +93,7 @@ class _ThreeInputPageState extends ConsumerState<ThreeInputPage> {
                                 isExpanded: true,
                                 readOnly: false,
                                 formControlName: 'inputOne',
-                                items: listBoat.map(
+                                items: localBoat.map(
                                   (boat) {
                                     return DropdownMenuItem(
                                       alignment: AlignmentDirectional.center,

@@ -1,8 +1,8 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:row_calculator/core/domain/feature_entity.dart';
+
+import 'package:row_calculator/core/historyV2/repository/feature_entity.dart';
 import 'package:row_calculator/core/shared/database_feature_provider.dart';
 import 'package:row_calculator/router/app_router.gr.dart';
 
@@ -25,25 +25,11 @@ class HistoryListPage extends ConsumerStatefulWidget {
 }
 
 class _HistoryListPageState extends ConsumerState<HistoryListPage> {
-  late List<FeatureEntity> features;
-  bool isLoading = false;
-  @override
-  void initState() {
-    super.initState();
+  Future<List<FeatureEntity>> refreshFeature() async {
+    List<FeatureEntity> features =
+        await ref.read(featuresDatabaseProvider).getFeaturePaginated(1, 10);
 
-    refreshFeature();
-  }
-
-  Future refreshFeature() async {
-    setState(() {
-      isLoading = true;
-    });
-
-    features = await ref.read(featuresDatabaseProvider).readAllFeatures();
-
-    setState(() {
-      isLoading = false;
-    });
+    return features;
   }
 
   String getTitle(FeatureEntity item) {
@@ -60,59 +46,60 @@ class _HistoryListPageState extends ConsumerState<HistoryListPage> {
 
   @override
   Widget build(BuildContext context) {
-    return isLoading
-        ? const CircularProgressIndicator()
-        : FutureBuilder(
-            future: ref.read(featuresDatabaseProvider).readAllFeatures(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const CircularProgressIndicator();
-              } else if (snapshot.connectionState == ConnectionState.done) {
-                return ListView.builder(
-                  itemCount: features.length,
-                  itemBuilder: (context, index) {
-                    final item = features[index];
+    return FutureBuilder(
+      future: refreshFeature(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const CircularProgressIndicator();
+        } else if (snapshot.data!.isEmpty) {
+          return const Text("Calcola qualcosa");
+        } else if (snapshot.connectionState == ConnectionState.done) {
+          return ListView.builder(
+            itemCount: snapshot.data!.length,
+            itemBuilder: (context, index) {
+              final item = snapshot.data![index];
 
-                    return ListTile(
-                      onTap: () {
-                        if (item.title.contains('One')) {
-                          AutoRouter.of(context).push(
-                            OneHistoryDetailsRoute(id: item.id.toString()),
-                          );
-                        } else if (item.title.contains("TwoOne")) {
-                          AutoRouter.of(context).push(
-                            TwoOneHistoryDetailsRoute(id: item.id.toString()),
-                          );
-                        } else if (item.title.contains("TwoTwo")) {
-                          AutoRouter.of(context).push(
-                            TwoTwoHistoryDetailsRoute(id: item.id.toString()),
-                          );
-                        } else if (item.title.contains("Three")) {
-                          AutoRouter.of(context).push(
-                            ThreeHistoryDetailsRoute(id: item.id.toString()),
-                          );
-                        }
-                      },
-                      trailing: IconButton(
-                        icon: const Icon(Icons.delete_sharp),
-                        onPressed: () {
-                          if (item.id != null) {
-                            ref.read(featuresDatabaseProvider).delete(item.id!);
-                            refreshFeature();
-                          }
-                        },
-                      ),
-                      title: Text(getTitle(item)),
-                      subtitle: Text(
-                        item.dateTime.toString(),
-                      ),
+              return ListTile(
+                onTap: () {
+                  if (item.title.contains('One')) {
+                    AutoRouter.of(context).push(
+                      OneHistoryDetailsRoute(id: item.id.toString()),
                     );
+                  } else if (item.title.contains("TwoOne")) {
+                    AutoRouter.of(context).push(
+                      TwoOneHistoryDetailsRoute(id: item.id.toString()),
+                    );
+                  } else if (item.title.contains("TwoTwo")) {
+                    AutoRouter.of(context).push(
+                      TwoTwoHistoryDetailsRoute(id: item.id.toString()),
+                    );
+                  } else if (item.title.contains("Three")) {
+                    AutoRouter.of(context).push(
+                      ThreeHistoryDetailsRoute(id: item.id.toString()),
+                    );
+                  }
+                },
+                trailing: IconButton(
+                  icon: const Icon(Icons.delete_sharp),
+                  onPressed: () {
+                    if (item.id != null) {
+                      ref.read(featuresDatabaseProvider).delete(item.id!);
+                      refreshFeature();
+                      setState(() {});
+                    }
                   },
-                );
-              } else {
-                return const Text("Un attimo");
-              }
+                ),
+                title: Text(getTitle(item)),
+                subtitle: Text(
+                  item.dateTime.toString(),
+                ),
+              );
             },
           );
+        } else {
+          return const Text("Un attimo");
+        }
+      },
+    );
   }
 }

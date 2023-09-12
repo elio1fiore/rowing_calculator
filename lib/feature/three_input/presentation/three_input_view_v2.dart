@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_multi_formatter/formatters/masked_input_formatter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:row_calculator/data/boat.dart';
+import 'package:row_calculator/data/local_boat.dart';
 import 'package:row_calculator/feature/three_input/application/three_input_notifier.dart';
 import 'package:row_calculator/feature/three_input/shared/three_input_provider.dart';
 
@@ -59,7 +59,7 @@ class _ThreeFeatureViewV2State extends ConsumerState<ThreeInputViewV2> {
                           },
                           onChanged: (control) {
                             if (control.value != null) {
-                              final boat = listBoat.firstWhere(
+                              final boat = localBoat.firstWhere(
                                 (element) => element.name == control.value,
                               );
 
@@ -72,7 +72,7 @@ class _ThreeFeatureViewV2State extends ConsumerState<ThreeInputViewV2> {
                           isExpanded: true,
                           readOnly: false,
                           formControlName: 'inputOne',
-                          items: listBoat.map(
+                          items: localBoat.map(
                             (boat) {
                               return DropdownMenuItem(
                                 alignment: AlignmentDirectional.center,
