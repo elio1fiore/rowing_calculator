@@ -1,12 +1,10 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:row_calculator/core/historyV2/domain/feature.dart';
-import 'package:row_calculator/core/historyV2/repository/feature_entity.dart';
 import 'package:row_calculator/core/historyV2/domain/fresh.dart';
 import 'package:row_calculator/core/historyV2/domain/history_failure.dart';
 import 'package:row_calculator/core/historyV2/repository/feature_database_v2.dart';
 import 'package:row_calculator/core/historyV2/utils/extension.dart';
 import 'package:row_calculator/core/historyV2/utils/pagination_config.dart';
-import 'package:row_calculator/core/infrastructure/feature_database.dart';
 
 class FeatureRepository {
   FeaturesDatabaseV2 _featuresDatabase;

@@ -15,7 +15,7 @@ class UnionPlayer with _$UnionPlayer {
 }
 
 class Feature {
-  final int id;
+  int? id;
   final UnionPlayer player;
   final DateTime dateTime;
   final bool isImportant;
@@ -24,7 +24,7 @@ class Feature {
   final FeatureType type;
 
   Feature({
-    required this.id,
+    this.id,
     required this.player,
     required this.dateTime,
     required this.isImportant,

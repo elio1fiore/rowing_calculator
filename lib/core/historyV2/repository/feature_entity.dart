@@ -24,6 +24,17 @@ class FeatureEntity {
     required this.type,
   });
 
+  factory FeatureEntity.fromDomain(Feature f) {
+    return FeatureEntity(
+      dateTime: f.dateTime,
+      description: f.description,
+      isImportant: f.isImportant,
+      player: f.player.toString(),
+      title: f.title,
+      type: f.type.index,
+    );
+  }
+
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       FeatureFields.id: id,
@@ -103,10 +114,6 @@ class FeatureEntity {
       title: title,
       type: ft,
     );
-  }
-
-  int featureTypeToInt(FeatureType ft) {
-    return ft.index;
   }
 
   FeatureType intToFeatureType(int index) {

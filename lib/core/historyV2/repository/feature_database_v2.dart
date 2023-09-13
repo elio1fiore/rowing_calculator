@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:path/path.dart';
+import 'package:row_calculator/core/historyV2/domain/feature.dart';
 
 import 'package:row_calculator/core/historyV2/repository/feature_entity.dart';
 import 'package:row_calculator/core/historyV2/repository/feature_fields.dart';
@@ -80,15 +81,17 @@ class FeaturesDatabaseV2 {
     db.close();
   }
 
-  Future<FeatureEntity> create(FeatureEntity feature) async {
+  Future<void> create(Feature feature) async {
     final db = await database;
 
-    final id = await db.insert(
+    final entity = FeatureEntity.fromDomain(feature);
+
+    await db.insert(
       tableFeature,
-      feature.toMap(),
+      entity.toMap(),
     );
 
-    return feature.copyWith(id: id);
+    return;
   }
 
   // Future<FeatureEntity> readFeature(int id) async {

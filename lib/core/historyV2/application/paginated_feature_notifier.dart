@@ -44,7 +44,12 @@ class PaginatedFeatureNotifier extends StateNotifier<PaginatedFeatureState> {
     state = PaginatedFeatureState.initial(Fresh.yes([]));
   }
 
-  Future<void> getNextPage() async {
+  Future<void> getFirstFeaturePage() async {
+    resetState();
+    getNextFeaturePage();
+  }
+
+  Future<void> getNextFeaturePage() async {
     state = PaginatedFeatureState.loadInProgress(
       state.features,
       PaginationConfig.itemsPerPage,

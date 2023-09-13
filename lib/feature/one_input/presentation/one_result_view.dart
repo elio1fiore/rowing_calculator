@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:row_calculator/core/historyV2/repository/feature_entity.dart';
+import 'package:row_calculator/core/historyV2/domain/feature.dart';
+import 'package:row_calculator/core/historyV2/shared/history_provider.dart';
 
-import 'package:row_calculator/core/shared/database_feature_provider.dart';
 import 'package:row_calculator/feature/one_input/domain/one_input_page_player.dart';
 import 'package:row_calculator/feature/one_input/shared/one_input_provider.dart';
 
@@ -144,13 +144,13 @@ class OneResultView extends ConsumerWidget {
               padding: const EdgeInsets.symmetric(horizontal: 30),
               child: ElevatedButton(
                 onPressed: () async {
-                  final fe = FeatureEntity(
+                  final fe = Feature(
                     dateTime: DateTime.now(),
                     description: "",
                     isImportant: false,
-                    player: player.toJson(),
-                    title: "One",
-                    type: 1,
+                    player: UnionPlayer.one(player),
+                    title: "Input One",
+                    type: FeatureType.one,
                   );
                   await db.create(fe);
 

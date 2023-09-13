@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:row_calculator/core/historyV2/repository/feature_entity.dart';
+import 'package:row_calculator/core/historyV2/domain/feature.dart';
+import 'package:row_calculator/core/historyV2/shared/history_provider.dart';
 import 'package:row_calculator/core/presentation/card_result.dart';
 
-import 'package:row_calculator/core/shared/database_feature_provider.dart';
 import 'package:row_calculator/feature/two_input/domain/two_input_page_player_2.dart';
 import 'package:row_calculator/feature/two_input/shared/two_input_provider.dart';
 
@@ -73,13 +73,13 @@ class ResultTwoInputPage2 extends ConsumerWidget {
                   child: Text('Nuovo Calcolo from 2'),
                 ),
                 onPressed: () async {
-                  final fe = FeatureEntity(
+                  final fe = Feature(
                     dateTime: DateTime.now(),
-                    player: player2.toJson(),
+                    player: UnionPlayer.twoTwo(player2),
                     description: "",
                     isImportant: false,
                     title: "TwoTwo",
-                    type: 3,
+                    type: FeatureType.two2,
                   );
                   await db.create(fe);
                   noty.resetValueForm();

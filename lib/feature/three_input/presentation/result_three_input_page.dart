@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:row_calculator/core/historyV2/repository/feature_entity.dart';
+import 'package:row_calculator/core/historyV2/domain/feature.dart';
+import 'package:row_calculator/core/historyV2/shared/history_provider.dart';
 import 'package:row_calculator/core/presentation/card_result.dart';
 
-import 'package:row_calculator/core/shared/database_feature_provider.dart';
 import 'package:row_calculator/feature/three_input/domain/three_input_page_player.dart';
 import 'package:row_calculator/feature/three_input/shared/three_input_provider.dart';
 
@@ -109,13 +109,13 @@ class _ResultThreeInputPageT extends ConsumerWidget {
                     child: Text('Nuovo Calcolo'),
                   ),
                   onPressed: () async {
-                    final fe = FeatureEntity(
+                    final fe = Feature(
                       dateTime: DateTime.now(),
                       description: "",
                       isImportant: false,
-                      player: player.toJson(),
+                      player: UnionPlayer.three(player),
                       title: "Three",
-                      type: 1,
+                      type: FeatureType.three,
                     );
                     await db.create(fe);
 
@@ -200,13 +200,13 @@ class _ResultThreeInputPageD extends ConsumerWidget {
                     child: Text('Nuovo Calcolo'),
                   ),
                   onPressed: () async {
-                    final fe = FeatureEntity(
+                    final fe = Feature(
                       dateTime: DateTime.now(),
                       description: "",
                       isImportant: false,
-                      player: player.toJson(),
-                      title: "Three",
-                      type: 2,
+                      player: UnionPlayer.three(player),
+                      title: "Three Input",
+                      type: FeatureType.three,
                     );
                     await db.create(fe);
 
