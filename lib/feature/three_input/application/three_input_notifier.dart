@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 import 'package:row_calculator/core/domain/boat.dart';
 import 'package:row_calculator/feature/three_input/domain/three_input_page_player.dart';
+import 'package:row_calculator/feature/three_input/domain/v2/three_input_player.dart';
 import 'package:row_calculator/util/form_validators.dart';
 
 part 'three_input_notifier.freezed.dart';
@@ -120,10 +121,10 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
     resetThreeForm();
   }
 
-  ThreeInputPagePlayer calculate() {
+  ThreeInputPlayer calculate() {
     return state.when(
       inputPageEnergyExp: () {
-        return ThreeInputPagePlayer.fromEnergyExp(
+        return ThreeInputPlayer.fromEnergyExp(
           personalBest: boat!.boatBest,
           meters: _form.control('inputTwo').value,
           energyExp: _form.control('inputThree').value,
@@ -132,7 +133,7 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
         );
       },
       inputPageTime: () {
-        return ThreeInputPagePlayer.fromTime(
+        return ThreeInputPlayer.fromTime(
           personalBest: boat!.boatBest,
           meters: _form.control('inputTwo').value,
           time: _form.control('inputThree').value,

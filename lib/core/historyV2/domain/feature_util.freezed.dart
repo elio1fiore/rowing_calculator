@@ -22,6 +22,7 @@ mixin _$UnionPlayer {
     required TResult Function(OneInputPlayer player) one,
     required TResult Function(TwoInputPlayer1 player) twoOne,
     required TResult Function(TwoInputPlayer2 player) twoTwo,
+    required TResult Function(ThreeInputPlayer player) three,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,6 +30,7 @@ mixin _$UnionPlayer {
     TResult? Function(OneInputPlayer player)? one,
     TResult? Function(TwoInputPlayer1 player)? twoOne,
     TResult? Function(TwoInputPlayer2 player)? twoTwo,
+    TResult? Function(ThreeInputPlayer player)? three,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +38,7 @@ mixin _$UnionPlayer {
     TResult Function(OneInputPlayer player)? one,
     TResult Function(TwoInputPlayer1 player)? twoOne,
     TResult Function(TwoInputPlayer2 player)? twoTwo,
+    TResult Function(ThreeInputPlayer player)? three,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +47,7 @@ mixin _$UnionPlayer {
     required TResult Function(_One value) one,
     required TResult Function(_TwoOne value) twoOne,
     required TResult Function(_TwoTwo value) twoTwo,
+    required TResult Function(_Three value) three,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +55,7 @@ mixin _$UnionPlayer {
     TResult? Function(_One value)? one,
     TResult? Function(_TwoOne value)? twoOne,
     TResult? Function(_TwoTwo value)? twoTwo,
+    TResult? Function(_Three value)? three,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +63,7 @@ mixin _$UnionPlayer {
     TResult Function(_One value)? one,
     TResult Function(_TwoOne value)? twoOne,
     TResult Function(_TwoTwo value)? twoTwo,
+    TResult Function(_Three value)? three,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,6 +161,7 @@ class _$_One implements _One {
     required TResult Function(OneInputPlayer player) one,
     required TResult Function(TwoInputPlayer1 player) twoOne,
     required TResult Function(TwoInputPlayer2 player) twoTwo,
+    required TResult Function(ThreeInputPlayer player) three,
   }) {
     return one(player);
   }
@@ -165,6 +172,7 @@ class _$_One implements _One {
     TResult? Function(OneInputPlayer player)? one,
     TResult? Function(TwoInputPlayer1 player)? twoOne,
     TResult? Function(TwoInputPlayer2 player)? twoTwo,
+    TResult? Function(ThreeInputPlayer player)? three,
   }) {
     return one?.call(player);
   }
@@ -175,6 +183,7 @@ class _$_One implements _One {
     TResult Function(OneInputPlayer player)? one,
     TResult Function(TwoInputPlayer1 player)? twoOne,
     TResult Function(TwoInputPlayer2 player)? twoTwo,
+    TResult Function(ThreeInputPlayer player)? three,
     required TResult orElse(),
   }) {
     if (one != null) {
@@ -189,6 +198,7 @@ class _$_One implements _One {
     required TResult Function(_One value) one,
     required TResult Function(_TwoOne value) twoOne,
     required TResult Function(_TwoTwo value) twoTwo,
+    required TResult Function(_Three value) three,
   }) {
     return one(this);
   }
@@ -199,6 +209,7 @@ class _$_One implements _One {
     TResult? Function(_One value)? one,
     TResult? Function(_TwoOne value)? twoOne,
     TResult? Function(_TwoTwo value)? twoTwo,
+    TResult? Function(_Three value)? three,
   }) {
     return one?.call(this);
   }
@@ -209,6 +220,7 @@ class _$_One implements _One {
     TResult Function(_One value)? one,
     TResult Function(_TwoOne value)? twoOne,
     TResult Function(_TwoTwo value)? twoTwo,
+    TResult Function(_Three value)? three,
     required TResult orElse(),
   }) {
     if (one != null) {
@@ -302,6 +314,7 @@ class _$_TwoOne implements _TwoOne {
     required TResult Function(OneInputPlayer player) one,
     required TResult Function(TwoInputPlayer1 player) twoOne,
     required TResult Function(TwoInputPlayer2 player) twoTwo,
+    required TResult Function(ThreeInputPlayer player) three,
   }) {
     return twoOne(player);
   }
@@ -312,6 +325,7 @@ class _$_TwoOne implements _TwoOne {
     TResult? Function(OneInputPlayer player)? one,
     TResult? Function(TwoInputPlayer1 player)? twoOne,
     TResult? Function(TwoInputPlayer2 player)? twoTwo,
+    TResult? Function(ThreeInputPlayer player)? three,
   }) {
     return twoOne?.call(player);
   }
@@ -322,6 +336,7 @@ class _$_TwoOne implements _TwoOne {
     TResult Function(OneInputPlayer player)? one,
     TResult Function(TwoInputPlayer1 player)? twoOne,
     TResult Function(TwoInputPlayer2 player)? twoTwo,
+    TResult Function(ThreeInputPlayer player)? three,
     required TResult orElse(),
   }) {
     if (twoOne != null) {
@@ -336,6 +351,7 @@ class _$_TwoOne implements _TwoOne {
     required TResult Function(_One value) one,
     required TResult Function(_TwoOne value) twoOne,
     required TResult Function(_TwoTwo value) twoTwo,
+    required TResult Function(_Three value) three,
   }) {
     return twoOne(this);
   }
@@ -346,6 +362,7 @@ class _$_TwoOne implements _TwoOne {
     TResult? Function(_One value)? one,
     TResult? Function(_TwoOne value)? twoOne,
     TResult? Function(_TwoTwo value)? twoTwo,
+    TResult? Function(_Three value)? three,
   }) {
     return twoOne?.call(this);
   }
@@ -356,6 +373,7 @@ class _$_TwoOne implements _TwoOne {
     TResult Function(_One value)? one,
     TResult Function(_TwoOne value)? twoOne,
     TResult Function(_TwoTwo value)? twoTwo,
+    TResult Function(_Three value)? three,
     required TResult orElse(),
   }) {
     if (twoOne != null) {
@@ -450,6 +468,7 @@ class _$_TwoTwo implements _TwoTwo {
     required TResult Function(OneInputPlayer player) one,
     required TResult Function(TwoInputPlayer1 player) twoOne,
     required TResult Function(TwoInputPlayer2 player) twoTwo,
+    required TResult Function(ThreeInputPlayer player) three,
   }) {
     return twoTwo(player);
   }
@@ -460,6 +479,7 @@ class _$_TwoTwo implements _TwoTwo {
     TResult? Function(OneInputPlayer player)? one,
     TResult? Function(TwoInputPlayer1 player)? twoOne,
     TResult? Function(TwoInputPlayer2 player)? twoTwo,
+    TResult? Function(ThreeInputPlayer player)? three,
   }) {
     return twoTwo?.call(player);
   }
@@ -470,6 +490,7 @@ class _$_TwoTwo implements _TwoTwo {
     TResult Function(OneInputPlayer player)? one,
     TResult Function(TwoInputPlayer1 player)? twoOne,
     TResult Function(TwoInputPlayer2 player)? twoTwo,
+    TResult Function(ThreeInputPlayer player)? three,
     required TResult orElse(),
   }) {
     if (twoTwo != null) {
@@ -484,6 +505,7 @@ class _$_TwoTwo implements _TwoTwo {
     required TResult Function(_One value) one,
     required TResult Function(_TwoOne value) twoOne,
     required TResult Function(_TwoTwo value) twoTwo,
+    required TResult Function(_Three value) three,
   }) {
     return twoTwo(this);
   }
@@ -494,6 +516,7 @@ class _$_TwoTwo implements _TwoTwo {
     TResult? Function(_One value)? one,
     TResult? Function(_TwoOne value)? twoOne,
     TResult? Function(_TwoTwo value)? twoTwo,
+    TResult? Function(_Three value)? three,
   }) {
     return twoTwo?.call(this);
   }
@@ -504,6 +527,7 @@ class _$_TwoTwo implements _TwoTwo {
     TResult Function(_One value)? one,
     TResult Function(_TwoOne value)? twoOne,
     TResult Function(_TwoTwo value)? twoTwo,
+    TResult Function(_Three value)? three,
     required TResult orElse(),
   }) {
     if (twoTwo != null) {
@@ -520,5 +544,159 @@ abstract class _TwoTwo implements UnionPlayer {
   TwoInputPlayer2 get player;
   @JsonKey(ignore: true)
   _$$_TwoTwoCopyWith<_$_TwoTwo> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ThreeCopyWith<$Res> {
+  factory _$$_ThreeCopyWith(_$_Three value, $Res Function(_$_Three) then) =
+      __$$_ThreeCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ThreeInputPlayer player});
+
+  $ThreeInputPlayerCopyWith<$Res> get player;
+}
+
+/// @nodoc
+class __$$_ThreeCopyWithImpl<$Res>
+    extends _$UnionPlayerCopyWithImpl<$Res, _$_Three>
+    implements _$$_ThreeCopyWith<$Res> {
+  __$$_ThreeCopyWithImpl(_$_Three _value, $Res Function(_$_Three) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? player = null,
+  }) {
+    return _then(_$_Three(
+      null == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as ThreeInputPlayer,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ThreeInputPlayerCopyWith<$Res> get player {
+    return $ThreeInputPlayerCopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_Three implements _Three {
+  const _$_Three(this.player);
+
+  @override
+  final ThreeInputPlayer player;
+
+  @override
+  String toString() {
+    return 'UnionPlayer.three(player: $player)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Three &&
+            (identical(other.player, player) || other.player == player));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, player);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ThreeCopyWith<_$_Three> get copyWith =>
+      __$$_ThreeCopyWithImpl<_$_Three>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(OneInputPlayer player) one,
+    required TResult Function(TwoInputPlayer1 player) twoOne,
+    required TResult Function(TwoInputPlayer2 player) twoTwo,
+    required TResult Function(ThreeInputPlayer player) three,
+  }) {
+    return three(player);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(OneInputPlayer player)? one,
+    TResult? Function(TwoInputPlayer1 player)? twoOne,
+    TResult? Function(TwoInputPlayer2 player)? twoTwo,
+    TResult? Function(ThreeInputPlayer player)? three,
+  }) {
+    return three?.call(player);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(OneInputPlayer player)? one,
+    TResult Function(TwoInputPlayer1 player)? twoOne,
+    TResult Function(TwoInputPlayer2 player)? twoTwo,
+    TResult Function(ThreeInputPlayer player)? three,
+    required TResult orElse(),
+  }) {
+    if (three != null) {
+      return three(player);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_One value) one,
+    required TResult Function(_TwoOne value) twoOne,
+    required TResult Function(_TwoTwo value) twoTwo,
+    required TResult Function(_Three value) three,
+  }) {
+    return three(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_One value)? one,
+    TResult? Function(_TwoOne value)? twoOne,
+    TResult? Function(_TwoTwo value)? twoTwo,
+    TResult? Function(_Three value)? three,
+  }) {
+    return three?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_One value)? one,
+    TResult Function(_TwoOne value)? twoOne,
+    TResult Function(_TwoTwo value)? twoTwo,
+    TResult Function(_Three value)? three,
+    required TResult orElse(),
+  }) {
+    if (three != null) {
+      return three(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Three implements UnionPlayer {
+  const factory _Three(final ThreeInputPlayer player) = _$_Three;
+
+  @override
+  ThreeInputPlayer get player;
+  @JsonKey(ignore: true)
+  _$$_ThreeCopyWith<_$_Three> get copyWith =>
       throw _privateConstructorUsedError;
 }

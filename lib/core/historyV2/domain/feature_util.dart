@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:row_calculator/feature/one_input/domain/v2/one_input_player.dart';
+import 'package:row_calculator/feature/three_input/domain/v2/three_input_player.dart';
 import 'package:row_calculator/feature/two_input/domain/v2/two_input_player_1.dart';
 import 'package:row_calculator/feature/two_input/domain/v2/two_input_player_2.dart';
 
@@ -12,7 +13,7 @@ class UnionPlayer with _$UnionPlayer {
   const factory UnionPlayer.one(OneInputPlayer player) = _One;
   const factory UnionPlayer.twoOne(TwoInputPlayer1 player) = _TwoOne;
   const factory UnionPlayer.twoTwo(TwoInputPlayer2 player) = _TwoTwo;
-  // const factory UnionPlayer.three(ThreeInputPagePlayer player) = _Three;
+  const factory UnionPlayer.three(ThreeInputPlayer player) = _Three;
 }
 
 class UnionPlayerConverter
@@ -37,5 +38,6 @@ class UnionPlayerConverter
         one: (player) => {'one': player.toJson()},
         twoOne: (player) => {'twoOne': player.toJson()},
         twoTwo: (player) => {'twoTwo': player.toJson()},
+        three: (player) => {'three': player.toJson()},
       );
 }

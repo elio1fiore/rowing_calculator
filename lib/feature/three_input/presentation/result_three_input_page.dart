@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/core/historyV2/domain/feature.dart';
+import 'package:row_calculator/core/historyV2/domain/feature_util.dart';
 import 'package:row_calculator/core/historyV2/shared/history_provider.dart';
 import 'package:row_calculator/core/presentation/card_result.dart';
+import 'package:row_calculator/feature/three_input/domain/v2/three_input_player.dart';
 
-import 'package:row_calculator/feature/three_input/domain/three_input_page_player.dart';
 import 'package:row_calculator/feature/three_input/shared/three_input_provider.dart';
 
 class ResultThreeInputPage extends ConsumerWidget {
-  final ThreeInputPagePlayer player;
+  final ThreeInputPlayer player;
   const ResultThreeInputPage({
     super.key,
     required this.player,
@@ -35,7 +36,7 @@ class ResultThreeInputPage extends ConsumerWidget {
 }
 
 class _ResultThreeInputPageT extends ConsumerWidget {
-  final ThreeInputPagePlayer player;
+  final ThreeInputPlayer player;
 
   const _ResultThreeInputPageT({
     super.key,
@@ -115,7 +116,7 @@ class _ResultThreeInputPageT extends ConsumerWidget {
                       isImportant: false,
                       player: UnionPlayer.three(player),
                       title: "Three",
-                      type: FeatureType.three,
+                      featureType: FeatureType.three,
                     );
                     await db.create(fe);
 
@@ -133,7 +134,7 @@ class _ResultThreeInputPageT extends ConsumerWidget {
 }
 
 class _ResultThreeInputPageD extends ConsumerWidget {
-  final ThreeInputPagePlayer player;
+  final ThreeInputPlayer player;
 
   const _ResultThreeInputPageD({super.key, required this.player});
 
@@ -206,7 +207,7 @@ class _ResultThreeInputPageD extends ConsumerWidget {
                       isImportant: false,
                       player: UnionPlayer.three(player),
                       title: "Three Input",
-                      type: FeatureType.three,
+                      featureType: FeatureType.three,
                     );
                     await db.create(fe);
 

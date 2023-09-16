@@ -3,12 +3,13 @@ import 'dart:convert';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:row_calculator/core/historyV2/domain/feature.dart';
 import 'package:row_calculator/core/historyV2/domain/feature_util.dart';
-import 'package:row_calculator/core/historyV2/repository/feature_fields.dart';
-import 'package:row_calculator/feature/one_input/domain/one_input_page_player.dart';
+
 import 'package:row_calculator/feature/one_input/domain/v2/one_input_player.dart';
-import 'package:row_calculator/feature/three_input/domain/three_input_page_player.dart';
-import 'package:row_calculator/feature/two_input/domain/two_input_page_player_1.dart';
-import 'package:row_calculator/feature/two_input/domain/two_input_page_player_2.dart';
+
+import 'package:row_calculator/feature/three_input/domain/v2/three_input_player.dart';
+
+import 'package:row_calculator/feature/two_input/domain/v2/two_input_player_1.dart';
+import 'package:row_calculator/feature/two_input/domain/v2/two_input_player_2.dart';
 
 // class FeatureEntity {
 //   final int? id;
@@ -157,15 +158,15 @@ class FeatureEntity with _$FeatureEntity {
         unionPlayer = UnionPlayer.one(OneInputPlayer.fromJson(playerMap));
         break;
       case FeatureType.two1:
-        unionPlayer = UnionPlayer.one(OneInputPlayer.fromJson(playerMap));
+        unionPlayer = UnionPlayer.twoOne(TwoInputPlayer1.fromJson(playerMap));
 
         break;
       case FeatureType.two2:
-        unionPlayer = UnionPlayer.one(OneInputPlayer.fromJson(playerMap));
+        unionPlayer = UnionPlayer.twoTwo(TwoInputPlayer2.fromJson(playerMap));
 
         break;
       case FeatureType.three:
-        unionPlayer = UnionPlayer.one(OneInputPlayer.fromJson(playerMap));
+        unionPlayer = UnionPlayer.three(ThreeInputPlayer.fromJson(playerMap));
 
         break;
     }
@@ -187,6 +188,7 @@ class FeatureEntity with _$FeatureEntity {
         one: (player) => player.toJson(),
         twoOne: (player) => player.toJson(),
         twoTwo: (player) => player.toJson(),
+        three: (player) => player.toJson(),
       ),
     );
 
