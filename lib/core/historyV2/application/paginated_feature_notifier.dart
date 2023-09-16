@@ -58,7 +58,10 @@ class PaginatedFeatureNotifier extends StateNotifier<PaginatedFeatureState> {
     final failureOrResp = await _featureRepository.getFeaturePage(_page);
 
     state = failureOrResp.fold(
-      (l) => PaginatedFeatureState.loadFailure(state.features, l),
+      (l) {
+        print("Failure 34");
+        return PaginatedFeatureState.loadFailure(state.features, l);
+      },
       (r) {
         _page++;
 

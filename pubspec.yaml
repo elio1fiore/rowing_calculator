@@ -29,8 +29,7 @@ dependencies:
   flex_color_scheme: ^7.1.2
   url_strategy: ^0.2.0
   sqflite: ^2.3.0
-  # infinite_scroll_pagination: ^4.0.0
-  animated_infinite_scroll_pagination: ^0.3.2
+  flash: ^3.0.5+1
 
 
 

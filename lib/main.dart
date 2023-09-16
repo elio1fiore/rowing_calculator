@@ -7,7 +7,6 @@ import 'package:url_strategy/url_strategy.dart';
 Future<void> main() async {
   setPathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
-
   runApp(
     const ProviderScope(
       child: RowCalculatorApp(),

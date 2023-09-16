@@ -43,8 +43,8 @@ class FeaturesDatabaseV2 {
         ${FeatureFields.dateTime} $textType,
         ${FeatureFields.isImportant} $boolType,
         ${FeatureFields.description} $textType,
-        ${FeatureFields.title} $textType
-        ${FeatureFields.type} $integerType,
+        ${FeatureFields.title} $textType,
+        ${FeatureFields.type} $integerType
       )
     ''');
   }
@@ -81,15 +81,13 @@ class FeaturesDatabaseV2 {
     db.close();
   }
 
-  Future<void> create(Feature feature) async {
+  Future<void> create(FeatureEntity featureEntity) async {
     final db = await database;
 
-    final entity = FeatureEntity.fromDomain(feature);
-
-    await db.insert(
-      tableFeature,
-      entity.toMap(),
-    );
+    // await db.insert(
+    //   tableFeature,
+    //   featureEntity.toMap(),
+    // );
 
     return;
   }

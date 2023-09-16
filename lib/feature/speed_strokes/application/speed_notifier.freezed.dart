@@ -339,6 +339,8 @@ abstract class _$$_DataPositionCopyWith<$Res> {
       __$$_DataPositionCopyWithImpl<$Res>;
   @useResult
   $Res call({Position position, IntervalTime intervalTime});
+
+  $IntervalTimeCopyWith<$Res> get intervalTime;
 }
 
 /// @nodoc
@@ -365,6 +367,14 @@ class __$$_DataPositionCopyWithImpl<$Res>
           : intervalTime // ignore: cast_nullable_to_non_nullable
               as IntervalTime,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $IntervalTimeCopyWith<$Res> get intervalTime {
+    return $IntervalTimeCopyWith<$Res>(_value.intervalTime, (value) {
+      return _then(_value.copyWith(intervalTime: value));
+    });
   }
 }
 

@@ -216,10 +216,10 @@ class __$$_ResultCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? player = null,
+    Object? player = freezed,
   }) {
     return _then(_$_Result(
-      player: null == player
+      player: freezed == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
               as OneInputPagePlayer,
@@ -245,11 +245,12 @@ class _$_Result implements _Result {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Result &&
-            (identical(other.player, player) || other.player == player));
+            const DeepCollectionEquality().equals(other.player, player));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, player);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(player));
 
   @JsonKey(ignore: true)
   @override

@@ -15,648 +15,256 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$UnionPlayer {
-  Object get player => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(OneInputPagePlayer player) one,
-    required TResult Function(TwoInputPagePlayer1 player) twoOne,
-    required TResult Function(TwoInputPagePlayer2 player) twoTwo,
-    required TResult Function(ThreeInputPagePlayer player) three,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(OneInputPagePlayer player)? one,
-    TResult? Function(TwoInputPagePlayer1 player)? twoOne,
-    TResult? Function(TwoInputPagePlayer2 player)? twoTwo,
-    TResult? Function(ThreeInputPagePlayer player)? three,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(OneInputPagePlayer player)? one,
-    TResult Function(TwoInputPagePlayer1 player)? twoOne,
-    TResult Function(TwoInputPagePlayer2 player)? twoTwo,
-    TResult Function(ThreeInputPagePlayer player)? three,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_One value) one,
-    required TResult Function(_TwoOne value) twoOne,
-    required TResult Function(_TwoTwo value) twoTwo,
-    required TResult Function(_Three value) three,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_One value)? one,
-    TResult? Function(_TwoOne value)? twoOne,
-    TResult? Function(_TwoTwo value)? twoTwo,
-    TResult? Function(_Three value)? three,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_One value)? one,
-    TResult Function(_TwoOne value)? twoOne,
-    TResult Function(_TwoTwo value)? twoTwo,
-    TResult Function(_Three value)? three,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
+mixin _$Feature {
+  int? get id => throw _privateConstructorUsedError;
+  UnionPlayer get player => throw _privateConstructorUsedError;
+  DateTime get dateTime => throw _privateConstructorUsedError;
+  bool get isImportant => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  FeatureType get featureType => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $FeatureCopyWith<Feature> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UnionPlayerCopyWith<$Res> {
-  factory $UnionPlayerCopyWith(
-          UnionPlayer value, $Res Function(UnionPlayer) then) =
-      _$UnionPlayerCopyWithImpl<$Res, UnionPlayer>;
+abstract class $FeatureCopyWith<$Res> {
+  factory $FeatureCopyWith(Feature value, $Res Function(Feature) then) =
+      _$FeatureCopyWithImpl<$Res, Feature>;
+  @useResult
+  $Res call(
+      {int? id,
+      UnionPlayer player,
+      DateTime dateTime,
+      bool isImportant,
+      String description,
+      String title,
+      FeatureType featureType});
+
+  $UnionPlayerCopyWith<$Res> get player;
 }
 
 /// @nodoc
-class _$UnionPlayerCopyWithImpl<$Res, $Val extends UnionPlayer>
-    implements $UnionPlayerCopyWith<$Res> {
-  _$UnionPlayerCopyWithImpl(this._value, this._then);
+class _$FeatureCopyWithImpl<$Res, $Val extends Feature>
+    implements $FeatureCopyWith<$Res> {
+  _$FeatureCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? player = null,
+    Object? dateTime = null,
+    Object? isImportant = null,
+    Object? description = null,
+    Object? title = null,
+    Object? featureType = null,
+  }) {
+    return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      player: null == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as UnionPlayer,
+      dateTime: null == dateTime
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      isImportant: null == isImportant
+          ? _value.isImportant
+          : isImportant // ignore: cast_nullable_to_non_nullable
+              as bool,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      featureType: null == featureType
+          ? _value.featureType
+          : featureType // ignore: cast_nullable_to_non_nullable
+              as FeatureType,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UnionPlayerCopyWith<$Res> get player {
+    return $UnionPlayerCopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$_OneCopyWith<$Res> {
-  factory _$$_OneCopyWith(_$_One value, $Res Function(_$_One) then) =
-      __$$_OneCopyWithImpl<$Res>;
+abstract class _$$_FeatureCopyWith<$Res> implements $FeatureCopyWith<$Res> {
+  factory _$$_FeatureCopyWith(
+          _$_Feature value, $Res Function(_$_Feature) then) =
+      __$$_FeatureCopyWithImpl<$Res>;
+  @override
   @useResult
-  $Res call({OneInputPagePlayer player});
+  $Res call(
+      {int? id,
+      UnionPlayer player,
+      DateTime dateTime,
+      bool isImportant,
+      String description,
+      String title,
+      FeatureType featureType});
+
+  @override
+  $UnionPlayerCopyWith<$Res> get player;
 }
 
 /// @nodoc
-class __$$_OneCopyWithImpl<$Res> extends _$UnionPlayerCopyWithImpl<$Res, _$_One>
-    implements _$$_OneCopyWith<$Res> {
-  __$$_OneCopyWithImpl(_$_One _value, $Res Function(_$_One) _then)
+class __$$_FeatureCopyWithImpl<$Res>
+    extends _$FeatureCopyWithImpl<$Res, _$_Feature>
+    implements _$$_FeatureCopyWith<$Res> {
+  __$$_FeatureCopyWithImpl(_$_Feature _value, $Res Function(_$_Feature) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? player = null,
+    Object? dateTime = null,
+    Object? isImportant = null,
+    Object? description = null,
+    Object? title = null,
+    Object? featureType = null,
   }) {
-    return _then(_$_One(
-      null == player
+    return _then(_$_Feature(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
+      player: null == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
-              as OneInputPagePlayer,
+              as UnionPlayer,
+      dateTime: null == dateTime
+          ? _value.dateTime
+          : dateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      isImportant: null == isImportant
+          ? _value.isImportant
+          : isImportant // ignore: cast_nullable_to_non_nullable
+              as bool,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      featureType: null == featureType
+          ? _value.featureType
+          : featureType // ignore: cast_nullable_to_non_nullable
+              as FeatureType,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_One implements _One {
-  const _$_One(this.player);
+class _$_Feature implements _Feature {
+  const _$_Feature(
+      {this.id,
+      required this.player,
+      required this.dateTime,
+      required this.isImportant,
+      required this.description,
+      required this.title,
+      required this.featureType});
 
   @override
-  final OneInputPagePlayer player;
+  final int? id;
+  @override
+  final UnionPlayer player;
+  @override
+  final DateTime dateTime;
+  @override
+  final bool isImportant;
+  @override
+  final String description;
+  @override
+  final String title;
+  @override
+  final FeatureType featureType;
 
   @override
   String toString() {
-    return 'UnionPlayer.one(player: $player)';
+    return 'Feature(id: $id, player: $player, dateTime: $dateTime, isImportant: $isImportant, description: $description, title: $title, featureType: $featureType)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_One &&
-            (identical(other.player, player) || other.player == player));
+            other is _$_Feature &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.player, player) || other.player == player) &&
+            (identical(other.dateTime, dateTime) ||
+                other.dateTime == dateTime) &&
+            (identical(other.isImportant, isImportant) ||
+                other.isImportant == isImportant) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.featureType, featureType) ||
+                other.featureType == featureType));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, player);
+  int get hashCode => Object.hash(runtimeType, id, player, dateTime,
+      isImportant, description, title, featureType);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OneCopyWith<_$_One> get copyWith =>
-      __$$_OneCopyWithImpl<_$_One>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(OneInputPagePlayer player) one,
-    required TResult Function(TwoInputPagePlayer1 player) twoOne,
-    required TResult Function(TwoInputPagePlayer2 player) twoTwo,
-    required TResult Function(ThreeInputPagePlayer player) three,
-  }) {
-    return one(player);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(OneInputPagePlayer player)? one,
-    TResult? Function(TwoInputPagePlayer1 player)? twoOne,
-    TResult? Function(TwoInputPagePlayer2 player)? twoTwo,
-    TResult? Function(ThreeInputPagePlayer player)? three,
-  }) {
-    return one?.call(player);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(OneInputPagePlayer player)? one,
-    TResult Function(TwoInputPagePlayer1 player)? twoOne,
-    TResult Function(TwoInputPagePlayer2 player)? twoTwo,
-    TResult Function(ThreeInputPagePlayer player)? three,
-    required TResult orElse(),
-  }) {
-    if (one != null) {
-      return one(player);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_One value) one,
-    required TResult Function(_TwoOne value) twoOne,
-    required TResult Function(_TwoTwo value) twoTwo,
-    required TResult Function(_Three value) three,
-  }) {
-    return one(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_One value)? one,
-    TResult? Function(_TwoOne value)? twoOne,
-    TResult? Function(_TwoTwo value)? twoTwo,
-    TResult? Function(_Three value)? three,
-  }) {
-    return one?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_One value)? one,
-    TResult Function(_TwoOne value)? twoOne,
-    TResult Function(_TwoTwo value)? twoTwo,
-    TResult Function(_Three value)? three,
-    required TResult orElse(),
-  }) {
-    if (one != null) {
-      return one(this);
-    }
-    return orElse();
-  }
+  _$$_FeatureCopyWith<_$_Feature> get copyWith =>
+      __$$_FeatureCopyWithImpl<_$_Feature>(this, _$identity);
 }
 
-abstract class _One implements UnionPlayer {
-  const factory _One(final OneInputPagePlayer player) = _$_One;
+abstract class _Feature implements Feature {
+  const factory _Feature(
+      {final int? id,
+      required final UnionPlayer player,
+      required final DateTime dateTime,
+      required final bool isImportant,
+      required final String description,
+      required final String title,
+      required final FeatureType featureType}) = _$_Feature;
 
   @override
-  OneInputPagePlayer get player;
+  int? get id;
+  @override
+  UnionPlayer get player;
+  @override
+  DateTime get dateTime;
+  @override
+  bool get isImportant;
+  @override
+  String get description;
+  @override
+  String get title;
+  @override
+  FeatureType get featureType;
+  @override
   @JsonKey(ignore: true)
-  _$$_OneCopyWith<_$_One> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_TwoOneCopyWith<$Res> {
-  factory _$$_TwoOneCopyWith(_$_TwoOne value, $Res Function(_$_TwoOne) then) =
-      __$$_TwoOneCopyWithImpl<$Res>;
-  @useResult
-  $Res call({TwoInputPagePlayer1 player});
-}
-
-/// @nodoc
-class __$$_TwoOneCopyWithImpl<$Res>
-    extends _$UnionPlayerCopyWithImpl<$Res, _$_TwoOne>
-    implements _$$_TwoOneCopyWith<$Res> {
-  __$$_TwoOneCopyWithImpl(_$_TwoOne _value, $Res Function(_$_TwoOne) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? player = null,
-  }) {
-    return _then(_$_TwoOne(
-      null == player
-          ? _value.player
-          : player // ignore: cast_nullable_to_non_nullable
-              as TwoInputPagePlayer1,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_TwoOne implements _TwoOne {
-  const _$_TwoOne(this.player);
-
-  @override
-  final TwoInputPagePlayer1 player;
-
-  @override
-  String toString() {
-    return 'UnionPlayer.twoOne(player: $player)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_TwoOne &&
-            (identical(other.player, player) || other.player == player));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, player);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_TwoOneCopyWith<_$_TwoOne> get copyWith =>
-      __$$_TwoOneCopyWithImpl<_$_TwoOne>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(OneInputPagePlayer player) one,
-    required TResult Function(TwoInputPagePlayer1 player) twoOne,
-    required TResult Function(TwoInputPagePlayer2 player) twoTwo,
-    required TResult Function(ThreeInputPagePlayer player) three,
-  }) {
-    return twoOne(player);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(OneInputPagePlayer player)? one,
-    TResult? Function(TwoInputPagePlayer1 player)? twoOne,
-    TResult? Function(TwoInputPagePlayer2 player)? twoTwo,
-    TResult? Function(ThreeInputPagePlayer player)? three,
-  }) {
-    return twoOne?.call(player);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(OneInputPagePlayer player)? one,
-    TResult Function(TwoInputPagePlayer1 player)? twoOne,
-    TResult Function(TwoInputPagePlayer2 player)? twoTwo,
-    TResult Function(ThreeInputPagePlayer player)? three,
-    required TResult orElse(),
-  }) {
-    if (twoOne != null) {
-      return twoOne(player);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_One value) one,
-    required TResult Function(_TwoOne value) twoOne,
-    required TResult Function(_TwoTwo value) twoTwo,
-    required TResult Function(_Three value) three,
-  }) {
-    return twoOne(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_One value)? one,
-    TResult? Function(_TwoOne value)? twoOne,
-    TResult? Function(_TwoTwo value)? twoTwo,
-    TResult? Function(_Three value)? three,
-  }) {
-    return twoOne?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_One value)? one,
-    TResult Function(_TwoOne value)? twoOne,
-    TResult Function(_TwoTwo value)? twoTwo,
-    TResult Function(_Three value)? three,
-    required TResult orElse(),
-  }) {
-    if (twoOne != null) {
-      return twoOne(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TwoOne implements UnionPlayer {
-  const factory _TwoOne(final TwoInputPagePlayer1 player) = _$_TwoOne;
-
-  @override
-  TwoInputPagePlayer1 get player;
-  @JsonKey(ignore: true)
-  _$$_TwoOneCopyWith<_$_TwoOne> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_TwoTwoCopyWith<$Res> {
-  factory _$$_TwoTwoCopyWith(_$_TwoTwo value, $Res Function(_$_TwoTwo) then) =
-      __$$_TwoTwoCopyWithImpl<$Res>;
-  @useResult
-  $Res call({TwoInputPagePlayer2 player});
-}
-
-/// @nodoc
-class __$$_TwoTwoCopyWithImpl<$Res>
-    extends _$UnionPlayerCopyWithImpl<$Res, _$_TwoTwo>
-    implements _$$_TwoTwoCopyWith<$Res> {
-  __$$_TwoTwoCopyWithImpl(_$_TwoTwo _value, $Res Function(_$_TwoTwo) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? player = null,
-  }) {
-    return _then(_$_TwoTwo(
-      null == player
-          ? _value.player
-          : player // ignore: cast_nullable_to_non_nullable
-              as TwoInputPagePlayer2,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_TwoTwo implements _TwoTwo {
-  const _$_TwoTwo(this.player);
-
-  @override
-  final TwoInputPagePlayer2 player;
-
-  @override
-  String toString() {
-    return 'UnionPlayer.twoTwo(player: $player)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_TwoTwo &&
-            (identical(other.player, player) || other.player == player));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, player);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_TwoTwoCopyWith<_$_TwoTwo> get copyWith =>
-      __$$_TwoTwoCopyWithImpl<_$_TwoTwo>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(OneInputPagePlayer player) one,
-    required TResult Function(TwoInputPagePlayer1 player) twoOne,
-    required TResult Function(TwoInputPagePlayer2 player) twoTwo,
-    required TResult Function(ThreeInputPagePlayer player) three,
-  }) {
-    return twoTwo(player);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(OneInputPagePlayer player)? one,
-    TResult? Function(TwoInputPagePlayer1 player)? twoOne,
-    TResult? Function(TwoInputPagePlayer2 player)? twoTwo,
-    TResult? Function(ThreeInputPagePlayer player)? three,
-  }) {
-    return twoTwo?.call(player);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(OneInputPagePlayer player)? one,
-    TResult Function(TwoInputPagePlayer1 player)? twoOne,
-    TResult Function(TwoInputPagePlayer2 player)? twoTwo,
-    TResult Function(ThreeInputPagePlayer player)? three,
-    required TResult orElse(),
-  }) {
-    if (twoTwo != null) {
-      return twoTwo(player);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_One value) one,
-    required TResult Function(_TwoOne value) twoOne,
-    required TResult Function(_TwoTwo value) twoTwo,
-    required TResult Function(_Three value) three,
-  }) {
-    return twoTwo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_One value)? one,
-    TResult? Function(_TwoOne value)? twoOne,
-    TResult? Function(_TwoTwo value)? twoTwo,
-    TResult? Function(_Three value)? three,
-  }) {
-    return twoTwo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_One value)? one,
-    TResult Function(_TwoOne value)? twoOne,
-    TResult Function(_TwoTwo value)? twoTwo,
-    TResult Function(_Three value)? three,
-    required TResult orElse(),
-  }) {
-    if (twoTwo != null) {
-      return twoTwo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TwoTwo implements UnionPlayer {
-  const factory _TwoTwo(final TwoInputPagePlayer2 player) = _$_TwoTwo;
-
-  @override
-  TwoInputPagePlayer2 get player;
-  @JsonKey(ignore: true)
-  _$$_TwoTwoCopyWith<_$_TwoTwo> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_ThreeCopyWith<$Res> {
-  factory _$$_ThreeCopyWith(_$_Three value, $Res Function(_$_Three) then) =
-      __$$_ThreeCopyWithImpl<$Res>;
-  @useResult
-  $Res call({ThreeInputPagePlayer player});
-}
-
-/// @nodoc
-class __$$_ThreeCopyWithImpl<$Res>
-    extends _$UnionPlayerCopyWithImpl<$Res, _$_Three>
-    implements _$$_ThreeCopyWith<$Res> {
-  __$$_ThreeCopyWithImpl(_$_Three _value, $Res Function(_$_Three) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? player = null,
-  }) {
-    return _then(_$_Three(
-      null == player
-          ? _value.player
-          : player // ignore: cast_nullable_to_non_nullable
-              as ThreeInputPagePlayer,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_Three implements _Three {
-  const _$_Three(this.player);
-
-  @override
-  final ThreeInputPagePlayer player;
-
-  @override
-  String toString() {
-    return 'UnionPlayer.three(player: $player)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Three &&
-            (identical(other.player, player) || other.player == player));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, player);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_ThreeCopyWith<_$_Three> get copyWith =>
-      __$$_ThreeCopyWithImpl<_$_Three>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(OneInputPagePlayer player) one,
-    required TResult Function(TwoInputPagePlayer1 player) twoOne,
-    required TResult Function(TwoInputPagePlayer2 player) twoTwo,
-    required TResult Function(ThreeInputPagePlayer player) three,
-  }) {
-    return three(player);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(OneInputPagePlayer player)? one,
-    TResult? Function(TwoInputPagePlayer1 player)? twoOne,
-    TResult? Function(TwoInputPagePlayer2 player)? twoTwo,
-    TResult? Function(ThreeInputPagePlayer player)? three,
-  }) {
-    return three?.call(player);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(OneInputPagePlayer player)? one,
-    TResult Function(TwoInputPagePlayer1 player)? twoOne,
-    TResult Function(TwoInputPagePlayer2 player)? twoTwo,
-    TResult Function(ThreeInputPagePlayer player)? three,
-    required TResult orElse(),
-  }) {
-    if (three != null) {
-      return three(player);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_One value) one,
-    required TResult Function(_TwoOne value) twoOne,
-    required TResult Function(_TwoTwo value) twoTwo,
-    required TResult Function(_Three value) three,
-  }) {
-    return three(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_One value)? one,
-    TResult? Function(_TwoOne value)? twoOne,
-    TResult? Function(_TwoTwo value)? twoTwo,
-    TResult? Function(_Three value)? three,
-  }) {
-    return three?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_One value)? one,
-    TResult Function(_TwoOne value)? twoOne,
-    TResult Function(_TwoTwo value)? twoTwo,
-    TResult Function(_Three value)? three,
-    required TResult orElse(),
-  }) {
-    if (three != null) {
-      return three(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Three implements UnionPlayer {
-  const factory _Three(final ThreeInputPagePlayer player) = _$_Three;
-
-  @override
-  ThreeInputPagePlayer get player;
-  @JsonKey(ignore: true)
-  _$$_ThreeCopyWith<_$_Three> get copyWith =>
+  _$$_FeatureCopyWith<_$_Feature> get copyWith =>
       throw _privateConstructorUsedError;
 }

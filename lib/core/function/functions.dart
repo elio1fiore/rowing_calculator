@@ -74,9 +74,9 @@ int calcMeters({required IntervalTime media, required IntervalTime time}) {
   final den = Duration.secondsPerDay * media.betaValue;
   final frac = 500 / den;
 
-  final result_round = (frac * time.inSeconds).round();
+  final resultRound = (frac * time.duration.inSeconds).round();
 
-  return result_round;
+  return resultRound;
 }
 
 IntervalTime timeFromMedia(

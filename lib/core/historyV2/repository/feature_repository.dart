@@ -19,7 +19,9 @@ class FeatureRepository {
         PaginationConfig.itemsPerPage,
       );
 
-      return localResp.when(
+      print("QUI +++");
+
+      return await localResp.when(
         problemDB: () {
           return left(
             const HistoryFailure.db(
@@ -27,6 +29,7 @@ class FeatureRepository {
           );
         },
         withNewData: (data, maxPage) {
+          print(data.first.title);
           return right(
             Fresh.yes(
               data.toDomain(),
@@ -36,6 +39,7 @@ class FeatureRepository {
         },
       );
     } catch (e) {
+      print("AIA");
       return left(
         const HistoryFailure.db("Qualcosa è andato storto nel database locale"),
       );
