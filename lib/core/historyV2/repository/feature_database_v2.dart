@@ -1,7 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:row_calculator/core/historyV2/domain/feature.dart';
+import 'dart:math';
 
 import 'package:row_calculator/core/historyV2/repository/feature_entity.dart';
 import 'package:row_calculator/core/historyV2/repository/feature_fields.dart';
@@ -19,7 +22,7 @@ class FeaturesDatabaseV2 {
       return _database!;
     }
 
-    _database = await _initDB('features_v2.2.db');
+    _database = await _initDB('features_v2.40.db');
     return _database!;
   }
 
@@ -27,7 +30,7 @@ class FeaturesDatabaseV2 {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, name);
 
-    return await openDatabase(path, version: 1, onCreate: _createDB);
+    return await openDatabase(path, version: 2, onCreate: _createDB);
   }
 
   Future _createDB(Database db, int version) async {
@@ -41,13 +44,19 @@ class FeaturesDatabaseV2 {
       CREATE TABLE $tableFeature (
         ${FeatureFields.id} $idType,
         ${FeatureFields.player} $textType,
-        ${FeatureFields.dateTime} $textType,
+        ${FeatureFields.dateTime} $integerType,
         ${FeatureFields.isImportant} $boolType,
         ${FeatureFields.description} $textType,
         ${FeatureFields.title} $textType,
         ${FeatureFields.type} $integerType
       )
     ''');
+  }
+
+  Future<void> dropTable() async {
+    final db = await database;
+
+    db.execute("DROP TABLE IF EXISTS $tableFeature");
   }
 
   // Paginated fetch
@@ -64,9 +73,15 @@ class FeaturesDatabaseV2 {
         maxPage = (nEle / limit).ceil();
       }
 
+      print("Ci arrivo qui");
+
       final offset = (page - 1) * limit;
 
       final result = await db.query(tableFeature, limit: limit, offset: offset);
+
+      print("Qui si");
+
+      print(result);
 
       final ret = result.map((e) => FeatureEntity.fromJson(e)).toList();
 
@@ -85,9 +100,12 @@ class FeaturesDatabaseV2 {
   Future<void> create(Feature feature) async {
     final db = await database;
 
+    final ef = FeatureEntity.fromDomain(feature).toJson();
+    ef['_id'] = ef.remove('id');
+
     await db.insert(
       tableFeature,
-      FeatureEntity.fromDomain(feature).toJson(),
+      ef,
     );
 
     return;

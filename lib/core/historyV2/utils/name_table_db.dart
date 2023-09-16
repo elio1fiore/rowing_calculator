@@ -1,1 +1,1 @@
-const String tableFeature = "features";
+const String tableFeature = "features_v40";

@@ -23,6 +23,7 @@ class FeatureRepository {
 
       return await localResp.when(
         problemDB: () {
+          print("Left");
           return left(
             const HistoryFailure.db(
                 "Qualcosa è andato storto nel database locale"),

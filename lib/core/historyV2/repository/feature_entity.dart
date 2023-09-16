@@ -134,11 +134,13 @@ part 'feature_entity.g.dart';
 @freezed
 class FeatureEntity with _$FeatureEntity {
   const FeatureEntity._();
+
+  @JsonSerializable()
   const factory FeatureEntity({
-    int? id,
+    @JsonKey(name: '_id') int? id,
     required int dateTime,
     required String description,
-    required bool isImportant,
+    required int isImportant,
     required String playerStr,
     required String title,
     required int type,
@@ -175,7 +177,7 @@ class FeatureEntity with _$FeatureEntity {
       dateTime: DateTime.fromMillisecondsSinceEpoch(dateTime),
       description: description,
       featureType: featureType,
-      isImportant: isImportant,
+      isImportant: isImportant == 1,
       player: unionPlayer,
       title: title,
       id: id,
@@ -195,7 +197,7 @@ class FeatureEntity with _$FeatureEntity {
     return FeatureEntity(
       dateTime: feature.dateTime.millisecondsSinceEpoch,
       description: feature.description,
-      isImportant: feature.isImportant,
+      isImportant: feature.isImportant == true ? 1 : 0,
       playerStr: jsonString,
       title: feature.title,
       type: feature.featureType.index,

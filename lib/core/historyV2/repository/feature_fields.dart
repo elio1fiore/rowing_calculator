@@ -10,7 +10,7 @@ class FeatureFields {
   ];
 
   static const String id = "_id";
-  static const String player = "player";
+  static const String player = "playerStr";
   static const String dateTime = "dateTime";
   static const String isImportant = "isImportant";
   static const String description = "description";

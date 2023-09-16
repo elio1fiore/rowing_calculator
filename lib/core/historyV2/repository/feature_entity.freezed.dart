@@ -20,10 +20,11 @@ FeatureEntity _$FeatureEntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeatureEntity {
+  @JsonKey(name: '_id')
   int? get id => throw _privateConstructorUsedError;
   int get dateTime => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  bool get isImportant => throw _privateConstructorUsedError;
+  int get isImportant => throw _privateConstructorUsedError;
   String get playerStr => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   int get type => throw _privateConstructorUsedError;
@@ -41,10 +42,10 @@ abstract class $FeatureEntityCopyWith<$Res> {
       _$FeatureEntityCopyWithImpl<$Res, FeatureEntity>;
   @useResult
   $Res call(
-      {int? id,
+      {@JsonKey(name: '_id') int? id,
       int dateTime,
       String description,
-      bool isImportant,
+      int isImportant,
       String playerStr,
       String title,
       int type});
@@ -87,7 +88,7 @@ class _$FeatureEntityCopyWithImpl<$Res, $Val extends FeatureEntity>
       isImportant: null == isImportant
           ? _value.isImportant
           : isImportant // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as int,
       playerStr: null == playerStr
           ? _value.playerStr
           : playerStr // ignore: cast_nullable_to_non_nullable
@@ -113,10 +114,10 @@ abstract class _$$_FeatureEntityCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? id,
+      {@JsonKey(name: '_id') int? id,
       int dateTime,
       String description,
-      bool isImportant,
+      int isImportant,
       String playerStr,
       String title,
       int type});
@@ -157,7 +158,7 @@ class __$$_FeatureEntityCopyWithImpl<$Res>
       isImportant: null == isImportant
           ? _value.isImportant
           : isImportant // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as int,
       playerStr: null == playerStr
           ? _value.playerStr
           : playerStr // ignore: cast_nullable_to_non_nullable
@@ -175,10 +176,11 @@ class __$$_FeatureEntityCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 @JsonSerializable()
 class _$_FeatureEntity extends _FeatureEntity {
   const _$_FeatureEntity(
-      {this.id,
+      {@JsonKey(name: '_id') this.id,
       required this.dateTime,
       required this.description,
       required this.isImportant,
@@ -191,13 +193,14 @@ class _$_FeatureEntity extends _FeatureEntity {
       _$$_FeatureEntityFromJson(json);
 
   @override
+  @JsonKey(name: '_id')
   final int? id;
   @override
   final int dateTime;
   @override
   final String description;
   @override
-  final bool isImportant;
+  final int isImportant;
   @override
   final String playerStr;
   @override
@@ -249,10 +252,10 @@ class _$_FeatureEntity extends _FeatureEntity {
 
 abstract class _FeatureEntity extends FeatureEntity {
   const factory _FeatureEntity(
-      {final int? id,
+      {@JsonKey(name: '_id') final int? id,
       required final int dateTime,
       required final String description,
-      required final bool isImportant,
+      required final int isImportant,
       required final String playerStr,
       required final String title,
       required final int type}) = _$_FeatureEntity;
@@ -262,13 +265,14 @@ abstract class _FeatureEntity extends FeatureEntity {
       _$_FeatureEntity.fromJson;
 
   @override
+  @JsonKey(name: '_id')
   int? get id;
   @override
   int get dateTime;
   @override
   String get description;
   @override
-  bool get isImportant;
+  int get isImportant;
   @override
   String get playerStr;
   @override
