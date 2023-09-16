@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:row_calculator/feature/one_input/domain/one_input_page_player.dart';
+import 'package:row_calculator/feature/one_input/domain/v2/one_input_player.dart';
 
 part 'one_feature_notifier.freezed.dart';
 
@@ -8,7 +8,7 @@ part 'one_feature_notifier.freezed.dart';
 class OneFeatureState with _$OneFeatureState {
   const factory OneFeatureState.input() = _Input;
   const factory OneFeatureState.result({
-    required OneInputPagePlayer player,
+    required OneInputPlayer player,
   }) = _Result;
   const factory OneFeatureState.loading() = _Loading;
   const factory OneFeatureState.error() = _Error;
@@ -21,7 +21,7 @@ class OneFeatureNotifier extends StateNotifier<OneFeatureState> {
     _setState(const OneFeatureState.input());
   }
 
-  void setStateResult(OneInputPagePlayer player) {
+  void setStateResult(OneInputPlayer player) {
     _setState(OneFeatureState.result(player: player));
   }
 

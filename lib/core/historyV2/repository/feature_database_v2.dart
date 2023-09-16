@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:path/path.dart';
 import 'package:row_calculator/core/historyV2/domain/feature.dart';
 
@@ -67,7 +68,7 @@ class FeaturesDatabaseV2 {
 
       final result = await db.query(tableFeature, limit: limit, offset: offset);
 
-      final ret = result.map((e) => FeatureEntity.fromMap(e)).toList();
+      final ret = result.map((e) => FeatureEntity.fromJson(e)).toList();
 
       return LocalResponse.withNewData(ret, maxPage: maxPage);
     } catch (e) {
@@ -81,13 +82,13 @@ class FeaturesDatabaseV2 {
     db.close();
   }
 
-  Future<void> create(FeatureEntity featureEntity) async {
+  Future<void> create(Feature feature) async {
     final db = await database;
 
-    // await db.insert(
-    //   tableFeature,
-    //   featureEntity.toMap(),
-    // );
+    await db.insert(
+      tableFeature,
+      FeatureEntity.fromDomain(feature).toJson(),
+    );
 
     return;
   }
@@ -123,7 +124,7 @@ class FeaturesDatabaseV2 {
 
     return db.update(
       tableFeature,
-      feature.toMap(),
+      feature.toJson(),
       where: '${FeatureFields.id} = ?',
       whereArgs: [FeatureFields.id],
     );

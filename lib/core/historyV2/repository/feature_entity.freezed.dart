@@ -20,9 +20,9 @@ FeatureEntity _$FeatureEntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeatureEntity {
+  int? get id => throw _privateConstructorUsedError;
   int get dateTime => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  int? get id => throw _privateConstructorUsedError;
   bool get isImportant => throw _privateConstructorUsedError;
   String get playerStr => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
@@ -41,9 +41,9 @@ abstract class $FeatureEntityCopyWith<$Res> {
       _$FeatureEntityCopyWithImpl<$Res, FeatureEntity>;
   @useResult
   $Res call(
-      {int dateTime,
+      {int? id,
+      int dateTime,
       String description,
-      int? id,
       bool isImportant,
       String playerStr,
       String title,
@@ -63,15 +63,19 @@ class _$FeatureEntityCopyWithImpl<$Res, $Val extends FeatureEntity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? dateTime = null,
     Object? description = null,
-    Object? id = freezed,
     Object? isImportant = null,
     Object? playerStr = null,
     Object? title = null,
     Object? type = null,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       dateTime: null == dateTime
           ? _value.dateTime
           : dateTime // ignore: cast_nullable_to_non_nullable
@@ -80,10 +84,6 @@ class _$FeatureEntityCopyWithImpl<$Res, $Val extends FeatureEntity>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
       isImportant: null == isImportant
           ? _value.isImportant
           : isImportant // ignore: cast_nullable_to_non_nullable
@@ -113,9 +113,9 @@ abstract class _$$_FeatureEntityCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int dateTime,
+      {int? id,
+      int dateTime,
       String description,
-      int? id,
       bool isImportant,
       String playerStr,
       String title,
@@ -133,15 +133,19 @@ class __$$_FeatureEntityCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? dateTime = null,
     Object? description = null,
-    Object? id = freezed,
     Object? isImportant = null,
     Object? playerStr = null,
     Object? title = null,
     Object? type = null,
   }) {
     return _then(_$_FeatureEntity(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int?,
       dateTime: null == dateTime
           ? _value.dateTime
           : dateTime // ignore: cast_nullable_to_non_nullable
@@ -150,10 +154,6 @@ class __$$_FeatureEntityCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
       isImportant: null == isImportant
           ? _value.isImportant
           : isImportant // ignore: cast_nullable_to_non_nullable
@@ -176,25 +176,26 @@ class __$$_FeatureEntityCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FeatureEntity implements _FeatureEntity {
+class _$_FeatureEntity extends _FeatureEntity {
   const _$_FeatureEntity(
-      {required this.dateTime,
+      {this.id,
+      required this.dateTime,
       required this.description,
-      this.id,
       required this.isImportant,
       required this.playerStr,
       required this.title,
-      required this.type});
+      required this.type})
+      : super._();
 
   factory _$_FeatureEntity.fromJson(Map<String, dynamic> json) =>
       _$$_FeatureEntityFromJson(json);
 
   @override
+  final int? id;
+  @override
   final int dateTime;
   @override
   final String description;
-  @override
-  final int? id;
   @override
   final bool isImportant;
   @override
@@ -206,7 +207,7 @@ class _$_FeatureEntity implements _FeatureEntity {
 
   @override
   String toString() {
-    return 'FeatureEntity(dateTime: $dateTime, description: $description, id: $id, isImportant: $isImportant, playerStr: $playerStr, title: $title, type: $type)';
+    return 'FeatureEntity(id: $id, dateTime: $dateTime, description: $description, isImportant: $isImportant, playerStr: $playerStr, title: $title, type: $type)';
   }
 
   @override
@@ -214,11 +215,11 @@ class _$_FeatureEntity implements _FeatureEntity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FeatureEntity &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.dateTime, dateTime) ||
                 other.dateTime == dateTime) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.isImportant, isImportant) ||
                 other.isImportant == isImportant) &&
             (identical(other.playerStr, playerStr) ||
@@ -229,7 +230,7 @@ class _$_FeatureEntity implements _FeatureEntity {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, dateTime, description, id,
+  int get hashCode => Object.hash(runtimeType, id, dateTime, description,
       isImportant, playerStr, title, type);
 
   @JsonKey(ignore: true)
@@ -246,25 +247,26 @@ class _$_FeatureEntity implements _FeatureEntity {
   }
 }
 
-abstract class _FeatureEntity implements FeatureEntity {
+abstract class _FeatureEntity extends FeatureEntity {
   const factory _FeatureEntity(
-      {required final int dateTime,
+      {final int? id,
+      required final int dateTime,
       required final String description,
-      final int? id,
       required final bool isImportant,
       required final String playerStr,
       required final String title,
       required final int type}) = _$_FeatureEntity;
+  const _FeatureEntity._() : super._();
 
   factory _FeatureEntity.fromJson(Map<String, dynamic> json) =
       _$_FeatureEntity.fromJson;
 
   @override
+  int? get id;
+  @override
   int get dateTime;
   @override
   String get description;
-  @override
-  int? get id;
   @override
   bool get isImportant;
   @override

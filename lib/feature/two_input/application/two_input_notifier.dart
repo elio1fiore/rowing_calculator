@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
-import 'package:row_calculator/feature/two_input/domain/two_input_page_player_1.dart';
-import 'package:row_calculator/feature/two_input/domain/two_input_page_player_2.dart';
+
 import 'package:row_calculator/feature/two_input/domain/union_player_two.dart';
+import 'package:row_calculator/feature/two_input/domain/v2/two_input_player_1.dart';
+import 'package:row_calculator/feature/two_input/domain/v2/two_input_player_2.dart';
 
 import 'package:row_calculator/util/form_validators.dart';
 part 'two_input_notifier.freezed.dart';
@@ -181,7 +182,7 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
     return state.when(
       // WATT
       inputPageWT: () {
-        final player = TwoInputPagePlayer1.fromWT(
+        final player = TwoInputPlayer1.fromWT(
           watt: _form.control('inputOne').value,
           time: _form.control('inputTwo').value,
         );
@@ -189,7 +190,7 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
       },
       //MEDIA TEMPO
       inputPageMT: () {
-        final player = TwoInputPagePlayer1.fromM500T(
+        final player = TwoInputPlayer1.fromM500T(
           media: _form.control('inputOne').value,
           time: _form.control('inputTwo').value,
         );
@@ -197,7 +198,7 @@ class TwoInputNotifier extends StateNotifier<TwoInputState> {
       },
       //
       inputPageMP: () {
-        final player = TwoInputPagePlayer2.fromM500P(
+        final player = TwoInputPlayer2.fromM500P(
           media500: _form.control('inputOne').value,
           percentualeRichiesta: _form.control('inputTwo').value,
         );

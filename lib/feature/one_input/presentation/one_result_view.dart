@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/core/historyV2/domain/feature.dart';
+import 'package:row_calculator/core/historyV2/domain/feature_util.dart';
 import 'package:row_calculator/core/historyV2/shared/history_provider.dart';
 
 import 'package:row_calculator/feature/one_input/domain/one_input_page_player.dart';
+import 'package:row_calculator/feature/one_input/domain/v2/one_input_player.dart';
 import 'package:row_calculator/feature/one_input/shared/one_input_provider.dart';
 
 class OneResultView extends ConsumerWidget {
@@ -12,7 +14,7 @@ class OneResultView extends ConsumerWidget {
     required this.player,
   });
 
-  final OneInputPagePlayer player;
+  final OneInputPlayer player;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -150,7 +152,7 @@ class OneResultView extends ConsumerWidget {
                     isImportant: false,
                     player: UnionPlayer.one(player),
                     title: "Input One",
-                    type: FeatureType.one,
+                    featureType: FeatureType.one,
                   );
                   await db.create(fe);
 

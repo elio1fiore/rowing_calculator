@@ -16,42 +16,50 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$UnionPlayer {
-  OneInputPlayer get player => throw _privateConstructorUsedError;
+  Object get player => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(OneInputPlayer player) one,
+    required TResult Function(TwoInputPlayer1 player) twoOne,
+    required TResult Function(TwoInputPlayer2 player) twoTwo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(OneInputPlayer player)? one,
+    TResult? Function(TwoInputPlayer1 player)? twoOne,
+    TResult? Function(TwoInputPlayer2 player)? twoTwo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(OneInputPlayer player)? one,
+    TResult Function(TwoInputPlayer1 player)? twoOne,
+    TResult Function(TwoInputPlayer2 player)? twoTwo,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_One value) one,
+    required TResult Function(_TwoOne value) twoOne,
+    required TResult Function(_TwoTwo value) twoTwo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_One value)? one,
+    TResult? Function(_TwoOne value)? twoOne,
+    TResult? Function(_TwoTwo value)? twoTwo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_One value)? one,
+    TResult Function(_TwoOne value)? twoOne,
+    TResult Function(_TwoTwo value)? twoTwo,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $UnionPlayerCopyWith<UnionPlayer> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,10 +68,6 @@ abstract class $UnionPlayerCopyWith<$Res> {
   factory $UnionPlayerCopyWith(
           UnionPlayer value, $Res Function(UnionPlayer) then) =
       _$UnionPlayerCopyWithImpl<$Res, UnionPlayer>;
-  @useResult
-  $Res call({OneInputPlayer player});
-
-  $OneInputPlayerCopyWith<$Res> get player;
 }
 
 /// @nodoc
@@ -75,38 +79,15 @@ class _$UnionPlayerCopyWithImpl<$Res, $Val extends UnionPlayer>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? player = null,
-  }) {
-    return _then(_value.copyWith(
-      player: null == player
-          ? _value.player
-          : player // ignore: cast_nullable_to_non_nullable
-              as OneInputPlayer,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $OneInputPlayerCopyWith<$Res> get player {
-    return $OneInputPlayerCopyWith<$Res>(_value.player, (value) {
-      return _then(_value.copyWith(player: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$_OneCopyWith<$Res> implements $UnionPlayerCopyWith<$Res> {
+abstract class _$$_OneCopyWith<$Res> {
   factory _$$_OneCopyWith(_$_One value, $Res Function(_$_One) then) =
       __$$_OneCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({OneInputPlayer player});
 
-  @override
   $OneInputPlayerCopyWith<$Res> get player;
 }
 
@@ -127,6 +108,14 @@ class __$$_OneCopyWithImpl<$Res> extends _$UnionPlayerCopyWithImpl<$Res, _$_One>
           : player // ignore: cast_nullable_to_non_nullable
               as OneInputPlayer,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $OneInputPlayerCopyWith<$Res> get player {
+    return $OneInputPlayerCopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value));
+    });
   }
 }
 
@@ -164,6 +153,8 @@ class _$_One implements _One {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(OneInputPlayer player) one,
+    required TResult Function(TwoInputPlayer1 player) twoOne,
+    required TResult Function(TwoInputPlayer2 player) twoTwo,
   }) {
     return one(player);
   }
@@ -172,6 +163,8 @@ class _$_One implements _One {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(OneInputPlayer player)? one,
+    TResult? Function(TwoInputPlayer1 player)? twoOne,
+    TResult? Function(TwoInputPlayer2 player)? twoTwo,
   }) {
     return one?.call(player);
   }
@@ -180,6 +173,8 @@ class _$_One implements _One {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(OneInputPlayer player)? one,
+    TResult Function(TwoInputPlayer1 player)? twoOne,
+    TResult Function(TwoInputPlayer2 player)? twoTwo,
     required TResult orElse(),
   }) {
     if (one != null) {
@@ -192,6 +187,8 @@ class _$_One implements _One {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_One value) one,
+    required TResult Function(_TwoOne value) twoOne,
+    required TResult Function(_TwoTwo value) twoTwo,
   }) {
     return one(this);
   }
@@ -200,6 +197,8 @@ class _$_One implements _One {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_One value)? one,
+    TResult? Function(_TwoOne value)? twoOne,
+    TResult? Function(_TwoTwo value)? twoTwo,
   }) {
     return one?.call(this);
   }
@@ -208,6 +207,8 @@ class _$_One implements _One {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_One value)? one,
+    TResult Function(_TwoOne value)? twoOne,
+    TResult Function(_TwoTwo value)? twoTwo,
     required TResult orElse(),
   }) {
     if (one != null) {
@@ -222,7 +223,302 @@ abstract class _One implements UnionPlayer {
 
   @override
   OneInputPlayer get player;
-  @override
   @JsonKey(ignore: true)
   _$$_OneCopyWith<_$_One> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_TwoOneCopyWith<$Res> {
+  factory _$$_TwoOneCopyWith(_$_TwoOne value, $Res Function(_$_TwoOne) then) =
+      __$$_TwoOneCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TwoInputPlayer1 player});
+
+  $TwoInputPlayer1CopyWith<$Res> get player;
+}
+
+/// @nodoc
+class __$$_TwoOneCopyWithImpl<$Res>
+    extends _$UnionPlayerCopyWithImpl<$Res, _$_TwoOne>
+    implements _$$_TwoOneCopyWith<$Res> {
+  __$$_TwoOneCopyWithImpl(_$_TwoOne _value, $Res Function(_$_TwoOne) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? player = null,
+  }) {
+    return _then(_$_TwoOne(
+      null == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as TwoInputPlayer1,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TwoInputPlayer1CopyWith<$Res> get player {
+    return $TwoInputPlayer1CopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_TwoOne implements _TwoOne {
+  const _$_TwoOne(this.player);
+
+  @override
+  final TwoInputPlayer1 player;
+
+  @override
+  String toString() {
+    return 'UnionPlayer.twoOne(player: $player)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TwoOne &&
+            (identical(other.player, player) || other.player == player));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, player);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TwoOneCopyWith<_$_TwoOne> get copyWith =>
+      __$$_TwoOneCopyWithImpl<_$_TwoOne>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(OneInputPlayer player) one,
+    required TResult Function(TwoInputPlayer1 player) twoOne,
+    required TResult Function(TwoInputPlayer2 player) twoTwo,
+  }) {
+    return twoOne(player);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(OneInputPlayer player)? one,
+    TResult? Function(TwoInputPlayer1 player)? twoOne,
+    TResult? Function(TwoInputPlayer2 player)? twoTwo,
+  }) {
+    return twoOne?.call(player);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(OneInputPlayer player)? one,
+    TResult Function(TwoInputPlayer1 player)? twoOne,
+    TResult Function(TwoInputPlayer2 player)? twoTwo,
+    required TResult orElse(),
+  }) {
+    if (twoOne != null) {
+      return twoOne(player);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_One value) one,
+    required TResult Function(_TwoOne value) twoOne,
+    required TResult Function(_TwoTwo value) twoTwo,
+  }) {
+    return twoOne(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_One value)? one,
+    TResult? Function(_TwoOne value)? twoOne,
+    TResult? Function(_TwoTwo value)? twoTwo,
+  }) {
+    return twoOne?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_One value)? one,
+    TResult Function(_TwoOne value)? twoOne,
+    TResult Function(_TwoTwo value)? twoTwo,
+    required TResult orElse(),
+  }) {
+    if (twoOne != null) {
+      return twoOne(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TwoOne implements UnionPlayer {
+  const factory _TwoOne(final TwoInputPlayer1 player) = _$_TwoOne;
+
+  @override
+  TwoInputPlayer1 get player;
+  @JsonKey(ignore: true)
+  _$$_TwoOneCopyWith<_$_TwoOne> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_TwoTwoCopyWith<$Res> {
+  factory _$$_TwoTwoCopyWith(_$_TwoTwo value, $Res Function(_$_TwoTwo) then) =
+      __$$_TwoTwoCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TwoInputPlayer2 player});
+
+  $TwoInputPlayer2CopyWith<$Res> get player;
+}
+
+/// @nodoc
+class __$$_TwoTwoCopyWithImpl<$Res>
+    extends _$UnionPlayerCopyWithImpl<$Res, _$_TwoTwo>
+    implements _$$_TwoTwoCopyWith<$Res> {
+  __$$_TwoTwoCopyWithImpl(_$_TwoTwo _value, $Res Function(_$_TwoTwo) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? player = null,
+  }) {
+    return _then(_$_TwoTwo(
+      null == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as TwoInputPlayer2,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TwoInputPlayer2CopyWith<$Res> get player {
+    return $TwoInputPlayer2CopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_TwoTwo implements _TwoTwo {
+  const _$_TwoTwo(this.player);
+
+  @override
+  final TwoInputPlayer2 player;
+
+  @override
+  String toString() {
+    return 'UnionPlayer.twoTwo(player: $player)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TwoTwo &&
+            (identical(other.player, player) || other.player == player));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, player);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_TwoTwoCopyWith<_$_TwoTwo> get copyWith =>
+      __$$_TwoTwoCopyWithImpl<_$_TwoTwo>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(OneInputPlayer player) one,
+    required TResult Function(TwoInputPlayer1 player) twoOne,
+    required TResult Function(TwoInputPlayer2 player) twoTwo,
+  }) {
+    return twoTwo(player);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(OneInputPlayer player)? one,
+    TResult? Function(TwoInputPlayer1 player)? twoOne,
+    TResult? Function(TwoInputPlayer2 player)? twoTwo,
+  }) {
+    return twoTwo?.call(player);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(OneInputPlayer player)? one,
+    TResult Function(TwoInputPlayer1 player)? twoOne,
+    TResult Function(TwoInputPlayer2 player)? twoTwo,
+    required TResult orElse(),
+  }) {
+    if (twoTwo != null) {
+      return twoTwo(player);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_One value) one,
+    required TResult Function(_TwoOne value) twoOne,
+    required TResult Function(_TwoTwo value) twoTwo,
+  }) {
+    return twoTwo(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_One value)? one,
+    TResult? Function(_TwoOne value)? twoOne,
+    TResult? Function(_TwoTwo value)? twoTwo,
+  }) {
+    return twoTwo?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_One value)? one,
+    TResult Function(_TwoOne value)? twoOne,
+    TResult Function(_TwoTwo value)? twoTwo,
+    required TResult orElse(),
+  }) {
+    if (twoTwo != null) {
+      return twoTwo(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TwoTwo implements UnionPlayer {
+  const factory _TwoTwo(final TwoInputPlayer2 player) = _$_TwoTwo;
+
+  @override
+  TwoInputPlayer2 get player;
+  @JsonKey(ignore: true)
+  _$$_TwoTwoCopyWith<_$_TwoTwo> get copyWith =>
+      throw _privateConstructorUsedError;
 }

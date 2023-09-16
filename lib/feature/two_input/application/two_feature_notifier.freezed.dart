@@ -19,8 +19,8 @@ mixin _$TwoFeatureState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() input,
-    required TResult Function(TwoInputPagePlayer1 player) resultOne,
-    required TResult Function(TwoInputPagePlayer2 player) resultTwo,
+    required TResult Function(TwoInputPlayer1 player) resultOne,
+    required TResult Function(TwoInputPlayer2 player) resultTwo,
     required TResult Function() loading,
     required TResult Function() error,
   }) =>
@@ -28,8 +28,8 @@ mixin _$TwoFeatureState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? input,
-    TResult? Function(TwoInputPagePlayer1 player)? resultOne,
-    TResult? Function(TwoInputPagePlayer2 player)? resultTwo,
+    TResult? Function(TwoInputPlayer1 player)? resultOne,
+    TResult? Function(TwoInputPlayer2 player)? resultTwo,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) =>
@@ -37,8 +37,8 @@ mixin _$TwoFeatureState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? input,
-    TResult Function(TwoInputPagePlayer1 player)? resultOne,
-    TResult Function(TwoInputPagePlayer2 player)? resultTwo,
+    TResult Function(TwoInputPlayer1 player)? resultOne,
+    TResult Function(TwoInputPlayer2 player)? resultTwo,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),
@@ -129,8 +129,8 @@ class _$_Input implements _Input {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() input,
-    required TResult Function(TwoInputPagePlayer1 player) resultOne,
-    required TResult Function(TwoInputPagePlayer2 player) resultTwo,
+    required TResult Function(TwoInputPlayer1 player) resultOne,
+    required TResult Function(TwoInputPlayer2 player) resultTwo,
     required TResult Function() loading,
     required TResult Function() error,
   }) {
@@ -141,8 +141,8 @@ class _$_Input implements _Input {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? input,
-    TResult? Function(TwoInputPagePlayer1 player)? resultOne,
-    TResult? Function(TwoInputPagePlayer2 player)? resultTwo,
+    TResult? Function(TwoInputPlayer1 player)? resultOne,
+    TResult? Function(TwoInputPlayer2 player)? resultTwo,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) {
@@ -153,8 +153,8 @@ class _$_Input implements _Input {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? input,
-    TResult Function(TwoInputPagePlayer1 player)? resultOne,
-    TResult Function(TwoInputPagePlayer2 player)? resultTwo,
+    TResult Function(TwoInputPlayer1 player)? resultOne,
+    TResult Function(TwoInputPlayer2 player)? resultTwo,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),
@@ -216,7 +216,9 @@ abstract class _$$_ResultOneCopyWith<$Res> {
           _$_ResultOne value, $Res Function(_$_ResultOne) then) =
       __$$_ResultOneCopyWithImpl<$Res>;
   @useResult
-  $Res call({TwoInputPagePlayer1 player});
+  $Res call({TwoInputPlayer1 player});
+
+  $TwoInputPlayer1CopyWith<$Res> get player;
 }
 
 /// @nodoc
@@ -236,8 +238,16 @@ class __$$_ResultOneCopyWithImpl<$Res>
       null == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
-              as TwoInputPagePlayer1,
+              as TwoInputPlayer1,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TwoInputPlayer1CopyWith<$Res> get player {
+    return $TwoInputPlayer1CopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value));
+    });
   }
 }
 
@@ -247,7 +257,7 @@ class _$_ResultOne implements _ResultOne {
   const _$_ResultOne(this.player);
 
   @override
-  final TwoInputPagePlayer1 player;
+  final TwoInputPlayer1 player;
 
   @override
   String toString() {
@@ -275,8 +285,8 @@ class _$_ResultOne implements _ResultOne {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() input,
-    required TResult Function(TwoInputPagePlayer1 player) resultOne,
-    required TResult Function(TwoInputPagePlayer2 player) resultTwo,
+    required TResult Function(TwoInputPlayer1 player) resultOne,
+    required TResult Function(TwoInputPlayer2 player) resultTwo,
     required TResult Function() loading,
     required TResult Function() error,
   }) {
@@ -287,8 +297,8 @@ class _$_ResultOne implements _ResultOne {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? input,
-    TResult? Function(TwoInputPagePlayer1 player)? resultOne,
-    TResult? Function(TwoInputPagePlayer2 player)? resultTwo,
+    TResult? Function(TwoInputPlayer1 player)? resultOne,
+    TResult? Function(TwoInputPlayer2 player)? resultTwo,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) {
@@ -299,8 +309,8 @@ class _$_ResultOne implements _ResultOne {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? input,
-    TResult Function(TwoInputPagePlayer1 player)? resultOne,
-    TResult Function(TwoInputPagePlayer2 player)? resultTwo,
+    TResult Function(TwoInputPlayer1 player)? resultOne,
+    TResult Function(TwoInputPlayer2 player)? resultTwo,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),
@@ -353,9 +363,9 @@ class _$_ResultOne implements _ResultOne {
 }
 
 abstract class _ResultOne implements TwoFeatureState {
-  const factory _ResultOne(final TwoInputPagePlayer1 player) = _$_ResultOne;
+  const factory _ResultOne(final TwoInputPlayer1 player) = _$_ResultOne;
 
-  TwoInputPagePlayer1 get player;
+  TwoInputPlayer1 get player;
   @JsonKey(ignore: true)
   _$$_ResultOneCopyWith<_$_ResultOne> get copyWith =>
       throw _privateConstructorUsedError;
@@ -367,7 +377,9 @@ abstract class _$$_ResultTwoCopyWith<$Res> {
           _$_ResultTwo value, $Res Function(_$_ResultTwo) then) =
       __$$_ResultTwoCopyWithImpl<$Res>;
   @useResult
-  $Res call({TwoInputPagePlayer2 player});
+  $Res call({TwoInputPlayer2 player});
+
+  $TwoInputPlayer2CopyWith<$Res> get player;
 }
 
 /// @nodoc
@@ -387,8 +399,16 @@ class __$$_ResultTwoCopyWithImpl<$Res>
       null == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
-              as TwoInputPagePlayer2,
+              as TwoInputPlayer2,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TwoInputPlayer2CopyWith<$Res> get player {
+    return $TwoInputPlayer2CopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value));
+    });
   }
 }
 
@@ -398,7 +418,7 @@ class _$_ResultTwo implements _ResultTwo {
   const _$_ResultTwo(this.player);
 
   @override
-  final TwoInputPagePlayer2 player;
+  final TwoInputPlayer2 player;
 
   @override
   String toString() {
@@ -426,8 +446,8 @@ class _$_ResultTwo implements _ResultTwo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() input,
-    required TResult Function(TwoInputPagePlayer1 player) resultOne,
-    required TResult Function(TwoInputPagePlayer2 player) resultTwo,
+    required TResult Function(TwoInputPlayer1 player) resultOne,
+    required TResult Function(TwoInputPlayer2 player) resultTwo,
     required TResult Function() loading,
     required TResult Function() error,
   }) {
@@ -438,8 +458,8 @@ class _$_ResultTwo implements _ResultTwo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? input,
-    TResult? Function(TwoInputPagePlayer1 player)? resultOne,
-    TResult? Function(TwoInputPagePlayer2 player)? resultTwo,
+    TResult? Function(TwoInputPlayer1 player)? resultOne,
+    TResult? Function(TwoInputPlayer2 player)? resultTwo,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) {
@@ -450,8 +470,8 @@ class _$_ResultTwo implements _ResultTwo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? input,
-    TResult Function(TwoInputPagePlayer1 player)? resultOne,
-    TResult Function(TwoInputPagePlayer2 player)? resultTwo,
+    TResult Function(TwoInputPlayer1 player)? resultOne,
+    TResult Function(TwoInputPlayer2 player)? resultTwo,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),
@@ -504,9 +524,9 @@ class _$_ResultTwo implements _ResultTwo {
 }
 
 abstract class _ResultTwo implements TwoFeatureState {
-  const factory _ResultTwo(final TwoInputPagePlayer2 player) = _$_ResultTwo;
+  const factory _ResultTwo(final TwoInputPlayer2 player) = _$_ResultTwo;
 
-  TwoInputPagePlayer2 get player;
+  TwoInputPlayer2 get player;
   @JsonKey(ignore: true)
   _$$_ResultTwoCopyWith<_$_ResultTwo> get copyWith =>
       throw _privateConstructorUsedError;
@@ -550,8 +570,8 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() input,
-    required TResult Function(TwoInputPagePlayer1 player) resultOne,
-    required TResult Function(TwoInputPagePlayer2 player) resultTwo,
+    required TResult Function(TwoInputPlayer1 player) resultOne,
+    required TResult Function(TwoInputPlayer2 player) resultTwo,
     required TResult Function() loading,
     required TResult Function() error,
   }) {
@@ -562,8 +582,8 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? input,
-    TResult? Function(TwoInputPagePlayer1 player)? resultOne,
-    TResult? Function(TwoInputPagePlayer2 player)? resultTwo,
+    TResult? Function(TwoInputPlayer1 player)? resultOne,
+    TResult? Function(TwoInputPlayer2 player)? resultTwo,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) {
@@ -574,8 +594,8 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? input,
-    TResult Function(TwoInputPagePlayer1 player)? resultOne,
-    TResult Function(TwoInputPagePlayer2 player)? resultTwo,
+    TResult Function(TwoInputPlayer1 player)? resultOne,
+    TResult Function(TwoInputPlayer2 player)? resultTwo,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),
@@ -668,8 +688,8 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() input,
-    required TResult Function(TwoInputPagePlayer1 player) resultOne,
-    required TResult Function(TwoInputPagePlayer2 player) resultTwo,
+    required TResult Function(TwoInputPlayer1 player) resultOne,
+    required TResult Function(TwoInputPlayer2 player) resultTwo,
     required TResult Function() loading,
     required TResult Function() error,
   }) {
@@ -680,8 +700,8 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? input,
-    TResult? Function(TwoInputPagePlayer1 player)? resultOne,
-    TResult? Function(TwoInputPagePlayer2 player)? resultTwo,
+    TResult? Function(TwoInputPlayer1 player)? resultOne,
+    TResult? Function(TwoInputPlayer2 player)? resultTwo,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) {
@@ -692,8 +712,8 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? input,
-    TResult Function(TwoInputPagePlayer1 player)? resultOne,
-    TResult Function(TwoInputPagePlayer2 player)? resultTwo,
+    TResult Function(TwoInputPlayer1 player)? resultOne,
+    TResult Function(TwoInputPlayer2 player)? resultTwo,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),

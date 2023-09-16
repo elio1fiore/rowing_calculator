@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import 'package:row_calculator/feature/one_input/domain/one_input_page_player.dart';
+import 'package:row_calculator/feature/one_input/domain/v2/one_input_player.dart';
 import 'package:row_calculator/util/form_validators.dart';
 
 part 'one_input_notifier.freezed.dart';
@@ -95,15 +96,15 @@ class OneInputNotifier extends StateNotifier<OneInputState> {
     resetValueForm();
   }
 
-  OneInputPagePlayer calculate() {
+  OneInputPlayer calculate() {
     return state.when(
       minute: () {
-        return OneInputPagePlayer.fromMedia500(
+        return OneInputPlayer.fromMedia500(
           _form.control('inputOne').value,
         );
       },
       watt: () {
-        return OneInputPagePlayer.fromWatt(
+        return OneInputPlayer.fromWatt(
           _form.control('inputOne').value,
         );
       },

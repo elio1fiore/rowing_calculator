@@ -51,9 +51,8 @@ class FeaturesDatabase {
     final offset = (page - 1) * limit;
     final result = await db.query(tableFeature, limit: limit, offset: offset);
 
-    final ret = result.map((e) => FeatureEntity.fromMap(e)).toList();
+    final ret = result.map((e) => FeatureEntity.fromJson(e)).toList();
 
-    print(ret.length);
     return ret;
   }
 
@@ -68,7 +67,7 @@ class FeaturesDatabase {
 
     final id = await db.insert(
       tableFeature,
-      feature.toMap(),
+      feature.toJson(),
     );
 
     return feature.copyWith(id: id);
@@ -85,7 +84,7 @@ class FeaturesDatabase {
     );
 
     if (maps.isNotEmpty) {
-      return FeatureEntity.fromMap(maps.first);
+      return FeatureEntity.fromJson(maps.first);
     } else {
       throw Exception('ID $id not found');
     }
@@ -97,7 +96,7 @@ class FeaturesDatabase {
 
     final result = await db.query(tableFeature, orderBy: orderBy);
 
-    return result.map((json) => FeatureEntity.fromMap(json)).toList();
+    return result.map((json) => FeatureEntity.fromJson(json)).toList();
   }
 
   Future<int> update(FeatureEntity feature) async {
@@ -105,7 +104,7 @@ class FeaturesDatabase {
 
     return db.update(
       tableFeature,
-      feature.toMap(),
+      feature.toJson(),
       where: '${FeatureFields.id} = ?',
       whereArgs: [FeatureFields.id],
     );

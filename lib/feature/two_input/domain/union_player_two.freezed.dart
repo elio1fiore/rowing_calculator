@@ -19,20 +19,20 @@ mixin _$UnionPlayerTwo {
   Object get player => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TwoInputPagePlayer1 player) typeA,
-    required TResult Function(TwoInputPagePlayer2 player) typeB,
+    required TResult Function(TwoInputPlayer1 player) typeA,
+    required TResult Function(TwoInputPlayer2 player) typeB,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(TwoInputPagePlayer1 player)? typeA,
-    TResult? Function(TwoInputPagePlayer2 player)? typeB,
+    TResult? Function(TwoInputPlayer1 player)? typeA,
+    TResult? Function(TwoInputPlayer2 player)? typeB,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TwoInputPagePlayer1 player)? typeA,
-    TResult Function(TwoInputPagePlayer2 player)? typeB,
+    TResult Function(TwoInputPlayer1 player)? typeA,
+    TResult Function(TwoInputPlayer2 player)? typeB,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -80,7 +80,9 @@ abstract class _$$_TypeACopyWith<$Res> {
   factory _$$_TypeACopyWith(_$_TypeA value, $Res Function(_$_TypeA) then) =
       __$$_TypeACopyWithImpl<$Res>;
   @useResult
-  $Res call({TwoInputPagePlayer1 player});
+  $Res call({TwoInputPlayer1 player});
+
+  $TwoInputPlayer1CopyWith<$Res> get player;
 }
 
 /// @nodoc
@@ -99,8 +101,16 @@ class __$$_TypeACopyWithImpl<$Res>
       null == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
-              as TwoInputPagePlayer1,
+              as TwoInputPlayer1,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TwoInputPlayer1CopyWith<$Res> get player {
+    return $TwoInputPlayer1CopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value));
+    });
   }
 }
 
@@ -110,7 +120,7 @@ class _$_TypeA implements _TypeA {
   const _$_TypeA(this.player);
 
   @override
-  final TwoInputPagePlayer1 player;
+  final TwoInputPlayer1 player;
 
   @override
   String toString() {
@@ -137,8 +147,8 @@ class _$_TypeA implements _TypeA {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TwoInputPagePlayer1 player) typeA,
-    required TResult Function(TwoInputPagePlayer2 player) typeB,
+    required TResult Function(TwoInputPlayer1 player) typeA,
+    required TResult Function(TwoInputPlayer2 player) typeB,
   }) {
     return typeA(player);
   }
@@ -146,8 +156,8 @@ class _$_TypeA implements _TypeA {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(TwoInputPagePlayer1 player)? typeA,
-    TResult? Function(TwoInputPagePlayer2 player)? typeB,
+    TResult? Function(TwoInputPlayer1 player)? typeA,
+    TResult? Function(TwoInputPlayer2 player)? typeB,
   }) {
     return typeA?.call(player);
   }
@@ -155,8 +165,8 @@ class _$_TypeA implements _TypeA {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TwoInputPagePlayer1 player)? typeA,
-    TResult Function(TwoInputPagePlayer2 player)? typeB,
+    TResult Function(TwoInputPlayer1 player)? typeA,
+    TResult Function(TwoInputPlayer2 player)? typeB,
     required TResult orElse(),
   }) {
     if (typeA != null) {
@@ -198,10 +208,10 @@ class _$_TypeA implements _TypeA {
 }
 
 abstract class _TypeA implements UnionPlayerTwo {
-  const factory _TypeA(final TwoInputPagePlayer1 player) = _$_TypeA;
+  const factory _TypeA(final TwoInputPlayer1 player) = _$_TypeA;
 
   @override
-  TwoInputPagePlayer1 get player;
+  TwoInputPlayer1 get player;
   @JsonKey(ignore: true)
   _$$_TypeACopyWith<_$_TypeA> get copyWith =>
       throw _privateConstructorUsedError;
@@ -212,7 +222,9 @@ abstract class _$$_TypeBCopyWith<$Res> {
   factory _$$_TypeBCopyWith(_$_TypeB value, $Res Function(_$_TypeB) then) =
       __$$_TypeBCopyWithImpl<$Res>;
   @useResult
-  $Res call({TwoInputPagePlayer2 player});
+  $Res call({TwoInputPlayer2 player});
+
+  $TwoInputPlayer2CopyWith<$Res> get player;
 }
 
 /// @nodoc
@@ -231,8 +243,16 @@ class __$$_TypeBCopyWithImpl<$Res>
       null == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
-              as TwoInputPagePlayer2,
+              as TwoInputPlayer2,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TwoInputPlayer2CopyWith<$Res> get player {
+    return $TwoInputPlayer2CopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value));
+    });
   }
 }
 
@@ -242,7 +262,7 @@ class _$_TypeB implements _TypeB {
   const _$_TypeB(this.player);
 
   @override
-  final TwoInputPagePlayer2 player;
+  final TwoInputPlayer2 player;
 
   @override
   String toString() {
@@ -269,8 +289,8 @@ class _$_TypeB implements _TypeB {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TwoInputPagePlayer1 player) typeA,
-    required TResult Function(TwoInputPagePlayer2 player) typeB,
+    required TResult Function(TwoInputPlayer1 player) typeA,
+    required TResult Function(TwoInputPlayer2 player) typeB,
   }) {
     return typeB(player);
   }
@@ -278,8 +298,8 @@ class _$_TypeB implements _TypeB {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(TwoInputPagePlayer1 player)? typeA,
-    TResult? Function(TwoInputPagePlayer2 player)? typeB,
+    TResult? Function(TwoInputPlayer1 player)? typeA,
+    TResult? Function(TwoInputPlayer2 player)? typeB,
   }) {
     return typeB?.call(player);
   }
@@ -287,8 +307,8 @@ class _$_TypeB implements _TypeB {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TwoInputPagePlayer1 player)? typeA,
-    TResult Function(TwoInputPagePlayer2 player)? typeB,
+    TResult Function(TwoInputPlayer1 player)? typeA,
+    TResult Function(TwoInputPlayer2 player)? typeB,
     required TResult orElse(),
   }) {
     if (typeB != null) {
@@ -330,10 +350,10 @@ class _$_TypeB implements _TypeB {
 }
 
 abstract class _TypeB implements UnionPlayerTwo {
-  const factory _TypeB(final TwoInputPagePlayer2 player) = _$_TypeB;
+  const factory _TypeB(final TwoInputPlayer2 player) = _$_TypeB;
 
   @override
-  TwoInputPagePlayer2 get player;
+  TwoInputPlayer2 get player;
   @JsonKey(ignore: true)
   _$$_TypeBCopyWith<_$_TypeB> get copyWith =>
       throw _privateConstructorUsedError;

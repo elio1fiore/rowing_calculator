@@ -14,7 +14,7 @@ void main() {
     time: time,
   );
   final watt = calcWatt(mediaCinquecento: media);
-  final timeInSecond = time.inSeconds;
+  final timeInSecond = time.duration.inSeconds;
 
   print(media.valueMinuteSecondMillisecondOne);
   print(de.valueInPercentuale);

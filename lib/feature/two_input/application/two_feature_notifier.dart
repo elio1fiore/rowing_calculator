@@ -2,6 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:row_calculator/feature/two_input/domain/two_input_page_player_1.dart';
 import 'package:row_calculator/feature/two_input/domain/two_input_page_player_2.dart';
+import 'package:row_calculator/feature/two_input/domain/v2/two_input_player_1.dart';
+import 'package:row_calculator/feature/two_input/domain/v2/two_input_player_2.dart';
 
 part 'two_feature_notifier.freezed.dart';
 
@@ -9,10 +11,10 @@ part 'two_feature_notifier.freezed.dart';
 class TwoFeatureState with _$TwoFeatureState {
   const factory TwoFeatureState.input() = _Input;
   const factory TwoFeatureState.resultOne(
-    TwoInputPagePlayer1 player,
+    TwoInputPlayer1 player,
   ) = _ResultOne;
   const factory TwoFeatureState.resultTwo(
-    TwoInputPagePlayer2 player,
+    TwoInputPlayer2 player,
   ) = _ResultTwo;
   const factory TwoFeatureState.loading() = _Loading;
   const factory TwoFeatureState.error() = _Error;
@@ -25,11 +27,11 @@ class TwoFeatureNotifier extends StateNotifier<TwoFeatureState> {
     _setState(const TwoFeatureState.input());
   }
 
-  void setStateResultOne(TwoInputPagePlayer1 player) {
+  void setStateResultOne(TwoInputPlayer1 player) {
     _setState(TwoFeatureState.resultOne(player));
   }
 
-  void setStateResultTwo(TwoInputPagePlayer2 player) {
+  void setStateResultTwo(TwoInputPlayer2 player) {
     _setState(TwoFeatureState.resultTwo(player));
   }
 

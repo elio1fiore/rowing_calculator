@@ -132,10 +132,11 @@ part 'feature_entity.g.dart';
 
 @freezed
 class FeatureEntity with _$FeatureEntity {
+  const FeatureEntity._();
   const factory FeatureEntity({
+    int? id,
     required int dateTime,
     required String description,
-    int? id,
     required bool isImportant,
     required String playerStr,
     required String title,
@@ -146,7 +147,7 @@ class FeatureEntity with _$FeatureEntity {
       _$FeatureEntityFromJson(json);
 
   Feature toDomain() {
-    FeatureType featureType = _intToFeatureType(type);
+    FeatureType featureType = FeatureType.values[type];
     UnionPlayer unionPlayer;
 
     Map<String, dynamic> playerMap = jsonDecode(playerStr);
@@ -181,7 +182,13 @@ class FeatureEntity with _$FeatureEntity {
   }
 
   factory FeatureEntity.fromDomain(Feature feature) {
-    final jsonString = jsonEncode(feature.player.player.toJson());
+    final jsonString = jsonEncode(
+      feature.player.when(
+        one: (player) => player.toJson(),
+        twoOne: (player) => player.toJson(),
+        twoTwo: (player) => player.toJson(),
+      ),
+    );
 
     return FeatureEntity(
       dateTime: feature.dateTime.millisecondsSinceEpoch,
@@ -191,9 +198,5 @@ class FeatureEntity with _$FeatureEntity {
       title: feature.title,
       type: feature.featureType.index,
     );
-  }
-
-  FeatureType _intToFeatureType(int index) {
-    return FeatureType.values[index];
   }
 }

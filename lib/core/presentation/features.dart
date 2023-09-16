@@ -29,21 +29,21 @@ class _FeatureListPageState extends State<FeatureListPage> {
         nameFunctionality: '1  Input',
         subtitle: 'Calcola la media, i watt e il tempo sulle distanze',
       ),
-      Functionality(
-        navigatorPath: 'two',
-        nameFunctionality: '2  Input',
-        subtitle: 'Calcola la media, i metri, i watt e le varie percentuali',
-      ),
-      Functionality(
-        navigatorPath: 'three',
-        nameFunctionality: '3  Input',
-        subtitle: 'Calcola il dispendio, il tempo, i watt e la media',
-      ),
-      Functionality(
-        navigatorPath: 'speed-strokes',
-        nameFunctionality: '4  Speed & Strokes',
-        subtitle: 'Calcola velocità media e colpi al minuto',
-      ),
+      // Functionality(
+      //   navigatorPath: 'two',
+      //   nameFunctionality: '2  Input',
+      //   subtitle: 'Calcola la media, i metri, i watt e le varie percentuali',
+      // ),
+      // Functionality(
+      //   navigatorPath: 'three',
+      //   nameFunctionality: '3  Input',
+      //   subtitle: 'Calcola il dispendio, il tempo, i watt e la media',
+      // ),
+      // Functionality(
+      //   navigatorPath: 'speed-strokes',
+      //   nameFunctionality: '4  Speed & Strokes',
+      //   subtitle: 'Calcola velocità media e colpi al minuto',
+      // ),
     ];
     return ListView.builder(
       itemCount: funcs.length,

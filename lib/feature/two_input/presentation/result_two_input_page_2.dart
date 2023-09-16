@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/core/historyV2/domain/feature.dart';
+import 'package:row_calculator/core/historyV2/domain/feature_util.dart';
 import 'package:row_calculator/core/historyV2/shared/history_provider.dart';
 import 'package:row_calculator/core/presentation/card_result.dart';
+import 'package:row_calculator/feature/two_input/domain/v2/two_input_player_2.dart';
 
-import 'package:row_calculator/feature/two_input/domain/two_input_page_player_2.dart';
 import 'package:row_calculator/feature/two_input/shared/two_input_provider.dart';
 
 class ResultTwoInputPage2 extends ConsumerWidget {
-  final TwoInputPagePlayer2 player2;
+  final TwoInputPlayer2 player2;
 
   const ResultTwoInputPage2({
     super.key,
@@ -79,7 +80,7 @@ class ResultTwoInputPage2 extends ConsumerWidget {
                     description: "",
                     isImportant: false,
                     title: "TwoTwo",
-                    type: FeatureType.two2,
+                    featureType: FeatureType.two2,
                   );
                   await db.create(fe);
                   noty.resetValueForm();

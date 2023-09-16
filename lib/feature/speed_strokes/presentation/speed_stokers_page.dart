@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:row_calculator/core/domain/interval_time.dart';
 import 'package:row_calculator/feature/speed_strokes/provider/speed_provider.dart';
 import 'package:row_calculator/feature/speed_strokes/provider/stokers_provider.dart';
 
@@ -13,10 +14,10 @@ class SpeedStrokesPage extends ConsumerStatefulWidget {
 }
 
 class _SpeedStrokesPageState extends ConsumerState<SpeedStrokesPage> {
-  String _printDuration(Duration duration) {
+  String _printDuration(IntervalTime it) {
     String twoDigits(int n) => n.toString().padLeft(2, "0");
-    String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
-    String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
+    String twoDigitMinutes = twoDigits(it.duration.inMinutes.remainder(60));
+    String twoDigitSeconds = twoDigits(it.duration.inSeconds.remainder(60));
     return "$twoDigitMinutes:$twoDigitSeconds";
   }
 

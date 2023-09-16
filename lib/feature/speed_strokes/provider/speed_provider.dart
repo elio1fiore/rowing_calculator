@@ -15,12 +15,12 @@ final medProvider = Provider.autoDispose<IntervalTime>(
     final state = ref.watch(speedProvider);
 
     return state.maybeWhen(
-      orElse: () => IntervalTime(seconds: 0),
+      orElse: () => const IntervalTime(seconds: 0),
       dataPosition: (position, _) {
         if (listSec.length == 15) {
           listSec.remove(listSec[0]);
         }
-        listSec.add(_.inSeconds);
+        listSec.add(_.duration.inSeconds);
 
         int med = 0;
         for (var intero in listSec) {

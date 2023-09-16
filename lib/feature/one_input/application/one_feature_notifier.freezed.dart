@@ -19,7 +19,7 @@ mixin _$OneFeatureState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() input,
-    required TResult Function(OneInputPagePlayer player) result,
+    required TResult Function(OneInputPlayer player) result,
     required TResult Function() loading,
     required TResult Function() error,
   }) =>
@@ -27,7 +27,7 @@ mixin _$OneFeatureState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? input,
-    TResult? Function(OneInputPagePlayer player)? result,
+    TResult? Function(OneInputPlayer player)? result,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) =>
@@ -35,7 +35,7 @@ mixin _$OneFeatureState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? input,
-    TResult Function(OneInputPagePlayer player)? result,
+    TResult Function(OneInputPlayer player)? result,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),
@@ -123,7 +123,7 @@ class _$_Input implements _Input {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() input,
-    required TResult Function(OneInputPagePlayer player) result,
+    required TResult Function(OneInputPlayer player) result,
     required TResult Function() loading,
     required TResult Function() error,
   }) {
@@ -134,7 +134,7 @@ class _$_Input implements _Input {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? input,
-    TResult? Function(OneInputPagePlayer player)? result,
+    TResult? Function(OneInputPlayer player)? result,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) {
@@ -145,7 +145,7 @@ class _$_Input implements _Input {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? input,
-    TResult Function(OneInputPagePlayer player)? result,
+    TResult Function(OneInputPlayer player)? result,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),
@@ -203,7 +203,9 @@ abstract class _$$_ResultCopyWith<$Res> {
   factory _$$_ResultCopyWith(_$_Result value, $Res Function(_$_Result) then) =
       __$$_ResultCopyWithImpl<$Res>;
   @useResult
-  $Res call({OneInputPagePlayer player});
+  $Res call({OneInputPlayer player});
+
+  $OneInputPlayerCopyWith<$Res> get player;
 }
 
 /// @nodoc
@@ -216,14 +218,22 @@ class __$$_ResultCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? player = freezed,
+    Object? player = null,
   }) {
     return _then(_$_Result(
-      player: freezed == player
+      player: null == player
           ? _value.player
           : player // ignore: cast_nullable_to_non_nullable
-              as OneInputPagePlayer,
+              as OneInputPlayer,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $OneInputPlayerCopyWith<$Res> get player {
+    return $OneInputPlayerCopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value));
+    });
   }
 }
 
@@ -233,7 +243,7 @@ class _$_Result implements _Result {
   const _$_Result({required this.player});
 
   @override
-  final OneInputPagePlayer player;
+  final OneInputPlayer player;
 
   @override
   String toString() {
@@ -245,12 +255,11 @@ class _$_Result implements _Result {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Result &&
-            const DeepCollectionEquality().equals(other.player, player));
+            (identical(other.player, player) || other.player == player));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(player));
+  int get hashCode => Object.hash(runtimeType, player);
 
   @JsonKey(ignore: true)
   @override
@@ -262,7 +271,7 @@ class _$_Result implements _Result {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() input,
-    required TResult Function(OneInputPagePlayer player) result,
+    required TResult Function(OneInputPlayer player) result,
     required TResult Function() loading,
     required TResult Function() error,
   }) {
@@ -273,7 +282,7 @@ class _$_Result implements _Result {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? input,
-    TResult? Function(OneInputPagePlayer player)? result,
+    TResult? Function(OneInputPlayer player)? result,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) {
@@ -284,7 +293,7 @@ class _$_Result implements _Result {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? input,
-    TResult Function(OneInputPagePlayer player)? result,
+    TResult Function(OneInputPlayer player)? result,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),
@@ -334,9 +343,9 @@ class _$_Result implements _Result {
 }
 
 abstract class _Result implements OneFeatureState {
-  const factory _Result({required final OneInputPagePlayer player}) = _$_Result;
+  const factory _Result({required final OneInputPlayer player}) = _$_Result;
 
-  OneInputPagePlayer get player;
+  OneInputPlayer get player;
   @JsonKey(ignore: true)
   _$$_ResultCopyWith<_$_Result> get copyWith =>
       throw _privateConstructorUsedError;
@@ -380,7 +389,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() input,
-    required TResult Function(OneInputPagePlayer player) result,
+    required TResult Function(OneInputPlayer player) result,
     required TResult Function() loading,
     required TResult Function() error,
   }) {
@@ -391,7 +400,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? input,
-    TResult? Function(OneInputPagePlayer player)? result,
+    TResult? Function(OneInputPlayer player)? result,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) {
@@ -402,7 +411,7 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? input,
-    TResult Function(OneInputPagePlayer player)? result,
+    TResult Function(OneInputPlayer player)? result,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),
@@ -492,7 +501,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() input,
-    required TResult Function(OneInputPagePlayer player) result,
+    required TResult Function(OneInputPlayer player) result,
     required TResult Function() loading,
     required TResult Function() error,
   }) {
@@ -503,7 +512,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? input,
-    TResult? Function(OneInputPagePlayer player)? result,
+    TResult? Function(OneInputPlayer player)? result,
     TResult? Function()? loading,
     TResult? Function()? error,
   }) {
@@ -514,7 +523,7 @@ class _$_Error implements _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? input,
-    TResult Function(OneInputPagePlayer player)? result,
+    TResult Function(OneInputPlayer player)? result,
     TResult Function()? loading,
     TResult Function()? error,
     required TResult orElse(),
