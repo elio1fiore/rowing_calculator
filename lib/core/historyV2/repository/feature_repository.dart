@@ -19,18 +19,14 @@ class FeatureRepository {
         PaginationConfig.itemsPerPage,
       );
 
-      print("QUI +++");
-
       return await localResp.when(
         problemDB: () {
-          print("Left");
           return left(
             const HistoryFailure.db(
                 "Qualcosa è andato storto nel database locale"),
           );
         },
         withNewData: (data, maxPage) {
-          print(data.first.title);
           return right(
             Fresh.yes(
               data.toDomain(),

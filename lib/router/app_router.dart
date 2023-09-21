@@ -36,18 +36,18 @@ class AppRouter extends $AppRouter {
                   page: OneFeatureRoute.page,
                   path: "one",
                 ),
-                // AutoRoute(
-                //   page: TwoFeatureRoute.page,
-                //   path: "two",
-                // ),
-                // AutoRoute(
-                //   page: ThreeFeatureRoute.page,
-                //   path: "three",
-                // ),
-                // AutoRoute(
-                //   page: SpeedStrokesRoute.page,
-                //   path: "speed-strokes",
-                // ),
+                AutoRoute(
+                  page: TwoFeatureRoute.page,
+                  path: "two",
+                ),
+                AutoRoute(
+                  page: ThreeFeatureRoute.page,
+                  path: "three",
+                ),
+                AutoRoute(
+                  page: SpeedStrokesRoute.page,
+                  path: "speed-strokes",
+                ),
               ],
             ),
             AutoRoute(

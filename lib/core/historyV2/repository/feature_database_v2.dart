@@ -9,6 +9,7 @@ import 'dart:math';
 import 'package:row_calculator/core/historyV2/repository/feature_entity.dart';
 import 'package:row_calculator/core/historyV2/repository/feature_fields.dart';
 import 'package:row_calculator/core/historyV2/utils/name_table_db.dart';
+import 'package:row_calculator/core/historyV2/utils/version_db.dart';
 import 'package:row_calculator/core/infrastructure/local_response.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -22,7 +23,7 @@ class FeaturesDatabaseV2 {
       return _database!;
     }
 
-    _database = await _initDB('features_v2.40.db');
+    _database = await _initDB('features_${VersionDB.vdb}');
     return _database!;
   }
 
@@ -65,6 +66,7 @@ class FeaturesDatabaseV2 {
     try {
       final db = await database;
       final nEle = await _countItem();
+
       int maxPage;
 
       if (nEle == null) {
@@ -73,15 +75,9 @@ class FeaturesDatabaseV2 {
         maxPage = (nEle / limit).ceil();
       }
 
-      print("Ci arrivo qui");
-
       final offset = (page - 1) * limit;
 
       final result = await db.query(tableFeature, limit: limit, offset: offset);
-
-      print("Qui si");
-
-      print(result);
 
       final ret = result.map((e) => FeatureEntity.fromJson(e)).toList();
 

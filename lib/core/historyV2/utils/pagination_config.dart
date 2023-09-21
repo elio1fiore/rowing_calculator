@@ -1,3 +1,3 @@
 class PaginationConfig {
-  static const itemsPerPage = 3;
+  static const itemsPerPage = 10;
 }

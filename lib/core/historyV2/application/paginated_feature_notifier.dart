@@ -59,11 +59,12 @@ class PaginatedFeatureNotifier extends StateNotifier<PaginatedFeatureState> {
 
     state = failureOrResp.fold(
       (l) {
-        print("Failure 34");
         return PaginatedFeatureState.loadFailure(state.features, l);
       },
       (r) {
-        _page++;
+        if (r.isFresh) {
+          _page++;
+        }
 
         return PaginatedFeatureState.loadSuccess(
           r.copyWith(entity: [...state.features.entity, ...r.entity]),

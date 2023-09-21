@@ -66,7 +66,12 @@ class _PaginatedListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return ListView.separated(
+      separatorBuilder: (context, index) {
+        return SizedBox(
+          height: 50,
+        );
+      },
       padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
       physics: const BouncingScrollPhysics(),
       itemCount: state.map(
@@ -90,9 +95,12 @@ class _PaginatedListView extends StatelessWidget {
           loadFailure: (_) {
             if (index < _.features.entity.length) {
               return ListTile(
-                  title: Text(
-                _.features.entity[index].title,
-              ));
+                dense: false,
+                title: Text(
+                  _.features.entity[index].title,
+                ),
+                leading: Text(_.features.entity[index].id.toString()),
+              );
             }
             return Text("Failure");
           },
