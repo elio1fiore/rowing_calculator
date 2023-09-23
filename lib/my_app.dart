@@ -12,7 +12,7 @@ class RowCalculatorApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(appRouterProvider);
-    final stateTheme = ref.watch(themeProvider);
+    final stateTheme = ref.watch(themeProviderNotifier);
 
     return MaterialApp.router(
       theme: FlexThemeData.light(

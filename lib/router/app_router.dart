@@ -62,25 +62,10 @@ class AppRouter extends $AppRouter {
                   maintainState: false,
                 ),
                 AutoRoute(
-                  page: OneHistoryDetailsRoute.page,
-                  path: ":id",
+                  page: TemplateDetailsPage.page,
+                  path: "template",
                   maintainState: false,
                 ),
-                AutoRoute(
-                  page: TwoOneHistoryDetailsRoute.page,
-                  path: ":id",
-                  maintainState: false,
-                ),
-                AutoRoute(
-                  page: TwoTwoHistoryDetailsRoute.page,
-                  path: ":id",
-                  maintainState: false,
-                ),
-                AutoRoute(
-                  page: ThreeHistoryDetailsRoute.page,
-                  path: ":id",
-                  maintainState: false,
-                )
               ],
             ),
           ],

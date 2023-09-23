@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/core/historyV2/application/paginated_feature_notifier.dart';
+import 'package:row_calculator/core/historyV2/presentation/feature_tile.dart';
 import 'package:row_calculator/core/historyV2/shared/history_provider.dart';
 import 'package:row_calculator/core/presentation/no_result_display.dart';
 
@@ -51,12 +52,14 @@ class _PaginatedFeatureListState extends ConsumerState<PaginatedFeatureList> {
         orElse: () => false,
       )
           ? const NoResultsDisplay("Non abbiamo trovato nulla nel db")
-          : _PaginatedListView(state: state),
+          : _PaginatedListView(
+              state: state,
+            ),
     );
   }
 }
 
-class _PaginatedListView extends StatelessWidget {
+class _PaginatedListView extends ConsumerWidget {
   const _PaginatedListView({
     super.key,
     required this.state,
@@ -65,15 +68,15 @@ class _PaginatedListView extends StatelessWidget {
   final PaginatedFeatureState state;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ListView.separated(
+      physics: const BouncingScrollPhysics(),
       separatorBuilder: (context, index) {
-        return SizedBox(
-          height: 50,
+        return const SizedBox(
+          height: 20,
         );
       },
       padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-      physics: const BouncingScrollPhysics(),
       itemCount: state.map(
         initial: (_) => 0,
         loadInProgress: (_) => _.features.entity.length + _.itemsPerPage,
@@ -85,30 +88,25 @@ class _PaginatedListView extends StatelessWidget {
           initial: (_) => const Text('initial'),
           loadInProgress: (_) {
             if (index < _.features.entity.length) {
-              return ListTile(
-                  title: Text(
-                _.features.entity[index].title,
-              ));
+              return FeatureTile(
+                feature: _.features.entity[index],
+              );
             }
             return const Text("Loading");
           },
           loadFailure: (_) {
             if (index < _.features.entity.length) {
-              return ListTile(
-                dense: false,
-                title: Text(
-                  _.features.entity[index].title,
-                ),
-                leading: Text(_.features.entity[index].id.toString()),
+              return FeatureTile(
+                feature: _.features.entity[index],
               );
             }
-            return Text("Failure");
+            return const Text("Failure");
           },
-          loadSuccess: (_) => ListTile(
-            title: Text(
-              _.features.entity[index].title,
-            ),
-          ),
+          loadSuccess: (_) {
+            return FeatureTile(
+              feature: _.features.entity[index],
+            );
+          },
         );
       },
     );

@@ -1,10 +1,7 @@
 import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
+
 import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:row_calculator/core/historyV2/domain/feature.dart';
-import 'dart:math';
 
 import 'package:row_calculator/core/historyV2/repository/feature_entity.dart';
 import 'package:row_calculator/core/historyV2/repository/feature_fields.dart';
@@ -77,7 +74,12 @@ class FeaturesDatabaseV2 {
 
       final offset = (page - 1) * limit;
 
-      final result = await db.query(tableFeature, limit: limit, offset: offset);
+      final result = await db.query(
+        tableFeature,
+        orderBy: "${FeatureFields.dateTime} DESC",
+        limit: limit,
+        offset: offset,
+      );
 
       final ret = result.map((e) => FeatureEntity.fromJson(e)).toList();
 
@@ -107,40 +109,33 @@ class FeaturesDatabaseV2 {
     return;
   }
 
-  // Future<FeatureEntity> readFeature(int id) async {
-  //   final db = await database;
+  Future<FeatureEntity> getFeatureById(int id) async {
+    final db = await database;
 
-  //   final maps = await db.query(
-  //     tableFeature,
-  //     columns: FeatureFields.values,
-  //     where: '${FeatureFields.id} = ?',
-  //     whereArgs: [id],
-  //   );
+    final maps = await db.query(
+      tableFeature,
+      columns: FeatureFields.values,
+      where: '${FeatureFields.id} = ?',
+      whereArgs: [id],
+    );
 
-  //   if (maps.isNotEmpty) {
-  //     return FeatureEntity.fromMap(maps.first);
-  //   } else {
-  //     throw Exception('ID $id not found');
-  //   }
-  // }
+    if (maps.isNotEmpty) {
+      final ret = FeatureEntity.fromJson(maps.first);
 
-  // Future<List<FeatureEntity>> readAllFeatures() async {
-  //   final db = await database;
-  //   const orderBy = '${FeatureFields.dateTime} ASC';
+      return ret;
+    } else {
+      throw Exception('ID $id not found');
+    }
+  }
 
-  //   final result = await db.query(tableFeature, orderBy: orderBy);
-
-  //   return result.map((json) => FeatureEntity.fromMap(json)).toList();
-  // }
-
-  Future<int> update(FeatureEntity feature) async {
+  Future<int> update(Map<String, dynamic> change, int id) async {
     final db = await database;
 
     return db.update(
       tableFeature,
-      feature.toJson(),
+      change,
       where: '${FeatureFields.id} = ?',
-      whereArgs: [FeatureFields.id],
+      whereArgs: [id],
     );
   }
 

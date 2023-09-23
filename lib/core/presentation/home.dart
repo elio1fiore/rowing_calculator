@@ -12,7 +12,7 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final stateTheme = ref.watch(themeProvider);
+    final stateTheme = ref.watch(themeProviderNotifier);
 
     return AutoTabsRouter.pageView(
       physics: const NeverScrollableScrollPhysics(),
@@ -34,12 +34,11 @@ class HomePage extends ConsumerWidget {
             title: Text(getTitle(tabsRouter.currentPath)),
             actions: [
               IconButton(
-                icon: stateTheme
-                    ? Icon(MdiIcons.weatherNight)
-                    : Icon(MdiIcons.weatherSunny),
-                onPressed: () =>
-                    ref.read(themeProvider.notifier).state = !stateTheme,
-              )
+                  icon: stateTheme
+                      ? Icon(MdiIcons.weatherNight)
+                      : Icon(MdiIcons.weatherSunny),
+                  onPressed: () =>
+                      ref.read(themeProviderNotifier.notifier).setTheme())
             ],
             leading: const AutoLeadingButton(),
           ),
