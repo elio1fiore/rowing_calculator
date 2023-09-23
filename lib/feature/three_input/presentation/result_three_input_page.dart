@@ -62,12 +62,10 @@ class _ResultThreeInputPageT extends ConsumerWidget {
                 clipBehavior: Clip.antiAlias,
                 shape: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(
-                    color: Colors.green.shade700,
+                  borderSide: const BorderSide(
                     width: 1.5,
                   ),
                 ),
-                color: Colors.green.shade100,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -157,12 +155,10 @@ class _ResultThreeInputPageD extends ConsumerWidget {
                 clipBehavior: Clip.antiAlias,
                 shape: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(
-                    color: Colors.green.shade700,
+                  borderSide: const BorderSide(
                     width: 1.5,
                   ),
                 ),
-                color: Colors.green.shade100,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [

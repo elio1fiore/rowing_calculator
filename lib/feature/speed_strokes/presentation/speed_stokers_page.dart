@@ -26,7 +26,6 @@ class _SpeedStrokesPageState extends ConsumerState<SpeedStrokesPage> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback(
       (timeStamp) {
-        print("Chiama");
         ref.read(speedProvider.notifier).dataPosition();
       },
     );
@@ -39,7 +38,6 @@ class _SpeedStrokesPageState extends ConsumerState<SpeedStrokesPage> {
     final stokerNotyWatch = ref.watch(stokersNotifierProvider.notifier);
 
     final speedState = ref.watch(speedProvider);
-    final speedNoty = ref.read(speedProvider.notifier);
 
     final med = ref.watch(medProvider);
 
@@ -50,14 +48,41 @@ class _SpeedStrokesPageState extends ConsumerState<SpeedStrokesPage> {
           children: [
             Column(
               children: [
-                const Text('Speed 500/min'),
-                speedState.maybeWhen(
-                  orElse: () => const Text('0'),
-                  dataPosition: (position, intervalTime) {
-                    return Row(
-                      children: [Text(_printDuration(intervalTime))],
-                    );
-                  },
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 12, vertical: 22),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Speed 500/min',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        speedState.maybeWhen(
+                          orElse: () => const Text(
+                            '0',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          dataPosition: (position, intervalTime) {
+                            return Text(
+                              _printDuration(intervalTime),
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
@@ -94,39 +119,43 @@ class _SpeedStrokesPageState extends ConsumerState<SpeedStrokesPage> {
                 ),
               ],
             ),
-            StreamBuilder<double>(
-              stream: stokerNotyWatch.streamController,
-              builder: (context, snapshot) {
-                return stokerState.maybeWhen(
-                  orElse: () => Text('NA'),
-                  multipleTap: () => Text(
-                    'Numero di volte premuto: ${snapshot.data}',
-                    style: TextStyle(fontSize: 24),
+            Row(
+              children: [
+                StreamBuilder<double>(
+                  stream: stokerNotyWatch.streamController,
+                  builder: (context, snapshot) {
+                    return stokerState.maybeWhen(
+                      orElse: () => Text('NA'),
+                      multipleTap: () => Text(
+                        'Numero di volte premuto: ${snapshot.data}',
+                        style: TextStyle(fontSize: 24),
+                      ),
+                    );
+                  },
+                ),
+                const SizedBox(height: 20),
+                stokerState.maybeWhen(
+                  orElse: () => Container(),
+                  init: () => ElevatedButton(
+                    child: Text("Init"),
+                    onPressed: () {
+                      stokerNoty.goFirst();
+                    },
                   ),
-                );
-              },
-            ),
-            const SizedBox(height: 20),
-            stokerState.maybeWhen(
-              orElse: () => Container(),
-              init: () => ElevatedButton(
-                child: Text("Init"),
-                onPressed: () {
-                  stokerNoty.goFirst();
-                },
-              ),
-              first: () => ElevatedButton(
-                child: Text("Un altro colpo please"),
-                onPressed: () {
-                  stokerNoty.goMultipleTap();
-                },
-              ),
-              multipleTap: () => ElevatedButton(
-                child: const Text("Continue"),
-                onPressed: () {
-                  stokerNoty.goMultipleTap();
-                },
-              ),
+                  first: () => ElevatedButton(
+                    child: const Text("Un altro colpo"),
+                    onPressed: () {
+                      stokerNoty.goMultipleTap();
+                    },
+                  ),
+                  multipleTap: () => ElevatedButton(
+                    child: const Text("Continue"),
+                    onPressed: () {
+                      stokerNoty.goMultipleTap();
+                    },
+                  ),
+                ),
+              ],
             ),
           ],
         ),

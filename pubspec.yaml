@@ -30,6 +30,7 @@ dependencies:
   url_strategy: ^0.2.0
   sqflite: ^2.3.0
   flash: ^3.0.5+1
+  shared_preferences: ^2.2.1
 
 
 

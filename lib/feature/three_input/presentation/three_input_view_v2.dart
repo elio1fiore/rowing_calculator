@@ -37,7 +37,7 @@ class _ThreeFeatureViewV2State extends ConsumerState<ThreeInputViewV2> {
     return SingleChildScrollView(
       child: ConstrainedBox(
         constraints: BoxConstraints(
-          minHeight: MediaQuery.of(context).size.height - appBarHeight,
+          minHeight: MediaQuery.of(context).size.height - appBarHeight - 25,
         ),
         child: ReactiveForm(
           formGroup: inputNotyWatch.form,

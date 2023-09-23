@@ -7,12 +7,16 @@ import 'package:row_calculator/router/app_router.dart';
 import 'package:row_calculator/router/app_router.gr.dart';
 
 class RowCalculatorApp extends ConsumerWidget {
-  const RowCalculatorApp({super.key});
+  final bool? isDarkTheme;
+  const RowCalculatorApp({
+    super.key,
+    this.isDarkTheme,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final appRouter = ref.watch(appRouterProvider);
-    final stateTheme = ref.watch(themeProviderNotifier);
+    final isDarkTheme = ref.watch(themeProviderNotifier);
 
     return MaterialApp.router(
       theme: FlexThemeData.light(
@@ -124,7 +128,7 @@ class RowCalculatorApp extends ConsumerWidget {
       ),
       title: 'Row Calculator',
       debugShowCheckedModeBanner: false,
-      themeMode: stateTheme ? ThemeMode.light : ThemeMode.dark,
+      themeMode: isDarkTheme ? ThemeMode.light : ThemeMode.dark,
       routerConfig: appRouter.config(
         deepLinkBuilder: (deepLink) {
           return const DeepLink(

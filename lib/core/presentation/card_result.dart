@@ -16,7 +16,7 @@ class CardResult extends StatelessWidget {
       height: 100,
       decoration: BoxDecoration(
         border: Border(
-          bottom: BorderSide(color: Colors.green.shade700, width: 1),
+          bottom: BorderSide(color: Colors.black, width: 1),
         ),
       ),
       child: Padding(

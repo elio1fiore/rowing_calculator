@@ -33,12 +33,7 @@ class ResultTwoInputPage1 extends ConsumerWidget {
                 clipBehavior: Clip.antiAlias,
                 shape: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide(
-                    color: Colors.green.shade700,
-                    width: 1.5,
-                  ),
                 ),
-                color: Colors.green.shade100,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -63,7 +58,7 @@ class ResultTwoInputPage1 extends ConsumerWidget {
                 child: ElevatedButton(
                   child: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 20),
-                    child: Text('Nuovo Calcolo from 1'),
+                    child: Text('Nuovo Calcolo'),
                   ),
                   onPressed: () async {
                     final fe = Feature(

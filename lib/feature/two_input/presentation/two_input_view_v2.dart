@@ -34,7 +34,7 @@ class _TwoInputViewV2State extends ConsumerState<TwoInputViewV2> {
     return SingleChildScrollView(
       child: ConstrainedBox(
         constraints: BoxConstraints(
-          minHeight: MediaQuery.of(context).size.height - appBarHeight,
+          minHeight: MediaQuery.of(context).size.height - appBarHeight - 40,
         ),
         child: ReactiveForm(
           formGroup: inputNotyWatch.form,
@@ -203,7 +203,7 @@ class _TwoInputViewV2State extends ConsumerState<TwoInputViewV2> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
+                  padding: const EdgeInsets.only(bottom: 0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisAlignment: MainAxisAlignment.center,

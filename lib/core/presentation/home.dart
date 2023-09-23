@@ -34,11 +34,13 @@ class HomePage extends ConsumerWidget {
             title: Text(getTitle(tabsRouter.currentPath)),
             actions: [
               IconButton(
-                  icon: stateTheme
-                      ? Icon(MdiIcons.weatherNight)
-                      : Icon(MdiIcons.weatherSunny),
-                  onPressed: () =>
-                      ref.read(themeProviderNotifier.notifier).setTheme())
+                icon: stateTheme
+                    ? Icon(MdiIcons.weatherNight)
+                    : Icon(MdiIcons.weatherSunny),
+                onPressed: () async {
+                  await ref.read(themeProviderNotifier.notifier).toggleTheme();
+                },
+              )
             ],
             leading: const AutoLeadingButton(),
           ),
