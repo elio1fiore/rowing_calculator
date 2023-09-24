@@ -14,14 +14,20 @@ class SpeedState with _$SpeedState {
   const factory SpeedState.noSpeed() = _NoSpeed;
 
   const factory SpeedState.dataPosition(
-    Position position,
+    double velocita,
     IntervalTime intervalTime,
+    double velocitaMedia,
+    IntervalTime intervalloMedio,
   ) = _DataPosition;
   const factory SpeedState.error(String error) = _Error;
 }
 
 class SpeedNotifier extends StateNotifier<SpeedState> {
   SpeedNotifier() : super(const SpeedState.init());
+  List<double> speedReadings = [];
+  List<int> intervalloMedioList = [];
+
+  static const dist = 500;
 
   late StreamSubscription<Position> positionStream;
 
@@ -33,64 +39,85 @@ class SpeedNotifier extends StateNotifier<SpeedState> {
   }
 
   void dataPosition() async {
-    print("1");
-    bool serviceEnabled;
-    LocationPermission permission;
+    try {
+      final permission = await _checkAndRequestPermission();
 
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+      if (permission == LocationPermission.whileInUse) {
+        _startListeningToPositionChanges();
+      }
+    } catch (e) {
+      state = SpeedState.error(e.toString());
+    }
+  }
+
+  Future<LocationPermission> _checkAndRequestPermission() async {
+    final serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      state = const SpeedState.error('Location services are disabled.');
+      throw Exception('Location services are disabled.');
     }
 
-    permission = await Geolocator.checkPermission();
-
+    var permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        state = const SpeedState.error('Location permissions are denied');
+        throw Exception('Location permissions are denied');
       }
     }
 
     if (permission == LocationPermission.deniedForever) {
-      state = const SpeedState.error(
+      throw Exception(
           'Location permissions are permanently denied, we cannot request permissions.');
     }
+    return permission;
+  }
 
-    if (permission == LocationPermission.whileInUse) {
-      print("2");
+  void _startListeningToPositionChanges() {
+    positionStream = Geolocator.getPositionStream(
+      locationSettings: AndroidSettings(
+        intervalDuration: const Duration(milliseconds: 500),
+        accuracy: LocationAccuracy.bestForNavigation,
+        distanceFilter: 10,
+      ),
+    ).listen((Position position) {
+      if (position.speed.isFinite &&
+          !position.speed.isNaN &&
+          position.speed != 0.0 &&
+          position.speed < 1) {
+        speedReadings.add(position.speed);
+        if (speedReadings.length > 15) {
+          speedReadings.removeAt(0);
+        }
 
-      positionStream = Geolocator.getPositionStream(
-        locationSettings: AndroidSettings(
-          intervalDuration: const Duration(milliseconds: 500),
-          accuracy: LocationAccuracy.bestForNavigation,
-          distanceFilter: 10,
-        ),
-      ).listen(
-        (Position position) {
-          print("3");
+        final averageSpeed =
+            speedReadings.reduce((a, b) => a + b) / speedReadings.length;
 
-          const dist = 500;
+        final seconds = dist ~/ (position.speed);
+        final it = IntervalTime(seconds: seconds);
 
-          if (position.speed.isFinite &&
-              !position.speed.isNaN &&
-              position.speed != 0.0) {
-            final seconds = dist ~/ (position.speed);
-            // print('if ${position.speed}');
-            print("if");
+        intervalloMedioList.add(it.duration.inSeconds);
 
-            final it = IntervalTime(seconds: seconds);
+        if (intervalloMedioList.length > 15) {
+          intervalloMedioList.removeAt(0);
+        }
 
-            state = SpeedState.dataPosition(
-              position,
-              it,
-            );
-          } else {
-            print("else");
+        final intIntervalloMedio =
+            intervalloMedioList.reduce((a, b) => a + b) ~/
+                intervalloMedioList.length;
 
-            state = const SpeedState.noSpeed();
-          }
-        },
-      );
-    }
+        final intMedio = IntervalTime(seconds: intIntervalloMedio);
+
+        state = SpeedState.dataPosition(
+          position.speed,
+          it,
+          averageSpeed,
+          intMedio,
+        );
+      } else {
+        state = const SpeedState.noSpeed();
+      }
+    }, onError: (error) {
+      // Gestisci l'errore
+      state = SpeedState.error(error.toString());
+    });
   }
 }

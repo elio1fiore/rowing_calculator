@@ -20,7 +20,8 @@ mixin _$SpeedState {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() noSpeed,
-    required TResult Function(Position position, IntervalTime intervalTime)
+    required TResult Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)
         dataPosition,
     required TResult Function(String error) error,
   }) =>
@@ -29,7 +30,8 @@ mixin _$SpeedState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? noSpeed,
-    TResult? Function(Position position, IntervalTime intervalTime)?
+    TResult? Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)?
         dataPosition,
     TResult? Function(String error)? error,
   }) =>
@@ -38,7 +40,8 @@ mixin _$SpeedState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? noSpeed,
-    TResult Function(Position position, IntervalTime intervalTime)?
+    TResult Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)?
         dataPosition,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -133,7 +136,8 @@ class _$_Init with DiagnosticableTreeMixin implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() noSpeed,
-    required TResult Function(Position position, IntervalTime intervalTime)
+    required TResult Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)
         dataPosition,
     required TResult Function(String error) error,
   }) {
@@ -145,7 +149,8 @@ class _$_Init with DiagnosticableTreeMixin implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? noSpeed,
-    TResult? Function(Position position, IntervalTime intervalTime)?
+    TResult? Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)?
         dataPosition,
     TResult? Function(String error)? error,
   }) {
@@ -157,7 +162,8 @@ class _$_Init with DiagnosticableTreeMixin implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? noSpeed,
-    TResult Function(Position position, IntervalTime intervalTime)?
+    TResult Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)?
         dataPosition,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -255,7 +261,8 @@ class _$_NoSpeed with DiagnosticableTreeMixin implements _NoSpeed {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() noSpeed,
-    required TResult Function(Position position, IntervalTime intervalTime)
+    required TResult Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)
         dataPosition,
     required TResult Function(String error) error,
   }) {
@@ -267,7 +274,8 @@ class _$_NoSpeed with DiagnosticableTreeMixin implements _NoSpeed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? noSpeed,
-    TResult? Function(Position position, IntervalTime intervalTime)?
+    TResult? Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)?
         dataPosition,
     TResult? Function(String error)? error,
   }) {
@@ -279,7 +287,8 @@ class _$_NoSpeed with DiagnosticableTreeMixin implements _NoSpeed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? noSpeed,
-    TResult Function(Position position, IntervalTime intervalTime)?
+    TResult Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)?
         dataPosition,
     TResult Function(String error)? error,
     required TResult orElse(),
@@ -338,9 +347,14 @@ abstract class _$$_DataPositionCopyWith<$Res> {
           _$_DataPosition value, $Res Function(_$_DataPosition) then) =
       __$$_DataPositionCopyWithImpl<$Res>;
   @useResult
-  $Res call({Position position, IntervalTime intervalTime});
+  $Res call(
+      {double velocita,
+      IntervalTime intervalTime,
+      double velocitaMedia,
+      IntervalTime intervalloMedio});
 
   $IntervalTimeCopyWith<$Res> get intervalTime;
+  $IntervalTimeCopyWith<$Res> get intervalloMedio;
 }
 
 /// @nodoc
@@ -354,17 +368,27 @@ class __$$_DataPositionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? position = null,
+    Object? velocita = null,
     Object? intervalTime = null,
+    Object? velocitaMedia = null,
+    Object? intervalloMedio = null,
   }) {
     return _then(_$_DataPosition(
-      null == position
-          ? _value.position
-          : position // ignore: cast_nullable_to_non_nullable
-              as Position,
+      null == velocita
+          ? _value.velocita
+          : velocita // ignore: cast_nullable_to_non_nullable
+              as double,
       null == intervalTime
           ? _value.intervalTime
           : intervalTime // ignore: cast_nullable_to_non_nullable
+              as IntervalTime,
+      null == velocitaMedia
+          ? _value.velocitaMedia
+          : velocitaMedia // ignore: cast_nullable_to_non_nullable
+              as double,
+      null == intervalloMedio
+          ? _value.intervalloMedio
+          : intervalloMedio // ignore: cast_nullable_to_non_nullable
               as IntervalTime,
     ));
   }
@@ -376,21 +400,34 @@ class __$$_DataPositionCopyWithImpl<$Res>
       return _then(_value.copyWith(intervalTime: value));
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $IntervalTimeCopyWith<$Res> get intervalloMedio {
+    return $IntervalTimeCopyWith<$Res>(_value.intervalloMedio, (value) {
+      return _then(_value.copyWith(intervalloMedio: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$_DataPosition with DiagnosticableTreeMixin implements _DataPosition {
-  const _$_DataPosition(this.position, this.intervalTime);
+  const _$_DataPosition(this.velocita, this.intervalTime, this.velocitaMedia,
+      this.intervalloMedio);
 
   @override
-  final Position position;
+  final double velocita;
   @override
   final IntervalTime intervalTime;
+  @override
+  final double velocitaMedia;
+  @override
+  final IntervalTime intervalloMedio;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SpeedState.dataPosition(position: $position, intervalTime: $intervalTime)';
+    return 'SpeedState.dataPosition(velocita: $velocita, intervalTime: $intervalTime, velocitaMedia: $velocitaMedia, intervalloMedio: $intervalloMedio)';
   }
 
   @override
@@ -398,8 +435,10 @@ class _$_DataPosition with DiagnosticableTreeMixin implements _DataPosition {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'SpeedState.dataPosition'))
-      ..add(DiagnosticsProperty('position', position))
-      ..add(DiagnosticsProperty('intervalTime', intervalTime));
+      ..add(DiagnosticsProperty('velocita', velocita))
+      ..add(DiagnosticsProperty('intervalTime', intervalTime))
+      ..add(DiagnosticsProperty('velocitaMedia', velocitaMedia))
+      ..add(DiagnosticsProperty('intervalloMedio', intervalloMedio));
   }
 
   @override
@@ -407,14 +446,19 @@ class _$_DataPosition with DiagnosticableTreeMixin implements _DataPosition {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DataPosition &&
-            (identical(other.position, position) ||
-                other.position == position) &&
+            (identical(other.velocita, velocita) ||
+                other.velocita == velocita) &&
             (identical(other.intervalTime, intervalTime) ||
-                other.intervalTime == intervalTime));
+                other.intervalTime == intervalTime) &&
+            (identical(other.velocitaMedia, velocitaMedia) ||
+                other.velocitaMedia == velocitaMedia) &&
+            (identical(other.intervalloMedio, intervalloMedio) ||
+                other.intervalloMedio == intervalloMedio));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, position, intervalTime);
+  int get hashCode => Object.hash(
+      runtimeType, velocita, intervalTime, velocitaMedia, intervalloMedio);
 
   @JsonKey(ignore: true)
   @override
@@ -427,11 +471,12 @@ class _$_DataPosition with DiagnosticableTreeMixin implements _DataPosition {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() noSpeed,
-    required TResult Function(Position position, IntervalTime intervalTime)
+    required TResult Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)
         dataPosition,
     required TResult Function(String error) error,
   }) {
-    return dataPosition(position, intervalTime);
+    return dataPosition(velocita, intervalTime, velocitaMedia, intervalloMedio);
   }
 
   @override
@@ -439,11 +484,13 @@ class _$_DataPosition with DiagnosticableTreeMixin implements _DataPosition {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? noSpeed,
-    TResult? Function(Position position, IntervalTime intervalTime)?
+    TResult? Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)?
         dataPosition,
     TResult? Function(String error)? error,
   }) {
-    return dataPosition?.call(position, intervalTime);
+    return dataPosition?.call(
+        velocita, intervalTime, velocitaMedia, intervalloMedio);
   }
 
   @override
@@ -451,13 +498,15 @@ class _$_DataPosition with DiagnosticableTreeMixin implements _DataPosition {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? noSpeed,
-    TResult Function(Position position, IntervalTime intervalTime)?
+    TResult Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)?
         dataPosition,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (dataPosition != null) {
-      return dataPosition(position, intervalTime);
+      return dataPosition(
+          velocita, intervalTime, velocitaMedia, intervalloMedio);
     }
     return orElse();
   }
@@ -502,11 +551,15 @@ class _$_DataPosition with DiagnosticableTreeMixin implements _DataPosition {
 
 abstract class _DataPosition implements SpeedState {
   const factory _DataPosition(
-          final Position position, final IntervalTime intervalTime) =
-      _$_DataPosition;
+      final double velocita,
+      final IntervalTime intervalTime,
+      final double velocitaMedia,
+      final IntervalTime intervalloMedio) = _$_DataPosition;
 
-  Position get position;
+  double get velocita;
   IntervalTime get intervalTime;
+  double get velocitaMedia;
+  IntervalTime get intervalloMedio;
   @JsonKey(ignore: true)
   _$$_DataPositionCopyWith<_$_DataPosition> get copyWith =>
       throw _privateConstructorUsedError;
@@ -584,7 +637,8 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() noSpeed,
-    required TResult Function(Position position, IntervalTime intervalTime)
+    required TResult Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)
         dataPosition,
     required TResult Function(String error) error,
   }) {
@@ -596,7 +650,8 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? noSpeed,
-    TResult? Function(Position position, IntervalTime intervalTime)?
+    TResult? Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)?
         dataPosition,
     TResult? Function(String error)? error,
   }) {
@@ -608,7 +663,8 @@ class _$_Error with DiagnosticableTreeMixin implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? noSpeed,
-    TResult Function(Position position, IntervalTime intervalTime)?
+    TResult Function(double velocita, IntervalTime intervalTime,
+            double velocitaMedia, IntervalTime intervalloMedio)?
         dataPosition,
     TResult Function(String error)? error,
     required TResult orElse(),

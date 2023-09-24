@@ -17,7 +17,7 @@ import 'package:row_calculator/core/presentation/features.dart' as _i1;
 import 'package:row_calculator/core/presentation/home.dart' as _i3;
 import 'package:row_calculator/feature/one_input/presentation/one_feature_page.dart'
     as _i4;
-import 'package:row_calculator/feature/speed_strokes/presentation/speed_stokers_page.dart'
+import 'package:row_calculator/feature/speed_strokes/presentation/speed_stokers_page_v2.dart'
     as _i5;
 import 'package:row_calculator/feature/three_input/presentation/old/three_input_page.dart'
     as _i8;
@@ -69,10 +69,10 @@ abstract class $AppRouter extends _i11.RootStackRouter {
         child: const _i4.OneFeaturePage(),
       );
     },
-    SpeedStrokesRoute.name: (routeData) {
+    SpeedStokersRouteV2.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.SpeedStrokesPage(),
+        child: const _i5.SpeedStokersPageV2(),
       );
     },
     TemplateDetailsPage.name: (routeData) {
@@ -197,15 +197,15 @@ class OneFeatureRoute extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.SpeedStrokesPage]
-class SpeedStrokesRoute extends _i11.PageRouteInfo<void> {
-  const SpeedStrokesRoute({List<_i11.PageRouteInfo>? children})
+/// [_i5.SpeedStokersPageV2]
+class SpeedStokersRouteV2 extends _i11.PageRouteInfo<void> {
+  const SpeedStokersRouteV2({List<_i11.PageRouteInfo>? children})
       : super(
-          SpeedStrokesRoute.name,
+          SpeedStokersRouteV2.name,
           initialChildren: children,
         );
 
-  static const String name = 'SpeedStrokesRoute';
+  static const String name = 'SpeedStokersRouteV2';
 
   static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
 }

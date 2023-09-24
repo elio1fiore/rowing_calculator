@@ -2,10 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:row_calculator/core/domain/interval_time.dart';
+import 'package:row_calculator/feature/speed_strokes/presentation/button_stokers.dart';
 import 'package:row_calculator/feature/speed_strokes/provider/speed_provider.dart';
-import 'package:row_calculator/feature/speed_strokes/provider/stokers_provider.dart';
 
-@RoutePage()
 class SpeedStrokesPage extends ConsumerStatefulWidget {
   const SpeedStrokesPage({super.key});
 
@@ -33,13 +32,7 @@ class _SpeedStrokesPageState extends ConsumerState<SpeedStrokesPage> {
 
   @override
   Widget build(BuildContext context) {
-    final stokerState = ref.watch(stokersNotifierProvider);
-    final stokerNoty = ref.read(stokersNotifierProvider.notifier);
-    final stokerNotyWatch = ref.watch(stokersNotifierProvider.notifier);
-
     final speedState = ref.watch(speedProvider);
-
-    final med = ref.watch(medProvider);
 
     return Scaffold(
       body: Padding(
@@ -48,6 +41,8 @@ class _SpeedStrokesPageState extends ConsumerState<SpeedStrokesPage> {
           children: [
             Column(
               children: [
+                //speed/500 esatta della barca
+                const Text("insta"),
                 Card(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
@@ -70,7 +65,7 @@ class _SpeedStrokesPageState extends ConsumerState<SpeedStrokesPage> {
                               fontWeight: FontWeight.w400,
                             ),
                           ),
-                          dataPosition: (position, intervalTime) {
+                          dataPosition: (position, intervalTime, _, __) {
                             return Text(
                               _printDuration(intervalTime),
                               style: const TextStyle(
@@ -87,76 +82,143 @@ class _SpeedStrokesPageState extends ConsumerState<SpeedStrokesPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                speedState.maybeWhen(
-                  orElse: () => const Text('0'),
-                  dataPosition: (position, _) {
-                    return Column(
+                //Velocità barca esatta
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 12, vertical: 22),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('long: ${position.longitude}'),
-                        Text('lat: ${position.latitude}'),
-                        Text('+-: ${position.speedAccuracy}'),
+                        const Text(
+                          'Speed',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        speedState.maybeWhen(
+                          orElse: () => const Text(
+                            '0',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          dataPosition: (position, intervalTime, _, __) {
+                            return Text(
+                              _printDuration(intervalTime),
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            );
+                          },
+                        ),
                       ],
-                    );
-                  },
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                const Text('Media'),
-                Text(_printDuration(med)),
+                Text("Media"),
+                /////Media ultimi 15 speed/500 esatta della barca
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Speed",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        speedState.maybeWhen(
+                          noSpeed: () => Text("Sei fermo"),
+                          init: () => Text("0"),
+                          orElse: () => const Text(
+                            '0',
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          error: (error) => Text("Error!"),
+                          dataPosition: (_, __, vel, inter) {
+                            return Column(
+                              children: [
+                                Text(
+                                  '+-: ${vel}',
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        )
+                      ],
+                    ),
+                  ),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
-                speedState.maybeWhen(
-                  orElse: () => const Text('Or Else'),
-                  dataPosition: (__, _) => const Text('dataPos'),
-                  init: () => Text("init"),
-                  error: (error) => const Text('error'),
-                  noSpeed: () => const Text("No speed"),
+                Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Speed",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        speedState.maybeWhen(
+                          noSpeed: () => Text("Sei fermo"),
+                          init: () => Text("0"),
+                          orElse: () => const Text(
+                            '0',
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          error: (error) => Text("Error!"),
+                          dataPosition: (_, __, vel, inter) {
+                            return Column(
+                              children: [
+                                Text(
+                                  '+-: ${vel}',
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        )
+                      ],
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
               ],
             ),
-            Row(
-              children: [
-                StreamBuilder<double>(
-                  stream: stokerNotyWatch.streamController,
-                  builder: (context, snapshot) {
-                    return stokerState.maybeWhen(
-                      orElse: () => Text('NA'),
-                      multipleTap: () => Text(
-                        'Numero di volte premuto: ${snapshot.data}',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                    );
-                  },
-                ),
-                const SizedBox(height: 20),
-                stokerState.maybeWhen(
-                  orElse: () => Container(),
-                  init: () => ElevatedButton(
-                    child: Text("Init"),
-                    onPressed: () {
-                      stokerNoty.goFirst();
-                    },
-                  ),
-                  first: () => ElevatedButton(
-                    child: const Text("Un altro colpo"),
-                    onPressed: () {
-                      stokerNoty.goMultipleTap();
-                    },
-                  ),
-                  multipleTap: () => ElevatedButton(
-                    child: const Text("Continue"),
-                    onPressed: () {
-                      stokerNoty.goMultipleTap();
-                    },
-                  ),
-                ),
-              ],
-            ),
+
+            //Conta Colpi
+            ButtonStokers()
           ],
         ),
       ),
