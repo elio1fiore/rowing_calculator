@@ -11,7 +11,7 @@
 import 'package:auto_route/auto_route.dart' as _i11;
 import 'package:flutter/material.dart' as _i12;
 import 'package:row_calculator/core/historyV2/presentation/history.dart' as _i2;
-import 'package:row_calculator/core/historyV2/presentation/internal/template_details_page.dart'
+import 'package:row_calculator/core/historyV2/presentation/template_details_page.dart'
     as _i6;
 import 'package:row_calculator/core/presentation/features.dart' as _i1;
 import 'package:row_calculator/core/presentation/home.dart' as _i3;

@@ -76,13 +76,11 @@ class SpeedNotifier extends StateNotifier<SpeedState> {
       locationSettings: AndroidSettings(
         intervalDuration: const Duration(milliseconds: 500),
         accuracy: LocationAccuracy.bestForNavigation,
-        distanceFilter: 10,
       ),
     ).listen((Position position) {
       if (position.speed.isFinite &&
           !position.speed.isNaN &&
-          position.speed != 0.0 &&
-          position.speed < 1) {
+          position.speed > 1) {
         speedReadings.add(position.speed);
         if (speedReadings.length > 15) {
           speedReadings.removeAt(0);
@@ -107,9 +105,9 @@ class SpeedNotifier extends StateNotifier<SpeedState> {
         final intMedio = IntervalTime(seconds: intIntervalloMedio);
 
         state = SpeedState.dataPosition(
-          position.speed,
+          position.speed * 3.6,
           it,
-          averageSpeed,
+          averageSpeed * 3.6,
           intMedio,
         );
       } else {
