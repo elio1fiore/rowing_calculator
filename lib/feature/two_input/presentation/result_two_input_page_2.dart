@@ -29,18 +29,8 @@ class ResultTwoInputPage2 extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Card(
-              elevation: 1.5,
-              clipBehavior: Clip.antiAlias,
-              shape: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
-                  width: 1.5,
-                ),
-              ),
-              child: SingleChildScrollView(
-                child: TwoResultCoreView2(player2: player2),
-              ),
+            TwoResultCoreView2(
+              player2: player2,
             ),
             const SizedBox(
               height: 20,
