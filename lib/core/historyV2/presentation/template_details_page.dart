@@ -68,7 +68,7 @@ class _OneHistoryDetailsPageState extends ConsumerState<TemplateDetailsPage> {
         success: (feature) {
           _controller.text = feature.description;
           String formattedDate =
-              DateFormat('kk:mm - dd-MM-yy').format(feature.dateTime);
+              DateFormat('kk:mm - dd/MM/yy').format(feature.dateTime);
 
           return SingleChildScrollView(
             child: Padding(
@@ -91,13 +91,6 @@ class _OneHistoryDetailsPageState extends ConsumerState<TemplateDetailsPage> {
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const Text(
-                            'in date',
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
                             ),
                           ),
                           Text(
@@ -128,13 +121,14 @@ class _OneHistoryDetailsPageState extends ConsumerState<TemplateDetailsPage> {
                     enabled: enabled,
                     controller: _controller,
                     decoration:
-                        const InputDecoration(labelText: 'Inserisci un testo'),
+                        const InputDecoration(labelText: 'Inserisci commento'),
                   ),
                   const SizedBox(
                     height: 15,
                   ),
                   if (!enabled) ...[
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         ElevatedButton(
                           child: const Text("Modifica"),
@@ -151,6 +145,14 @@ class _OneHistoryDetailsPageState extends ConsumerState<TemplateDetailsPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ElevatedButton(
+                          child: const Text("Annulla"),
+                          onPressed: () {
+                            setState(() {
+                              enabled = false;
+                            });
+                          },
+                        ),
+                        ElevatedButton(
                           child: const Text("Salva"),
                           onPressed: () {
                             setState(() {
@@ -164,14 +166,6 @@ class _OneHistoryDetailsPageState extends ConsumerState<TemplateDetailsPage> {
                                 );
                           },
                         ),
-                        ElevatedButton(
-                          child: const Text("Annulla"),
-                          onPressed: () {
-                            setState(() {
-                              enabled = false;
-                            });
-                          },
-                        )
                       ],
                     )
                   ]

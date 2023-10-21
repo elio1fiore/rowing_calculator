@@ -48,8 +48,21 @@ class _ButtonStokersState extends State<ButtonStokers> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(isRunning ? 'Ferma' : 'Avvia'),
-          Text(count.toStringAsFixed(1)),
+          Text(
+            isRunning ? 'Ferma' : 'Avvia',
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            count.toStringAsFixed(1),
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const Text('2 x stokers')
         ],
       ),
     );
