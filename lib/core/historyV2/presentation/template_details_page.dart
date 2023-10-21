@@ -72,7 +72,7 @@ class _OneHistoryDetailsPageState extends ConsumerState<TemplateDetailsPage> {
 
           return SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: Column(
                 children: [
                   Card(
@@ -89,21 +89,21 @@ class _OneHistoryDetailsPageState extends ConsumerState<TemplateDetailsPage> {
                           Text(
                             feature.title.toUpperCase(),
                             style: const TextStyle(
-                              fontSize: 20,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           const Text(
                             'in date',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 14,
                               fontWeight: FontWeight.w400,
                             ),
                           ),
                           Text(
                             formattedDate,
                             style: const TextStyle(
-                              fontSize: 20,
+                              fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
