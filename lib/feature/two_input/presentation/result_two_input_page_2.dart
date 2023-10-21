@@ -7,6 +7,7 @@ import 'package:row_calculator/core/presentation/card_result.dart';
 import 'package:row_calculator/feature/two_input/domain/v2/two_input_player_2.dart';
 
 import 'package:row_calculator/feature/two_input/shared/two_input_provider.dart';
+import 'package:row_calculator/widget/two_result_core_view_2.dart';
 
 class ResultTwoInputPage2 extends ConsumerWidget {
   final TwoInputPlayer2 player2;
@@ -38,27 +39,7 @@ class ResultTwoInputPage2 extends ConsumerWidget {
                 ),
               ),
               child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    CardResult(
-                        misura: 'Watt', value: '${player2.watt.toInt()}'),
-                    CardResult(
-                        misura: 'Percentuale',
-                        value: '${player2.percentualeRichiesta.toInt()}'),
-                    CardResult(
-                        misura: 'Media/500',
-                        value:
-                            player2.media500.valueMinuteSecondMillisecondOne),
-                    CardResult(
-                        misura: 'Watt Percentuale',
-                        value: '${player2.wattInPercentuale.toInt()}'),
-                    CardResult(
-                        misura: 'Media percentuale',
-                        value:
-                            '${player2.media500InPercentuale.valueMinuteSecondMillisecondOne}'),
-                  ],
-                ),
+                child: TwoResultCoreView2(player2: player2),
               ),
             ),
             const SizedBox(
@@ -69,7 +50,7 @@ class ResultTwoInputPage2 extends ConsumerWidget {
               child: ElevatedButton(
                 child: const Padding(
                   padding: EdgeInsets.symmetric(vertical: 20),
-                  child: Text('Nuovo Calcolo'),
+                  child: Text('Nuovo Calcolo 2'),
                 ),
                 onPressed: () async {
                   final fe = Feature(

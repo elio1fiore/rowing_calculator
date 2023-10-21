@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:row_calculator/core/historyV2/application/template_details_notifier.dart';
 import 'package:row_calculator/core/historyV2/shared/history_provider.dart';
 import 'package:row_calculator/widget/one_result_core_view.dart';
+import 'package:row_calculator/widget/two_result_core_view_2.dart';
 
 @RoutePage(name: "TemplateDetailsPage")
 class TemplateDetailsPage extends ConsumerStatefulWidget {
@@ -72,23 +73,61 @@ class _OneHistoryDetailsPageState extends ConsumerState<TemplateDetailsPage> {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  Row(
-                    children: [Text(feature.title), Text(formattedDate)],
-                  ),
                   Card(
-                    child: feature.player.maybeWhen(
-                      orElse: () => const Text("Qualcosa è andato storto"),
-                      one: (player) => OneResultCoreView(player: player),
+                    borderOnForeground: false,
+                    shape: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    elevation: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            feature.title.toUpperCase(),
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const Text(
+                            'in date',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          Text(
+                            formattedDate,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextField(
-                      enabled: enabled,
-                      controller: _controller,
-                      decoration: const InputDecoration(
-                          labelText: 'Inserisci un testo'),
-                    ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  feature.player.maybeWhen(
+                    orElse: () => const Text("Qualcosa è andato storto"),
+                    twoTwo: (player) => TwoResultCoreView2(player2: player),
+                    one: (player) => OneResultCoreView(player: player),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  TextField(
+                    enabled: enabled,
+                    controller: _controller,
+                    decoration:
+                        const InputDecoration(labelText: 'Inserisci un testo'),
+                  ),
+                  const SizedBox(
+                    height: 15,
                   ),
                   if (!enabled) ...[
                     Row(
@@ -105,6 +144,7 @@ class _OneHistoryDetailsPageState extends ConsumerState<TemplateDetailsPage> {
                     )
                   ] else ...[
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ElevatedButton(
                           child: const Text("Salva"),

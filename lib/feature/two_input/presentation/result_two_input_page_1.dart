@@ -66,7 +66,7 @@ class ResultTwoInputPage1 extends ConsumerWidget {
                       player: UnionPlayer.twoOne(player1),
                       description: "",
                       isImportant: false,
-                      title: "Input Two",
+                      title: "Input Two 1",
                       featureType: FeatureType.two1,
                     );
                     await db.create(fe);
