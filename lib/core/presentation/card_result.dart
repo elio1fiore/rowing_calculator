@@ -13,8 +13,8 @@ class CardResult extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
-      decoration: BoxDecoration(
+      height: 75,
+      decoration: const BoxDecoration(
         border: Border(
           bottom: BorderSide(color: Colors.black, width: 1),
         ),

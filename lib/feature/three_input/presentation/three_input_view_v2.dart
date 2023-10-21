@@ -111,10 +111,6 @@ class _ThreeFeatureViewV2State extends ConsumerState<ThreeInputViewV2> {
                               );
                             },
                           ).toList(),
-                          style: const TextStyle(
-                            backgroundColor: Colors.transparent,
-                            color: Colors.black,
-                          ),
                           decoration: const InputDecoration(
                             contentPadding: EdgeInsets.all(20),
                             label: Text(

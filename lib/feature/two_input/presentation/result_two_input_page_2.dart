@@ -40,7 +40,7 @@ class ResultTwoInputPage2 extends ConsumerWidget {
               child: ElevatedButton(
                 child: const Padding(
                   padding: EdgeInsets.symmetric(vertical: 20),
-                  child: Text('Nuovo Calcolo 2'),
+                  child: Text('Nuovo Calcolo'),
                 ),
                 onPressed: () async {
                   final fe = Feature(
@@ -48,7 +48,7 @@ class ResultTwoInputPage2 extends ConsumerWidget {
                     player: UnionPlayer.twoTwo(player2),
                     description: "",
                     isImportant: false,
-                    title: "TwoTwo",
+                    title: "Two Input",
                     featureType: FeatureType.two2,
                   );
                   await db.create(fe);
