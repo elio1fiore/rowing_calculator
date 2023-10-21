@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:row_calculator/core/historyV2/application/template_details_notifier.dart';
 import 'package:row_calculator/core/historyV2/shared/history_provider.dart';
 import 'package:row_calculator/widget/one_result_core_view.dart';
+import 'package:row_calculator/widget/three_result_core_view.dart';
 import 'package:row_calculator/widget/two_result_core_view_1.dart';
 import 'package:row_calculator/widget/two_result_core_view_2.dart';
 
@@ -118,6 +119,7 @@ class _OneHistoryDetailsPageState extends ConsumerState<TemplateDetailsPage> {
                     twoOne: (player) => TwoResultCoreView1(player1: player),
                     twoTwo: (player) => TwoResultCoreView2(player2: player),
                     one: (player) => OneResultCoreView(player: player),
+                    three: (player) => ThreeResultCoreView(player: player),
                   ),
                   const SizedBox(
                     height: 15,
