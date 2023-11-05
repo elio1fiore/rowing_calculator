@@ -107,9 +107,9 @@ class SpeedNotifier extends StateNotifier<SpeedState> {
         final intMedio = IntervalTime(seconds: intIntervalloMedio);
 
         state = SpeedState.dataPosition(
-          position.speed * 3.6,
+          position.speed,
           it,
-          averageSpeed * 3.6,
+          averageSpeed,
           intMedio,
         );
       } else {

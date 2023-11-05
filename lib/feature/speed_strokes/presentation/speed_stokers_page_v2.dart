@@ -74,7 +74,7 @@ class _SpeedStokersPageV2State extends ConsumerState<SpeedStokersPageV2> {
                   //
                   SpeedometerCard(
                     title: "Velocità istantanea",
-                    sub: "Km/h",
+                    sub: "m/s",
                     stateSpeed: speedState.maybeWhen(
                       orElse: () => const Text(
                         '0',
@@ -118,7 +118,7 @@ class _SpeedStokersPageV2State extends ConsumerState<SpeedStokersPageV2> {
                   ),
                   SpeedometerCard(
                     title: "Velocità media",
-                    sub: "Km/h",
+                    sub: "m/s",
                     stateSpeed: speedState.maybeWhen(
                       orElse: () => const Text(
                         '0',

@@ -29,7 +29,6 @@ class _ButtonStokersState extends State<ButtonStokers> {
       Duration? difference = dt2.difference(dt);
       double frq = (60000000 / difference.inMicroseconds) * 2;
       await Future.delayed(const Duration(milliseconds: 150));
-      print(frq);
       if (!isRunning) break;
       if (frq.isInfinite) {
         setState(() {
