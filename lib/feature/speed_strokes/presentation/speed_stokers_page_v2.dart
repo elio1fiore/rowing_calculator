@@ -71,6 +71,7 @@ class _SpeedStokersPageV2State extends ConsumerState<SpeedStokersPageV2> {
                       },
                     ),
                   ),
+                  //
                   SpeedometerCard(
                     title: "Velocità istantanea",
                     sub: "Km/h",

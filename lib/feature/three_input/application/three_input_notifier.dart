@@ -17,6 +17,8 @@ class ThreeInputState with _$ThreeInputState {
 
 class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
   final _controller1 = TextEditingController();
+  final _controllerBest = TextEditingController();
+
   final _controller2 = TextEditingController();
   final _controller3 = TextEditingController();
 
@@ -25,6 +27,8 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
   bool selectedTime = true;
   bool selectedEnergyExp = false;
   TextEditingController get controller1 => _controller1;
+  TextEditingController get controllerBest => _controllerBest;
+
   TextEditingController get controller2 => _controller2;
   TextEditingController get controller3 => _controller3;
 
@@ -33,6 +37,11 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
   final _form = FormGroup(
     {
       'inputOne': FormControl<String>(
+        validators: [
+          Validators.required,
+        ],
+      ),
+      'inputBest': FormControl<String>(
         validators: [
           Validators.required,
         ],
@@ -55,12 +64,17 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
 
   ThreeInputNotifier() : super(const ThreeInputState.inputPageTime());
 
+  void setBest(String valueBest) {
+    _form.control('inputBest').reset(value: valueBest);
+  }
+
   void setBoat(Boat newBoat) {
     boat = newBoat;
   }
 
   void resetTotalForm() {
     _form.control('inputOne').reset(value: null);
+    _form.control('inputBest').reset(value: null);
     _form.control('inputTwo').reset(value: null);
     resetThreeForm();
   }
@@ -125,19 +139,19 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
     return state.when(
       inputPageEnergyExp: () {
         return ThreeInputPlayer.fromEnergyExp(
-          personalBest: boat!.boatBest,
+          personalBest: _form.control('inputBest').value,
           meters: _form.control('inputTwo').value,
           energyExp: _form.control('inputThree').value,
-          boatBest: boat!.boatBest,
+          boatBest: _form.control('inputBest').value,
           nameBoat: boat!.name,
         );
       },
       inputPageTime: () {
         return ThreeInputPlayer.fromTime(
-          personalBest: boat!.boatBest,
+          personalBest: _form.control('inputBest').value,
           meters: _form.control('inputTwo').value,
           time: _form.control('inputThree').value,
-          boatBest: boat!.boatBest,
+          boatBest: _form.control('inputBest').value,
           nameBoat: boat!.name,
         );
       },

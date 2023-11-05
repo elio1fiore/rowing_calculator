@@ -6,6 +6,8 @@ import 'package:row_calculator/data/local_boat.dart';
 import 'package:row_calculator/feature/three_input/application/three_input_notifier.dart';
 import 'package:row_calculator/feature/three_input/shared/three_input_provider.dart';
 
+//0,2778
+
 class ThreeInputViewV2 extends ConsumerStatefulWidget {
   const ThreeInputViewV2({super.key});
 
@@ -19,7 +21,6 @@ class _ThreeFeatureViewV2State extends ConsumerState<ThreeInputViewV2> {
     final inputNotyWatch = ref.watch(threeInputNotifierProvider.notifier);
     final inputNotyRead = ref.read(threeInputNotifierProvider.notifier);
     final featureNotyRead = ref.read(threeFeatureNotifierProvider.notifier);
-    double appBarHeight = Scaffold.of(context).appBarMaxHeight ?? 56.0;
 
     final isTime = inputNotyWatch.selectedTime;
 
@@ -49,81 +50,116 @@ class _ThreeFeatureViewV2State extends ConsumerState<ThreeInputViewV2> {
                   child: Column(
                     children: [
                       //FIRST
-                      ConstrainedBox(
-                        constraints: const BoxConstraints(
-                          minHeight: 90,
-                        ),
-                        child: ReactiveDropdownField<String>(
-                          validationMessages: {
-                            ValidationMessage.required: (error) =>
-                                'Inserire il valore per effettuare il calcolo',
-                          },
-                          onChanged: (control) {
-                            if (control.value != null) {
-                              final boat = localBoat.firstWhere(
-                                (element) => element.name == control.value,
-                              );
+                      Row(
+                        children: [
+                          Expanded(
+                            flex: 5,
+                            child: ReactiveDropdownField<String>(
+                              validationMessages: {
+                                ValidationMessage.required: (error) =>
+                                    'Inserire il valore per effettuare il calcolo',
+                              },
+                              onChanged: (control) {
+                                if (control.value != null) {
+                                  final boat = localBoat.firstWhere(
+                                    (element) => element.name == control.value,
+                                  );
 
-                              inputNotyRead.setBoat(boat);
-                            }
-                          },
-                          focusColor: Colors.transparent,
-                          menuMaxHeight: 350,
-                          borderRadius: BorderRadius.circular(15),
-                          isExpanded: true,
-                          readOnly: false,
-                          formControlName: 'inputOne',
-                          items: localBoat.map(
-                            (boat) {
-                              return DropdownMenuItem(
-                                alignment: AlignmentDirectional.center,
-                                key: ValueKey(boat.getHash),
-                                value: boat.name,
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: boat.color,
+                                  inputNotyRead.setBoat(boat);
+                                  inputNotyRead.setBest(boat.boatBest);
+                                }
+                              },
+                              focusColor: Colors.transparent,
+                              menuMaxHeight: 350,
+                              borderRadius: BorderRadius.circular(15),
+                              isExpanded: true,
+                              readOnly: false,
+                              formControlName: 'inputOne',
+                              items: localBoat.map(
+                                (boat) {
+                                  return DropdownMenuItem(
+                                    alignment: AlignmentDirectional.center,
+                                    key: ValueKey(boat.getHash),
+                                    value: boat.name,
+                                    child: Row(
+                                      children: [
+                                        Expanded(
+                                          flex: 1,
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: boat.color,
+                                            ),
+                                            height: 30,
+                                            child: const Text(''),
+                                          ),
                                         ),
-                                        height: 25,
-                                        child: const Text(''),
-                                      ),
-                                    ),
-                                    const Spacer(
-                                      flex: 1,
-                                    ),
-                                    Expanded(
-                                      flex: 3,
-                                      child: Text(
-                                        boat.name,
-                                        softWrap: false,
-                                        style: const TextStyle(
-                                          fontSize: 20,
+                                        const Spacer(
+                                          flex: 1,
                                         ),
-                                      ),
+                                        Expanded(
+                                          flex: 3,
+                                          child: Text(
+                                            boat.name,
+                                            softWrap: false,
+                                            style: const TextStyle(
+                                              fontSize: 20,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
+                                  );
+                                },
+                              ).toList(),
+                              decoration: const InputDecoration(
+                                contentPadding: EdgeInsets.all(20),
+                                label: Text(
+                                  'Barca',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                 ),
-                              );
-                            },
-                          ).toList(),
-                          decoration: const InputDecoration(
-                            contentPadding: EdgeInsets.all(20),
-                            label: Text(
-                              'Barca',
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
+                              ),
                             ),
                           ),
-                        ),
+                          const Expanded(
+                            flex: 0,
+                            child: SizedBox(
+                              width: 7,
+                            ),
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: ReactiveTextField<String>(
+                              validationMessages: {
+                                ValidationMessage.required: (error) =>
+                                    'Inserire il valore per effettuare il calcolo',
+                                'number': (error) => 'Inserire i numeri',
+                              },
+                              controller: inputNotyWatch.controllerBest,
+                              formControlName: 'inputBest',
+                              inputFormatters: [
+                                MaskedInputFormatter('##:##'),
+                              ],
+                              keyboardType: TextInputType.number,
+                              decoration: const InputDecoration(
+                                contentPadding: EdgeInsets.all(20.0),
+                                suffixText: 't',
+                                label: Text(
+                                  'Best Time',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 30,
                       ),
+
                       //SECOND
                       ConstrainedBox(
                         constraints: const BoxConstraints(

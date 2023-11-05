@@ -8,6 +8,8 @@ import 'package:row_calculator/core/domain/interval_time.dart';
 
 part 'speed_notifier.freezed.dart';
 
+//Lato dx da km/h a m/s
+
 @freezed
 class SpeedState with _$SpeedState {
   const factory SpeedState.init() = _Init;
@@ -82,7 +84,7 @@ class SpeedNotifier extends StateNotifier<SpeedState> {
           !position.speed.isNaN &&
           position.speed > 1) {
         speedReadings.add(position.speed);
-        if (speedReadings.length > 15) {
+        if (speedReadings.length > 60) {
           speedReadings.removeAt(0);
         }
 
@@ -94,7 +96,7 @@ class SpeedNotifier extends StateNotifier<SpeedState> {
 
         intervalloMedioList.add(it.duration.inSeconds);
 
-        if (intervalloMedioList.length > 15) {
+        if (intervalloMedioList.length > 60) {
           intervalloMedioList.removeAt(0);
         }
 

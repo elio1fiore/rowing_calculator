@@ -23,11 +23,13 @@ class _ButtonStokersState extends State<ButtonStokers> {
 
   void _incrementCounter() async {
     final dt = DateTime.now();
+
     while (isRunning) {
       final dt2 = DateTime.now();
       Duration? difference = dt2.difference(dt);
-      double frq = (60000.0 / difference.inMilliseconds) * 2;
+      double frq = (60000000 / difference.inMicroseconds) * 2;
       await Future.delayed(const Duration(milliseconds: 150));
+      print(frq);
       if (!isRunning) break;
       if (frq.isInfinite) {
         setState(() {
@@ -56,7 +58,7 @@ class _ButtonStokersState extends State<ButtonStokers> {
             ),
           ),
           Text(
-            count.toStringAsFixed(1),
+            (count - 1).toStringAsFixed(1),
             style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
