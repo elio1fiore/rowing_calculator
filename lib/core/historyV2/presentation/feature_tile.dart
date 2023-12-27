@@ -28,7 +28,7 @@ class FeatureTile extends ConsumerWidget {
       ),
       onTap: () {
         appRouter.push(
-          TemplateDetailsPage(
+          CarouselSliderPage(
             id: feature.id!,
           ),
         );

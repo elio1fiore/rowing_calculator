@@ -9,16 +9,16 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i11;
-import 'package:flutter/material.dart' as _i12;
-import 'package:row_calculator/core/historyV2/presentation/history.dart' as _i2;
-import 'package:row_calculator/core/historyV2/presentation/template_details_page.dart'
-    as _i6;
-import 'package:row_calculator/core/presentation/features.dart' as _i1;
-import 'package:row_calculator/core/presentation/home.dart' as _i3;
+import 'package:flutter/widgets.dart' as _i12;
+import 'package:row_calculator/core/historyV2/presentation/carousel_slider_page.dart'
+    as _i1;
+import 'package:row_calculator/core/historyV2/presentation/history.dart' as _i3;
+import 'package:row_calculator/core/presentation/features.dart' as _i2;
+import 'package:row_calculator/core/presentation/home.dart' as _i4;
 import 'package:row_calculator/feature/one_input/presentation/one_feature_page.dart'
-    as _i4;
-import 'package:row_calculator/feature/speed_strokes/presentation/speed_stokers_page_v2.dart'
     as _i5;
+import 'package:row_calculator/feature/speed_strokes/presentation/speed_stokers_page_v2.dart'
+    as _i6;
 import 'package:row_calculator/feature/three_input/presentation/old/three_input_page.dart'
     as _i8;
 import 'package:row_calculator/feature/three_input/presentation/three_feature_page.dart'
@@ -33,56 +33,56 @@ abstract class $AppRouter extends _i11.RootStackRouter {
 
   @override
   final Map<String, _i11.PageFactory> pagesMap = {
+    CarouselSliderPage.name: (routeData) {
+      final args = routeData.argsAs<CarouselSliderPageArgs>();
+      return _i11.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: _i1.CarouselSliderPage(
+          key: args.key,
+          id: args.id,
+        ),
+      );
+    },
     FeatureListRoute.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.FeatureListPage(),
+        child: const _i2.FeatureListPage(),
       );
     },
     FeatureRoute.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.FeaturePage(),
+        child: const _i2.FeaturePage(),
       );
     },
     HistoryListRoute.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.HistoryListPage(),
+        child: const _i3.HistoryListPage(),
       );
     },
     HistoryRoute.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.HistoryPage(),
+        child: const _i3.HistoryPage(),
       );
     },
     HomeRoute.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.HomePage(),
+        child: const _i4.HomePage(),
       );
     },
     OneFeatureRoute.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.OneFeaturePage(),
+        child: const _i5.OneFeaturePage(),
       );
     },
     SpeedStokersRouteV2.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.SpeedStokersPageV2(),
-      );
-    },
-    TemplateDetailsPage.name: (routeData) {
-      final args = routeData.argsAs<TemplateDetailsPageArgs>();
-      return _i11.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: _i6.TemplateDetailsPage(
-          key: args.key,
-          id: args.id,
-        ),
+        child: const _i6.SpeedStokersPageV2(),
       );
     },
     ThreeFeatureRoute.name: (routeData) {
@@ -113,7 +113,45 @@ abstract class $AppRouter extends _i11.RootStackRouter {
 }
 
 /// generated route for
-/// [_i1.FeatureListPage]
+/// [_i1.CarouselSliderPage]
+class CarouselSliderPage extends _i11.PageRouteInfo<CarouselSliderPageArgs> {
+  CarouselSliderPage({
+    _i12.Key? key,
+    required int id,
+    List<_i11.PageRouteInfo>? children,
+  }) : super(
+          CarouselSliderPage.name,
+          args: CarouselSliderPageArgs(
+            key: key,
+            id: id,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'CarouselSliderPage';
+
+  static const _i11.PageInfo<CarouselSliderPageArgs> page =
+      _i11.PageInfo<CarouselSliderPageArgs>(name);
+}
+
+class CarouselSliderPageArgs {
+  const CarouselSliderPageArgs({
+    this.key,
+    required this.id,
+  });
+
+  final _i12.Key? key;
+
+  final int id;
+
+  @override
+  String toString() {
+    return 'CarouselSliderPageArgs{key: $key, id: $id}';
+  }
+}
+
+/// generated route for
+/// [_i2.FeatureListPage]
 class FeatureListRoute extends _i11.PageRouteInfo<void> {
   const FeatureListRoute({List<_i11.PageRouteInfo>? children})
       : super(
@@ -127,7 +165,7 @@ class FeatureListRoute extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i1.FeaturePage]
+/// [_i2.FeaturePage]
 class FeatureRoute extends _i11.PageRouteInfo<void> {
   const FeatureRoute({List<_i11.PageRouteInfo>? children})
       : super(
@@ -141,7 +179,7 @@ class FeatureRoute extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.HistoryListPage]
+/// [_i3.HistoryListPage]
 class HistoryListRoute extends _i11.PageRouteInfo<void> {
   const HistoryListRoute({List<_i11.PageRouteInfo>? children})
       : super(
@@ -155,7 +193,7 @@ class HistoryListRoute extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.HistoryPage]
+/// [_i3.HistoryPage]
 class HistoryRoute extends _i11.PageRouteInfo<void> {
   const HistoryRoute({List<_i11.PageRouteInfo>? children})
       : super(
@@ -169,7 +207,7 @@ class HistoryRoute extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.HomePage]
+/// [_i4.HomePage]
 class HomeRoute extends _i11.PageRouteInfo<void> {
   const HomeRoute({List<_i11.PageRouteInfo>? children})
       : super(
@@ -183,7 +221,7 @@ class HomeRoute extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.OneFeaturePage]
+/// [_i5.OneFeaturePage]
 class OneFeatureRoute extends _i11.PageRouteInfo<void> {
   const OneFeatureRoute({List<_i11.PageRouteInfo>? children})
       : super(
@@ -197,7 +235,7 @@ class OneFeatureRoute extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.SpeedStokersPageV2]
+/// [_i6.SpeedStokersPageV2]
 class SpeedStokersRouteV2 extends _i11.PageRouteInfo<void> {
   const SpeedStokersRouteV2({List<_i11.PageRouteInfo>? children})
       : super(
@@ -208,44 +246,6 @@ class SpeedStokersRouteV2 extends _i11.PageRouteInfo<void> {
   static const String name = 'SpeedStokersRouteV2';
 
   static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i6.TemplateDetailsPage]
-class TemplateDetailsPage extends _i11.PageRouteInfo<TemplateDetailsPageArgs> {
-  TemplateDetailsPage({
-    _i12.Key? key,
-    required int id,
-    List<_i11.PageRouteInfo>? children,
-  }) : super(
-          TemplateDetailsPage.name,
-          args: TemplateDetailsPageArgs(
-            key: key,
-            id: id,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'TemplateDetailsPage';
-
-  static const _i11.PageInfo<TemplateDetailsPageArgs> page =
-      _i11.PageInfo<TemplateDetailsPageArgs>(name);
-}
-
-class TemplateDetailsPageArgs {
-  const TemplateDetailsPageArgs({
-    this.key,
-    required this.id,
-  });
-
-  final _i12.Key? key;
-
-  final int id;
-
-  @override
-  String toString() {
-    return 'TemplateDetailsPageArgs{key: $key, id: $id}';
-  }
 }
 
 /// generated route for

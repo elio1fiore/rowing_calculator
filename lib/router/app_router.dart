@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+// import 'package:row_calculator/core/historyV2/presentation/carousel_slider_page.dart';
 import 'package:row_calculator/router/app_router.gr.dart';
 
 abstract class NavigatorPath {
@@ -62,7 +63,7 @@ class AppRouter extends $AppRouter {
                   maintainState: false,
                 ),
                 AutoRoute(
-                  page: TemplateDetailsPage.page,
+                  page: CarouselSliderPage.page,
                   path: "template",
                   maintainState: false,
                 ),

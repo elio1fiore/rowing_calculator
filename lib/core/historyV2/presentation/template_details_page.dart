@@ -9,7 +9,6 @@ import 'package:row_calculator/widget/three_result_core_view.dart';
 import 'package:row_calculator/widget/two_result_core_view_1.dart';
 import 'package:row_calculator/widget/two_result_core_view_2.dart';
 
-@RoutePage(name: "TemplateDetailsPage")
 class TemplateDetailsPage extends ConsumerStatefulWidget {
   final int id;
 
