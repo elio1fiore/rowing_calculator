@@ -71,7 +71,7 @@ class _ResultThreeInputPageT extends ConsumerWidget {
                     padding: EdgeInsets.symmetric(vertical: 20),
                     child: Text('Nuovo Calcolo'),
                   ),
-                  onPressed: () async {
+                  onLongPress: () async {
                     final fe = Feature(
                       dateTime: DateTime.now(),
                       description: "",
@@ -83,6 +83,20 @@ class _ResultThreeInputPageT extends ConsumerWidget {
                     await db.create(fe);
 
                     notyInput.resetTotalForm();
+                    notyFeature.setStateInput();
+                  },
+                  onPressed: () async {
+                    final fe = Feature(
+                      dateTime: DateTime.now(),
+                      description: "",
+                      isImportant: false,
+                      player: UnionPlayer.three(player),
+                      title: "Three Input",
+                      featureType: FeatureType.three,
+                    );
+                    await db.create(fe);
+
+                    notyInput.resetInPartForm();
                     notyFeature.setStateInput();
                   },
                 ),

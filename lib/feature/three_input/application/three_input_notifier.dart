@@ -72,6 +72,12 @@ class ThreeInputNotifier extends StateNotifier<ThreeInputState> {
     boat = newBoat;
   }
 
+  void resetInPartForm() {
+    _form.control('inputOne').reset(value: null);
+    _form.control('inputBest').reset(value: null);
+    resetThreeForm();
+  }
+
   void resetTotalForm() {
     _form.control('inputOne').reset(value: null);
     _form.control('inputBest').reset(value: null);
