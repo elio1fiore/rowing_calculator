@@ -17,7 +17,14 @@ final featureRepositoryProvider = Provider<FeatureRepository>(
   },
 );
 
-final paginatedFeatureNotifierProvider = StateNotifierProvider.autoDispose<
+final carouselPaginatedFeatureNotifierProvider = StateNotifierProvider
+    .autoDispose<PaginatedFeatureNotifier, PaginatedFeatureState>(
+  (ref) {
+    return PaginatedFeatureNotifier(ref.watch(featureRepositoryProvider));
+  },
+);
+
+final listPaginatedFeatureNotifierProvider = StateNotifierProvider.autoDispose<
     PaginatedFeatureNotifier, PaginatedFeatureState>(
   (ref) {
     return PaginatedFeatureNotifier(ref.watch(featureRepositoryProvider));

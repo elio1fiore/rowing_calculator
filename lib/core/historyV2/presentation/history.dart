@@ -29,7 +29,7 @@ class _HistoryListPageState extends ConsumerState<HistoryListPage> {
     Future.microtask(
       () {
         ref
-            .read(paginatedFeatureNotifierProvider.notifier)
+            .read(listPaginatedFeatureNotifierProvider.notifier)
             .getNextFeaturePage();
       },
     );

@@ -12,6 +12,22 @@ class FeatureRepository {
 
   FeatureRepository(this._featuresDatabase);
 
+  Future<Either<HistoryFailure, List<Feature>>> getIntervalFeatures(
+      int startId) async {
+    try {
+      final localResp = await _featuresDatabase.getFeaturesAroundId(
+        startId,
+        10,
+      );
+
+      return right(localResp.toDomain());
+    } catch (e) {
+      return left(
+        const HistoryFailure.db("Qualcosa è andato storto nel database locale"),
+      );
+    }
+  }
+
   Future<Either<HistoryFailure, Fresh<List<Feature>>>> getFeaturePage(
       int page) async {
     try {

@@ -20,7 +20,7 @@ class _PaginatedFeatureListState extends ConsumerState<PaginatedFeatureList> {
   @override
   Widget build(BuildContext context) {
     ref.listen<PaginatedFeatureState>(
-      paginatedFeatureNotifierProvider,
+      listPaginatedFeatureNotifierProvider,
       (previous, next) => next.map(
         initial: (value) => canLoadNextPage = true,
         loadFailure: (_) => canLoadNextPage = false,
@@ -34,7 +34,7 @@ class _PaginatedFeatureListState extends ConsumerState<PaginatedFeatureList> {
       ),
     );
 
-    final state = ref.watch(paginatedFeatureNotifierProvider);
+    final state = ref.watch(listPaginatedFeatureNotifierProvider);
     return NotificationListener<ScrollNotification>(
       onNotification: (notification) {
         final matrix = notification.metrics;
@@ -42,7 +42,7 @@ class _PaginatedFeatureListState extends ConsumerState<PaginatedFeatureList> {
         if (canLoadNextPage && matrix.pixels >= limit) {
           canLoadNextPage = false;
           ref
-              .read(paginatedFeatureNotifierProvider.notifier)
+              .read(listPaginatedFeatureNotifierProvider.notifier)
               .getNextFeaturePage();
         }
         return false;

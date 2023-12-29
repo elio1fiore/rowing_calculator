@@ -24,9 +24,21 @@ class _CarouselSliderPageState extends ConsumerState<CarouselSliderPage> {
   bool hasAlreadyShownNoConnectionToast = false;
 
   @override
+  void initState() {
+    super.initState();
+    Future.microtask(
+      () {
+        ref
+            .read(carouselPaginatedFeatureNotifierProvider.notifier)
+            .getIntervalFeatures(widget.id);
+      },
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     ref.listen<PaginatedFeatureState>(
-      paginatedFeatureNotifierProvider,
+      carouselPaginatedFeatureNotifierProvider,
       (previous, next) => next.map(
         initial: (value) => canLoadNextPage = true,
         loadFailure: (_) => canLoadNextPage = false,
@@ -40,7 +52,7 @@ class _CarouselSliderPageState extends ConsumerState<CarouselSliderPage> {
       ),
     );
 
-    final state = ref.watch(paginatedFeatureNotifierProvider);
+    final state = ref.watch(carouselPaginatedFeatureNotifierProvider);
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -56,11 +68,12 @@ class _CarouselSliderPageState extends ConsumerState<CarouselSliderPage> {
             height: height,
             autoPlay: false,
             aspectRatio: 2.0,
-            enlargeCenterPage: true,
+            viewportFraction: 1.0,
+            enlargeCenterPage: false,
           ),
           itemBuilder: (context, index, realIndex) {
             return state.map(
-              initial: (_) => const Text('initial'),
+              initial: (_) => const Text('initial prova'),
               loadFailure: (_) {
                 return Text("Failure");
               },

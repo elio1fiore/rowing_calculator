@@ -86,6 +86,13 @@ class _OneHistoryDetailsPageState extends ConsumerState<TemplateDetailsPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
+                            widget.id.toString(),
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
                             feature.title.toUpperCase(),
                             style: const TextStyle(
                               fontSize: 16,

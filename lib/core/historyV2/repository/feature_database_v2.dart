@@ -89,6 +89,34 @@ class FeaturesDatabaseV2 {
     }
   }
 
+  // AROUND INTERVAL
+  Future<List<FeatureEntity>> getFeaturesAroundId(
+      int targetId, int range) async {
+    try {
+      final db = await database;
+
+      int startId = targetId - range;
+      int endId = targetId + range;
+
+      // Assicurati che startId non sia minore di 1
+      startId = startId < 1 ? 1 : startId;
+
+      // Esegui la query per selezionare gli elementi nell'intervallo specificato
+      final result = await db.query(
+        tableFeature,
+        where: '${FeatureFields.id} >= ? AND ${FeatureFields.id} <= ?',
+        whereArgs: [startId, endId],
+        orderBy:
+            "${FeatureFields.id} ASC", // Ordina per ID in ordine ascendente
+      );
+
+      // Converte il risultato in una lista di FeatureEntity
+      return result.map((e) => FeatureEntity.fromJson(e)).toList();
+    } catch (e) {
+      throw Exception('Errore durante il recupero dei dati: $e');
+    }
+  }
+
   Future close() async {
     final db = await database;
 

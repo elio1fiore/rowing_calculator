@@ -49,6 +49,43 @@ class PaginatedFeatureNotifier extends StateNotifier<PaginatedFeatureState> {
     getNextFeaturePage();
   }
 
+  void traslaLista(List<Feature> lista, int targetId) {
+    int index = lista.indexWhere((element) => element.id == targetId);
+
+    if (index != -1) {
+      // Trasla gli elementi in modo che l'elemento con l'ID target diventi il primo
+      List<Feature> inizio = lista.sublist(index);
+      List<Feature> fine = lista.sublist(0, index);
+      lista
+        ..clear()
+        ..addAll(inizio)
+        ..addAll(fine);
+    }
+  }
+
+  Future<void> getIntervalFeatures(int startId) async {
+    state = PaginatedFeatureState.loadInProgress(
+      state.features,
+      PaginationConfig.itemsPerPage,
+    );
+
+    final failureOrResp = await _featureRepository.getIntervalFeatures(startId);
+
+    state = failureOrResp.fold(
+      (l) {
+        return PaginatedFeatureState.loadFailure(state.features, l);
+      },
+      (r) {
+        traslaLista(r, startId);
+
+        return PaginatedFeatureState.loadSuccess(
+          Fresh.yes(r, hasNextPage: false),
+          hasNextPage: false,
+        );
+      },
+    );
+  }
+
   Future<void> getNextFeaturePage() async {
     state = PaginatedFeatureState.loadInProgress(
       state.features,
